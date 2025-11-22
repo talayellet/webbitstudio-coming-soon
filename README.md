@@ -2,6 +2,32 @@
 
 A modern full-stack monorepo built with NX, featuring a React frontend and Next.js backend with end-to-end type safety.
 
+## 📑 Table of Contents
+
+- [Tech Stack](#-tech-stack)
+- [Project Structure](#-project-structure)
+- [Getting Started](#️-getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Environment Setup](#environment-setup)
+- [Available Commands](#-available-commands)
+  - [Development](#development)
+  - [Building](#building)
+  - [Testing](#testing)
+  - [Linting & Formatting](#linting--formatting)
+  - [Code Generation](#code-generation)
+  - [Moving/Renaming Libraries](#movingrenaming-libraries)
+  - [Removing Libraries](#removing-libraries)
+  - [Prisma Commands](#prisma-commands)
+  - [NX Utilities](#nx-utilities)
+- [Architecture Decisions](#️-architecture-decisions)
+- [Deployment](#-deployment)
+- [Contributing](#-contributing)
+- [License](#-license)
+- [Links](#-links)
+
+---
+
 ## 🚀 Tech Stack
 
 ### Frontend
@@ -95,11 +121,15 @@ NEXTAUTH_SECRET="your-secret-key-here"
 Initialize Prisma:
 
 ```bash
-# Generate Prisma client
-yarn nx run @webbitstudio/backend:prisma:generate
+# Generate Prisma client (when you have defined your schema)
+cd apps/backend
+npx prisma generate
+cd ../..
 
 # Run migrations (when you have a database set up)
-yarn nx run @webbitstudio/backend:prisma:migrate
+cd apps/backend
+npx prisma migrate dev --name migration_name
+cd ../..
 ```
 
 ## 📜 Available Commands
@@ -113,8 +143,12 @@ yarn nx serve web
 # Serve backend (localhost:3000)
 yarn nx dev backend
 
-# Serve both simultaneously
-yarn nx serve web & yarn nx dev backend
+# Serve both simultaneously (in separate terminals recommended)
+# Terminal 1:
+yarn nx serve web
+
+# Terminal 2:
+yarn nx dev backend
 ```
 
 ### Building
@@ -176,45 +210,60 @@ yarn nx g @nx/next:app my-app --directory=apps/my-app
 ### Moving/Renaming Libraries
 
 ```bash
-# Move/rename a library or app
-yarn nx g @nx/workspace:move --projectName=@webbitstudio/old-name --destination=new-name
-
-# Example: Rename 'utils' to 'shared-utils'
+# Move/rename a library or app (use project name without @webbitstudio/ prefix for destination)
 yarn nx g @nx/workspace:move --projectName=@webbitstudio/utils --destination=shared-utils
 
 # Example: Move library to different folder
 yarn nx g @nx/workspace:move --projectName=@webbitstudio/utils --destination=common/utils
 ```
 
+**Important:** Always use the full project name (with `@webbitstudio/` prefix) for `--projectName`, but use just the new name (without prefix) for `--destination`.
+
 ### Removing Libraries
 
 ```bash
 # Remove a library or app
-yarn nx g @nx/workspace:remove @webbitstudio/name
+yarn nx g @nx/workspace:remove @webbitstudio/project-name
 
-# Example: Remove the utils library
-yarn nx g @nx/workspace:remove utils
+# If a project has dependencies, remove them first
+# Example: To remove web app, first remove web-e2e
+yarn nx g @nx/workspace:remove @webbitstudio/web-e2e
+yarn nx g @nx/workspace:remove @webbitstudio/web
 
-# This will:
-# - Delete the library folder
-# - Remove from tsconfig paths
-# - Update any imports in other projects
+# Or use force flag to skip dependency checks (use with caution!)
+yarn nx g @nx/workspace:remove @webbitstudio/web --forceRemove
 ```
+
+This will:
+
+- Delete the library/app folder
+- Remove from tsconfig paths
+- Update any imports in other projects
 
 ### Prisma Commands
 
 ```bash
-# Generate Prisma client
-yarn prisma generate
+# All Prisma commands should be run from the backend directory
+
+# Generate Prisma client (after defining your schema)
+cd apps/backend
+npx prisma generate
+cd ../..
 
 # Create a migration
-yarn prisma migrate dev --name migration_name
+cd apps/backend
+npx prisma migrate dev --name migration_name
+cd ../..
 
 # Open Prisma Studio
-yarn prisma studio
+cd apps/backend
+npx prisma studio
+cd ../..
 
 # Reset database
-yarn prisma migrate reset
+cd apps/backend
+npx prisma migrate reset
+cd ../..
 ```
 
 ### NX Utilities
@@ -321,7 +370,7 @@ Copyright © 2024 WebbitStudio. All rights reserved.
 
 This software and associated documentation files are proprietary and confidential. Unauthorized copying, distribution, modification, public display, or public performance of this software, via any medium, is strictly prohibited without the express written consent of WebbitStudio.
 
-For licensing inquiries, please contact: [info@webbitstudio.com]
+For licensing inquiries, please contact: info@webbitstudio.com
 
 ## 🔗 Links
 
