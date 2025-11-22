@@ -180,10 +180,10 @@ yarn nx g @nx/next:app my-app --directory=apps/my-app
 yarn nx g @nx/workspace:move --projectName=@webbitstudio/old-name --destination=new-name
 
 # Example: Rename 'utils' to 'shared-utils'
-yarn nx g @nx/workspace:move --projectName=utils --destination=shared-utils
+yarn nx g @nx/workspace:move --projectName=@webbitstudio/utils --destination=shared-utils
 
 # Example: Move library to different folder
-yarn nx g @nx/workspace:move --projectName=utils --destination=libs/common/utils
+yarn nx g @nx/workspace:move --projectName=@webbitstudio/utils --destination=common/utils
 ```
 
 ### Removing Libraries
@@ -257,7 +257,7 @@ yarn nx reset
 
 ## 🚢 Deployment
 
-### Frontend (Vercel/Netlify)
+### Frontend (GitHub Pages / Cloudflare Pages)
 
 ```bash
 # Build frontend
@@ -266,7 +266,28 @@ yarn nx build web
 # Output: apps/web/dist
 ```
 
-### Backend (Vercel/Railway/Fly.io)
+**GitHub Pages Deployment:**
+
+1. The built files are in `apps/web/dist`
+2. Push to your `gh-pages` branch or configure GitHub Pages to use the dist folder
+3. The site will be available at the configured custom domain (webbitstudio.com)
+
+**Cloudflare Pages Deployment:**
+
+1. The repository is connected to Cloudflare Pages
+2. Build command: `yarn nx build web`
+3. Output directory: `apps/web/dist`
+4. The DNS is already configured through Cloudflare
+
+### Backend - TBD
+
+For the backend API, you'll need a Node.js hosting service. Recommended options:
+
+- **Vercel** (easiest for Next.js)
+- **Railway** (simple, Node.js friendly)
+- **Fly.io** (full control)
+- **DigitalOcean App Platform**
+- **AWS/Google Cloud** (if you need more infrastructure)
 
 ```bash
 # Build backend
@@ -274,6 +295,16 @@ yarn nx build backend
 
 # Output: apps/backend/.next
 ```
+
+### Custom Domain Setup
+
+Since you're using Namecheap + Cloudflare:
+
+1. ✅ Domain registered with Namecheap (webbitstudio.com)
+2. ✅ DNS managed by Cloudflare
+3. Configure your DNS records in Cloudflare:
+   - Frontend: Point to GitHub Pages or Cloudflare Pages
+   - Backend API: Point to your backend hosting service
 
 ## 📝 Contributing
 
@@ -284,12 +315,46 @@ yarn nx build backend
 
 ## 📄 License
 
-MIT
+**Proprietary and Confidential**
+
+Copyright © 2024 WebbitStudio. All rights reserved.
+
+This software and associated documentation files are proprietary and confidential. Unauthorized copying, distribution, modification, public display, or public performance of this software, via any medium, is strictly prohibited without the express written consent of WebbitStudio.
+
+For licensing inquiries, please contact: [info@webbitstudio.com]
 
 ## 🔗 Links
 
+### Core Technologies
+
 - [NX Documentation](https://nx.dev)
+- [TypeScript Documentation](https://www.typescriptlang.org/docs)
+
+### Frontend
+
+- [React Documentation](https://react.dev)
+- [Vite Documentation](https://vitejs.dev)
+- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
+- [HeadlessUI Documentation](https://headlessui.com)
+- [Zustand Documentation](https://github.com/pmndrs/zustand)
+- [React Router Documentation](https://reactrouter.com)
+- [Zod Documentation](https://zod.dev)
+
+### Backend
+
 - [Next.js Documentation](https://nextjs.org/docs)
 - [tRPC Documentation](https://trpc.io)
 - [Prisma Documentation](https://www.prisma.io/docs)
-- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
+- [NextAuth.js Documentation](https://next-auth.js.org)
+
+### Testing
+
+- [Vitest Documentation](https://vitest.dev)
+- [Playwright Documentation](https://playwright.dev)
+- [React Testing Library](https://testing-library.com/react)
+
+### Tools
+
+- [Yarn Documentation](https://yarnpkg.com)
+- [ESLint Documentation](https://eslint.org)
+- [Prettier Documentation](https://prettier.io)
