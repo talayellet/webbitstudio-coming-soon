@@ -1,0 +1,96 @@
+# See https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
+
+# compiled output
+dist
+tmp
+out-tsc
+
+# dependencies
+node_modules
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/
+
+# misc
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+npm-debug.log
+yarn-error.log
+testem.log
+/typings
+
+# System Files
+.DS_Store
+Thumbs.db
+
+.nx/cache
+.nx/workspace-data
+.cursor/rules/nx-rules.mdc
+.github/instructions/nx.instructions.md
+
+vite.config.*.timestamp*
+vitest.config.*.timestamp*
+test-output
+
+# Next.js
+.next
+out
+
+# Environment variables
+.env
+.env*.local
+.env.local
+
+# Prisma
+*.db
+*.db-journal
+
+# Build artifacts
+*.tsbuildinfo
+dist-ssr/
+
+# Logs
+*.log
+
+# Temp files
+*.tmp
+temp/
+tmp/
+
+# Old files to ignore
+index.html
+
+# Editor backups
+*.swp
+*.swo
+*~
+
+
+Playwright
+playwright-report/
+test-results/
+
+# Vercel
+.vercel
+
+# Backup/temp editor files
+*.save
+*~
+
+# Package manager logs
+pnpm-debug.log*
+lerna-debug.log*
+
+# Next.js auto-generated
+next-env.d.ts
