@@ -114,7 +114,7 @@ yarn nx serve web
 yarn nx dev backend
 
 # Serve both simultaneously
-yarn nx run-many --target=serve --projects=web,backend --parallel
+yarn nx serve web & yarn nx dev backend
 ```
 
 ### Building

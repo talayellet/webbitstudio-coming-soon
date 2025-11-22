@@ -1,5 +1,39 @@
-# Add files here to ignore them from prettier formatting
-/dist
-/coverage
-/.nx/cache
-/.nx/workspace-data
+# Dependencies
+node_modules
+.pnp
+.pnp.js
+
+# Build outputs
+dist
+build
+.next
+out
+coverage
+
+# NX
+.nx
+
+# Testing
+test-results
+playwright-report
+test-output
+
+# Misc
+*.log
+.DS_Store
+.env
+.env.*
+
+# Lock files
+yarn.lock
+package-lock.json
+pnpm-lock.yaml
+
+# Generated files
+*.d.ts
+*.tsbuildinfo
+
+# Yarn
+.yarn/releases
+.yarn/cache
+.yarn/install-state.gz
