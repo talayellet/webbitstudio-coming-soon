@@ -173,6 +173,34 @@ yarn nx g @nx/react:lib my-components --directory=libs/my-components
 yarn nx g @nx/next:app my-app --directory=apps/my-app
 ```
 
+### Moving/Renaming Libraries
+
+```bash
+# Move/rename a library or app
+yarn nx g @nx/workspace:move --projectName=@webbitstudio/old-name --destination=new-name
+
+# Example: Rename 'utils' to 'shared-utils'
+yarn nx g @nx/workspace:move --projectName=utils --destination=shared-utils
+
+# Example: Move library to different folder
+yarn nx g @nx/workspace:move --projectName=utils --destination=libs/common/utils
+```
+
+### Removing Libraries
+
+```bash
+# Remove a library or app
+yarn nx g @nx/workspace:remove @webbitstudio/name
+
+# Example: Remove the utils library
+yarn nx g @nx/workspace:remove utils
+
+# This will:
+# - Delete the library folder
+# - Remove from tsconfig paths
+# - Update any imports in other projects
+```
+
 ### Prisma Commands
 
 ```bash
