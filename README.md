@@ -14,6 +14,7 @@ A modern full-stack monorepo built with NX, featuring a React frontend and Next.
   - [Development](#development)
   - [Building](#building)
   - [Testing](#testing)
+  - [Storybook](#storybook)
   - [Linting & Formatting](#linting--formatting)
   - [Code Generation](#code-generation)
   - [Moving/Renaming Libraries](#movingrenaming-libraries)
@@ -55,6 +56,7 @@ A modern full-stack monorepo built with NX, featuring a React frontend and Next.
 - **Vitest** - Unit testing
 - **Playwright** - E2E testing
 - **Testing Library** - React component testing
+- **Storybook** - Component development and documentation
 
 ### Monorepo & Tooling
 
@@ -179,6 +181,21 @@ yarn nx e2e backend-e2e
 # Run all tests
 yarn nx run-many --target=test --all
 ```
+
+### Storybook
+
+```bash
+# Run Storybook for a component library (e.g., landing-templates)
+yarn nx storybook landing-templates
+
+# Build Storybook for production
+yarn nx build-storybook landing-templates
+
+# Run Storybook for other component libraries
+yarn nx storybook ui-components
+```
+
+Storybook will be available at `http://localhost:4400` (or the next available port if 4400 is in use).
 
 ### Linting & Formatting
 
@@ -401,6 +418,7 @@ For licensing inquiries, please contact: info@webbitstudio.com
 - [Vitest Documentation](https://vitest.dev)
 - [Playwright Documentation](https://playwright.dev)
 - [React Testing Library](https://testing-library.com/react)
+- [Storybook Documentation](https://storybook.js.org/docs)
 
 ### Tools
 
