@@ -9,6 +9,7 @@ interface HeroSectionProps {
   primaryCtaHref: string;
   secondaryCtaText: string;
   secondaryCtaHref: string;
+  tagline?: string;
 }
 
 export const HeroSection = ({
@@ -19,6 +20,7 @@ export const HeroSection = ({
   primaryCtaHref,
   secondaryCtaText,
   secondaryCtaHref,
+  tagline,
 }: HeroSectionProps) => {
   return (
     <section className={STYLES.HERO_SECTION}>
@@ -32,6 +34,7 @@ export const HeroSection = ({
         <h1 className={clsx(STYLES.HERO_TITLE, STYLES.TEXT_GRADIENT)}>
           {heroTitle}
         </h1>
+        {tagline && <p className={clsx(STYLES.HERO_TAGLINE)}>{tagline}</p>}
         <p className={clsx(STYLES.HERO_DESCRIPTION)}>{heroDescription}</p>
         <div className={STYLES.HERO_CTA_WRAPPER}>
           <a href={primaryCtaHref} className={clsx(STYLES.PRIMARY_BUTTON)}>

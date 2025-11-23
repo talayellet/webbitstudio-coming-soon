@@ -22,6 +22,7 @@ interface MainProps {
   finalCtaButton: string;
   finalCtaHref: string;
   addToRefs: (el: HTMLElement | null) => void;
+  tagline?: string;
 }
 
 export const Main = ({
@@ -39,6 +40,7 @@ export const Main = ({
   finalCtaButton,
   finalCtaHref,
   addToRefs,
+  tagline,
 }: MainProps) => {
   return (
     <main>
@@ -50,6 +52,7 @@ export const Main = ({
         primaryCtaHref={primaryCtaHref}
         secondaryCtaText={secondaryCtaText}
         secondaryCtaHref={secondaryCtaHref}
+        tagline={tagline}
       />
       <FeaturesSection features={features} addToRefs={addToRefs} />
       <StatsSection stats={stats} addToRefs={addToRefs} />

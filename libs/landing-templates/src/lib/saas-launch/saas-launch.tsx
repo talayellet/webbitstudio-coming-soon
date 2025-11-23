@@ -57,7 +57,11 @@ export const SaasLaunch = ({
         <div className={STYLES.GRADIENT_BG_INNER} />
       </div>
 
-      <Header companyName={companyName} logoLetter={logoLetter} />
+      <Header
+        companyName={companyName}
+        logoLetter={logoLetter}
+        productName={productName}
+      />
 
       <Main
         launchBadgeText={launchBadgeText}
@@ -74,6 +78,7 @@ export const SaasLaunch = ({
         finalCtaButton={finalCtaButton}
         finalCtaHref={finalCtaHref}
         addToRefs={addToRefs}
+        tagline={tagline}
       />
 
       <Footer companyName={companyName} />

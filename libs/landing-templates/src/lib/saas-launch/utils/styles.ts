@@ -49,6 +49,11 @@ export const STYLES = {
     'text-[clamp(40px,6vw,72px)] font-bold leading-[1.1] mb-6',
     'animate-fade-in-up-3',
   ],
+  HERO_TAGLINE: [
+    'text-lg font-medium mb-4',
+    'text-[var(--secondary)]',
+    'animate-fade-in-up-3',
+  ],
   HERO_DESCRIPTION: [
     'text-xl leading-relaxed max-w-[600px] mx-auto mb-10',
     'text-[var(--text-muted)]',

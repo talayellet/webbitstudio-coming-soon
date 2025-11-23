@@ -1,12 +1,17 @@
 import clsx from 'clsx';
 import { STYLES } from './utils';
 
-interface HeaderProps {
+export interface HeaderProps {
   companyName: string;
   logoLetter: string;
+  productName?: string;
 }
 
-export const Header = ({ companyName, logoLetter }: HeaderProps) => {
+export const Header = ({
+  companyName,
+  logoLetter,
+  productName,
+}: HeaderProps) => {
   return (
     <header className={STYLES.HEADER}>
       <div className={STYLES.CONTAINER}>
@@ -15,7 +20,7 @@ export const Header = ({ companyName, logoLetter }: HeaderProps) => {
             <div className={clsx(STYLES.LOGO_CONTAINER, STYLES.ICON_GRADIENT)}>
               {logoLetter}
             </div>
-            <span>{companyName}</span>
+            <span>{productName || companyName}</span>
           </a>
           <ul className={STYLES.NAV_LIST}>
             <li>
