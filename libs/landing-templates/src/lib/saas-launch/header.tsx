@@ -29,6 +29,15 @@ export const Header = ({
           </a>
           <ul className={STYLES.NAV_LIST}>
             <li>
+              <a
+                href="#top"
+                onClick={scrollToTop}
+                className={clsx(STYLES.NAV_LINK)}
+              >
+                Home
+              </a>
+            </li>
+            <li>
               <a href="#features" className={clsx(STYLES.NAV_LINK)}>
                 Features
               </a>

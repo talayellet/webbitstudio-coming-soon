@@ -12,8 +12,18 @@ export const useStickyHeader = (threshold = 20) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [threshold]);
 
-  const scrollToTop = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const scrollToTop = (
+    e: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement>
+  ) => {
     e.preventDefault();
+    // Clear the hash from the URL first
+    if (window.location.hash) {
+      window.history.replaceState(
+        '',
+        document.title,
+        window.location.pathname + window.location.search
+      );
+    }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
