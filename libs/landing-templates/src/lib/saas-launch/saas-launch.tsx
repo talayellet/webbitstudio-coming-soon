@@ -30,7 +30,6 @@ export const SaasLaunch: React.FC<SaasLaunchProps> = ({
   locale = DEFAULT_LOCALE,
   logoLetter = DEFAULT_TEMPLATE.logoLetter,
   onLocaleChange,
-  productName = DEFAULT_TEMPLATE.productName,
   showFooter = true,
   showLanguageSwitcher = true,
   showThemeSwitcher = true,
@@ -98,8 +97,7 @@ export const SaasLaunch: React.FC<SaasLaunchProps> = ({
 
       <Header
         companyName={companyName}
-        logoLetter={logoLetter}
-        productName={productName}
+        logo={logoLetter}
         locale={localeStrings}
       />
 

@@ -1,3 +1,70 @@
+// ============================================================================
+// Navigation
+// ============================================================================
+
+export interface NavLink {
+  href: string;
+  label: string;
+  onClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
+}
+
+// ============================================================================
+// Features
+// ============================================================================
+
+export interface Feature {
+  icon: string;
+  title: string;
+  description: string;
+}
+
+// ============================================================================
+// Stats
+// ============================================================================
+
+export interface Stat {
+  number: string;
+  label: string;
+}
+
+// ============================================================================
+// Footer
+// ============================================================================
+
+export interface FooterLink {
+  label: string;
+  href: string;
+}
+
+// ============================================================================
+// Language
+// ============================================================================
+
+export interface LanguageOption {
+  code: string;
+  flag: string;
+  label: string;
+}
+
+// ============================================================================
+// Theme
+// ============================================================================
+
+export interface ColorScheme {
+  primary?: string;
+  primaryDark?: string;
+  secondary?: string;
+  background?: string;
+  surface?: string;
+  text?: string;
+  textMuted?: string;
+  accent?: string;
+}
+
+// ============================================================================
+// Content Overrides
+// ============================================================================
+
 export interface ContentOverrides {
   // Hero Section
   launchBadgeText?: string;
@@ -10,17 +77,10 @@ export interface ContentOverrides {
   secondaryCtaHref?: string;
 
   // Features
-  features?: Array<{
-    icon: string;
-    title: string;
-    description: string;
-  }>;
+  features?: Array<Feature>;
 
   // Stats
-  stats?: Array<{
-    number: string;
-    label: string;
-  }>;
+  stats?: Array<Stat>;
 
   // Final CTA
   finalCtaTitle?: string;
@@ -28,6 +88,10 @@ export interface ContentOverrides {
   finalCtaButton?: string;
   finalCtaHref?: string;
 }
+
+// ============================================================================
+// Main Component Props
+// ============================================================================
 
 export interface SaasLaunchProps {
   // Brand/Company
@@ -45,39 +109,18 @@ export interface SaasLaunchProps {
   contactSection?: React.ReactNode;
 
   // Color scheme
-  colors?: {
-    primary?: string;
-    primaryDark?: string;
-    secondary?: string;
-    background?: string;
-    surface?: string;
-    text?: string;
-    textMuted?: string;
-    accent?: string;
-  };
+  colors?: ColorScheme;
 
   // Language switcher
   showLanguageSwitcher?: boolean;
   locale?: string;
   onLocaleChange?: (locale: string) => void;
-  languageOptions?: Array<{
-    code: string;
-    flag: string;
-    label: string;
-  }>;
+  languageOptions?: Array<LanguageOption>;
 
   // Theme switcher
   showThemeSwitcher?: boolean;
 
   // Footer
   showFooter?: boolean;
-  footerLinks?: Array<{
-    label: string;
-    href: string;
-  }>;
-}
-
-export interface FooterLink {
-  label: string;
-  href: string;
+  footerLinks?: Array<FooterLink>;
 }

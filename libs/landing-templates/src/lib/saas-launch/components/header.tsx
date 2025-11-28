@@ -1,21 +1,30 @@
+import React, { ReactNode } from 'react';
 import clsx from 'clsx';
-import { STYLES, LocaleStrings, DEFAULT_LOCALE_STRINGS } from '../utils';
-import { useStickyHeader } from '../hooks';
+import {
+  STYLES,
+  LocaleStrings,
+  DEFAULT_LOCALE_STRINGS,
+  NavLink,
+} from '../utils';
+import { useStickyHeader, useDefaultNavLinks } from '../hooks';
 
 export interface HeaderProps {
   companyName: string;
-  logoLetter: string;
-  productName?: string;
   locale?: LocaleStrings;
+  logo: ReactNode;
+  navLinks?: NavLink[];
 }
 
-export const Header = ({
+export const Header: React.FC<HeaderProps> = ({
   companyName,
-  logoLetter,
-  productName,
   locale = DEFAULT_LOCALE_STRINGS,
-}: HeaderProps) => {
+  logo,
+  navLinks,
+}) => {
   const { isScrolled, scrollToTop } = useStickyHeader();
+  const defaultNavLinks = useDefaultNavLinks({ locale, scrollToTop });
+
+  const links = navLinks ?? defaultNavLinks;
 
   return (
     <header
@@ -25,35 +34,22 @@ export const Header = ({
         <nav className={STYLES.NAV}>
           <a href="/" onClick={scrollToTop} className={clsx(STYLES.NAV_BRAND)}>
             <div className={clsx(STYLES.LOGO_CONTAINER, STYLES.ICON_GRADIENT)}>
-              {logoLetter}
+              {logo}
             </div>
-            <span>{productName || companyName}</span>
+            <span>{companyName}</span>
           </a>
           <ul className={STYLES.NAV_LIST}>
-            <li>
-              <a
-                href="#top"
-                onClick={scrollToTop}
-                className={clsx(STYLES.NAV_LINK)}
-              >
-                {locale.header.nav.home}
-              </a>
-            </li>
-            <li>
-              <a href="#features" className={clsx(STYLES.NAV_LINK)}>
-                {locale.header.nav.features}
-              </a>
-            </li>
-            <li>
-              <a href="#about" className={clsx(STYLES.NAV_LINK)}>
-                {locale.header.nav.about}
-              </a>
-            </li>
-            <li>
-              <a href="#contact" className={clsx(STYLES.NAV_LINK)}>
-                {locale.header.nav.contact}
-              </a>
-            </li>
+            {links.map((link, index) => (
+              <li key={index}>
+                <a
+                  href={link.href}
+                  onClick={link.onClick}
+                  className={clsx(STYLES.NAV_LINK)}
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
           </ul>
         </nav>
       </div>
