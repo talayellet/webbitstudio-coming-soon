@@ -1,7 +1,7 @@
 import { DEFAULT_COLORS } from './styles';
 import { SaasLaunchProps } from './types';
 import React from 'react';
-import { DefaultAboutSection, DefaultContactSection } from '../main-sections';
+import { DefaultAboutSection, DefaultContactSection } from '../components';
 export const DEFAULT_TEMPLATE: Required<SaasLaunchProps> = {
   productName: 'Product',
   tagline: 'Your Tagline',

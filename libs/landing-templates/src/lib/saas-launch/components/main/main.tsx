@@ -5,7 +5,7 @@ import {
   FinalCtaSection,
   Feature,
   Stat,
-} from './main-sections';
+} from './sections';
 
 interface MainProps {
   launchBadgeText: string;

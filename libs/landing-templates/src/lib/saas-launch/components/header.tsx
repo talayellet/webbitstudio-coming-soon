@@ -1,6 +1,6 @@
 import clsx from 'clsx';
-import { STYLES } from './utils';
-import { useStickyHeader } from './hooks';
+import { STYLES } from '../utils';
+import { useStickyHeader } from '../hooks';
 
 export interface HeaderProps {
   companyName: string;

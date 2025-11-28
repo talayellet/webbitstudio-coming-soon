@@ -9,9 +9,7 @@ import {
   STYLES,
 } from './utils';
 import { useScrollReveal } from './hooks';
-import { Header } from './header';
-import { Main } from './main';
-import { Footer } from './footer';
+import { Header, Main, Footer } from './components';
 
 export const SaasLaunch = ({
   productName = DEFAULT_TEMPLATE.productName,

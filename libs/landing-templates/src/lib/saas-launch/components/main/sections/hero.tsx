@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { STYLES } from '../utils';
+import { STYLES } from '../../../utils';
 
 interface HeroSectionProps {
   launchBadgeText: string;
