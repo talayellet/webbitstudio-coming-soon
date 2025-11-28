@@ -1,3 +1,4 @@
+import React from 'react';
 import clsx from 'clsx';
 import { STYLES } from '../../../utils';
 
@@ -12,10 +13,10 @@ interface FeaturesSectionProps {
   addToRefs: (el: HTMLElement | null) => void;
 }
 
-export const FeaturesSection = ({
+export const FeaturesSection: React.FC<FeaturesSectionProps> = ({
   features,
   addToRefs,
-}: FeaturesSectionProps) => {
+}) => {
   return (
     <section className={STYLES.FEATURES_SECTION} id="features">
       <div className={STYLES.CONTAINER}>

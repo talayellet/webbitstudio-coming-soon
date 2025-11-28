@@ -1,3 +1,4 @@
+import React from 'react';
 import clsx from 'clsx';
 import { STYLES, LocaleStrings, DEFAULT_LOCALE_STRINGS } from '../../../utils';
 
@@ -13,7 +14,7 @@ interface HeroSectionProps {
   locale?: LocaleStrings;
 }
 
-export const HeroSection = ({
+export const HeroSection: React.FC<HeroSectionProps> = ({
   launchBadgeText,
   heroTitle,
   heroDescription,
@@ -23,7 +24,7 @@ export const HeroSection = ({
   secondaryCtaHref,
   tagline,
   locale = DEFAULT_LOCALE_STRINGS,
-}: HeroSectionProps) => {
+}) => {
   return (
     <section className={STYLES.HERO_SECTION}>
       <div className={STYLES.CONTAINER}>

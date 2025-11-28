@@ -1,3 +1,4 @@
+import React from 'react';
 import clsx from 'clsx';
 import { STYLES } from '../../../utils';
 
@@ -11,7 +12,10 @@ interface StatsSectionProps {
   addToRefs: (el: HTMLElement | null) => void;
 }
 
-export const StatsSection = ({ stats, addToRefs }: StatsSectionProps) => {
+export const StatsSection: React.FC<StatsSectionProps> = ({
+  stats,
+  addToRefs,
+}) => {
   return (
     <section
       ref={addToRefs}

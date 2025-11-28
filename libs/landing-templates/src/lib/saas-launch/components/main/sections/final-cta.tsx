@@ -1,3 +1,4 @@
+import React from 'react';
 import clsx from 'clsx';
 import { STYLES } from '../../../utils';
 
@@ -9,13 +10,13 @@ interface FinalCtaSectionProps {
   addToRefs: (el: HTMLElement | null) => void;
 }
 
-export const FinalCtaSection = ({
+export const FinalCtaSection: React.FC<FinalCtaSectionProps> = ({
   finalCtaTitle,
   finalCtaDescription,
   finalCtaButton,
   finalCtaHref,
   addToRefs,
-}: FinalCtaSectionProps) => {
+}) => {
   return (
     <section
       ref={addToRefs}

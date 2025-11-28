@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import {
   ContactInfo,
   DEFAULT_CONTACT_INFO,
@@ -19,14 +19,14 @@ export interface ContactSectionProps {
   onSubmit?: (data: { name: string; email: string; message: string }) => void;
 }
 
-export const DefaultContactSection = ({
+export const DefaultContactSection: React.FC<ContactSectionProps> = ({
   title,
   subtitle,
   contactInfo = DEFAULT_CONTACT_INFO,
   formTitle,
   locale,
   onSubmit,
-}: ContactSectionProps = {}) => {
+}) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',

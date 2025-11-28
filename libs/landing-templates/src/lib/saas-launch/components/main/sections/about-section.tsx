@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   STYLES,
   LocaleStrings,
@@ -14,12 +15,12 @@ export interface AboutSectionProps {
   locale?: LocaleStrings;
 }
 
-export const AboutSection = ({
+export const AboutSection: React.FC<AboutSectionProps> = ({
   title,
   paragraph1,
   paragraph2,
   locale = DEFAULT_LOCALE_STRINGS,
-}: AboutSectionProps = {}) => {
+}) => {
   // Use props if provided, otherwise use locale, otherwise use defaults
   const displayTitle =
     title ?? locale.about.title ?? DEFAULT_ABOUT_SECTION_TITLE;
