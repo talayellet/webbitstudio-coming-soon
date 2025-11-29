@@ -75,21 +75,70 @@ export const es: LocaleStrings = {
   // Features Section
   features: {
     title: 'Características',
+    learnMore: 'Saber más →',
     items: [
       {
         icon: '⚡',
         title: 'Súper Rápido',
         description: 'Construido para velocidad y rendimiento desde cero.',
+        routePath: '/features/lightning-fast',
+        featureDetails: {
+          price: '$29/mes',
+          image:
+            'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=600&fit=crop',
+          altImage: 'Panel de rendimiento súper rápido',
+          fullDescription:
+            'Experimenta un rendimiento ultrarrápido con nuestra tecnología de vanguardia. Hemos optimizado cada capa de nuestra plataforma para ofrecer tiempos de respuesta inferiores a un segundo, asegurando que tus usuarios nunca tengan que esperar.',
+          features: [
+            'Tiempos de respuesta inferiores a un segundo en todas las operaciones',
+            'Mecanismos avanzados de caché para recuperación instantánea de datos',
+            'Entrega global por CDN para velocidad en todo el mundo',
+            'Consultas e indexación de base de datos optimizadas',
+            'Monitoreo y alertas de rendimiento en tiempo real',
+          ],
+        },
       },
       {
         icon: '🔒',
         title: 'Seguro por Defecto',
         description: 'Seguridad de nivel empresarial integrada en cada capa.',
+        routePath: '/features/secure-by-default',
+        featureDetails: {
+          price: '$49/mes',
+          image:
+            'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=1200&h=600&fit=crop',
+          altImage: 'Protección de seguridad y cifrado',
+          fullDescription:
+            'La seguridad no es una idea tardía: está integrada en todos los aspectos de nuestra plataforma. Desde el cifrado de extremo a extremo hasta auditorías de seguridad regulares, garantizamos que tus datos estén siempre protegidos.',
+          features: [
+            'Cifrado de extremo a extremo para todas las transferencias de datos',
+            'Certificación de cumplimiento SOC 2 Type II',
+            'Auditorías de seguridad regulares de terceros',
+            'Detección y prevención avanzada de amenazas',
+            'Parches y actualizaciones de seguridad automáticas',
+          ],
+        },
       },
       {
         icon: '🎨',
         title: 'Diseño Hermoso',
         description: 'Interfaces impresionantes que los usuarios aman usar.',
+        routePath: '/features/beautiful-design',
+        featureDetails: {
+          price: '$39/mes',
+          image:
+            'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1200&h=600&fit=crop',
+          altImage: 'Diseño de interfaz hermoso y moderno',
+          fullDescription:
+            'Cada píxel importa. Nuestro equipo de diseño ha creado interfaces hermosas e intuitivas que deleitan a los usuarios y hacen que las tareas complejas parezcan simples.',
+          features: [
+            'Diseño de interfaz moderno y limpio',
+            'Totalmente responsive en todos los dispositivos',
+            'Temas y marca personalizables',
+            'Diseño accesible siguiendo las pautas WCAG 2.1',
+            'Animaciones y transiciones suaves',
+          ],
+        },
       },
     ],
   },
@@ -109,6 +158,14 @@ export const es: LocaleStrings = {
     title: '¿Listo para comenzar?',
     description: 'Únete a miles de usuarios que ya usan nuestra plataforma.',
     button: 'Comenzar Prueba Gratuita',
+  },
+
+  // Feature Page
+  featurePage: {
+    backButton: 'Volver',
+    overview: 'Resumen',
+    keyFeatures: 'Características Principales',
+    priceLabel: 'Precio',
   },
 
   // Footer

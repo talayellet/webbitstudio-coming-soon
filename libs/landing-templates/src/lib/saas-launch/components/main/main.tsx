@@ -28,6 +28,7 @@ interface MainProps {
   // Features Section
   features: readonly Feature[];
   featuresSectionTitle?: string;
+  onFeatureClick?: (feature: Feature) => void;
 
   // Stats Section
   stats: readonly Stat[];
@@ -60,6 +61,7 @@ export const Main: React.FC<MainProps> = ({
   secondaryCtaHref,
   features,
   featuresSectionTitle,
+  onFeatureClick,
   stats,
   aboutSection,
   contactSection,
@@ -116,6 +118,8 @@ export const Main: React.FC<MainProps> = ({
           features={features}
           title={featuresSectionTitle}
           addToRefs={addToRefs}
+          onFeatureClick={onFeatureClick}
+          locale={locale}
         />
       )}
       {showSections.stats && (

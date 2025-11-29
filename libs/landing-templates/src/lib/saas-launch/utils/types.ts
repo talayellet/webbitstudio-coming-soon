@@ -1,4 +1,4 @@
-import type { ThemeName } from '../../shared';
+import type { Locale, ThemeName } from '../../shared';
 
 // ============================================================================
 // Contact
@@ -47,10 +47,20 @@ export interface NavLink {
 // Features
 // ============================================================================
 
+export interface FeatureDetails {
+  price?: string;
+  image?: string;
+  altImage?: string;
+  fullDescription?: string;
+  features?: readonly string[];
+}
+
 export interface Feature {
   icon: string;
   title: string;
   description: string;
+  routePath?: string;
+  featureDetails?: FeatureDetails;
 }
 
 // ============================================================================
@@ -76,7 +86,7 @@ export interface FooterLink {
 // ============================================================================
 
 export interface LanguageOption {
-  code: string;
+  code: Locale;
   flag: string;
   label: string;
 }
@@ -134,44 +144,4 @@ export interface ShowSections {
   features?: boolean;
   stats?: boolean;
   finalCta?: boolean;
-}
-
-// ============================================================================
-// Main Component Props
-// ============================================================================
-
-export interface SaasLaunchProps {
-  // Brand/Company
-  productName?: string;
-  companyName?: string;
-  logoLetter?: string;
-
-  // Content overrides (optional - falls back to locale strings)
-  content?: ContentOverrides;
-
-  // About Section
-  aboutSection?: React.ReactNode;
-
-  // Contact Section
-  contactSection?: React.ReactNode;
-  contactFieldsConfig?: ContactFieldsConfig;
-
-  // Theme
-  theme?: ThemeName;
-
-  // Color scheme (overrides theme colors)
-  colors?: ColorScheme;
-
-  // Language switcher
-  showLanguageSwitcher?: boolean;
-  locale?: string;
-  onLocaleChange?: (locale: string) => void;
-  languageOptions?: LanguageOption[];
-
-  // Theme switcher
-  showThemeSwitcher?: boolean;
-
-  // Footer
-  showFooter?: boolean;
-  footerLinks?: FooterLink[];
 }

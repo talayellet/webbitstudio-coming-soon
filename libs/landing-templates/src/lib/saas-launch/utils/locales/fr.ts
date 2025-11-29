@@ -77,21 +77,70 @@ export const fr: LocaleStrings = {
   // Features Section
   features: {
     title: 'Fonctionnalités',
+    learnMore: 'En savoir plus →',
     items: [
       {
         icon: '⚡',
         title: 'Ultra Rapide',
         description: 'Conçu pour la vitesse et la performance dès le départ.',
+        routePath: '/features/lightning-fast',
+        featureDetails: {
+          price: '29€/mois',
+          image:
+            'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=600&fit=crop',
+          altImage: 'Tableau de bord de performances ultra rapides',
+          fullDescription:
+            "Profitez de performances ultra-rapides avec notre pile technologique de pointe. Nous avons optimisé chaque couche de notre plateforme pour offrir des temps de réponse inférieurs à une seconde, garantissant que vos utilisateurs n'ont jamais à attendre.",
+          features: [
+            'Temps de réponse inférieurs à une seconde sur toutes les opérations',
+            'Mécanismes de cache avancés pour une récupération instantanée des données',
+            'Diffusion CDN mondiale pour une vitesse partout dans le monde',
+            'Requêtes et indexation de base de données optimisées',
+            'Surveillance des performances et alertes en temps réel',
+          ],
+        },
       },
       {
         icon: '🔒',
         title: 'Sécurisé par Défaut',
         description: 'Sécurité de niveau entreprise intégrée à chaque niveau.',
+        routePath: '/features/secure-by-default',
+        featureDetails: {
+          price: '49€/mois',
+          image:
+            'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=1200&h=600&fit=crop',
+          altImage: 'Protection de sécurité et chiffrement',
+          fullDescription:
+            "La sécurité n'est pas une réflexion après coup - elle est intégrée dans chaque aspect de notre plateforme. Du chiffrement de bout en bout aux audits de sécurité réguliers, nous garantissons que vos données sont toujours protégées.",
+          features: [
+            'Chiffrement de bout en bout pour tous les transferts de données',
+            'Certification de conformité SOC 2 Type II',
+            'Audits de sécurité réguliers par des tiers',
+            'Détection et prévention avancées des menaces',
+            'Correctifs et mises à jour de sécurité automatiques',
+          ],
+        },
       },
       {
         icon: '🎨',
         title: 'Design Magnifique',
         description: 'Des interfaces superbes que les utilisateurs adorent.',
+        routePath: '/features/beautiful-design',
+        featureDetails: {
+          price: '39€/mois',
+          image:
+            'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1200&h=600&fit=crop',
+          altImage: "Design d'interface magnifique et moderne",
+          fullDescription:
+            'Chaque pixel compte. Notre équipe de conception a créé de superbes interfaces intuitives qui ravissent les utilisateurs et rendent les tâches complexes simples.',
+          features: [
+            "Design d'interface moderne et épuré",
+            'Entièrement responsive sur tous les appareils',
+            'Thèmes et branding personnalisables',
+            'Design accessible suivant les directives WCAG 2.1',
+            'Animations et transitions fluides',
+          ],
+        },
       },
     ],
   },
@@ -112,6 +161,14 @@ export const fr: LocaleStrings = {
     description:
       "Rejoignez des milliers d'utilisateurs utilisant déjà notre plateforme.",
     button: "Commencer l'Essai Gratuit",
+  },
+
+  // Feature Page
+  featurePage: {
+    backButton: 'Retour',
+    overview: 'Aperçu',
+    keyFeatures: 'Caractéristiques Principales',
+    priceLabel: 'Prix',
   },
 
   // Footer

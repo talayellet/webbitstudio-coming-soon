@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { SaasLaunch } from './saas-launch';
+import { LOCALES } from '../shared/utils/types';
 import React from 'react';
 
 const meta = {
@@ -32,7 +33,7 @@ const meta = {
     },
     locale: {
       control: 'select',
-      options: ['en', 'es', 'fr'],
+      options: [LOCALES.EN, LOCALES.ES, LOCALES.FR],
       description: 'Current locale/language',
       table: {
         category: 'Localization',

@@ -10,11 +10,12 @@ import {
 } from '@headlessui/react';
 import { LanguageOption, LANGUAGE_SWITCHER_STYLES, TRANSITION } from './utils';
 import { ChevronDownIcon } from '../../icons';
+import { Locale } from '../../utils';
 
 export interface LanguageSwitcherProps {
-  currentLanguage: string;
+  currentLanguage: Locale;
   languages: LanguageOption[];
-  onLanguageChange: (language: string) => void;
+  onLanguageChange: (language: Locale) => void;
 }
 
 export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({

@@ -1,7 +1,7 @@
-import { SaasLaunch } from '@webbitstudio/landing-templates';
+import { SaasLaunchRouter, LOCALES } from '@webbitstudio/landing-templates';
 
 export function App() {
-  return <SaasLaunch />;
+  return <SaasLaunchRouter initialLocale={LOCALES.EN} />;
 }
 
 export default App;
