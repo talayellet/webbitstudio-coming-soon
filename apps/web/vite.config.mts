@@ -13,6 +13,9 @@ export default defineConfig(() => ({
     port: 4300,
     host: 'localhost',
   },
+  resolve: {
+    conditions: ['@webbitstudio/source'],
+  },
   plugins: [react()],
   // Uncomment this if you are using workers.
   // worker: {
