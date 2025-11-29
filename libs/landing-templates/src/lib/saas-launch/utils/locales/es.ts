@@ -176,6 +176,14 @@ export const es: LocaleStrings = {
     },
   },
 
+  // Page Under Construction
+  pageUnderConstruction: {
+    title: 'En Construcción',
+    message:
+      'Estamos trabajando duro para traerte esta página. ¡Vuelve pronto!',
+    backButton: '← Volver al Inicio',
+  },
+
   // Accessibility labels
   aria: {
     location: 'ubicación',

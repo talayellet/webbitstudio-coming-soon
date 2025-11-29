@@ -4,7 +4,6 @@ import {
   STYLES,
   LocaleStrings,
   DEFAULT_LOCALE_STRINGS,
-  FOOTER_PATHS,
   FooterLink,
 } from '../utils';
 
@@ -29,17 +28,7 @@ export const Footer: React.FC<FooterProps> = ({
     [locale, currentYear, companyName]
   );
 
-  const footerLinks = useMemo(
-    () =>
-      links && links.length > 0
-        ? links
-        : [
-            { label: locale.footer.links.privacy, href: FOOTER_PATHS.PRIVACY },
-            { label: locale.footer.links.terms, href: FOOTER_PATHS.TERMS },
-            { label: locale.footer.links.contact, href: FOOTER_PATHS.CONTACT },
-          ],
-    [links, locale]
-  );
+  const footerLinks = useMemo(() => links || [], [links]);
 
   return (
     <footer className={STYLES.FOOTER}>
@@ -52,6 +41,14 @@ export const Footer: React.FC<FooterProps> = ({
                 <li key={index}>
                   <a
                     href={link.href}
+                    onClick={(e) => {
+                      if (link.onClick) {
+                        e.preventDefault();
+                        link.onClick(e);
+                      } else if (!link.href.startsWith('http')) {
+                        e.preventDefault();
+                      }
+                    }}
                     className={clsx(STYLES.FOOTER_LINK)}
                     target={link.href.startsWith('http') ? '_blank' : undefined}
                     rel={

@@ -1,4 +1,4 @@
-import type { Locale, ThemeName } from '../../shared';
+import type { Locale } from '../../shared';
 
 // ============================================================================
 // Contact
@@ -79,6 +79,7 @@ export interface Stat {
 export interface FooterLink {
   label: string;
   href: string;
+  onClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
 }
 
 // ============================================================================

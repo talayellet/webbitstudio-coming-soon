@@ -176,6 +176,13 @@ export const en = {
     },
   },
 
+  // Page Under Construction
+  pageUnderConstruction: {
+    title: 'Under Construction',
+    message: "We're working hard to bring you this page. Check back soon!",
+    backButton: '← Back to Home',
+  },
+
   // Accessibility labels
   aria: {
     location: 'location',
@@ -287,6 +294,11 @@ export interface LocaleStrings {
       terms: string;
       contact: string;
     };
+  };
+  pageUnderConstruction: {
+    title: string;
+    message: string;
+    backButton: string;
   };
   aria: {
     location: string;

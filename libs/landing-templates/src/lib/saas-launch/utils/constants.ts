@@ -1,6 +1,5 @@
 import { DEFAULT_COLORS } from './styles';
 import {
-  SaasLaunchProps,
   ContentOverrides,
   ShowSections,
   ContactInfo,
@@ -11,6 +10,7 @@ import React from 'react';
 import { AboutSection, ContactSection } from '../components';
 import { en } from './locales';
 import { LOCALES, THEME_NAMES } from '../../shared';
+import { SaasLaunchProps } from '../saas-launch';
 
 export * from './locales';
 
@@ -111,7 +111,7 @@ export const DEFAULT_TEMPLATE: Required<Omit<SaasLaunchProps, 'content'>> & {
 } = {
   productName: 'Product',
   companyName: 'Company',
-  logoLetter: 'C',
+  logo: 'C',
   aboutSection: React.createElement(AboutSection),
   contactSection: React.createElement(ContactSection),
   contactFieldsConfig: DEFAULT_CONTACT_FIELDS,
@@ -134,9 +134,21 @@ export const DEFAULT_TEMPLATE: Required<Omit<SaasLaunchProps, 'content'>> & {
   onFeatureClick: () => {
     // Default no-op handler
   },
+  onFooterLinkClick: () => {
+    // Default no-op handler
+  },
   languageOptions: DEFAULT_LANGUAGE_OPTIONS,
   showFooter: true,
-  footerLinks: [],
+  footerLinks: [
+    {
+      label: en.footer.links.privacy,
+      href: FOOTER_PATHS.PRIVACY,
+    },
+    {
+      label: en.footer.links.terms,
+      href: FOOTER_PATHS.TERMS,
+    },
+  ],
   theme: THEME_NAMES.DARK,
 };
 

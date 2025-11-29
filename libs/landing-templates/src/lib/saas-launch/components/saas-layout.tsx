@@ -26,7 +26,6 @@ export interface SaasLayoutProps {
   children: ReactNode;
   companyName?: string;
   logo?: ReactNode;
-  logoLetter?: string;
   colors?: ColorOverrides;
   theme?: ThemeName;
   locale?: Locale;
@@ -45,8 +44,7 @@ export interface SaasLayoutProps {
 export const SaasLayout: React.FC<SaasLayoutProps> = ({
   children,
   companyName = DEFAULT_TEMPLATE.companyName,
-  logo,
-  logoLetter = DEFAULT_TEMPLATE.logoLetter,
+  logo = DEFAULT_TEMPLATE.logo,
   colors,
   theme = THEME_NAMES.DARK,
   locale = DEFAULT_LOCALE,
@@ -112,11 +110,7 @@ export const SaasLayout: React.FC<SaasLayoutProps> = ({
       {/* Add padding to account for fixed header */}
       <div className={STYLES.FIXED_HEADER_SPACER} />
 
-      <Header
-        companyName={companyName}
-        logo={logo ?? logoLetter}
-        locale={localeStrings}
-      />
+      <Header companyName={companyName} logo={logo} locale={localeStrings} />
 
       <div className={showFooter ? STYLES.FIXED_FOOTER_SPACER : ''}>
         {children}

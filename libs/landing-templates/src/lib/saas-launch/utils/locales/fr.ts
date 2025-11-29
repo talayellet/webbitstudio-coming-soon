@@ -179,6 +179,14 @@ export const fr: LocaleStrings = {
     },
   },
 
+  // Page Under Construction
+  pageUnderConstruction: {
+    title: 'En Construction',
+    message:
+      'Nous travaillons dur pour vous apporter cette page. Revenez bientôt !',
+    backButton: "← Retour à l'Accueil",
+  },
+
   // Accessibility labels
   aria: {
     location: 'emplacement',

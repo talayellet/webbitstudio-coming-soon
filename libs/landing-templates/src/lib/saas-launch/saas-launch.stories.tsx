@@ -24,7 +24,7 @@ const meta = {
         category: 'Branding',
       },
     },
-    logoLetter: {
+    logo: {
       control: 'text',
       description: 'Single letter to display in the logo',
       table: {
@@ -101,7 +101,37 @@ export const Default: Story = {
 export const BasicCustomization: Story = {
   args: {
     companyName: 'Acme Corp',
-    logoLetter: 'A',
+    logo: 'A',
+  },
+};
+
+/**
+ * Default footer link behavior.
+ * When footer links (Privacy, Terms) are clicked, an "Under Construction" page is shown
+ * while keeping the header and footer visible. Click "Back to Home" to return.
+ */
+export const FooterLinksDefault: Story = {
+  args: {
+    companyName: 'Default Behavior',
+    logo: 'D',
+  },
+};
+
+/**
+ * Example with custom footer link handler.
+ * Demonstrates how to handle footer link clicks with custom logic.
+ * Override the default behavior by providing an onFooterLinkClick callback.
+ */
+export const WithCustomFooterHandler: Story = {
+  args: {
+    companyName: 'Custom Handler',
+    logo: 'C',
+    onFooterLinkClick: (href: string, label: string) => {
+      // @ts-expect-error - alert is available in browser environment
+      alert(
+        `Custom handler: ${label} clicked (${href})\n\nYou can implement your own routing logic here.`
+      );
+    },
   },
 };
 
@@ -116,7 +146,7 @@ export const BasicCustomization: Story = {
 export const CustomContent: Story = {
   args: {
     companyName: 'TechFlow',
-    logoLetter: 'T',
+    logo: 'T',
     content: {
       launchBadgeText: '🚀 Launching Q1 2026',
       heroTitle: 'The Future of Development',
@@ -192,7 +222,7 @@ export const CustomContent: Story = {
 export const CustomColors: Story = {
   args: {
     companyName: 'VibrantTech',
-    logoLetter: 'V',
+    logo: 'V',
     colors: {
       primary: '#8B5CF6', // Purple
       primaryDark: '#7C3AED',
@@ -214,7 +244,7 @@ export const CustomColors: Story = {
 export const LightTheme: Story = {
   args: {
     companyName: 'Minimalist',
-    logoLetter: 'M',
+    logo: 'M',
     theme: 'light',
     content: {
       heroTitle: 'Clean & Minimal',
@@ -230,7 +260,7 @@ export const LightTheme: Story = {
 export const DarkHighContrast: Story = {
   args: {
     companyName: 'DarkMode Pro',
-    logoLetter: 'D',
+    logo: 'D',
     showThemeSwitcher: false,
     colors: {
       primary: '#00F0FF',
@@ -259,7 +289,7 @@ export const DarkHighContrast: Story = {
 export const SpanishLocale: Story = {
   args: {
     companyName: 'Mi Empresa',
-    logoLetter: 'M',
+    logo: 'M',
     locale: 'es',
   },
 };
@@ -274,7 +304,7 @@ export const SpanishLocale: Story = {
 export const NoFooter: Story = {
   args: {
     companyName: 'Minimal Co',
-    logoLetter: 'M',
+    logo: 'M',
     showFooter: false,
     content: {
       heroTitle: 'Simple & Clean',
@@ -289,7 +319,7 @@ export const NoFooter: Story = {
 export const NoSwitchers: Story = {
   args: {
     companyName: 'Clean UI',
-    logoLetter: 'C',
+    logo: 'C',
     showLanguageSwitcher: false,
     showThemeSwitcher: false,
     content: {
@@ -309,7 +339,7 @@ export const NoSwitchers: Story = {
 export const CustomAboutSection: Story = {
   args: {
     companyName: 'StoryTech',
-    logoLetter: 'S',
+    logo: 'S',
     aboutSection: (
       <div
         style={{ padding: '4rem 1rem', maxWidth: '1200px', margin: '0 auto' }}
@@ -370,7 +400,7 @@ export const CustomAboutSection: Story = {
 export const CustomContactSection: Story = {
   args: {
     companyName: 'Reach Us',
-    logoLetter: 'R',
+    logo: 'R',
     contactSection: (
       <div
         style={{
@@ -454,7 +484,7 @@ export const CustomContactSection: Story = {
 export const CustomFooterLinks: Story = {
   args: {
     companyName: 'LinkTech',
-    logoLetter: 'L',
+    logo: 'L',
     footerLinks: [
       { label: 'Documentation', href: '/docs' },
       { label: 'API Reference', href: '/api' },
@@ -476,7 +506,7 @@ export const CustomFooterLinks: Story = {
 export const AIProduct: Story = {
   args: {
     companyName: 'NeuralFlow AI',
-    logoLetter: 'N',
+    logo: 'N',
     colors: {
       primary: '#6366F1',
       primaryDark: '#4F46E5',
@@ -543,7 +573,7 @@ export const AIProduct: Story = {
 export const DeveloperTools: Story = {
   args: {
     companyName: 'DevKit API',
-    logoLetter: 'D',
+    logo: 'D',
     colors: {
       primary: '#10B981',
       primaryDark: '#059669',
@@ -614,7 +644,7 @@ export const DeveloperTools: Story = {
 export const FintechProduct: Story = {
   args: {
     companyName: 'SecurePay',
-    logoLetter: 'S',
+    logo: 'S',
     colors: {
       primary: '#2563EB',
       primaryDark: '#1D4ED8',

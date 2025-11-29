@@ -1,4 +1,4 @@
-import React, { ReactNode, useMemo } from 'react';
+import React, { ReactNode, useMemo, useState } from 'react';
 import {
   DEFAULT_TEMPLATE,
   getLocaleStrings,
@@ -13,14 +13,19 @@ import {
 } from './utils';
 import { useScrollReveal, useLocalizedContent } from './hooks';
 import { Main, SaasLayout } from './components';
-import { LanguageOption, Locale, THEME_NAMES, ThemeName } from '../shared';
+import {
+  LanguageOption,
+  Locale,
+  THEME_NAMES,
+  ThemeName,
+  PageUnderConstruction,
+} from '../shared';
 
 export interface SaasLaunchProps {
   // Brand/Company
   productName?: string;
   companyName?: string;
   logo?: ReactNode;
-  logoLetter?: string;
 
   // Content overrides (optional - falls back to locale strings)
   content?: ContentOverrides;
@@ -50,6 +55,7 @@ export interface SaasLaunchProps {
   // Footer
   showFooter?: boolean;
   footerLinks?: FooterLink[];
+  onFooterLinkClick?: (href: string, label: string) => void;
 
   // Feature navigation
   onFeatureClick?: (feature: Feature) => void;
@@ -62,13 +68,13 @@ export const SaasLaunch: React.FC<SaasLaunchProps> = ({
   contactSection = DEFAULT_TEMPLATE.contactSection,
   contactFieldsConfig = DEFAULT_CONTACT_FIELDS,
   content,
-  footerLinks,
+  footerLinks = DEFAULT_TEMPLATE.footerLinks,
   languageOptions = DEFAULT_LANGUAGE_OPTIONS,
   locale = DEFAULT_LOCALE,
-  logo,
-  logoLetter = DEFAULT_TEMPLATE.logoLetter,
+  logo = DEFAULT_TEMPLATE.logo,
   onLocaleChange,
   onFeatureClick,
+  onFooterLinkClick,
   showFooter = true,
   showLanguageSwitcher = true,
   showThemeSwitcher = true,
@@ -76,17 +82,37 @@ export const SaasLaunch: React.FC<SaasLaunchProps> = ({
 }) => {
   const addToRefs = useScrollReveal();
 
+  // State to track current page
+  const [currentPage, setCurrentPage] = useState<string | null>(null);
+
   // Get locale strings
   const localeStrings = useMemo(() => getLocaleStrings(locale), [locale]);
 
   // Get localized content with overrides
   const displayContent = useLocalizedContent(localeStrings, content);
 
+  // Create footer links with onClick handlers
+  const enhancedFooterLinks = useMemo(() => {
+    return footerLinks.map((link) => ({
+      ...link,
+      onClick:
+        link.onClick ||
+        ((e: React.MouseEvent<HTMLAnchorElement>) => {
+          e.preventDefault();
+          if (onFooterLinkClick) {
+            onFooterLinkClick(link.href, link.label);
+          } else {
+            // Default behavior: show under construction page
+            setCurrentPage(link.label);
+          }
+        }),
+    }));
+  }, [footerLinks, onFooterLinkClick]);
+
   return (
     <SaasLayout
       companyName={companyName}
       logo={logo}
-      logoLetter={logoLetter}
       colors={colors}
       theme={theme}
       locale={locale}
@@ -95,31 +121,39 @@ export const SaasLaunch: React.FC<SaasLaunchProps> = ({
       showLanguageSwitcher={showLanguageSwitcher}
       showThemeSwitcher={showThemeSwitcher}
       showFooter={showFooter}
-      footerLinks={footerLinks}
+      footerLinks={enhancedFooterLinks}
     >
-      <Main
-        launchBadgeText={displayContent.launchBadgeText}
-        heroTitle={displayContent.heroTitle}
-        heroDescription={displayContent.heroDescription}
-        primaryCtaText={displayContent.primaryCtaText}
-        primaryCtaHref={displayContent.primaryCtaHref}
-        secondaryCtaText={displayContent.secondaryCtaText}
-        secondaryCtaHref={displayContent.secondaryCtaHref}
-        features={displayContent.features}
-        featuresSectionTitle={displayContent.featuresSectionTitle}
-        stats={displayContent.stats}
-        aboutSection={aboutSection}
-        contactSection={contactSection}
-        contactFieldsConfig={contactFieldsConfig}
-        finalCtaTitle={displayContent.finalCtaTitle}
-        finalCtaDescription={displayContent.finalCtaDescription}
-        finalCtaButton={displayContent.finalCtaButton}
-        finalCtaHref={displayContent.finalCtaHref}
-        addToRefs={addToRefs}
-        tagline={displayContent.tagline}
-        locale={localeStrings}
-        onFeatureClick={onFeatureClick}
-      />
+      {currentPage ? (
+        <PageUnderConstruction
+          pageName={currentPage}
+          onBackClick={() => setCurrentPage(null)}
+          locale={localeStrings.pageUnderConstruction}
+        />
+      ) : (
+        <Main
+          launchBadgeText={displayContent.launchBadgeText}
+          heroTitle={displayContent.heroTitle}
+          heroDescription={displayContent.heroDescription}
+          primaryCtaText={displayContent.primaryCtaText}
+          primaryCtaHref={displayContent.primaryCtaHref}
+          secondaryCtaText={displayContent.secondaryCtaText}
+          secondaryCtaHref={displayContent.secondaryCtaHref}
+          features={displayContent.features}
+          featuresSectionTitle={displayContent.featuresSectionTitle}
+          stats={displayContent.stats}
+          aboutSection={aboutSection}
+          contactSection={contactSection}
+          contactFieldsConfig={contactFieldsConfig}
+          finalCtaTitle={displayContent.finalCtaTitle}
+          finalCtaDescription={displayContent.finalCtaDescription}
+          finalCtaButton={displayContent.finalCtaButton}
+          finalCtaHref={displayContent.finalCtaHref}
+          addToRefs={addToRefs}
+          tagline={displayContent.tagline}
+          locale={localeStrings}
+          onFeatureClick={onFeatureClick}
+        />
+      )}
     </SaasLayout>
   );
 };
