@@ -69,6 +69,12 @@ export const STYLES = {
 
   // Features Section
   FEATURES_SECTION: 'py-20',
+  FEATURES_SECTION_HEADER: 'text-center mb-16',
+  FEATURES_SECTION_TITLE: [
+    'text-4xl font-bold mb-4',
+    'bg-gradient-to-r from-purple-400 to-pink-600',
+    'bg-clip-text text-transparent',
+  ],
   FEATURES_GRID: 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16',
   FEATURE_TITLE:
     'text-[22px] mb-3 text-[var(--text)] min-h-[70px] flex items-center smooth-content-change',

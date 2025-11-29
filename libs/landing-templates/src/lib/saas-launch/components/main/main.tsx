@@ -15,24 +15,36 @@ import {
 } from '../../utils';
 
 interface MainProps {
+  // Hero Section
   launchBadgeText: string;
   heroTitle: string;
   heroDescription: string;
+  tagline?: string;
   primaryCtaText: string;
   primaryCtaHref: string;
   secondaryCtaText: string;
   secondaryCtaHref: string;
+
+  // Features Section
   features: readonly Feature[];
+  featuresSectionTitle?: string;
+
+  // Stats Section
   stats: readonly Stat[];
+
+  // Custom Sections
   aboutSection?: React.ReactNode;
   contactSection?: React.ReactNode;
   contactFieldsConfig?: ContactFieldsConfig;
+
+  // Final CTA Section
   finalCtaTitle: string;
   finalCtaDescription: string;
   finalCtaButton: string;
   finalCtaHref: string;
+
+  // Infrastructure
   addToRefs: (el: HTMLElement | null) => void;
-  tagline?: string;
   locale: LocaleStrings;
   showSections?: ShowSections;
   customSections?: React.ReactElement[];
@@ -47,6 +59,7 @@ export const Main: React.FC<MainProps> = ({
   secondaryCtaText,
   secondaryCtaHref,
   features,
+  featuresSectionTitle,
   stats,
   aboutSection,
   contactSection,
@@ -99,7 +112,11 @@ export const Main: React.FC<MainProps> = ({
         />
       )}
       {showSections.features && (
-        <FeaturesSection features={features} addToRefs={addToRefs} />
+        <FeaturesSection
+          features={features}
+          title={featuresSectionTitle}
+          addToRefs={addToRefs}
+        />
       )}
       {showSections.stats && (
         <StatsSection stats={stats} addToRefs={addToRefs} />

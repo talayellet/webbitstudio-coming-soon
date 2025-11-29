@@ -16,6 +16,7 @@ interface UseLocalizedContentProps {
     title: string;
     description: string;
   }>;
+  featuresSectionTitle: string;
   stats: ReadonlyArray<{
     number: string;
     label: string;
@@ -49,6 +50,8 @@ export const useLocalizedContent = (
       primaryCtaHref: contentOverrides?.primaryCtaHref ?? '#',
       secondaryCtaHref: contentOverrides?.secondaryCtaHref ?? '#',
       features: contentOverrides?.features ?? localeStrings.features.items,
+      featuresSectionTitle:
+        contentOverrides?.featuresSectionTitle ?? localeStrings.features.title,
       stats: contentOverrides?.stats ?? localeStrings.stats.items,
       finalCtaTitle:
         contentOverrides?.finalCtaTitle ?? localeStrings.finalCta.title,

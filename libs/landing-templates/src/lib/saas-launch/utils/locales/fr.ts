@@ -76,6 +76,7 @@ export const fr: LocaleStrings = {
 
   // Features Section
   features: {
+    title: 'Fonctionnalités',
     items: [
       {
         icon: '⚡',

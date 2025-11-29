@@ -11,15 +11,29 @@ export interface Feature {
 interface FeaturesSectionProps {
   features: readonly Feature[];
   addToRefs: (el: HTMLElement | null) => void;
+  title?: string;
+  sectionId?: string;
+  className?: string;
 }
 
 export const FeaturesSection: React.FC<FeaturesSectionProps> = ({
   features,
   addToRefs,
+  title,
+  sectionId = 'features',
+  className,
 }) => {
   return (
-    <section className={STYLES.FEATURES_SECTION} id="features">
+    <section
+      className={clsx(STYLES.FEATURES_SECTION, className)}
+      id={sectionId}
+    >
       <div className={STYLES.CONTAINER}>
+        {title && (
+          <div className={STYLES.FEATURES_SECTION_HEADER}>
+            <h2 className={clsx(STYLES.FEATURES_SECTION_TITLE)}>{title}</h2>
+          </div>
+        )}
         <div
           ref={addToRefs}
           className={clsx(STYLES.FEATURES_GRID, STYLES.REVEAL)}

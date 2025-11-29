@@ -111,6 +111,7 @@ export interface ContentOverrides {
 
   // Features
   features?: Array<Feature>;
+  featuresSectionTitle?: string;
 
   // Stats
   stats?: Array<Stat>;

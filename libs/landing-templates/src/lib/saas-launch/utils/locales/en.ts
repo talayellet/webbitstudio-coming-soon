@@ -73,6 +73,7 @@ export const en = {
 
   // Features Section
   features: {
+    title: 'Features',
     items: [
       {
         icon: '⚡',
@@ -190,6 +191,7 @@ export interface LocaleStrings {
     secondaryCta: string;
   };
   features: {
+    title: string;
     items: ReadonlyArray<{
       icon: string;
       title: string;

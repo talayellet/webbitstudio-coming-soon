@@ -74,6 +74,7 @@ export const es: LocaleStrings = {
 
   // Features Section
   features: {
+    title: 'Características',
     items: [
       {
         icon: '⚡',

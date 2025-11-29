@@ -112,6 +112,7 @@ export const SaasLaunch: React.FC<SaasLaunchProps> = ({
           secondaryCtaText={displayContent.secondaryCtaText}
           secondaryCtaHref={displayContent.secondaryCtaHref}
           features={displayContent.features}
+          featuresSectionTitle={displayContent.featuresSectionTitle}
           stats={displayContent.stats}
           aboutSection={aboutSection}
           contactSection={contactSection}
