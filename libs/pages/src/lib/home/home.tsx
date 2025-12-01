@@ -1,43 +1,39 @@
 import React from 'react';
 import { packages, faqs } from './utils/constants';
+import * as styles from './utils/styles';
 
 export const WebbitStudioHomePage: React.FC = () => {
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-50">
+    <div className={styles.layout.page}>
       {/* Page wrapper */}
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div className={styles.layout.container}>
         {/* Header / Nav */}
-        <header className="flex items-center justify-between py-6">
-          <div className="flex items-center gap-2">
-            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-sky-500/90 shadow-lg shadow-sky-500/40">
-              <span className="text-lg font-bold tracking-tight">W</span>
+        <header className={styles.header.root}>
+          <div className={styles.header.logo.container}>
+            <div className={styles.header.logo.icon}>
+              <span className={styles.header.logo.iconText}>W</span>
             </div>
-            <div className="flex flex-col">
-              <span className="text-base font-semibold tracking-tight">
-                Webbit Studio
-              </span>
-              <span className="text-xs text-slate-400">
+            <div className={styles.header.logo.textContainer}>
+              <span className={styles.header.logo.title}>Webbit Studio</span>
+              <span className={styles.header.logo.subtitle}>
                 Websites for modern businesses
               </span>
             </div>
           </div>
-          <nav className="hidden items-center gap-8 text-sm text-slate-300 md:flex">
-            <a href="#packages" className="hover:text-sky-400">
+          <nav className={styles.header.nav.root}>
+            <a href="#packages" className={styles.header.nav.link}>
               Packages
             </a>
-            <a href="#process" className="hover:text-sky-400">
+            <a href="#process" className={styles.header.nav.link}>
               How it works
             </a>
-            <a href="#pricing" className="hover:text-sky-400">
+            <a href="#pricing" className={styles.header.nav.link}>
               Pricing
             </a>
-            <a href="#faq" className="hover:text-sky-400">
+            <a href="#faq" className={styles.header.nav.link}>
               FAQ
             </a>
-            <a
-              href="#contact"
-              className="rounded-full bg-sky-500 px-4 py-2 text-sm font-medium text-slate-950 shadow-md shadow-sky-500/40 hover:bg-sky-400"
-            >
+            <a href="#contact" className={styles.button.primarySmall}>
               Start your project
             </a>
           </nav>
@@ -46,67 +42,72 @@ export const WebbitStudioHomePage: React.FC = () => {
         {/* Hero */}
         <section
           aria-labelledby="hero-heading"
-          className="grid gap-10 py-10 md:grid-cols-2 md:py-16 lg:py-20"
+          className={styles.layout.grid2Cols}
         >
-          <div className="flex flex-col justify-center space-y-6">
-            <p className="inline-flex max-w-fit items-center gap-2 rounded-full border border-slate-800 bg-slate-900/70 px-3 py-1 text-xs font-medium text-slate-300">
-              <span className="inline-block h-1.5 w-1.5 rounded-full bg-emerald-400" />
+          <div className={styles.hero.content}>
+            <p className={styles.typography.badge}>
+              <span className={styles.hero.badge} />
               Serving clients in Israel, India, Europe, US & Canada
             </p>
 
-            <h1
-              id="hero-heading"
-              className="text-3xl font-semibold tracking-tight text-slate-50 sm:text-4xl lg:text-5xl"
-            >
+            <h1 id="hero-heading" className={styles.typography.h1}>
               Websites that make your business look great — delivered fast.
             </h1>
 
-            <p className="max-w-xl text-sm text-slate-300 sm:text-base">
+            <p
+              className={
+                styles.layout.maxWidthXl + ' ' + styles.typography.bodyBase
+              }
+            >
               Webbit Studio builds landing pages, business websites, hosting
               setups, deployments, and custom admin panels so you can manage
               your content with ease. Designed for small businesses worldwide.
             </p>
 
-            <div className="flex flex-wrap items-center gap-3">
-              <a
-                href="#contact"
-                className="rounded-full bg-sky-500 px-5 py-2.5 text-sm font-semibold text-slate-950 shadow-lg shadow-sky-500/40 hover:bg-sky-400"
-              >
+            <div className={styles.hero.actions}>
+              <a href="#contact" className={styles.button.primary}>
                 Start your project
               </a>
-              <a
-                href="#packages"
-                className="rounded-full border border-slate-700 px-5 py-2.5 text-sm font-semibold text-slate-100 hover:border-sky-500/70 hover:text-sky-200"
-              >
+              <a href="#packages" className={styles.button.secondary}>
                 See packages
               </a>
             </div>
 
-            <p className="mt-2 text-xs text-slate-400 sm:text-sm">
+            <p className={styles.hero.trust}>
               Trusted by small businesses and startups worldwide. Most projects
               completed in under 7 days.
             </p>
           </div>
 
           {/* Hero visual */}
-          <div className="relative flex items-center justify-center">
-            <div className="absolute -inset-6 -z-10 rounded-3xl bg-gradient-to-br from-sky-500/30 via-violet-500/20 to-emerald-400/20 blur-3xl" />
-            <div className="w-full max-w-md rounded-3xl border border-slate-800 bg-slate-900/80 p-4 shadow-2xl">
+          <div className={styles.hero.visual}>
+            <div className={styles.hero.gradient} />
+            <div className={styles.card.hero}>
               {/* Browser mock */}
-              <div className="flex items-center gap-2 border-b border-slate-800 pb-3">
-                <span className="h-2.5 w-2.5 rounded-full bg-rose-500" />
-                <span className="h-2.5 w-2.5 rounded-full bg-amber-400" />
-                <span className="h-2.5 w-2.5 rounded-full bg-emerald-400" />
-                <span className="ml-auto rounded-full bg-slate-800 px-2 py-1 text-[10px] text-slate-400">
-                  webbitstudio.com
-                </span>
+              <div className={styles.hero.browserHeader}>
+                <span
+                  className={
+                    styles.hero.browserDot + ' ' + styles.colors.rose500
+                  }
+                />
+                <span
+                  className={
+                    styles.hero.browserDot + ' ' + styles.colors.amber400
+                  }
+                />
+                <span
+                  className={
+                    styles.hero.browserDot + ' ' + styles.colors.emerald400
+                  }
+                />
+                <span className={styles.hero.browserUrl}>webbitstudio.com</span>
               </div>
 
               <div className="space-y-4 pt-4">
-                <div className="h-6 w-3/4 rounded-md bg-slate-800" />
+                <div className={styles.hero.mockElement} />
                 <div className="h-3 w-5/6 rounded-md bg-slate-800/90" />
                 <div className="grid grid-cols-3 gap-3 pt-1">
-                  <div className="h-24 rounded-xl bg-gradient-to-br from-sky-500/60 to-sky-400/80" />
+                  <div className={styles.hero.mockCard} />
                   <div className="space-y-2">
                     <div className="h-4 w-3/4 rounded bg-slate-800" />
                     <div className="h-3 w-5/6 rounded bg-slate-800/90" />
@@ -119,19 +120,19 @@ export const WebbitStudioHomePage: React.FC = () => {
                   </div>
                 </div>
                 <div className="grid grid-cols-3 gap-2 pt-2 text-[10px] text-slate-300">
-                  <div className="rounded-lg border border-slate-800/80 bg-slate-900/90 p-2">
+                  <div className={styles.card.heroBrowserMock}>
                     <p className="font-medium">Landing</p>
                     <p className="text-[11px] text-slate-400">
                       Fast, simple, effective.
                     </p>
                   </div>
-                  <div className="rounded-lg border border-slate-800/80 bg-slate-900/90 p-2">
+                  <div className={styles.card.heroBrowserMock}>
                     <p className="font-medium">Pro Site</p>
                     <p className="text-[11px] text-slate-400">
                       Multi-page & hosted.
                     </p>
                   </div>
-                  <div className="rounded-lg border border-slate-800/80 bg-slate-900/90 p-2">
+                  <div className={styles.card.heroBrowserMock}>
                     <p className="font-medium">Premium CMS</p>
                     <p className="text-[11px] text-slate-400">
                       Edit content yourself.
@@ -144,23 +145,15 @@ export const WebbitStudioHomePage: React.FC = () => {
         </section>
 
         {/* Social proof / tech strip */}
-        <section className="border-y border-slate-800 py-6 text-xs text-slate-400 sm:text-sm">
-          <div className="flex flex-wrap items-center justify-between gap-3">
+        <section className={styles.techStrip.root}>
+          <div className={styles.techStrip.container}>
             <p>Built with modern, reliable technology.</p>
-            <div className="flex flex-wrap items-center gap-3 text-[11px] uppercase tracking-wide text-slate-500">
-              <span className="rounded-full border border-slate-800 px-2 py-1">
-                React
-              </span>
-              <span className="rounded-full border border-slate-800 px-2 py-1">
-                TypeScript
-              </span>
-              <span className="rounded-full border border-slate-800 px-2 py-1">
-                Tailwind
-              </span>
-              <span className="rounded-full border border-slate-800 px-2 py-1">
-                Vite
-              </span>
-              <span className="rounded-full border border-slate-800 px-2 py-1">
+            <div className={styles.techStrip.badges}>
+              <span className={styles.typography.techBadge}>React</span>
+              <span className={styles.typography.techBadge}>TypeScript</span>
+              <span className={styles.typography.techBadge}>Tailwind</span>
+              <span className={styles.typography.techBadge}>Vite</span>
+              <span className={styles.typography.techBadge}>
                 Modern hosting
               </span>
             </div>
@@ -171,78 +164,78 @@ export const WebbitStudioHomePage: React.FC = () => {
         <section
           id="packages"
           aria-labelledby="packages-heading"
-          className="py-12 sm:py-16"
+          className={styles.section.default}
         >
-          <div className="mb-8 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+          <div
+            className={
+              styles.spacing.mb8 +
+              ' flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between'
+            }
+          >
             <div>
-              <h2
-                id="packages-heading"
-                className="text-2xl font-semibold tracking-tight text-slate-50 sm:text-3xl"
-              >
+              <h2 id="packages-heading" className={styles.typography.h2}>
                 Packages for every stage of your business
               </h2>
-              <p className="mt-2 max-w-xl text-sm text-slate-300 sm:text-base">
+              <p
+                className={
+                  styles.spacing.mt2 +
+                  ' ' +
+                  styles.layout.maxWidthXl +
+                  ' ' +
+                  styles.typography.bodyBase
+                }
+              >
                 From simple landing pages to full websites with a self-managed
                 admin panel, choose the option that fits your current needs.
               </p>
             </div>
-            <p className="text-xs text-slate-400 sm:text-sm">
+            <p className={styles.typography.bodyExtraSmall}>
               Most projects completed in 3–7 days.
             </p>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-3">
+          <div className={styles.layout.grid3Cols}>
             {packages.map((pkg) => (
-              <article
-                key={pkg.name}
-                className="group flex flex-col rounded-2xl border border-slate-800 bg-slate-900/60 p-5 shadow-[0_0_0_1px_rgba(15,23,42,0.7)] transition hover:border-sky-500/70 hover:bg-slate-900"
-              >
-                <div className="mb-3 flex items-center justify-between gap-2">
-                  <h3 className="text-base font-semibold text-slate-50 sm:text-lg">
-                    {pkg.name}
-                  </h3>
-                  <span className="rounded-full bg-sky-500/10 px-2.5 py-1 text-[10px] font-medium text-sky-300">
+              <article key={pkg.name} className={styles.card.package}>
+                <div className={styles.packageCard.header}>
+                  <h3 className={styles.typography.h3Base}>{pkg.name}</h3>
+                  <span className={styles.typography.tagSmall}>
                     {pkg.highlight}
                   </span>
                 </div>
-                <p className="text-xs font-medium text-slate-300 sm:text-sm">
-                  {pkg.tagline}
-                </p>
-                <p className="mt-2 text-xs text-slate-400 sm:text-sm">
+                <p className={styles.packageCard.tagline}>{pkg.tagline}</p>
+                <p className={styles.packageCard.description}>
                   {pkg.description}
                 </p>
 
-                <ul className="mt-4 space-y-2 text-xs text-slate-300 sm:text-sm">
+                <ul className={styles.list.features}>
                   {pkg.features.map((feature) => (
-                    <li key={feature} className="flex gap-2">
-                      <span className="mt-0.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-sky-400" />
+                    <li key={feature} className={styles.list.featureItem}>
+                      <span className={styles.list.bullet} />
                       <span>{feature}</span>
                     </li>
                   ))}
                 </ul>
 
-                <div className="mt-5 border-t border-slate-800 pt-4 text-sm">
-                  <p className="text-slate-200">
-                    <span className="text-xs uppercase tracking-wide text-slate-400">
+                <div className={styles.packageCard.pricing}>
+                  <p className={styles.colors.slate[200]}>
+                    <span className={styles.packageCard.priceLabel}>
                       Starting from{' '}
                     </span>
-                    <span className="text-base font-semibold">
+                    <span className={styles.packageCard.priceAmount}>
                       {pkg.startingPrice}
                     </span>
                   </p>
-                  <p className="mt-1 text-xs text-slate-400">
+                  <p className={styles.packageCard.priceRange}>
                     Typical range: {pkg.typicalRange}
                   </p>
-                  <p className="mt-1 text-[11px] text-slate-500">
+                  <p className={styles.packageCard.priceNote}>
                     Final quote depends on region &amp; project complexity.
                   </p>
                 </div>
 
-                <div className="mt-4 flex flex-1 items-end">
-                  <a
-                    href="#contact"
-                    className="inline-flex w-full items-center justify-center rounded-full bg-slate-100 px-4 py-2 text-xs font-semibold text-slate-950 shadow-sm hover:bg-slate-200"
-                  >
+                <div className={styles.packageCard.cta}>
+                  <a href="#contact" className={styles.button.light}>
                     Get a tailored quote
                   </a>
                 </div>
@@ -255,22 +248,21 @@ export const WebbitStudioHomePage: React.FC = () => {
         <section
           id="process"
           aria-labelledby="process-heading"
-          className="border-y border-slate-800 py-12 sm:py-14"
+          className={styles.section.withBorder}
         >
-          <div className="mb-8 max-w-2xl">
-            <h2
-              id="process-heading"
-              className="text-2xl font-semibold tracking-tight text-slate-50 sm:text-3xl"
-            >
+          <div className={styles.spacing.mb8 + ' ' + styles.layout.maxWidth}>
+            <h2 id="process-heading" className={styles.typography.h2}>
               A simple process from idea to live website
             </h2>
-            <p className="mt-2 text-sm text-slate-300 sm:text-base">
+            <p
+              className={styles.spacing.mt2 + ' ' + styles.typography.bodyBase}
+            >
               We keep things straightforward so you always know what’s next.
               Most projects follow this four-step flow.
             </p>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-4">
+          <div className={styles.layout.grid4Cols}>
             {[
               {
                 step: '1',
@@ -293,40 +285,35 @@ export const WebbitStudioHomePage: React.FC = () => {
                 text: 'We launch your site, and you start sharing it with your customers.',
               },
             ].map((item) => (
-              <div
-                key={item.step}
-                className="flex flex-col rounded-2xl border border-slate-800 bg-slate-900/60 p-4"
-              >
-                <div className="mb-3 flex items-center gap-2">
-                  <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-sky-500/20 text-xs font-semibold text-sky-300">
-                    {item.step}
-                  </span>
-                  <h3 className="text-sm font-semibold text-slate-50 sm:text-base">
-                    {item.title}
-                  </h3>
+              <div key={item.step} className={styles.card.process}>
+                <div className={styles.processStep.header}>
+                  <span className={styles.processStep.badge}>{item.step}</span>
+                  <h3 className={styles.typography.h3Small}>{item.title}</h3>
                 </div>
-                <p className="text-xs text-slate-300 sm:text-sm">{item.text}</p>
+                <p className={styles.processStep.text}>{item.text}</p>
               </div>
             ))}
           </div>
         </section>
 
         {/* Why Webbit Studio */}
-        <section aria-labelledby="why-heading" className="py-12 sm:py-16">
-          <div className="mb-8 max-w-2xl">
-            <h2
-              id="why-heading"
-              className="text-2xl font-semibold tracking-tight text-slate-50 sm:text-3xl"
-            >
+        <section
+          aria-labelledby="why-heading"
+          className={styles.section.default}
+        >
+          <div className={styles.spacing.mb8 + ' ' + styles.layout.maxWidth}>
+            <h2 id="why-heading" className={styles.typography.h2}>
               Why Webbit Studio?
             </h2>
-            <p className="mt-2 text-sm text-slate-300 sm:text-base">
+            <p
+              className={styles.spacing.mt2 + ' ' + styles.typography.bodyBase}
+            >
               We focus on modern technology, clean design, and timelines that
               actually work for busy business owners.
             </p>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-3">
+          <div className={styles.layout.grid3Cols}>
             {[
               {
                 title: 'Fast delivery',
@@ -353,14 +340,13 @@ export const WebbitStudioHomePage: React.FC = () => {
                 text: 'Reach us via email, WhatsApp, or video call. We keep you updated from start to launch.',
               },
             ].map((item) => (
-              <div
-                key={item.title}
-                className="rounded-2xl border border-slate-800 bg-slate-900/60 p-4"
-              >
-                <h3 className="text-sm font-semibold text-slate-50 sm:text-base">
-                  {item.title}
-                </h3>
-                <p className="mt-2 text-xs text-slate-300 sm:text-sm">
+              <div key={item.title} className={styles.card.default}>
+                <h3 className={styles.typography.h3Small}>{item.title}</h3>
+                <p
+                  className={
+                    styles.spacing.mt2 + ' ' + styles.typography.bodySmall
+                  }
+                >
                   {item.text}
                 </p>
               </div>
@@ -372,23 +358,28 @@ export const WebbitStudioHomePage: React.FC = () => {
         <section
           id="pricing"
           aria-labelledby="pricing-heading"
-          className="border-y border-slate-800 py-12 sm:py-16"
+          className={styles.section.withBorderLarge}
         >
-          <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+          <div className={styles.pricing.container}>
             <div>
-              <h2
-                id="pricing-heading"
-                className="text-2xl font-semibold tracking-tight text-slate-50 sm:text-3xl"
-              >
+              <h2 id="pricing-heading" className={styles.typography.h2}>
                 Simple, fair, global pricing
               </h2>
-              <p className="mt-2 max-w-xl text-sm text-slate-300 sm:text-base">
+              <p
+                className={
+                  styles.spacing.mt2 +
+                  ' ' +
+                  styles.layout.maxWidthXl +
+                  ' ' +
+                  styles.typography.bodyBase
+                }
+              >
                 We show USD “starting from” prices so expectations are clear,
                 then adjust final quotes based on your region and project
                 complexity.
               </p>
             </div>
-            <div className="text-xs text-slate-400 sm:text-sm">
+            <div className={styles.pricing.sideNote}>
               <p>Regional pricing available.</p>
               <p>
                 Ask for a tailored quote for Israel, India, Europe, US & Canada.
@@ -396,79 +387,70 @@ export const WebbitStudioHomePage: React.FC = () => {
             </div>
           </div>
 
-          <div className="space-y-4 text-sm text-slate-200">
+          <div className={styles.pricing.list}>
             <div>
-              <h3 className="font-semibold text-slate-50">
+              <h3 className={styles.typography.h3Pricing}>
                 Landing Page Package
               </h3>
-              <p className="mt-1">
-                <span className="text-xs uppercase tracking-wide text-slate-400">
-                  Starting from{' '}
-                </span>
-                <span className="font-semibold">$249</span>{' '}
-                <span className="text-xs text-slate-400">
+              <p className={styles.pricing.item}>
+                <span className={styles.pricing.label}>Starting from </span>
+                <span className={styles.pricing.amount}>$249</span>{' '}
+                <span className={styles.typography.bodyExtraSmall}>
                   (typical range: $249–$399)
                 </span>
               </p>
-              <p className="mt-1 text-xs text-slate-400">
+              <p className={styles.pricing.note}>
                 Final quote depends on region &amp; project complexity.
               </p>
             </div>
 
             <div>
-              <h3 className="font-semibold text-slate-50">
+              <h3 className={styles.typography.h3Pricing}>
                 Pro Business Website
               </h3>
-              <p className="mt-1">
-                <span className="text-xs uppercase tracking-wide text-slate-400">
-                  Starting from{' '}
-                </span>
-                <span className="font-semibold">$499</span>{' '}
-                <span className="text-xs text-slate-400">
+              <p className={styles.pricing.item}>
+                <span className={styles.pricing.label}>Starting from </span>
+                <span className={styles.pricing.amount}>$499</span>{' '}
+                <span className={styles.typography.bodyExtraSmall}>
                   (typical range: $499–$899)
                 </span>
               </p>
-              <p className="mt-1 text-xs text-slate-400">
+              <p className={styles.pricing.note}>
                 Subscription for hosting &amp; domain applies. Regional pricing
                 available.
               </p>
             </div>
 
             <div>
-              <h3 className="font-semibold text-slate-50">
+              <h3 className={styles.typography.h3Pricing}>
                 Premium Website + Admin Panel (CMS)
               </h3>
-              <p className="mt-1">
-                <span className="text-xs uppercase tracking-wide text-slate-400">
-                  Starting from{' '}
-                </span>
-                <span className="font-semibold">$899</span>{' '}
-                <span className="text-xs text-slate-400">
+              <p className={styles.pricing.item}>
+                <span className={styles.pricing.label}>Starting from </span>
+                <span className={styles.pricing.amount}>$899</span>{' '}
+                <span className={styles.typography.bodyExtraSmall}>
                   (typical range: $899–$1,599)
                 </span>
               </p>
-              <p className="mt-1 text-xs text-slate-400">
+              <p className={styles.pricing.note}>
                 Subscription for hosting &amp; domain applies. Regional pricing
                 available.
               </p>
             </div>
           </div>
 
-          <div className="mt-8 rounded-2xl border border-sky-500/40 bg-slate-900/70 p-5 text-sm text-slate-200">
-            <h3 className="text-sm font-semibold text-slate-50 sm:text-base">
+          <div className={styles.card.pricing}>
+            <h3 className={styles.pricing.regionalBox.title}>
               Regional pricing & fairness
             </h3>
-            <p className="mt-2 text-xs text-slate-300 sm:text-sm">
+            <p className={styles.pricing.regionalBox.text}>
               Because we work with businesses in markets with very different
               purchasing power, we adjust final quotes by region and business
               size. This keeps our services accessible to early-stage founders
               in India and Israel, while remaining competitive for clients in
               Europe, the US & Canada.
             </p>
-            <a
-              href="#contact"
-              className="mt-4 inline-flex items-center rounded-full bg-sky-500 px-4 py-2 text-xs font-semibold text-slate-950 shadow-md shadow-sky-500/40 hover:bg-sky-400"
-            >
+            <a href="#contact" className={styles.button.linkSmall}>
               Get your regional quote
             </a>
           </div>
@@ -478,39 +460,29 @@ export const WebbitStudioHomePage: React.FC = () => {
         <section
           id="faq"
           aria-labelledby="faq-heading"
-          className="py-12 sm:py-16"
+          className={styles.section.default}
         >
-          <div className="mb-8 max-w-2xl">
-            <h2
-              id="faq-heading"
-              className="text-2xl font-semibold tracking-tight text-slate-50 sm:text-3xl"
-            >
+          <div className={styles.spacing.mb8 + ' ' + styles.layout.maxWidth}>
+            <h2 id="faq-heading" className={styles.typography.h2}>
               Frequently asked questions
             </h2>
-            <p className="mt-2 text-sm text-slate-300 sm:text-base">
+            <p
+              className={styles.spacing.mt2 + ' ' + styles.typography.bodyBase}
+            >
               If you don’t see your question here, you can always reach out
               directly and we’ll be happy to help.
             </p>
           </div>
 
-          <div className="space-y-4">
+          <div className={styles.list.spacing}>
             {faqs.map((faq) => (
-              <details
-                key={faq.question}
-                className="group rounded-2xl border border-slate-800 bg-slate-900/60 p-4"
-              >
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-2 text-sm font-medium text-slate-100">
+              <details key={faq.question} className={styles.card.faq}>
+                <summary className={styles.faq.summary}>
                   <span>{faq.question}</span>
-                  <span className="text-xs text-slate-400 group-open:hidden">
-                    +
-                  </span>
-                  <span className="hidden text-xs text-slate-400 group-open:inline">
-                    –
-                  </span>
+                  <span className={styles.faq.icon}>+</span>
+                  <span className={styles.faq.iconOpen}>–</span>
                 </summary>
-                <p className="mt-2 text-xs text-slate-300 sm:text-sm">
-                  {faq.answer}
-                </p>
+                <p className={styles.faq.answer}>{faq.answer}</p>
               </details>
             ))}
           </div>
@@ -520,23 +492,20 @@ export const WebbitStudioHomePage: React.FC = () => {
         <section
           id="contact"
           aria-labelledby="contact-heading"
-          className="pb-14 sm:pb-16"
+          className={styles.section.contact}
         >
-          <div className="rounded-3xl border border-sky-500/40 bg-gradient-to-br from-sky-500/20 via-slate-900 to-slate-900/90 p-6 sm:p-8">
-            <div className="grid gap-8 md:grid-cols-2">
+          <div className={styles.card.contact}>
+            <div className={styles.contact.grid}>
               <div>
-                <h2
-                  id="contact-heading"
-                  className="text-2xl font-semibold tracking-tight text-slate-50 sm:text-3xl"
-                >
+                <h2 id="contact-heading" className={styles.typography.h2}>
                   Ready to start your website?
                 </h2>
-                <p className="mt-2 text-sm text-slate-200 sm:text-base">
+                <p className={styles.contact.intro}>
                   Tell us a bit about your business, your location, and what
                   kind of website you need. We’ll get back with a tailored quote
                   and suggested package.
                 </p>
-                <ul className="mt-4 space-y-2 text-xs text-slate-200 sm:text-sm">
+                <ul className={styles.list.contactPoints}>
                   <li>• Landing page, business website, or Premium CMS</li>
                   <li>
                     • Regional pricing for Israel, India, Europe, US & Canada
@@ -545,49 +514,42 @@ export const WebbitStudioHomePage: React.FC = () => {
                 </ul>
               </div>
 
-              <form className="space-y-3 text-sm text-slate-900">
-                <div className="grid gap-3 sm:grid-cols-2">
-                  <div className="space-y-1">
-                    <label className="text-xs font-medium text-slate-100">
-                      Name
-                    </label>
+              <form className={styles.form.root}>
+                <div className={styles.form.grid}>
+                  <div className={styles.form.fieldContainer}>
+                    <label className={styles.typography.label}>Name</label>
                     <input
                       type="text"
                       placeholder="Your name"
-                      className="w-full rounded-xl border border-slate-700 bg-slate-950/70 px-3 py-2 text-xs text-slate-100 placeholder:text-slate-500 focus:border-sky-400 focus:outline-none focus:ring-1 focus:ring-sky-500"
+                      className={styles.form.input}
                     />
                   </div>
-                  <div className="space-y-1">
-                    <label className="text-xs font-medium text-slate-100">
-                      Email
-                    </label>
+                  <div className={styles.form.fieldContainer}>
+                    <label className={styles.typography.label}>Email</label>
                     <input
                       type="email"
                       placeholder="you@example.com"
-                      className="w-full rounded-xl border border-slate-700 bg-slate-950/70 px-3 py-2 text-xs text-slate-100 placeholder:text-slate-500 focus:border-sky-400 focus:outline-none focus:ring-1 focus:ring-sky-500"
+                      className={styles.form.input}
                     />
                   </div>
                 </div>
 
-                <div className="space-y-1">
-                  <label className="text-xs font-medium text-slate-100">
+                <div className={styles.form.fieldContainer}>
+                  <label className={styles.typography.label}>
                     Country / Region
                   </label>
                   <input
                     type="text"
                     placeholder="Israel, India, Germany, US, Canada..."
-                    className="w-full rounded-xl border border-slate-700 bg-slate-950/70 px-3 py-2 text-xs text-slate-100 placeholder:text-slate-500 focus:border-sky-400 focus:outline-none focus:ring-1 focus:ring-sky-500"
+                    className={styles.form.input}
                   />
                 </div>
 
-                <div className="space-y-1">
-                  <label className="text-xs font-medium text-slate-100">
+                <div className={styles.form.fieldContainer}>
+                  <label className={styles.typography.label}>
                     What are you looking for?
                   </label>
-                  <select
-                    className="w-full rounded-xl border border-slate-700 bg-slate-950/70 px-3 py-2 text-xs text-slate-100 focus:border-sky-400 focus:outline-none focus:ring-1 focus:ring-sky-500"
-                    defaultValue=""
-                  >
+                  <select className={styles.form.select} defaultValue="">
                     <option value="" disabled>
                       Select a package
                     </option>
@@ -598,25 +560,22 @@ export const WebbitStudioHomePage: React.FC = () => {
                   </select>
                 </div>
 
-                <div className="space-y-1">
-                  <label className="text-xs font-medium text-slate-100">
+                <div className={styles.form.fieldContainer}>
+                  <label className={styles.typography.label}>
                     Project details
                   </label>
                   <textarea
                     placeholder="Tell us about your business, pages you need, and any deadlines or special requirements."
                     rows={4}
-                    className="w-full rounded-xl border border-slate-700 bg-slate-950/70 px-3 py-2 text-xs text-slate-100 placeholder:text-slate-500 focus:border-sky-400 focus:outline-none focus:ring-1 focus:ring-sky-500"
+                    className={styles.form.textarea}
                   />
                 </div>
 
-                <button
-                  type="button"
-                  className="mt-1 inline-flex w-full items-center justify-center rounded-full bg-slate-100 px-4 py-2.5 text-xs font-semibold text-slate-950 shadow-sm hover:bg-slate-200"
-                >
+                <button type="button" className={styles.button.lightLarge}>
                   Submit inquiry
                 </button>
 
-                <p className="mt-1 text-[11px] text-slate-200">
+                <p className={styles.form.note}>
                   Prefer WhatsApp or a quick call? We can share direct contact
                   details in our reply.
                 </p>
@@ -626,16 +585,16 @@ export const WebbitStudioHomePage: React.FC = () => {
         </section>
 
         {/* Footer */}
-        <footer className="border-t border-slate-800 py-6 text-xs text-slate-500 sm:text-sm">
-          <div className="flex flex-col items-start justify-between gap-3 sm:flex-row sm:items-center">
+        <footer className={styles.footer.root}>
+          <div className={styles.footer.container}>
             <p>
               © {new Date().getFullYear()} Webbit Studio. All rights reserved.
             </p>
-            <div className="flex flex-wrap items-center gap-4">
-              <a href="#hero" className="hover:text-sky-300">
+            <div className={styles.footer.links}>
+              <a href="#hero" className={styles.footer.link}>
                 Back to top
               </a>
-              <span className="hidden h-1 w-1 rounded-full bg-slate-600 sm:inline-block" />
+              <span className={styles.footer.separator} />
               <span>webbitstudio.com</span>
             </div>
           </div>
