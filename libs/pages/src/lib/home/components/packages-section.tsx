@@ -27,23 +27,27 @@ export const PackagesSection: React.FC<PackagesSectionProps> = ({
       <div className={styles.layout.grid3Cols}>
         {content.packages.map((pkg) => (
           <article key={pkg.name} className={styles.card.package}>
-            <div className={styles.packageCard.header}>
-              <h3 className={styles.typography.h3Base}>{pkg.name}</h3>
-              <span className={styles.typography.tagSmall}>
-                {pkg.highlight}
-              </span>
-            </div>
-            <p className={styles.packageCard.tagline}>{pkg.tagline}</p>
-            <p className={styles.packageCard.description}>{pkg.description}</p>
+            <div className={styles.packageCard.contentWrapper}>
+              <div className={styles.packageCard.header}>
+                <h3 className={styles.typography.h3Base}>{pkg.name}</h3>
+                <span className={styles.typography.tagSmall}>
+                  {pkg.highlight}
+                </span>
+              </div>
+              <p className={styles.packageCard.tagline}>{pkg.tagline}</p>
+              <p className={styles.packageCard.description}>
+                {pkg.description}
+              </p>
 
-            <ul className={styles.list.features}>
-              {pkg.features.map((feature) => (
-                <li key={feature} className={styles.list.featureItem}>
-                  <span className={styles.list.bullet} />
-                  <span>{feature}</span>
-                </li>
-              ))}
-            </ul>
+              <ul className={styles.list.features}>
+                {pkg.features.map((feature) => (
+                  <li key={feature} className={styles.list.featureItem}>
+                    <span className={styles.list.bullet} />
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
             <div className={styles.packageCard.pricing}>
               <p className={styles.colors.slate[200]}>

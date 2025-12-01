@@ -1,7 +1,7 @@
 // Layout & Container Styles
 export const layout = {
   page: 'min-h-screen bg-slate-950 text-slate-50',
-  container: 'mx-auto max-w-6xl px-4 sm:px-6 lg:px-8',
+  container: 'mx-auto max-w-6xl min-w-0 px-4 sm:px-6 lg:px-8',
   maxWidth: 'max-w-2xl',
   maxWidthXl: 'max-w-xl',
   grid2Cols: 'grid gap-10 py-10 md:grid-cols-2 md:py-16 lg:py-20',
@@ -73,11 +73,11 @@ export const typography = {
 // Card Styles
 export const card = {
   package:
-    'group flex flex-col rounded-2xl border border-slate-800 bg-slate-900/60 p-5 shadow-[0_0_0_1px_rgba(15,23,42,0.7)] transition hover:border-sky-500/70 hover:bg-slate-900',
-  default: 'rounded-2xl border border-slate-800 bg-slate-900/60 p-4',
+    'group flex flex-col rounded-2xl border border-slate-800 bg-slate-900/60 p-5 shadow-[0_0_0_1px_rgba(15,23,42,0.7)] transition hover:border-sky-500/70 hover:bg-slate-900 min-h-[520px]',
+  default: 'rounded-2xl border border-slate-800 bg-slate-900/60 p-4 min-h-0',
   process:
-    'flex flex-col rounded-2xl border border-slate-800 bg-slate-900/60 p-4',
-  faq: 'group rounded-2xl border border-slate-800 bg-slate-900/60 p-4',
+    'flex flex-col rounded-2xl border border-slate-800 bg-slate-900/60 p-4 min-h-[200px]',
+  faq: 'group rounded-2xl border border-slate-800 bg-slate-900/60 p-4 min-h-0',
   pricing:
     'mt-8 rounded-2xl border border-sky-500/40 bg-slate-900/70 p-5 text-sm text-slate-200',
   contact:
@@ -88,7 +88,7 @@ export const card = {
 
 // Hero Styles
 export const hero = {
-  content: 'flex flex-col justify-center space-y-6',
+  content: 'flex flex-col justify-center space-y-6 min-h-[400px]',
   visual: 'relative flex items-center justify-center',
   gradient:
     'absolute -inset-6 -z-10 rounded-3xl bg-gradient-to-br from-sky-500/30 via-violet-500/20 to-emerald-400/20 blur-3xl',
@@ -164,6 +164,7 @@ export const customSelect = {
 
 // Package Card Styles
 export const packageCard = {
+  contentWrapper: 'min-h-[320px]',
   header: 'mb-3 flex items-center justify-between gap-2',
   tagline: 'text-xs font-medium text-slate-300 sm:text-sm',
   description: 'mt-2 text-xs text-slate-400 sm:text-sm',
