@@ -29,6 +29,22 @@ export const en = {
     secondaryCta: 'See packages',
     trust:
       'Trusted by small businesses and startups worldwide. Most projects completed in under 7 days.',
+    visual: {
+      mockCards: [
+        {
+          title: 'Landing',
+          subtitle: 'Fast, simple, effective.',
+        },
+        {
+          title: 'Pro Site',
+          subtitle: 'Multi-page & hosted.',
+        },
+        {
+          title: 'Premium CMS',
+          subtitle: 'Edit content yourself.',
+        },
+      ],
+    },
   },
 
   // Tech Strip

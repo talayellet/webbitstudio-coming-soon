@@ -30,6 +30,22 @@ export const fr: LocaleStrings = {
     secondaryCta: 'Voir les forfaits',
     trust:
       'Approuvé par des petites entreprises et des startups du monde entier. La plupart des projets terminés en moins de 7 jours.',
+    visual: {
+      mockCards: [
+        {
+          title: 'Landing',
+          subtitle: 'Rapide, simple, efficace.',
+        },
+        {
+          title: 'Site Pro',
+          subtitle: 'Multi-pages et hébergé.',
+        },
+        {
+          title: 'CMS Premium',
+          subtitle: 'Éditez le contenu vous-même.',
+        },
+      ],
+    },
   },
 
   // Tech Strip

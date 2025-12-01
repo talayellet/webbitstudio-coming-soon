@@ -31,6 +31,22 @@ export const es: LocaleStrings = {
     secondaryCta: 'Ver paquetes',
     trust:
       'Confiado por pequeñas empresas y startups en todo el mundo. La mayoría de los proyectos completados en menos de 7 días.',
+    visual: {
+      mockCards: [
+        {
+          title: 'Landing',
+          subtitle: 'Rápido, simple, efectivo.',
+        },
+        {
+          title: 'Sitio Pro',
+          subtitle: 'Multi-página y alojado.',
+        },
+        {
+          title: 'CMS Premium',
+          subtitle: 'Edita el contenido tú mismo.',
+        },
+      ],
+    },
   },
 
   // Tech Strip

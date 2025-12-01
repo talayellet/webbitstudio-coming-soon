@@ -66,24 +66,12 @@ export const Hero: React.FC<HeroProps> = ({ content }) => {
               </div>
             </div>
             <div className={styles.hero.mockCardsGrid}>
-              <div className={styles.card.heroBrowserMock}>
-                <p className={styles.hero.mockCardText}>Landing</p>
-                <p className={styles.hero.mockCardSubtext}>
-                  Fast, simple, effective.
-                </p>
-              </div>
-              <div className={styles.card.heroBrowserMock}>
-                <p className={styles.hero.mockCardText}>Pro Site</p>
-                <p className={styles.hero.mockCardSubtext}>
-                  Multi-page & hosted.
-                </p>
-              </div>
-              <div className={styles.card.heroBrowserMock}>
-                <p className={styles.hero.mockCardText}>Premium CMS</p>
-                <p className={styles.hero.mockCardSubtext}>
-                  Edit content yourself.
-                </p>
-              </div>
+              {content.visual.mockCards.map((card, index) => (
+                <div key={index} className={styles.card.heroBrowserMock}>
+                  <p className={styles.hero.mockCardText}>{card.title}</p>
+                  <p className={styles.hero.mockCardSubtext}>{card.subtitle}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
