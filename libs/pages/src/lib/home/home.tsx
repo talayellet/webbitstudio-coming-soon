@@ -13,7 +13,7 @@ import {
   Footer,
 } from './components';
 import { useLocalizedContent } from './hooks';
-import { LanguageSwitcher } from '@webbitstudio/landing-templates';
+import { LanguageSwitcher } from '@webbit/ui-components';
 
 const LANGUAGE_OPTIONS = [
   { code: 'en' as const, flag: '🇺🇸', label: 'English' },

@@ -48,6 +48,9 @@
   "include": ["src/**/*.js", "src/**/*.jsx", "src/**/*.ts", "src/**/*.tsx"],
   "references": [
     {
+      "path": "../ui-components/tsconfig.lib.json"
+    },
+    {
       "path": "../../shared/tsconfig.lib.json"
     }
   ]
