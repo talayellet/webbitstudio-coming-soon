@@ -1,6 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "NX_DAEMON=false npx nx run-many -t build -p @webbitstudio/shared @webbitstudio/landing-templates @webbitstudio/web",
+  "buildCommand": "npx nx reset && NX_DAEMON=false npx nx run-many -t build -p shared landing-templates web",
   "outputDirectory": "apps/web/dist",
   "installCommand": "yarn install"
 }
