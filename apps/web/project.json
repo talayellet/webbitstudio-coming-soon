@@ -6,15 +6,10 @@
   "tags": [],
   "targets": {
     "build": {
-      "executor": "@nx/vite:build",
+      "executor": "nx:run-commands",
       "options": {
-        "configFile": "apps/web/vite.config.mts"
-      },
-      "defaultConfiguration": "production",
-      "configurations": {
-        "production": {
-          "mode": "production"
-        }
+        "command": "vite build",
+        "cwd": "{projectRoot}"
       },
       "dependsOn": ["^build"],
       "outputs": ["{projectRoot}/dist"]
