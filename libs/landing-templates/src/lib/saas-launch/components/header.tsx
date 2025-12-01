@@ -13,6 +13,7 @@ export interface HeaderProps {
   locale?: LocaleStrings;
   logo: ReactNode;
   navLinks?: NavLink[];
+  onNavClick?: () => boolean;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -20,6 +21,7 @@ export const Header: React.FC<HeaderProps> = ({
   locale = DEFAULT_LOCALE_STRINGS,
   logo,
   navLinks,
+  onNavClick,
 }) => {
   const { isScrolled, scrollToTop } = useStickyHeader();
   const defaultNavLinks = useDefaultNavLinks({ locale, scrollToTop });
@@ -43,7 +45,14 @@ export const Header: React.FC<HeaderProps> = ({
               <li key={index}>
                 <a
                   href={link.href}
-                  onClick={link.onClick}
+                  onClick={(e) => {
+                    // Let parent component handle navigation first (e.g., return to main page)
+                    const shouldContinue = onNavClick?.() ?? true;
+                    // If parent didn't handle it, use the link's own onClick
+                    if (shouldContinue && link.onClick) {
+                      link.onClick(e);
+                    }
+                  }}
                   className={clsx(STYLES.NAV_LINK)}
                 >
                   {link.label}

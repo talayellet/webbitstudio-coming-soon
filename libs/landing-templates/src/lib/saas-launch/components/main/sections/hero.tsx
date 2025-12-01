@@ -8,8 +8,10 @@ interface HeroSectionProps {
   heroDescription: string;
   primaryCtaText: string;
   primaryCtaHref: string;
+  primaryCtaOnClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
   secondaryCtaText: string;
   secondaryCtaHref: string;
+  secondaryCtaOnClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
   tagline?: string;
   locale?: LocaleStrings;
 }
@@ -20,8 +22,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   heroDescription,
   primaryCtaText,
   primaryCtaHref,
+  primaryCtaOnClick,
   secondaryCtaText,
   secondaryCtaHref,
+  secondaryCtaOnClick,
   tagline,
   locale = DEFAULT_LOCALE_STRINGS,
 }) => {
@@ -40,10 +44,18 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         {tagline && <p className={clsx(STYLES.HERO_TAGLINE)}>{tagline}</p>}
         <p className={clsx(STYLES.HERO_DESCRIPTION)}>{heroDescription}</p>
         <div className={STYLES.HERO_CTA_WRAPPER}>
-          <a href={primaryCtaHref} className={clsx(STYLES.PRIMARY_BUTTON)}>
+          <a
+            href={primaryCtaHref}
+            onClick={primaryCtaOnClick}
+            className={clsx(STYLES.PRIMARY_BUTTON)}
+          >
             {primaryCtaText}
           </a>
-          <a href={secondaryCtaHref} className={clsx(STYLES.SECONDARY_BUTTON)}>
+          <a
+            href={secondaryCtaHref}
+            onClick={secondaryCtaOnClick}
+            className={clsx(STYLES.SECONDARY_BUTTON)}
+          >
             {secondaryCtaText}
           </a>
         </div>

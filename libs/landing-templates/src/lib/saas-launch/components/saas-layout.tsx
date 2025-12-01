@@ -35,6 +35,7 @@ export interface SaasLayoutProps {
   showThemeSwitcher?: boolean;
   showFooter?: boolean;
   footerLinks?: FooterLink[];
+  onNavClick?: () => boolean;
 }
 
 /**
@@ -54,6 +55,7 @@ export const SaasLayout: React.FC<SaasLayoutProps> = ({
   showThemeSwitcher = true,
   showFooter = true,
   footerLinks = [],
+  onNavClick,
 }) => {
   // Theme management
   const { currentTheme, setTheme, colorStyles } = useTheme({
@@ -110,7 +112,12 @@ export const SaasLayout: React.FC<SaasLayoutProps> = ({
       {/* Add padding to account for fixed header */}
       <div className={STYLES.FIXED_HEADER_SPACER} />
 
-      <Header companyName={companyName} logo={logo} locale={localeStrings} />
+      <Header
+        companyName={companyName}
+        logo={logo}
+        locale={localeStrings}
+        onNavClick={onNavClick}
+      />
 
       <div className={showFooter ? STYLES.FIXED_FOOTER_SPACER : ''}>
         {children}

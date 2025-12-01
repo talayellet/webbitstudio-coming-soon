@@ -1,4 +1,4 @@
-import React, { ReactNode, useMemo, useState } from 'react';
+import React, { ReactNode, useMemo, useState, useCallback } from 'react';
 import {
   DEFAULT_TEMPLATE,
   getLocaleStrings,
@@ -115,6 +115,19 @@ export const SaasLaunch: React.FC<SaasLaunchProps> = ({
     }));
   }, [footerLinks, onFooterLinkClick]);
 
+  // Handle navigation clicks - return to main page if on under construction page
+  const handleNavClick = useCallback(() => {
+    // If we're on the under construction page, navigate back to main first
+    if (currentPage) {
+      setCurrentPage(null);
+      // Return false to prevent the default link onClick from firing immediately
+      // The navigation will happen when the main page loads
+      return false;
+    }
+    // Continue with normal navigation
+    return true;
+  }, [currentPage]);
+
   return (
     <SaasLayout
       companyName={companyName}
@@ -128,6 +141,7 @@ export const SaasLaunch: React.FC<SaasLaunchProps> = ({
       showThemeSwitcher={showThemeSwitcher}
       showFooter={showFooter}
       footerLinks={enhancedFooterLinks}
+      onNavClick={handleNavClick}
     >
       {currentPage ? (
         <PageUnderConstruction
@@ -142,8 +156,16 @@ export const SaasLaunch: React.FC<SaasLaunchProps> = ({
           heroDescription={displayContent.heroDescription}
           primaryCtaText={displayContent.primaryCtaText}
           primaryCtaHref={displayContent.primaryCtaHref}
+          primaryCtaOnClick={(e) => {
+            e.preventDefault();
+            setCurrentPage(displayContent.primaryCtaText);
+          }}
           secondaryCtaText={displayContent.secondaryCtaText}
           secondaryCtaHref={displayContent.secondaryCtaHref}
+          secondaryCtaOnClick={(e) => {
+            e.preventDefault();
+            setCurrentPage(displayContent.secondaryCtaText);
+          }}
           features={displayContent.features}
           featuresSectionTitle={displayContent.featuresSectionTitle}
           stats={displayContent.stats}

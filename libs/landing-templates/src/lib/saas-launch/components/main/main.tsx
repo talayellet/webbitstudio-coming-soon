@@ -22,8 +22,10 @@ interface MainProps {
   tagline?: string;
   primaryCtaText: string;
   primaryCtaHref: string;
+  primaryCtaOnClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
   secondaryCtaText: string;
   secondaryCtaHref: string;
+  secondaryCtaOnClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
 
   // Features Section
   features: readonly Feature[];
@@ -58,8 +60,10 @@ export const Main: React.FC<MainProps> = ({
   heroDescription,
   primaryCtaText,
   primaryCtaHref,
+  primaryCtaOnClick,
   secondaryCtaText,
   secondaryCtaHref,
+  secondaryCtaOnClick,
   features,
   featuresSectionTitle,
   onFeatureClick,
@@ -110,8 +114,10 @@ export const Main: React.FC<MainProps> = ({
           heroDescription={heroDescription}
           primaryCtaText={primaryCtaText}
           primaryCtaHref={primaryCtaHref}
+          primaryCtaOnClick={primaryCtaOnClick}
           secondaryCtaText={secondaryCtaText}
           secondaryCtaHref={secondaryCtaHref}
+          secondaryCtaOnClick={secondaryCtaOnClick}
           tagline={tagline}
           locale={locale}
         />
