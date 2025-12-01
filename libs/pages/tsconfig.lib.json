@@ -43,9 +43,6 @@
   "references": [
     {
       "path": "../ui-components/tsconfig.lib.json"
-    },
-    {
-      "path": "../landing-templates/tsconfig.lib.json"
     }
   ]
 }

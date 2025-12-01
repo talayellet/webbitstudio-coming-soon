@@ -262,8 +262,11 @@ export const es: LocaleStrings = {
 
   // Footer
   footer: {
-    copyright: '© {year} Webbit Studio. Todos los derechos reservados.',
+    copyright: '© {year} {companyName}. Todos los derechos reservados.',
     tagline: 'Sitios web modernos para pequeñas empresas en todo el mundo.',
+    companyName: 'Webbit Studio',
+    website: 'webbitstudio.com',
+    backToTop: 'Volver arriba',
     links: {
       privacy: 'Política de Privacidad',
       terms: 'Términos de Servicio',

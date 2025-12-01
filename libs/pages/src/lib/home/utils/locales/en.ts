@@ -260,8 +260,11 @@ export const en = {
 
   // Footer
   footer: {
-    copyright: '© {year} Webbit Studio. All rights reserved.',
+    copyright: '© {year} {companyName}. All rights reserved.',
     tagline: 'Modern websites for small businesses worldwide.',
+    companyName: 'Webbit Studio',
+    website: 'webbitstudio.com',
+    backToTop: 'Back to top',
     links: {
       privacy: 'Privacy Policy',
       terms: 'Terms of Service',

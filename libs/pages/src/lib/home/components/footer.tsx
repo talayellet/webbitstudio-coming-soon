@@ -10,7 +10,7 @@ export const Footer: React.FC<FooterProps> = ({ content }) => {
   const currentYear = new Date().getFullYear();
   const copyrightText = content.copyright
     .replace('{year}', currentYear.toString())
-    .replace('{companyName}', 'Webbit Studio');
+    .replace('{companyName}', content.companyName);
 
   return (
     <footer className={styles.footer.root}>
@@ -18,10 +18,10 @@ export const Footer: React.FC<FooterProps> = ({ content }) => {
         <p>{copyrightText}</p>
         <div className={styles.footer.links}>
           <a href="#hero" className={styles.footer.link}>
-            Back to top
+            {content.backToTop}
           </a>
           <span className={styles.footer.separator} />
-          <span>webbitstudio.com</span>
+          <span>{content.website}</span>
         </div>
       </div>
     </footer>
