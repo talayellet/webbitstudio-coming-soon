@@ -21,7 +21,6 @@ export const ContactSection: React.FC = () => {
             </p>
             <ul className={styles.list.contactPoints}>
               <li>• Landing page, business website, or Premium CMS</li>
-              <li>• Regional pricing for Israel, India, Europe, US & Canada</li>
               <li>• Most projects completed within 3–7 days</li>
             </ul>
           </div>
@@ -52,7 +51,7 @@ export const ContactSection: React.FC = () => {
               </label>
               <input
                 type="text"
-                placeholder="Israel, India, Germany, US, Canada..."
+                placeholder="Your country or region"
                 className={styles.form.input}
               />
             </div>

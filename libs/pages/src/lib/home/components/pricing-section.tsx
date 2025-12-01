@@ -15,13 +15,7 @@ export const PricingSection: React.FC = () => {
           </h2>
           <p className={styles.combined.pricingIntro}>
             We show USD "starting from" prices so expectations are clear, then
-            adjust final quotes based on your region and project complexity.
-          </p>
-        </div>
-        <div className={styles.pricing.sideNote}>
-          <p>Regional pricing available.</p>
-          <p>
-            Ask for a tailored quote for Israel, India, Europe, US & Canada.
+            adjust final quotes based on your project complexity.
           </p>
         </div>
       </div>
@@ -37,7 +31,7 @@ export const PricingSection: React.FC = () => {
             </span>
           </p>
           <p className={styles.pricing.note}>
-            Final quote depends on region &amp; project complexity.
+            Final quote depends on project complexity.
           </p>
         </div>
 
@@ -51,8 +45,7 @@ export const PricingSection: React.FC = () => {
             </span>
           </p>
           <p className={styles.pricing.note}>
-            Subscription for hosting &amp; domain applies. Regional pricing
-            available.
+            Subscription for hosting &amp; domain applies.
           </p>
         </div>
 
@@ -68,26 +61,9 @@ export const PricingSection: React.FC = () => {
             </span>
           </p>
           <p className={styles.pricing.note}>
-            Subscription for hosting &amp; domain applies. Regional pricing
-            available.
+            Subscription for hosting &amp; domain applies.
           </p>
         </div>
-      </div>
-
-      <div className={styles.card.pricing}>
-        <h3 className={styles.pricing.regionalBox.title}>
-          Regional pricing & fairness
-        </h3>
-        <p className={styles.pricing.regionalBox.text}>
-          Because we work with businesses in markets with very different
-          purchasing power, we adjust final quotes by region and business size.
-          This keeps our services accessible to early-stage founders in India
-          and Israel, while remaining competitive for clients in Europe, the US
-          & Canada.
-        </p>
-        <a href="#contact" className={styles.button.linkSmall}>
-          Get your regional quote
-        </a>
       </div>
     </section>
   );

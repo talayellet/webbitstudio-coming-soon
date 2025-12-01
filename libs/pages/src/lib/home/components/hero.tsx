@@ -6,11 +6,6 @@ export const Hero: React.FC = () => {
   return (
     <section aria-labelledby="hero-heading" className={styles.layout.grid2Cols}>
       <div className={styles.hero.content}>
-        <p className={styles.typography.badge}>
-          <span className={styles.hero.badge} />
-          Serving clients in Israel, India, Europe, US & Canada
-        </p>
-
         <h1 id="hero-heading" className={styles.typography.h1}>
           Websites that make your business look great - delivered fast.
         </h1>

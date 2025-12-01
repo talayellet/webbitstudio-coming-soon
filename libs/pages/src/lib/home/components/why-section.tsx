@@ -8,8 +8,8 @@ export const WhySection: React.FC = () => {
       text: 'Most landing pages are finished in 2–4 days. Pro and Premium websites typically ship within a week.',
     },
     {
-      title: 'Global-friendly pricing',
-      text: 'We serve clients in Israel, India, Europe, the US & Canada, and adjust final quotes based on region and business size.',
+      title: 'Fair pricing',
+      text: 'We adjust final quotes based on project complexity and business size to keep our services accessible.',
     },
     {
       title: 'Modern technology',

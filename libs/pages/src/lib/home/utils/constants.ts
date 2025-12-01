@@ -73,8 +73,8 @@ export const faqs: FAQ[] = [
       "Yes. You always own your website. We'll also help you set up and manage your domain so it stays in your control.",
   },
   {
-    question: 'How does regional pricing work?',
+    question: 'How does pricing work?',
     answer:
-      'We work with businesses in Israel, India, Europe, the US & Canada. Final quotes are adjusted based on region and business size to keep pricing fair and accessible.',
+      'Final quotes are adjusted based on project complexity and business size to keep pricing fair and accessible.',
   },
 ];
