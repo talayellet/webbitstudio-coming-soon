@@ -59,6 +59,13 @@ export const es: LocaleStrings = {
     title: 'Elige tu paquete',
     subtitle:
       'Desde simples páginas de aterrizaje hasta sitios web completos con gestión de contenido, tenemos algo para cada negocio.',
+    pricing: {
+      startingFrom: 'Desde',
+      typicalRange: 'Rango típico:',
+      priceNote:
+        'La cotización final depende de la región y la complejidad del proyecto.',
+      cta: 'Obtener una cotización personalizada',
+    },
     packages: [
       {
         name: 'Paquete Página de Aterrizaje',

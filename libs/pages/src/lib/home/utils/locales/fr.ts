@@ -58,6 +58,13 @@ export const fr: LocaleStrings = {
     title: 'Choisissez votre forfait',
     subtitle:
       "Des simples pages d'atterrissage aux sites web complets avec gestion de contenu, nous avons quelque chose pour chaque entreprise.",
+    pricing: {
+      startingFrom: 'À partir de',
+      typicalRange: 'Fourchette typique :',
+      priceNote:
+        'Le devis final dépend de la région et de la complexité du projet.',
+      cta: 'Obtenir un devis personnalisé',
+    },
     packages: [
       {
         name: "Forfait Page d'Atterrissage",

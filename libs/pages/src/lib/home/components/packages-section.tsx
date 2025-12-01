@@ -48,23 +48,23 @@ export const PackagesSection: React.FC<PackagesSectionProps> = ({
             <div className={styles.packageCard.pricing}>
               <p className={styles.colors.slate[200]}>
                 <span className={styles.packageCard.priceLabel}>
-                  Starting from{' '}
+                  {content.pricing.startingFrom}{' '}
                 </span>
                 <span className={styles.packageCard.priceAmount}>
                   {pkg.startingPrice}
                 </span>
               </p>
               <p className={styles.packageCard.priceRange}>
-                Typical range: {pkg.typicalRange}
+                {content.pricing.typicalRange} {pkg.typicalRange}
               </p>
               <p className={styles.packageCard.priceNote}>
-                Final quote depends on region &amp; project complexity.
+                {content.pricing.priceNote}
               </p>
             </div>
 
             <div className={styles.packageCard.cta}>
               <a href="#contact" className={styles.button.light}>
-                Get a tailored quote
+                {content.pricing.cta}
               </a>
             </div>
           </article>

@@ -57,6 +57,12 @@ export const en = {
     title: 'Choose your package',
     subtitle:
       'From simple landing pages to full websites with content management, we have something for every business.',
+    pricing: {
+      startingFrom: 'Starting from',
+      typicalRange: 'Typical range:',
+      priceNote: 'Final quote depends on region & project complexity.',
+      cta: 'Get a tailored quote',
+    },
     packages: [
       {
         name: 'Landing Page Package',
