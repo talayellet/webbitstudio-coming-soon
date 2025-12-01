@@ -1,6 +1,20 @@
+import type { Locale } from '../../shared';
+
 // ============================================================================
 // Contact
 // ============================================================================
+
+export interface ContactFormData {
+  name: string;
+  email: string;
+  message: string;
+}
+
+export interface ContactFormErrorMessages {
+  serverError: string;
+  rateLimitError: string;
+  submissionFailed: string;
+}
 
 export interface ContactInfo {
   address?: {
@@ -45,10 +59,20 @@ export interface NavLink {
 // Features
 // ============================================================================
 
+export interface FeatureDetails {
+  price?: string;
+  image?: string;
+  altImage?: string;
+  fullDescription?: string;
+  features?: readonly string[];
+}
+
 export interface Feature {
   icon: string;
   title: string;
   description: string;
+  routePath?: string;
+  featureDetails?: FeatureDetails;
 }
 
 // ============================================================================
@@ -67,6 +91,7 @@ export interface Stat {
 export interface FooterLink {
   label: string;
   href: string;
+  onClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
 }
 
 // ============================================================================
@@ -74,7 +99,7 @@ export interface FooterLink {
 // ============================================================================
 
 export interface LanguageOption {
-  code: string;
+  code: Locale;
   flag: string;
   label: string;
 }
@@ -132,41 +157,4 @@ export interface ShowSections {
   features?: boolean;
   stats?: boolean;
   finalCta?: boolean;
-}
-
-// ============================================================================
-// Main Component Props
-// ============================================================================
-
-export interface SaasLaunchProps {
-  // Brand/Company
-  productName?: string;
-  companyName?: string;
-  logoLetter?: string;
-
-  // Content overrides (optional - falls back to locale strings)
-  content?: ContentOverrides;
-
-  // About Section
-  aboutSection?: React.ReactNode;
-
-  // Contact Section
-  contactSection?: React.ReactNode;
-  contactFieldsConfig?: ContactFieldsConfig;
-
-  // Color scheme
-  colors?: ColorScheme;
-
-  // Language switcher
-  showLanguageSwitcher?: boolean;
-  locale?: string;
-  onLocaleChange?: (locale: string) => void;
-  languageOptions?: LanguageOption[];
-
-  // Theme switcher
-  showThemeSwitcher?: boolean;
-
-  // Footer
-  showFooter?: boolean;
-  footerLinks?: FooterLink[];
 }

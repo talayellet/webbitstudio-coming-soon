@@ -265,5 +265,57 @@ export const STYLES = {
   ],
   CONTACT_FORM_ERROR: 'text-red-500 text-sm',
   CONTACT_FORM_ERROR_CONTAINER: 'min-h-[20px] mt-1',
+  CONTACT_FORM_ERROR_ALERT: 'text-red-600 text-sm mb-4 p-3 bg-red-50 rounded',
   CONTACT_FORM_REQUIRED: 'text-red-500',
+
+  // Feature Page
+  FEATURE_PAGE_CONTAINER: 'min-h-screen py-20',
+  FEATURE_PAGE_HEADER: 'text-center mb-16',
+  FEATURE_PAGE_ICON: [
+    'inline-flex items-center justify-center w-20 h-20 mb-6',
+    'rounded-2xl bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-primary-dark)]',
+    'text-4xl',
+  ],
+  FEATURE_PAGE_TITLE: [
+    'text-4xl md:text-5xl font-bold mb-4',
+    'text-[var(--color-text)]',
+  ],
+  FEATURE_PAGE_DESCRIPTION: [
+    'text-xl text-[var(--color-text-muted)] max-w-3xl mx-auto',
+  ],
+  FEATURE_PAGE_IMAGE_WRAPPER: 'mb-16 rounded-2xl overflow-hidden',
+  FEATURE_PAGE_IMAGE: 'w-full h-auto object-cover',
+  FEATURE_PAGE_GRID: 'grid grid-cols-1 lg:grid-cols-3 gap-12',
+  FEATURE_PAGE_MAIN_CONTENT: 'lg:col-span-2',
+  FEATURE_PAGE_SECTION: 'mb-12',
+  FEATURE_PAGE_SECTION_TITLE: [
+    'text-2xl font-bold mb-4 text-[var(--color-text)]',
+  ],
+  FEATURE_PAGE_SECTION_TITLE_LARGE: [
+    'text-2xl font-bold mb-6 text-[var(--color-text)]',
+  ],
+  FEATURE_PAGE_TEXT: ['text-lg text-[var(--color-text-muted)] leading-relaxed'],
+  FEATURE_PAGE_LIST: 'space-y-4',
+  FEATURE_PAGE_LIST_ITEM: [
+    'flex items-start gap-3',
+    'text-[var(--color-text-muted)]',
+  ],
+  FEATURE_PAGE_LIST_ICON: 'text-[var(--color-primary)] text-xl mt-1',
+  FEATURE_PAGE_LIST_TEXT: 'text-lg',
+  FEATURE_PAGE_SIDEBAR: 'lg:col-span-1',
+  FEATURE_PAGE_SIDEBAR_CARD: [
+    'sticky top-24',
+    'p-8 rounded-2xl',
+    'bg-[var(--color-surface)]',
+    'border border-[var(--color-primary)]/20',
+  ],
+  FEATURE_PAGE_PRICE_WRAPPER: 'mb-6',
+  FEATURE_PAGE_PRICE_LABEL: 'text-sm text-[var(--color-text-muted)] mb-2',
+  FEATURE_PAGE_PRICE: 'text-4xl font-bold text-[var(--color-text)]',
+
+  // Feature Card Learn More Link
+  FEATURE_LEARN_MORE: [
+    'mt-4 text-[var(--color-primary)] text-sm font-medium',
+    'opacity-0 group-hover:opacity-100 transition-opacity',
+  ],
 } as const;

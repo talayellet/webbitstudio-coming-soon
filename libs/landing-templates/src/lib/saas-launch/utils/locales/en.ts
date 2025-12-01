@@ -1,3 +1,5 @@
+import { saasLaunchImages } from '../../../../assets';
+
 /**
  * English (US) locale strings for SaaS Launch template
  */
@@ -29,6 +31,7 @@ export const en = {
         placeholder: 'Tell us about your project...',
       },
       submit: 'Send Message',
+      submitting: 'Sending...',
       successMessage:
         'Thank you for your message! We will get back to you soon.',
       errors: {
@@ -37,6 +40,9 @@ export const en = {
         emailInvalid: 'Invalid email address',
         messageRequired: 'Message is required',
         messageTooLong: 'Message must be 1000 characters or less',
+        serverError: 'Server error. Please try again later.',
+        rateLimitError: 'Too many requests. Please try again later.',
+        submissionFailed: 'Failed to send message. Please try again.',
       },
     },
   },
@@ -74,21 +80,67 @@ export const en = {
   // Features Section
   features: {
     title: 'Features',
+    learnMore: 'Learn more →',
     items: [
       {
         icon: '⚡',
         title: 'Lightning Fast',
         description: 'Built for speed and performance from the ground up.',
+        routePath: '/features/lightning-fast',
+        featureDetails: {
+          price: '$29/mo',
+          image: saasLaunchImages.lightningFast,
+          altImage: 'Lightning fast performance dashboard',
+          fullDescription:
+            "Experience blazing-fast performance with our cutting-edge technology stack. We've optimized every layer of our platform to deliver sub-second response times, ensuring your users never have to wait.",
+          features: [
+            'Sub-second response times across all operations',
+            'Advanced caching mechanisms for instant data retrieval',
+            'Global CDN delivery for worldwide speed',
+            'Optimized database queries and indexing',
+            'Real-time performance monitoring and alerts',
+          ],
+        },
       },
       {
         icon: '🔒',
         title: 'Secure by Default',
         description: 'Enterprise-grade security built into every layer.',
+        routePath: '/features/secure-by-default',
+        featureDetails: {
+          price: '$49/mo',
+          image: saasLaunchImages.secureByDefault,
+          altImage: 'Security and encryption protection',
+          fullDescription:
+            "Security is not an afterthought - it's built into every aspect of our platform. From end-to-end encryption to regular security audits, we ensure your data is always protected.",
+          features: [
+            'End-to-end encryption for all data transfers',
+            'SOC 2 Type II compliance certified',
+            'Regular third-party security audits',
+            'Advanced threat detection and prevention',
+            'Automatic security patches and updates',
+          ],
+        },
       },
       {
         icon: '🎨',
         title: 'Beautiful Design',
         description: 'Stunning interfaces that users love to interact with.',
+        routePath: '/features/beautiful-design',
+        featureDetails: {
+          price: '$39/mo',
+          image: saasLaunchImages.beautifulDesign,
+          altImage: 'Beautiful and modern interface design',
+          fullDescription:
+            'Every pixel matters. Our design team has crafted beautiful, intuitive interfaces that delight users and make complex tasks feel simple.',
+          features: [
+            'Modern, clean interface design',
+            'Fully responsive across all devices',
+            'Customizable themes and branding',
+            'Accessible design following WCAG 2.1 guidelines',
+            'Smooth animations and transitions',
+          ],
+        },
       },
     ],
   },
@@ -110,6 +162,14 @@ export const en = {
     button: 'Start Free Trial',
   },
 
+  // Feature Page
+  featurePage: {
+    backButton: 'Back',
+    overview: 'Overview',
+    keyFeatures: 'Key Features',
+    priceLabel: 'Price',
+  },
+
   // Footer
   footer: {
     copyright: '© {year} {companyName}. All rights reserved.',
@@ -118,6 +178,13 @@ export const en = {
       terms: 'Terms of Service',
       contact: 'Contact',
     },
+  },
+
+  // Page Under Construction
+  pageUnderConstruction: {
+    title: 'Under Construction',
+    message: "We're working hard to bring you this page. Check back soon!",
+    backButton: '← Back to Home',
   },
 
   // Accessibility labels
@@ -159,6 +226,7 @@ export interface LocaleStrings {
         placeholder: string;
       };
       submit: string;
+      submitting: string;
       successMessage: string;
       errors: {
         nameRequired: string;
@@ -166,6 +234,9 @@ export interface LocaleStrings {
         emailInvalid: string;
         messageRequired: string;
         messageTooLong: string;
+        serverError: string;
+        rateLimitError: string;
+        submissionFailed: string;
       };
     };
   };
@@ -192,10 +263,19 @@ export interface LocaleStrings {
   };
   features: {
     title: string;
+    learnMore: string;
     items: ReadonlyArray<{
       icon: string;
       title: string;
       description: string;
+      routePath?: string;
+      featureDetails?: {
+        price?: string;
+        image?: string;
+        altImage?: string;
+        fullDescription?: string;
+        features?: readonly string[];
+      };
     }>;
   };
   stats: {
@@ -209,6 +289,12 @@ export interface LocaleStrings {
     description: string;
     button: string;
   };
+  featurePage: {
+    backButton: string;
+    overview: string;
+    keyFeatures: string;
+    priceLabel: string;
+  };
   footer: {
     copyright: string;
     links: {
@@ -216,6 +302,11 @@ export interface LocaleStrings {
       terms: string;
       contact: string;
     };
+  };
+  pageUnderConstruction: {
+    title: string;
+    message: string;
+    backButton: string;
   };
   aria: {
     location: string;

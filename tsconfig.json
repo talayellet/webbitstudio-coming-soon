@@ -16,16 +16,10 @@
       "path": "./apps/backend"
     },
     {
-      "path": "./libs/shared-types"
-    },
-    {
-      "path": "./libs/ui-components"
-    },
-    {
-      "path": "./libs/utils"
-    },
-    {
       "path": "./libs/landing-templates"
+    },
+    {
+      "path": "./shared"
     }
   ]
 }

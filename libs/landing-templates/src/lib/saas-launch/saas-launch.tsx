@@ -1,117 +1,171 @@
-import React, { useMemo, useState, useCallback } from 'react';
-import clsx from 'clsx';
-import '../../styles.css';
-import './utils/animations.css';
+import React, { ReactNode, useMemo, useState, useCallback } from 'react';
 import {
   DEFAULT_TEMPLATE,
-  SaasLaunchProps,
-  STYLES,
   getLocaleStrings,
   DEFAULT_LOCALE,
   DEFAULT_LANGUAGE_OPTIONS,
   DEFAULT_CONTACT_FIELDS,
+  ContentOverrides,
+  ContactFieldsConfig,
+  ColorScheme,
+  FooterLink,
+  Feature,
 } from './utils';
 import { useScrollReveal, useLocalizedContent } from './hooks';
-import { Header, Main, Footer } from './components';
+import { Main, SaasLayout } from './components';
 import {
-  LanguageSwitcher,
-  ThemeSwitcher,
-  useTheme,
-  THEME_POSITIONS,
+  LanguageOption,
+  Locale,
+  THEME_NAMES,
+  ThemeName,
+  PageUnderConstruction,
 } from '../shared';
+
+export interface SaasLaunchProps {
+  // Brand/Company
+  productName?: string;
+  companyName?: string;
+  logo?: ReactNode;
+
+  // Content overrides (optional - falls back to locale strings)
+  content?: ContentOverrides;
+
+  // About Section
+  aboutSection?: ReactNode;
+
+  // Contact Section
+  contactSection?: ReactNode;
+  contactFieldsConfig?: ContactFieldsConfig;
+  /**
+   * Web3Forms access key for contact form email delivery
+   * Get free key at https://web3forms.com
+   */
+  web3formsAccessKey?: string;
+
+  // Theme
+  theme?: ThemeName;
+
+  // Color scheme (overrides theme colors)
+  colors?: ColorScheme;
+
+  // Language switcher
+  showLanguageSwitcher?: boolean;
+  locale?: Locale;
+  onLocaleChange?: (locale: Locale) => void;
+  languageOptions?: LanguageOption[];
+
+  // Theme switcher
+  showThemeSwitcher?: boolean;
+
+  // Footer
+  showFooter?: boolean;
+  footerLinks?: FooterLink[];
+  onFooterLinkClick?: (href: string, label: string) => void;
+
+  // Feature navigation
+  onFeatureClick?: (feature: Feature) => void;
+}
 
 export const SaasLaunch: React.FC<SaasLaunchProps> = ({
   aboutSection = DEFAULT_TEMPLATE.aboutSection,
-  colors = DEFAULT_TEMPLATE.colors,
+  colors,
   companyName = DEFAULT_TEMPLATE.companyName,
   contactSection = DEFAULT_TEMPLATE.contactSection,
   contactFieldsConfig = DEFAULT_CONTACT_FIELDS,
   content,
-  footerLinks,
+  footerLinks = DEFAULT_TEMPLATE.footerLinks,
   languageOptions = DEFAULT_LANGUAGE_OPTIONS,
   locale = DEFAULT_LOCALE,
-  logoLetter = DEFAULT_TEMPLATE.logoLetter,
+  logo = DEFAULT_TEMPLATE.logo,
   onLocaleChange,
+  onFeatureClick,
+  onFooterLinkClick,
   showFooter = true,
   showLanguageSwitcher = true,
   showThemeSwitcher = true,
+  theme = THEME_NAMES.DARK,
+  web3formsAccessKey,
 }) => {
   const addToRefs = useScrollReveal();
 
-  // Theme management - pass color overrides for backwards compatibility
-  const { currentTheme, setTheme, colorStyles } = useTheme({
-    colorOverrides: colors,
-  });
-
-  // Manage locale internally if not provided as a non-default value (uncontrolled)
-  const [internalLocale, setInternalLocale] = useState(DEFAULT_LOCALE);
-  const currentLocale = locale !== DEFAULT_LOCALE ? locale : internalLocale;
-
-  // Handle locale change - update internal state and call callback if provided
-  const handleLocaleChange = useCallback(
-    (newLocale: string) => {
-      if (locale === DEFAULT_LOCALE) {
-        // Uncontrolled mode - update internal state
-        setInternalLocale(newLocale);
-      }
-      // Always call the callback if provided
-      onLocaleChange?.(newLocale);
-    },
-    [locale, onLocaleChange]
-  );
+  // State to track current page
+  const [currentPage, setCurrentPage] = useState<string | null>(null);
 
   // Get locale strings
-  const localeStrings = useMemo(
-    () => getLocaleStrings(currentLocale),
-    [currentLocale]
-  );
+  const localeStrings = useMemo(() => getLocaleStrings(locale), [locale]);
 
   // Get localized content with overrides
   const displayContent = useLocalizedContent(localeStrings, content);
 
+  // Create footer links with onClick handlers
+  const enhancedFooterLinks = useMemo(() => {
+    return footerLinks.map((link) => ({
+      ...link,
+      onClick:
+        link.onClick ||
+        ((e: React.MouseEvent<HTMLAnchorElement>) => {
+          e.preventDefault();
+          if (onFooterLinkClick) {
+            onFooterLinkClick(link.href, link.label);
+          } else {
+            // Default behavior: show under construction page
+            setCurrentPage(link.label);
+          }
+        }),
+    }));
+  }, [footerLinks, onFooterLinkClick]);
+
+  // Handle navigation clicks - return to main page if on under construction page
+  const handleNavClick = useCallback(() => {
+    // If we're on the under construction page, navigate back to main first
+    if (currentPage) {
+      setCurrentPage(null);
+      // Return false to prevent the default link onClick from firing immediately
+      // The navigation will happen when the main page loads
+      return false;
+    }
+    // Continue with normal navigation
+    return true;
+  }, [currentPage]);
+
   return (
-    <div className={clsx(STYLES.MAIN_CONTAINER)} style={colorStyles}>
-      {/* Animated gradient background */}
-      <div className={STYLES.GRADIENT_BG_WRAPPER}>
-        <div className={STYLES.GRADIENT_BG_INNER} />
-      </div>
-
-      {/* Language Switcher */}
-      {showLanguageSwitcher && (
-        <LanguageSwitcher
-          currentLanguage={currentLocale}
-          languages={languageOptions}
-          onLanguageChange={handleLocaleChange}
+    <SaasLayout
+      companyName={companyName}
+      logo={logo}
+      colors={colors}
+      theme={theme}
+      locale={locale}
+      onLocaleChange={onLocaleChange}
+      languageOptions={languageOptions}
+      showLanguageSwitcher={showLanguageSwitcher}
+      showThemeSwitcher={showThemeSwitcher}
+      showFooter={showFooter}
+      footerLinks={enhancedFooterLinks}
+      onNavClick={handleNavClick}
+    >
+      {currentPage ? (
+        <PageUnderConstruction
+          pageName={currentPage}
+          onBackClick={() => setCurrentPage(null)}
+          locale={localeStrings.pageUnderConstruction}
         />
-      )}
-
-      {/* Theme Switcher */}
-      {showThemeSwitcher && (
-        <ThemeSwitcher
-          currentTheme={currentTheme}
-          onThemeChange={setTheme}
-          position={THEME_POSITIONS.TOP_LEFT}
-        />
-      )}
-
-      {/* Add padding to account for fixed header */}
-      <div className={STYLES.FIXED_HEADER_SPACER} />
-
-      <Header
-        companyName={companyName}
-        logo={logoLetter}
-        locale={localeStrings}
-      />
-
-      <div className={showFooter ? STYLES.FIXED_FOOTER_SPACER : ''}>
+      ) : (
         <Main
           launchBadgeText={displayContent.launchBadgeText}
           heroTitle={displayContent.heroTitle}
           heroDescription={displayContent.heroDescription}
           primaryCtaText={displayContent.primaryCtaText}
           primaryCtaHref={displayContent.primaryCtaHref}
+          primaryCtaOnClick={(e) => {
+            e.preventDefault();
+            setCurrentPage(displayContent.primaryCtaText);
+          }}
           secondaryCtaText={displayContent.secondaryCtaText}
           secondaryCtaHref={displayContent.secondaryCtaHref}
+          secondaryCtaOnClick={(e) => {
+            e.preventDefault();
+            setCurrentPage(displayContent.secondaryCtaText);
+          }}
           features={displayContent.features}
           featuresSectionTitle={displayContent.featuresSectionTitle}
           stats={displayContent.stats}
@@ -122,20 +176,18 @@ export const SaasLaunch: React.FC<SaasLaunchProps> = ({
           finalCtaDescription={displayContent.finalCtaDescription}
           finalCtaButton={displayContent.finalCtaButton}
           finalCtaHref={displayContent.finalCtaHref}
+          finalCtaOnClick={(e) => {
+            e.preventDefault();
+            setCurrentPage(displayContent.finalCtaButton);
+          }}
           addToRefs={addToRefs}
           tagline={displayContent.tagline}
           locale={localeStrings}
-        />
-      </div>
-
-      {showFooter && (
-        <Footer
-          companyName={companyName}
-          locale={localeStrings}
-          links={footerLinks}
+          onFeatureClick={onFeatureClick}
+          web3formsAccessKey={web3formsAccessKey}
         />
       )}
-    </div>
+    </SaasLayout>
   );
 };
 

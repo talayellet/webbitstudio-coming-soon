@@ -4,14 +4,14 @@ import {
   FeaturesSection,
   StatsSection,
   FinalCtaSection,
-  Feature,
-  Stat,
 } from './sections';
 import {
   LocaleStrings,
   ShowSections,
   DEFAULT_SHOW_SECTIONS,
   ContactFieldsConfig,
+  Feature,
+  Stat,
 } from '../../utils';
 
 interface MainProps {
@@ -22,12 +22,15 @@ interface MainProps {
   tagline?: string;
   primaryCtaText: string;
   primaryCtaHref: string;
+  primaryCtaOnClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
   secondaryCtaText: string;
   secondaryCtaHref: string;
+  secondaryCtaOnClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
 
   // Features Section
   features: readonly Feature[];
   featuresSectionTitle?: string;
+  onFeatureClick?: (feature: Feature) => void;
 
   // Stats Section
   stats: readonly Stat[];
@@ -36,12 +39,14 @@ interface MainProps {
   aboutSection?: React.ReactNode;
   contactSection?: React.ReactNode;
   contactFieldsConfig?: ContactFieldsConfig;
+  web3formsAccessKey?: string;
 
   // Final CTA Section
   finalCtaTitle: string;
   finalCtaDescription: string;
   finalCtaButton: string;
   finalCtaHref: string;
+  finalCtaOnClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
 
   // Infrastructure
   addToRefs: (el: HTMLElement | null) => void;
@@ -56,10 +61,13 @@ export const Main: React.FC<MainProps> = ({
   heroDescription,
   primaryCtaText,
   primaryCtaHref,
+  primaryCtaOnClick,
   secondaryCtaText,
   secondaryCtaHref,
+  secondaryCtaOnClick,
   features,
   featuresSectionTitle,
+  onFeatureClick,
   stats,
   aboutSection,
   contactSection,
@@ -68,11 +76,13 @@ export const Main: React.FC<MainProps> = ({
   finalCtaDescription,
   finalCtaButton,
   finalCtaHref,
+  finalCtaOnClick,
   addToRefs,
   tagline,
   locale,
   showSections = DEFAULT_SHOW_SECTIONS,
   customSections,
+  web3formsAccessKey,
 }) => {
   // Clone about and contact sections with locale prop if they are React elements
   const aboutSectionWithLocale = useMemo(
@@ -91,9 +101,10 @@ export const Main: React.FC<MainProps> = ({
         ? cloneElement(contactSection, {
             locale,
             contactFieldsConfig,
+            web3formsAccessKey,
           } as Partial<typeof contactSection.props>)
         : contactSection,
-    [contactSection, locale, contactFieldsConfig]
+    [contactSection, locale, contactFieldsConfig, web3formsAccessKey]
   );
 
   return (
@@ -105,8 +116,10 @@ export const Main: React.FC<MainProps> = ({
           heroDescription={heroDescription}
           primaryCtaText={primaryCtaText}
           primaryCtaHref={primaryCtaHref}
+          primaryCtaOnClick={primaryCtaOnClick}
           secondaryCtaText={secondaryCtaText}
           secondaryCtaHref={secondaryCtaHref}
+          secondaryCtaOnClick={secondaryCtaOnClick}
           tagline={tagline}
           locale={locale}
         />
@@ -116,6 +129,8 @@ export const Main: React.FC<MainProps> = ({
           features={features}
           title={featuresSectionTitle}
           addToRefs={addToRefs}
+          onFeatureClick={onFeatureClick}
+          locale={locale}
         />
       )}
       {showSections.stats && (
@@ -137,6 +152,7 @@ export const Main: React.FC<MainProps> = ({
           finalCtaDescription={finalCtaDescription}
           finalCtaButton={finalCtaButton}
           finalCtaHref={finalCtaHref}
+          finalCtaOnClick={finalCtaOnClick}
           addToRefs={addToRefs}
         />
       )}

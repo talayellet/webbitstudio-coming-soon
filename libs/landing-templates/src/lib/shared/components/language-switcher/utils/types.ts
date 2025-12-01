@@ -1,5 +1,7 @@
+import { Locale } from '../../../utils';
+
 export interface LanguageOption {
-  code: string;
+  code: Locale;
   flag: string;
   label: string;
 }
