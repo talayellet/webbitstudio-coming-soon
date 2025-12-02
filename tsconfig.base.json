@@ -21,7 +21,8 @@
     "paths": {
       "@webbit/ui-components": ["libs/ui-components/src/index.ts"],
       "@webbitstudio/shared": ["shared/src/index.ts"],
-      "@webbitstudio/shared/*": ["shared/src/*"]
+      "@webbitstudio/shared/*": ["shared/src/*"],
+      "@webbitstudio/shared-utils": ["libs/shared-utils/src/index.ts"]
     }
   }
 }

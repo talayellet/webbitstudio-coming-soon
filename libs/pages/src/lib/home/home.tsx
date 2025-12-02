@@ -14,13 +14,7 @@ import {
 } from './components';
 import { useLocalizedContent } from './hooks';
 import { LanguageSwitcher } from '@webbitstudio/ui-components';
-
-const LANGUAGE_OPTIONS = [
-  { code: 'en' as const, flag: '🇺🇸', label: 'English' },
-  { code: 'es' as const, flag: '🇪🇸', label: 'Español' },
-  { code: 'fr' as const, flag: '🇫🇷', label: 'Français' },
-  { code: 'de' as const, flag: '🇩🇪', label: 'Deutsch' },
-];
+import { WEBBIT_STUDIO_LANG_OPTIONS } from '../utils';
 
 export const WebbitStudioHomePage: React.FC = () => {
   const { locale, setLocale, content } = useLocalizedContent();
@@ -33,7 +27,7 @@ export const WebbitStudioHomePage: React.FC = () => {
           languageSwitcher={
             <LanguageSwitcher
               currentLanguage={locale}
-              languages={LANGUAGE_OPTIONS}
+              languages={WEBBIT_STUDIO_LANG_OPTIONS}
               onLanguageChange={setLocale}
             />
           }
