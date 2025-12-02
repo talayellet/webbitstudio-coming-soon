@@ -14,7 +14,7 @@ import {
 } from './components';
 import { useLocalizedContent } from './hooks';
 import { LanguageSwitcher } from '@webbitstudio/ui-components';
-import { WEBBIT_STUDIO_LANG_OPTIONS } from '../utils';
+import { WEBBIT_STUDIO_LANG_OPTIONS } from '../../utils';
 
 export const WebbitStudioHomePage: React.FC = () => {
   const { locale, setLocale, content } = useLocalizedContent();
