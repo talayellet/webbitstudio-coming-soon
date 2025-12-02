@@ -28,6 +28,30 @@ export const header = {
     link: 'hover:text-sky-400',
     languageSwitcher: 'ml-4',
   },
+  mobileMenu: {
+    burgerButton: 'flex flex-col gap-1.5 p-2 md:hidden',
+    burgerLine: 'h-0.5 w-6 bg-slate-300 transition-all duration-300',
+    burgerLineOpen: 'h-0.5 w-6 bg-slate-300 transition-all duration-300',
+    burgerLineTop: 'origin-top-left',
+    burgerLineBottom: 'origin-bottom-left',
+    overlay:
+      'fixed inset-0 z-[998] bg-slate-950/80 backdrop-blur-sm transition-opacity duration-300',
+    overlayHidden: 'opacity-0 pointer-events-none',
+    overlayVisible: 'opacity-100',
+    menu: 'fixed right-0 top-0 z-[999] h-full w-72 bg-slate-900 shadow-2xl transition-transform duration-300 ease-in-out',
+    menuHidden: 'translate-x-full',
+    menuVisible: 'translate-x-0',
+    menuHeader:
+      'flex items-center justify-between border-b border-slate-800 p-6',
+    closeButton:
+      'rounded-lg p-2 text-slate-400 hover:bg-slate-800 hover:text-slate-200 transition-colors',
+    menuContent: 'flex flex-col gap-2 p-6',
+    menuLink:
+      'rounded-lg px-4 py-3 text-base text-slate-300 hover:bg-slate-800 hover:text-sky-400 transition-colors',
+    menuButton:
+      'rounded-full bg-sky-500 px-4 py-3 text-center text-base font-medium text-slate-950 shadow-md shadow-sky-500/40 hover:bg-sky-400 transition-colors',
+    menuLanguageSwitcher: 'mt-4 flex justify-center',
+  },
   languageSwitcherStyles: {
     CONTAINER: 'relative',
     WRAPPER: 'w-auto',
