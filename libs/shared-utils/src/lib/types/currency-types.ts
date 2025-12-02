@@ -1,8 +1,16 @@
+// ============================================================================
+// Domain Types
+// ============================================================================
+
 export interface CurrencyOption<T = string> {
   code: T;
   symbol: string;
   label: string;
 }
+
+// ============================================================================
+// Currency Codes
+// ============================================================================
 
 export const WEBBIT_CURRENCY = {
   EUR: 'EUR',
@@ -12,12 +20,21 @@ export const WEBBIT_CURRENCY = {
 export type WebbitCurrency =
   (typeof WEBBIT_CURRENCY)[keyof typeof WEBBIT_CURRENCY];
 
+// ============================================================================
+// Currency Symbols
+// ============================================================================
+
 export const CURRENCY_SYMBOLS = {
   EUR: '€',
   USD: '$',
 } as const;
+
 export type CurrencySymbol =
   (typeof CURRENCY_SYMBOLS)[keyof typeof CURRENCY_SYMBOLS];
+
+// ============================================================================
+// Configuration & Constants
+// ============================================================================
 
 export const CURRENCY_STORAGE_KEY = 'webbit-currency';
 
@@ -34,3 +51,26 @@ export const WEBBIT_STUDIO_CURRENCY_OPTIONS: CurrencyOption<WebbitCurrency>[] =
       label: WEBBIT_CURRENCY.EUR,
     },
   ];
+
+// ============================================================================
+// Utility Function Options
+// ============================================================================
+
+export interface CurrencyConversionProps {
+  amount: number;
+  fromCurrency: string;
+  toCurrency: string;
+  rates: Record<string, number>;
+}
+
+export interface PriceFormattingProps {
+  amount: number;
+  symbol: string;
+}
+
+export interface PriceConversionProps {
+  priceString: string;
+  targetCurrency: string;
+  targetSymbol: string;
+  rates: Record<string, number>;
+}

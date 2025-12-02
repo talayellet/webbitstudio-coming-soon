@@ -27,6 +27,10 @@ export default defineConfig(() => ({
         __dirname,
         '../../libs/shared-utils/src/index.ts'
       ),
+      '@webbitstudio/data-access': path.resolve(
+        __dirname,
+        '../../libs/data-access/src/index.ts'
+      ),
     },
   },
   plugins: [react()],

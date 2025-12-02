@@ -9,7 +9,7 @@ import {
   CURRENCY_STORAGE_KEY,
   WEBBIT_CURRENCY,
   WebbitCurrency,
-} from '@webbitstudio/shared-utils';
+} from '../types';
 
 interface CurrencyContextValue {
   currency: WebbitCurrency;

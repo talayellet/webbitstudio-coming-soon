@@ -1,9 +1,9 @@
-import { useCurrencyContext } from '../contexts';
+import { useCurrencyContext } from '@webbitstudio/shared-utils';
 import { useExchangeRates } from './use-exchange-rates';
 import {
   convertPriceString,
   CURRENCY_SYMBOLS,
-  type WebbitCurrency,
+  WEBBIT_CURRENCY,
 } from '@webbitstudio/shared-utils';
 
 export interface ConvertedPrice {
@@ -15,10 +15,18 @@ export interface ConvertedPrice {
 }
 
 /**
+ * Convert unknown error to Error instance
+ */
+const toError = (err: unknown): Error => {
+  if (err instanceof Error) return err;
+  return new Error(String(err));
+};
+
+/**
  * Hook to convert prices based on selected currency
  * Handles loading states and errors gracefully
  */
-export function usePriceConverter() {
+export const usePriceConverter = () => {
   const { currency } = useCurrencyContext();
   const { data: exchangeRates, isLoading, error } = useExchangeRates();
 
@@ -28,7 +36,7 @@ export function usePriceConverter() {
    */
   const convertPrice = (priceString: string): ConvertedPrice => {
     // If USD or no conversion needed
-    if (currency === 'USD') {
+    if (currency === WEBBIT_CURRENCY.USD) {
       return {
         original: priceString,
         converted: priceString,
@@ -56,19 +64,19 @@ export function usePriceConverter() {
         converted: priceString, // Fallback to original on error
         isConverted: false,
         isLoading: false,
-        error: error as Error,
+        error: toError(error),
       };
     }
 
     // Convert the price
     try {
-      const currencySymbol = CURRENCY_SYMBOLS[currency as WebbitCurrency];
-      const converted = convertPriceString(
+      const currencySymbol = CURRENCY_SYMBOLS[currency];
+      const converted = convertPriceString({
         priceString,
-        currency,
-        currencySymbol,
-        exchangeRates.rates
-      );
+        targetCurrency: currency,
+        targetSymbol: currencySymbol,
+        rates: exchangeRates.rates,
+      });
 
       return {
         original: priceString,
@@ -84,7 +92,7 @@ export function usePriceConverter() {
         converted: priceString,
         isConverted: false,
         isLoading: false,
-        error: err as Error,
+        error: toError(err),
       };
     }
   };
@@ -96,4 +104,4 @@ export function usePriceConverter() {
     error,
     exchangeRates,
   };
-}
+};

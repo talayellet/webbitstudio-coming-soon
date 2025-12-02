@@ -14,13 +14,16 @@ import {
   PriceConversionNotice,
 } from './components';
 import { useLocalizedContent, usePriceConverter, type Locale } from './hooks';
-import { CurrencyProvider, useCurrencyContext } from './contexts';
+import {
+  CurrencyProvider,
+  useCurrencyContext,
+  WEBBIT_STUDIO_CURRENCY_OPTIONS,
+} from '@webbitstudio/shared-utils';
 import {
   LanguageSwitcher,
   CurrencySwitcher,
 } from '@webbitstudio/ui-components';
 import { WEBBIT_STUDIO_LANG_OPTIONS } from '../../utils';
-import { WEBBIT_STUDIO_CURRENCY_OPTIONS } from '@webbitstudio/shared-utils';
 
 const HomePageContent: React.FC = () => {
   const { locale, setLocale, content } = useLocalizedContent();

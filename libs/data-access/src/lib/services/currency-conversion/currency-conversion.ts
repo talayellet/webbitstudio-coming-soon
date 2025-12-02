@@ -1,0 +1,21 @@
+import { WEBBIT_CURRENCY } from '@webbitstudio/shared-utils';
+import { ENDPOINTS } from '../../utils';
+import { EXCHANGE_RATES_ERROR, ExchangeRateResponse } from './utils';
+
+/**
+ * Fetch exchange rates from USD to all currencies
+ */
+export const fetchExchangeRates = async (
+  baseCurrency = WEBBIT_CURRENCY.USD
+): Promise<ExchangeRateResponse> => {
+  const response = await fetch(
+    `${ENDPOINTS.EXCHANGE_API_BASE_URL}/${baseCurrency}`
+  );
+
+  if (!response.ok) {
+    throw new Error(`${EXCHANGE_RATES_ERROR}: ${response.statusText}`);
+  }
+
+  const data = await response.json();
+  return data as ExchangeRateResponse;
+};
