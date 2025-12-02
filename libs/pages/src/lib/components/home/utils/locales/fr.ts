@@ -14,10 +14,14 @@ export const fr: LocaleStrings = {
     nav: {
       packages: 'Forfaits',
       process: 'Processus',
-      why: 'Pourquoi Nous',
+      why: 'Pourquoi',
       pricing: 'Tarifs',
-      faq: 'FAQ',
+      faq: 'Questions',
       contact: 'Contact',
+    },
+    ariaLabels: {
+      toggleMenu: 'Ouvrir le menu',
+      closeMenu: 'Fermer le menu',
     },
   },
 

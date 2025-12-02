@@ -9,15 +9,19 @@ export const es: LocaleStrings = {
   header: {
     logo: {
       title: 'Webbit Studio',
-      subtitle: 'Sitios web para negocios modernos',
+      subtitle: 'Sitios web para empresas modernas',
     },
     nav: {
       packages: 'Paquetes',
       process: 'Proceso',
-      why: 'Por Qué',
+      why: 'Por qué',
       pricing: 'Precios',
-      faq: 'FAQ',
+      faq: 'Preguntas',
       contact: 'Contacto',
+    },
+    ariaLabels: {
+      toggleMenu: 'Abrir menú',
+      closeMenu: 'Cerrar menú',
     },
   },
 

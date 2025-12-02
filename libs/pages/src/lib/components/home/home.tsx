@@ -12,7 +12,7 @@ import {
   ContactSection,
   Footer,
 } from './components';
-import { useLocalizedContent } from './hooks';
+import { useLocalizedContent, type Locale } from './hooks';
 import { LanguageSwitcher } from '@webbitstudio/ui-components';
 import { WEBBIT_STUDIO_LANG_OPTIONS } from '../../utils';
 
@@ -32,6 +32,9 @@ export const WebbitStudioHomePage: React.FC = () => {
               styles={styles.header.languageSwitcherStyles}
             />
           }
+          currentLanguage={locale}
+          languages={WEBBIT_STUDIO_LANG_OPTIONS}
+          onLanguageChange={(lang) => setLocale(lang as Locale)}
         />
         <Hero content={content.hero} />
         <TechStrip content={content.techStrip} />

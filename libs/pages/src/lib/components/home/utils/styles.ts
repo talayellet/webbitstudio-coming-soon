@@ -34,6 +34,10 @@ export const header = {
     burgerLineOpen: 'h-0.5 w-6 bg-slate-300 transition-all duration-300',
     burgerLineTop: 'origin-top-left',
     burgerLineBottom: 'origin-bottom-left',
+    burgerLineTopOpen: 'rotate-45 translate-y-0.5',
+    burgerLineMiddleOpen: 'opacity-0',
+    burgerLineMiddleClosed: 'opacity-100',
+    burgerLineBottomOpen: '-rotate-45 -translate-y-0.5',
     overlay:
       'fixed inset-0 z-[998] bg-slate-950/80 backdrop-blur-sm transition-opacity duration-300',
     overlayHidden: 'opacity-0 pointer-events-none',
@@ -45,17 +49,27 @@ export const header = {
       'flex items-center justify-between border-b border-slate-800 p-6',
     closeButton:
       'rounded-lg p-2 text-slate-400 hover:bg-slate-800 hover:text-slate-200 transition-colors',
+    closeButtonIcon: 'h-6 w-6',
     menuContent: 'flex flex-col gap-2 p-6',
     menuLink:
       'rounded-lg px-4 py-3 text-base text-slate-300 hover:bg-slate-800 hover:text-sky-400 transition-colors',
     menuButton:
       'rounded-full bg-sky-500 px-4 py-3 text-center text-base font-medium text-slate-950 shadow-md shadow-sky-500/40 hover:bg-sky-400 transition-colors',
-    menuLanguageSwitcher: 'mt-4 flex justify-center',
+    menuLanguageSwitcher: 'flex gap-2 border-b border-slate-800 px-6 pb-4',
   },
   languageSwitcherStyles: {
     CONTAINER: 'relative',
     WRAPPER: 'w-auto',
   },
+  mobileLanguageSwitcherStyles: {
+    CONTAINER: 'flex gap-2',
+    WRAPPER: 'contents',
+    BUTTON: 'hidden',
+    MENU_ITEMS: 'hidden',
+  },
+  mobileFlagButton:
+    'flex h-10 w-10 items-center justify-center rounded-lg border border-slate-700 bg-slate-800/50 text-xl transition-all hover:border-sky-500 hover:bg-slate-800',
+  mobileFlagButtonActive: 'border-sky-500 bg-slate-800 ring-1 ring-sky-500',
 } as const;
 
 // Button Styles

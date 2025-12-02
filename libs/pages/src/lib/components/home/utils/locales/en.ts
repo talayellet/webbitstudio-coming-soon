@@ -18,6 +18,10 @@ export const en = {
       faq: 'FAQ',
       contact: 'Contact',
     },
+    ariaLabels: {
+      toggleMenu: 'Toggle menu',
+      closeMenu: 'Close menu',
+    },
   },
 
   // Hero Section
