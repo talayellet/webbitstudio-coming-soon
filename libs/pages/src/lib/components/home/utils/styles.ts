@@ -23,11 +23,11 @@ export const header = {
     subtitle: 'text-xs text-slate-400',
   },
   nav: {
-    root: 'hidden items-center gap-8 text-sm text-slate-300 md:flex',
+    root: 'hidden items-center gap-8 text-sm text-slate-300 md:flex overflow-visible',
     linksContainer: 'flex items-center gap-8',
     link: 'hover:text-sky-400',
-    currencySwitcher: 'ml-4',
-    languageSwitcher: 'ml-4',
+    currencySwitcher: 'ml-4 w-[90px] flex-shrink-0',
+    languageSwitcher: 'ml-4 w-[140px] flex-shrink-0',
   },
   mobileMenu: {
     burgerButton: 'flex flex-col gap-1.5 p-2 md:hidden',
@@ -86,18 +86,41 @@ export const header = {
     MENU_ITEM_LABEL_INACTIVE: 'text-[var(--text)]',
   },
   desktopCurrencySwitcherStyles: {
-    CONTAINER: 'relative',
-    WRAPPER: 'w-auto',
+    CONTAINER: 'relative will-change-transform',
+    WRAPPER: 'w-full',
+    BUTTON:
+      'flex h-10 w-full items-center justify-center gap-2 rounded-lg border border-slate-700 bg-slate-800/50 px-3 py-2 text-sm transition-all hover:border-sky-500 hover:bg-slate-800',
+    LABEL: 'text-sm text-slate-300',
+    SYMBOL: 'text-base',
+    CHEVRON_ICON: 'w-4 h-4 text-slate-400',
     MENU_ITEMS:
-      'absolute right-0 mt-2 w-24 origin-top-right bg-slate-900/95 border border-slate-700 rounded-xl backdrop-blur-xl shadow-xl focus:outline-none overflow-hidden z-[1001]',
+      'absolute right-0 mt-2 w-24 origin-top-right bg-slate-900/95 border border-slate-700 rounded-xl backdrop-blur-xl shadow-xl focus:outline-none overflow-hidden z-[1001] transform-gpu',
     MENU_ITEM_BUTTON:
       'flex w-full items-center gap-2 px-3 py-2 text-sm transition-colors',
+    MENU_ITEM_ACTIVE: 'bg-slate-800',
+    MENU_ITEM_SELECTED: 'bg-sky-500/10 text-sky-300',
+    MENU_ITEM_SYMBOL: 'text-base',
+    MENU_ITEM_LABEL: 'text-sm text-slate-300',
+    MENU_ITEM_LABEL_ACTIVE: 'text-sky-300',
+    MENU_ITEM_LABEL_INACTIVE: 'text-slate-300',
   },
   languageSwitcherStyles: {
-    CONTAINER: 'relative',
-    WRAPPER: 'w-auto',
+    CONTAINER: 'relative will-change-transform',
+    WRAPPER: 'w-full',
+    BUTTON:
+      'group flex h-10 w-full items-center justify-between gap-2 rounded-lg border border-slate-700 bg-slate-800/50 px-3 py-2 text-sm transition-all hover:border-sky-500 hover:bg-slate-800',
+    FLAG: 'text-base flex-shrink-0',
+    LABEL: 'text-sm text-slate-300 truncate',
     MENU_ITEMS:
-      'absolute right-0 mt-2 w-48 origin-top-right bg-slate-900 border border-slate-700 rounded-xl backdrop-blur-xl shadow-xl focus:outline-none overflow-hidden z-[1000]',
+      'absolute right-0 mt-2 w-48 origin-top-right bg-slate-900 border border-slate-700 rounded-xl backdrop-blur-xl shadow-xl focus:outline-none overflow-hidden z-[1000] transform-gpu',
+    MENU_ITEM_BUTTON:
+      'flex w-full items-center gap-3 px-4 py-2.5 text-sm transition-colors hover:bg-slate-800',
+    MENU_ITEM_FLAG: 'text-base flex-shrink-0',
+    MENU_ITEM_LABEL: 'text-sm',
+    MENU_ITEM_ACTIVE: 'bg-slate-800',
+    MENU_ITEM_SELECTED: 'bg-sky-500/10 text-sky-300',
+    MENU_ITEM_LABEL_ACTIVE: 'text-sky-300',
+    MENU_ITEM_LABEL_INACTIVE: 'text-slate-300',
   },
   mobileLanguageSwitcherStyles: {
     CONTAINER: 'flex gap-2',
@@ -115,7 +138,7 @@ export const button = {
   primary:
     'rounded-full bg-sky-500 px-5 py-2.5 text-sm font-semibold text-slate-950 shadow-lg shadow-sky-500/40 hover:bg-sky-400',
   primarySmall:
-    'rounded-full bg-sky-500 px-4 py-2 text-sm font-medium text-slate-950 shadow-md shadow-sky-500/40 hover:bg-sky-400',
+    'rounded-full bg-sky-500 px-4 py-2 text-sm font-medium text-slate-950 shadow-md shadow-sky-500/40 hover:bg-sky-400 min-w-[100px] text-center whitespace-nowrap',
   secondary:
     'rounded-full border border-slate-700 px-5 py-2.5 text-sm font-semibold text-slate-100 hover:border-sky-500/70 hover:text-sky-200',
   light:

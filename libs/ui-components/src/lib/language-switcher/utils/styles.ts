@@ -5,6 +5,8 @@ export const LANGUAGE_SWITCHER_STYLES = {
     'w-full flex items-center gap-2 px-4 py-2 bg-[var(--surface)] border border-white/10 rounded-xl backdrop-blur-xl shadow-lg hover:bg-[var(--surface)]/80 transition-all duration-200 group',
   FLAG: 'text-2xl',
   LABEL: 'text-sm font-medium text-[var(--text)] flex-1',
+  CHEVRON_ICON:
+    'w-4 h-4 text-[var(--text-muted)] group-hover:text-[var(--text)] transition-colors',
   MENU_ITEMS:
     'absolute right-0 mt-2 w-48 origin-top-right bg-[var(--surface)] border border-white/10 rounded-xl backdrop-blur-xl shadow-xl focus:outline-none overflow-hidden',
   MENU_ITEM_BUTTON:
