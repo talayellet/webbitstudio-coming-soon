@@ -10,6 +10,7 @@ interface HeaderProps {
   content: LocaleStrings['header'];
   languageSwitcher: ReactNode;
   currencySwitcher: ReactNode;
+  mobileCurrencySwitcher: ReactNode;
   currentLanguage: string;
   languages: Array<{ code: string; flag: string; label: string }>;
   onLanguageChange: (language: string) => void;
@@ -19,6 +20,7 @@ export const Header: React.FC<HeaderProps> = ({
   content,
   languageSwitcher,
   currencySwitcher,
+  mobileCurrencySwitcher,
   currentLanguage,
   languages,
   onLanguageChange,
@@ -39,11 +41,14 @@ export const Header: React.FC<HeaderProps> = ({
 
   return (
     <>
-      {currencySwitcher}
       <header className={styles.header.root}>
         <Logo title={content.logo.title} subtitle={content.logo.subtitle} />
 
-        <DesktopNav content={content.nav} languageSwitcher={languageSwitcher} />
+        <DesktopNav
+          content={content.nav}
+          languageSwitcher={languageSwitcher}
+          currencySwitcher={currencySwitcher}
+        />
 
         <BurgerButton
           isOpen={isMobileMenuOpen}
@@ -57,6 +62,7 @@ export const Header: React.FC<HeaderProps> = ({
         content={content}
         languages={languages}
         currentLanguage={currentLanguage}
+        currencySwitcher={mobileCurrencySwitcher}
         onClose={closeMobileMenu}
         onLanguageChange={onLanguageChange}
         onLinkClick={handleLinkClick}

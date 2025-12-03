@@ -1,38 +1,35 @@
 import React from 'react';
 import * as styles from '../../../utils/styles';
-import type { LocaleStrings } from '../../../utils/locales';
-import { Logo } from './logo';
+import type { LocaleStrings } from '../../../utils';
+import { MobileMenuOverlay } from './mobile-menu-overlay';
+import { MobileMenuHeader } from './mobile-menu-header';
+import { MobileMenuLanguageSwitcher } from './mobile-menu-language-switcher';
+import { MobileMenuNav } from './mobile-menu-nav';
 
 interface MobileMenuProps {
   isOpen: boolean;
   content: LocaleStrings['header'];
   languages: Array<{ code: string; flag: string; label: string }>;
   currentLanguage: string;
+  currencySwitcher: React.ReactNode;
   onClose: () => void;
   onLanguageChange: (language: string) => void;
   onLinkClick: () => void;
 }
 
-export const MobileMenu: React.FC<MobileMenuProps> = ({
+export const MobileMenu = ({
   isOpen,
   content,
   languages,
   currentLanguage,
+  currencySwitcher,
   onClose,
   onLanguageChange,
   onLinkClick,
-}) => {
+}: MobileMenuProps) => {
   return (
     <>
-      {/* Mobile Menu Overlay */}
-      <div
-        className={`${styles.header.mobileMenu.overlay} ${
-          isOpen
-            ? styles.header.mobileMenu.overlayVisible
-            : styles.header.mobileMenu.overlayHidden
-        }`}
-        onClick={onClose}
-      />
+      <MobileMenuOverlay isOpen={isOpen} onClose={onClose} />
 
       {/* Mobile Menu */}
       <div
@@ -42,84 +39,25 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
             : styles.header.mobileMenu.menuHidden
         }`}
       >
-        <div className={styles.header.mobileMenu.menuHeader}>
-          <Logo title={content.logo.title} subtitle={content.logo.subtitle} />
-          <button
-            className={styles.header.mobileMenu.closeButton}
-            onClick={onClose}
-            aria-label={content.ariaLabels.closeMenu}
-          >
-            <svg
-              className={styles.header.mobileMenu.closeButtonIcon}
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-          </button>
-        </div>
+        <MobileMenuHeader
+          logoTitle={content.logo.title}
+          logoSubtitle={content.logo.subtitle}
+          closeAriaLabel={content.ariaLabels.closeMenu}
+          onClose={onClose}
+        />
 
         <nav className={styles.header.mobileMenu.menuContent}>
-          <div className={styles.header.mobileMenu.menuLanguageSwitcher}>
-            {languages.map((lang) => (
-              <button
-                key={lang.code}
-                onClick={() => {
-                  onLanguageChange(lang.code);
-                }}
-                className={`${styles.header.mobileFlagButton} ${
-                  currentLanguage === lang.code
-                    ? styles.header.mobileFlagButtonActive
-                    : ''
-                }`}
-                aria-label={lang.label}
-                title={lang.label}
-              >
-                {lang.flag}
-              </button>
-            ))}
+          <div className={styles.header.mobileMenu.menuSwitchers}>
+            <MobileMenuLanguageSwitcher
+              languages={languages}
+              currentLanguage={currentLanguage}
+              onLanguageChange={onLanguageChange}
+            />
+            <div className={styles.header.mobileMenu.menuCurrencySwitcher}>
+              {currencySwitcher}
+            </div>
           </div>
-          <a
-            href="#packages"
-            className={styles.header.mobileMenu.menuLink}
-            onClick={onLinkClick}
-          >
-            {content.nav.packages}
-          </a>
-          <a
-            href="#process"
-            className={styles.header.mobileMenu.menuLink}
-            onClick={onLinkClick}
-          >
-            {content.nav.process}
-          </a>
-          <a
-            href="#pricing"
-            className={styles.header.mobileMenu.menuLink}
-            onClick={onLinkClick}
-          >
-            {content.nav.pricing}
-          </a>
-          <a
-            href="#faq"
-            className={styles.header.mobileMenu.menuLink}
-            onClick={onLinkClick}
-          >
-            {content.nav.faq}
-          </a>
-          <a
-            href="#contact"
-            className={styles.header.mobileMenu.menuButton}
-            onClick={onLinkClick}
-          >
-            {content.nav.contact}
-          </a>
+          <MobileMenuNav content={content.nav} onLinkClick={onLinkClick} />
         </nav>
       </div>
     </>

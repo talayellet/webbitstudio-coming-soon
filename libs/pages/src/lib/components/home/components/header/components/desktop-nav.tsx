@@ -1,34 +1,35 @@
 import React from 'react';
 import * as styles from '../../../utils/styles';
-import type { LocaleStrings } from '../../../utils/locales';
+import { LocaleStrings, NAV_ITEMS } from '../../../utils';
 
 interface DesktopNavProps {
   content: LocaleStrings['header']['nav'];
   languageSwitcher: React.ReactNode;
+  currencySwitcher: React.ReactNode;
 }
 
 export const DesktopNav: React.FC<DesktopNavProps> = ({
   content,
   languageSwitcher,
+  currencySwitcher,
 }) => {
   return (
     <nav className={styles.header.nav.root}>
       <div className={styles.header.nav.linksContainer}>
-        <a href="#packages" className={styles.header.nav.link}>
-          {content.packages}
-        </a>
-        <a href="#process" className={styles.header.nav.link}>
-          {content.process}
-        </a>
-        <a href="#pricing" className={styles.header.nav.link}>
-          {content.pricing}
-        </a>
-        <a href="#faq" className={styles.header.nav.link}>
-          {content.faq}
-        </a>
-        <a href="#contact" className={styles.button.primarySmall}>
-          {content.contact}
-        </a>
+        {NAV_ITEMS.map((item) => {
+          const className = item.isButton
+            ? styles.button.primarySmall
+            : styles.header.nav.link;
+
+          return (
+            <a key={item.id} href={item.href} className={className}>
+              {content[item.id]}
+            </a>
+          );
+        })}
+      </div>
+      <div className={styles.header.nav.currencySwitcher}>
+        {currencySwitcher}
       </div>
       <div className={styles.header.nav.languageSwitcher}>
         {languageSwitcher}

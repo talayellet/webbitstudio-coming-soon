@@ -26,6 +26,7 @@ export const header = {
     root: 'hidden items-center gap-8 text-sm text-slate-300 md:flex',
     linksContainer: 'flex items-center gap-8',
     link: 'hover:text-sky-400',
+    currencySwitcher: 'ml-4',
     languageSwitcher: 'ml-4',
   },
   mobileMenu: {
@@ -42,7 +43,7 @@ export const header = {
       'fixed inset-0 z-[998] bg-slate-950/80 backdrop-blur-sm transition-opacity duration-300',
     overlayHidden: 'opacity-0 pointer-events-none',
     overlayVisible: 'opacity-100',
-    menu: 'fixed right-0 top-0 z-[999] h-full w-72 bg-slate-900 shadow-2xl transition-transform duration-300 ease-in-out',
+    menu: 'fixed right-0 top-0 z-[999] h-full w-72 bg-slate-900 shadow-2xl transition-transform duration-300 ease-in-out overflow-hidden',
     menuHidden: 'translate-x-full',
     menuVisible: 'translate-x-0',
     menuHeader:
@@ -50,12 +51,47 @@ export const header = {
     closeButton:
       'rounded-lg p-2 text-slate-400 hover:bg-slate-800 hover:text-slate-200 transition-colors',
     closeButtonIcon: 'h-6 w-6',
-    menuContent: 'flex flex-col gap-2 p-6',
+    menuContent:
+      'flex flex-col gap-2 p-6 w-full overflow-y-auto overflow-x-hidden max-h-[calc(100vh-120px)]',
     menuLink:
       'rounded-lg px-4 py-3 text-base text-slate-300 hover:bg-slate-800 hover:text-sky-400 transition-colors',
     menuButton:
       'rounded-full bg-sky-500 px-4 py-3 text-center text-base font-medium text-slate-950 shadow-md shadow-sky-500/40 hover:bg-sky-400 transition-colors',
+    menuSwitchers:
+      'grid grid-cols-[1fr_auto] items-center border-b border-slate-800 pb-4 w-full h-10',
+    menuLanguageGroupWrapper:
+      'flex items-center will-change-auto transform-gpu',
+    menuLanguageGroup: 'flex items-center gap-2 will-change-auto',
+    menuSeparator: 'h-8 w-px bg-slate-700 mx-3 shrink-0',
+    menuCurrencySwitcher: 'flex justify-end shrink-0 w-10',
     menuLanguageSwitcher: 'flex gap-2 border-b border-slate-800 px-6 pb-4',
+  },
+  mobileCurrencySwitcherStyles: {
+    CONTAINER: 'relative',
+    WRAPPER: 'w-auto',
+    BUTTON:
+      'flex h-10 w-10 items-center justify-center rounded-lg border border-slate-700 bg-slate-800/50 text-xl transition-all hover:border-sky-500 hover:bg-slate-800 shrink-0',
+    LABEL: 'hidden',
+    SYMBOL: 'text-lg',
+    CHEVRON_ICON: 'hidden',
+    MENU_ITEMS:
+      'absolute right-auto left-1/2 -translate-x-1/2 mt-2 w-16 origin-top bg-slate-900 border border-slate-700 rounded-xl backdrop-blur-xl shadow-xl focus:outline-none overflow-hidden z-[1000]',
+    MENU_ITEM_BUTTON:
+      'flex w-full items-center justify-center gap-2 px-3 py-2 text-sm transition-colors',
+    MENU_ITEM_ACTIVE: 'bg-white/5',
+    MENU_ITEM_SELECTED: 'bg-[var(--primary)]/20',
+    MENU_ITEM_SYMBOL: 'text-lg font-semibold',
+    MENU_ITEM_LABEL: 'hidden',
+    MENU_ITEM_LABEL_ACTIVE: 'text-[var(--primary)]',
+    MENU_ITEM_LABEL_INACTIVE: 'text-[var(--text)]',
+  },
+  desktopCurrencySwitcherStyles: {
+    CONTAINER: 'relative',
+    WRAPPER: 'w-auto',
+    MENU_ITEMS:
+      'absolute right-0 mt-2 w-24 origin-top-right bg-slate-900/95 border border-slate-700 rounded-xl backdrop-blur-xl shadow-xl focus:outline-none overflow-hidden z-[1001]',
+    MENU_ITEM_BUTTON:
+      'flex w-full items-center gap-2 px-3 py-2 text-sm transition-colors',
   },
   languageSwitcherStyles: {
     CONTAINER: 'relative',
@@ -70,7 +106,7 @@ export const header = {
     MENU_ITEMS: 'hidden',
   },
   mobileFlagButton:
-    'flex h-10 w-10 items-center justify-center rounded-lg border border-slate-700 bg-slate-800/50 text-xl transition-all hover:border-sky-500 hover:bg-slate-800',
+    'flex h-10 w-10 items-center justify-center rounded-lg border border-slate-700 bg-slate-800/50 text-xl transition-all hover:border-sky-500 hover:bg-slate-800 shrink-0',
   mobileFlagButtonActive: 'border-sky-500 bg-slate-800 ring-1 ring-sky-500',
 } as const;
 

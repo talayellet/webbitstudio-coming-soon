@@ -25,7 +25,7 @@ import {
 } from '@webbitstudio/ui-components';
 import { WEBBIT_STUDIO_LANG_OPTIONS } from '../../utils';
 
-const HomePageContent: React.FC = () => {
+const HomePageContent = () => {
   const { locale, setLocale, content } = useLocalizedContent();
   const { currency, setCurrency } = useCurrencyContext();
   const { isLoading, error } = usePriceConverter();
@@ -48,6 +48,15 @@ const HomePageContent: React.FC = () => {
               currentCurrency={currency}
               currencies={WEBBIT_STUDIO_CURRENCY_OPTIONS}
               onCurrencyChange={setCurrency}
+              styles={styles.header.desktopCurrencySwitcherStyles}
+            />
+          }
+          mobileCurrencySwitcher={
+            <CurrencySwitcher
+              currentCurrency={currency}
+              currencies={WEBBIT_STUDIO_CURRENCY_OPTIONS}
+              onCurrencyChange={setCurrency}
+              styles={styles.header.mobileCurrencySwitcherStyles}
             />
           }
           currentLanguage={locale}
@@ -73,7 +82,7 @@ const HomePageContent: React.FC = () => {
   );
 };
 
-export const WebbitStudioHomePage: React.FC = () => {
+export const WebbitStudioHomePage = () => {
   return (
     <CurrencyProvider>
       <HomePageContent />
