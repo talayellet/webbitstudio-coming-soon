@@ -178,7 +178,7 @@ export const typography = {
 // Card Styles
 export const card = {
   package:
-    'group flex flex-col rounded-2xl border border-slate-800 bg-slate-900/60 p-5 shadow-[0_0_0_1px_rgba(15,23,42,0.7)] transition hover:border-sky-500/70 hover:bg-slate-900 min-h-[520px]',
+    'group flex flex-col rounded-2xl border border-slate-800 bg-slate-900/60 p-5 shadow-[0_0_0_1px_rgba(15,23,42,0.7)] transition hover:border-sky-500/70 hover:bg-slate-900 md:min-h-[520px]',
   default: 'rounded-2xl border border-slate-800 bg-slate-900/60 p-4 min-h-0',
   process:
     'flex flex-col rounded-2xl border border-slate-800 bg-slate-900/60 p-4 min-h-[200px]',
@@ -269,7 +269,7 @@ export const customSelect = {
 
 // Package Card Styles
 export const packageCard = {
-  contentWrapper: 'min-h-[320px]',
+  contentWrapper: 'md:min-h-[420px]',
   header: 'mb-3 flex items-center justify-between gap-2',
   tagline: 'text-xs font-medium text-slate-300 sm:text-sm',
   description: 'mt-2 text-xs text-slate-400 sm:text-sm',
