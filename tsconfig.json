@@ -26,6 +26,12 @@
     },
     {
       "path": "./libs/ui-components"
+    },
+    {
+      "path": "./libs/shared-utils"
+    },
+    {
+      "path": "./libs/data-access"
     }
   ]
 }

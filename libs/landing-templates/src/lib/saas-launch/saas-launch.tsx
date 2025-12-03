@@ -10,11 +10,11 @@ import {
   ColorScheme,
   FooterLink,
   Feature,
+  LanguageOption,
 } from './utils';
 import { useScrollReveal, useLocalizedContent } from './hooks';
 import { Main, SaasLayout } from './components';
 import {
-  LanguageOption,
   Locale,
   THEME_NAMES,
   ThemeName,
