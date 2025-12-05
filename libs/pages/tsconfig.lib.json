@@ -1,7 +1,6 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "rootDir": "src",
     "outDir": "dist",
     "lib": ["es2022", "DOM", "DOM.Iterable"],
     "types": [
@@ -50,9 +49,6 @@
     },
     {
       "path": "../ui-components/tsconfig.lib.json"
-    },
-    {
-      "path": "../../shared/tsconfig.lib.json"
     }
   ]
 }

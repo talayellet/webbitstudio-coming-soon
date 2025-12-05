@@ -6,7 +6,7 @@ export const layout = {
   maxWidthXl: 'max-w-xl',
   grid2Cols: 'grid gap-10 py-10 md:grid-cols-2 md:py-16 lg:py-20',
   grid3Cols: 'grid gap-6 md:grid-cols-3',
-  grid4Cols: 'grid gap-6 md:grid-cols-4',
+  grid4Cols: 'grid gap-3 sm:gap-6 md:grid-cols-4',
   sectionHeader:
     'mb-8 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between',
 } as const;
@@ -152,7 +152,7 @@ export const button = {
 // Section Styles
 export const section = {
   default: 'py-12 sm:py-16',
-  withBorder: 'border-y border-slate-800 py-12 sm:py-14',
+  withBorder: 'border-y border-slate-800 py-8 sm:py-14',
   withBorderLarge: 'border-y border-slate-800 py-12 sm:py-16',
   contact: 'pb-14 sm:pb-16',
 } as const;
@@ -181,7 +181,7 @@ export const card = {
     'group flex flex-col rounded-2xl border border-slate-800 bg-slate-900/60 p-5 shadow-[0_0_0_1px_rgba(15,23,42,0.7)] transition hover:border-sky-500/70 hover:bg-slate-900 md:min-h-[520px]',
   default: 'rounded-2xl border border-slate-800 bg-slate-900/60 p-4 min-h-0',
   process:
-    'flex flex-col rounded-2xl border border-slate-800 bg-slate-900/60 p-4 min-h-[200px]',
+    'flex flex-col rounded-2xl border border-slate-800 bg-slate-900/60 p-2 sm:p-4 min-h-0 sm:min-h-[200px]',
   faq: 'group rounded-2xl border border-slate-800 bg-slate-900/60 p-4 min-h-0',
   pricing:
     'mt-8 rounded-2xl border border-sky-500/40 bg-slate-900/70 p-5 text-sm text-slate-200',
@@ -283,7 +283,7 @@ export const packageCard = {
 
 // Process Step Styles
 export const processStep = {
-  header: 'mb-3 flex items-center gap-2',
+  header: 'mb-2 sm:mb-3 flex items-center gap-2',
   badge:
     'inline-flex h-8 w-8 items-center justify-center rounded-full bg-sky-500/20 text-xs font-semibold text-sky-300',
   text: 'text-xs text-slate-300 sm:text-sm',
@@ -340,9 +340,9 @@ export const spacing = {
 } as const;
 
 export const combined = {
-  sectionIntro: 'mb-8 max-w-2xl',
+  sectionIntro: 'mb-4 sm:mb-8 max-w-2xl',
   bodyWithMaxWidth: 'mt-2 max-w-xl text-sm text-slate-300 sm:text-base',
-  bodyWithSpacing: 'mt-2 text-sm text-slate-300 sm:text-base',
+  bodyWithSpacing: 'mt-1 sm:mt-2 text-sm text-slate-300 sm:text-base',
   cardTextWithSpacing: 'mt-2 text-xs text-slate-300 sm:text-sm',
   pricingIntro: 'mt-2 max-w-xl text-sm text-slate-300 sm:text-base',
 } as const;
