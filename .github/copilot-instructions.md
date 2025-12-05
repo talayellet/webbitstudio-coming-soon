@@ -41,6 +41,7 @@ export type MyThing = (typeof MY_THING)[keyof typeof MY_THING];
 - Check `@webbitstudio/shared-utils` and `@webbitstudio/ui-components` before creating new utilities
 - Add JSDoc comments for all public functions/components
 - Keep components focused and small
+- When adding text content always localize it
 
 ## Code Quality
 

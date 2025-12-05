@@ -15,7 +15,8 @@ export const layout = {
 export const header = {
   root: 'sticky top-0 z-[999] flex items-center justify-between bg-slate-950/95 py-6 backdrop-blur-sm',
   logo: {
-    container: 'flex items-center gap-2',
+    container:
+      'flex items-center gap-2 cursor-pointer bg-transparent border-0 p-0 transition-opacity hover:opacity-80',
     icon: 'flex h-9 w-9 items-center justify-center rounded-xl bg-sky-500/90 shadow-lg shadow-sky-500/40',
     iconText: 'text-lg font-bold tracking-tight',
     textContainer: 'flex flex-col',

@@ -12,12 +12,21 @@ export const Footer: React.FC<FooterProps> = ({ content }) => {
     .replace('{year}', currentYear.toString())
     .replace('{companyName}', content.companyName);
 
+  const handleBackToTop = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <footer className={styles.footer.root}>
       <div className={styles.footer.container}>
         <p>{copyrightText}</p>
         <div className={styles.footer.links}>
-          <a href="#hero" className={styles.footer.link}>
+          <a
+            href="#hero"
+            className={styles.footer.link}
+            onClick={handleBackToTop}
+          >
             {content.backToTop}
           </a>
           <span className={styles.footer.separator} />

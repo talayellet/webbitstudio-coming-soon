@@ -21,6 +21,7 @@ export const en = {
     ariaLabels: {
       toggleMenu: 'Toggle menu',
       closeMenu: 'Close menu',
+      scrollToTop: 'Scroll to top',
     },
   },
 

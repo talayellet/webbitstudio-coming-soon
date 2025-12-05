@@ -20,8 +20,9 @@ export const es: LocaleStrings = {
       contact: 'Contacto',
     },
     ariaLabels: {
-      toggleMenu: 'Abrir menú',
+      toggleMenu: 'Alternar menú',
       closeMenu: 'Cerrar menú',
+      scrollToTop: 'Volver arriba',
     },
   },
 

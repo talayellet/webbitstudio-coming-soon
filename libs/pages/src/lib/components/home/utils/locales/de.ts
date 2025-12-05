@@ -22,6 +22,7 @@ export const de: LocaleStrings = {
     ariaLabels: {
       toggleMenu: 'Menü öffnen',
       closeMenu: 'Menü schließen',
+      scrollToTop: 'Nach oben scrollen',
     },
   },
 

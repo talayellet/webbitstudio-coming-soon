@@ -43,7 +43,11 @@ export const Header: React.FC<HeaderProps> = ({
   return (
     <>
       <header className={styles.header.root}>
-        <Logo title={content.logo.title} subtitle={content.logo.subtitle} />
+        <Logo
+          title={content.logo.title}
+          subtitle={content.logo.subtitle}
+          ariaLabel={content.ariaLabels.scrollToTop}
+        />
 
         <DesktopNav
           content={content.nav}
