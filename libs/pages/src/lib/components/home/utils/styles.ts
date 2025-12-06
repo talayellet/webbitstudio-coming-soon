@@ -21,9 +21,9 @@ export const header = {
       'flex cursor-pointer bg-transparent border-0 p-0 transition-opacity hover:opacity-80',
     icon: 'flex h-9 w-9 items-center justify-center rounded-xl bg-sky-500/90 shadow-lg shadow-sky-500/40',
     iconText: 'text-lg font-bold tracking-tight',
-    textContainer: 'flex flex-col items-start ml-2',
-    title: 'text-base font-semibold tracking-tight leading-tight text-left',
-    subtitle: 'text-xs text-slate-400 leading-tight text-left',
+    textContainer: 'flex flex-col items-start ms-2',
+    title: 'text-base font-semibold tracking-tight leading-tight text-start',
+    subtitle: 'text-xs text-slate-400 leading-tight text-start',
   },
   nav: {
     root: 'hidden items-center gap-8 text-sm text-slate-300 md:flex',
