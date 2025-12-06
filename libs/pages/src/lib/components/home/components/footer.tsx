@@ -1,6 +1,6 @@
-import { useCallback } from 'react';
 import * as styles from '../utils/styles';
 import type { LocaleStrings } from '../utils/locales';
+import { useScrollToTop } from '@webbitstudio/shared-utils';
 
 interface FooterProps {
   content: LocaleStrings['footer'];
@@ -12,9 +12,7 @@ export const Footer = ({ content }: FooterProps) => {
     .replace('{year}', currentYear.toString())
     .replace('{companyName}', content.companyName);
 
-  const handleBackToTop = useCallback(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, []);
+  const { scrollToTop } = useScrollToTop();
 
   return (
     <footer className={styles.footer.root}>
@@ -24,7 +22,7 @@ export const Footer = ({ content }: FooterProps) => {
           <button
             type="button"
             className={styles.footer.link}
-            onClick={handleBackToTop}
+            onClick={scrollToTop}
             aria-label={content.backToTop}
           >
             {content.backToTop}

@@ -1,5 +1,5 @@
-import React, { useCallback } from 'react';
 import * as styles from '../../../utils/styles';
+import { useScrollToTop } from '@webbitstudio/shared-utils';
 
 interface LogoProps {
   title: string;
@@ -7,15 +7,13 @@ interface LogoProps {
   ariaLabel: string;
 }
 
-export const Logo: React.FC<LogoProps> = ({ title, subtitle, ariaLabel }) => {
-  const handleClick = useCallback(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, []);
+export const Logo = ({ title, subtitle, ariaLabel }: LogoProps) => {
+  const { scrollToTop } = useScrollToTop();
 
   return (
     <button
       type="button"
-      onClick={handleClick}
+      onClick={scrollToTop}
       className={styles.header.logo.container}
       aria-label={ariaLabel}
     >
