@@ -294,7 +294,21 @@ export const es: LocaleStrings = {
           'Cuéntanos sobre tu negocio, las páginas que necesitas y cualquier plazo o requisito especial.',
       },
       submit: 'Enviar consulta',
-      note: '¿Prefieres WhatsApp o una llamada rápida? Podemos compartir detalles de contacto directos en nuestra respuesta.',
+      submitting: 'Enviando...',
+      note: '¿Prefieres WhatsApp o una llamada rápida? Podemos compartir los datos de contacto directos en nuestra respuesta.',
+      emailFallback: 'O envíanos un correo directamente a',
+      phoneFallback: 'o llámanos',
+      errors: {
+        nameRequired: 'El nombre es obligatorio',
+        emailRequired: 'El correo electrónico es obligatorio',
+        emailInvalid: 'Por favor, introduce una dirección de correo válida',
+        serverError: 'Error del servidor. Por favor, inténtalo más tarde.',
+        rateLimitError:
+          'Demasiadas solicitudes. Por favor, inténtalo más tarde.',
+        submissionFailed:
+          'Error al enviar el formulario. Por favor, inténtalo de nuevo.',
+      },
+      successMessage: '¡Gracias por tu consulta! Te responderemos pronto.',
     },
   },
 

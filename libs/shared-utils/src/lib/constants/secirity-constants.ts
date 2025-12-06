@@ -1,0 +1,2 @@
+export const DEFAULT_INPUT_MAX_LENGTH = 1000;
+export const SANITIZE_INPUT_MAX_LENGTH = 5000;

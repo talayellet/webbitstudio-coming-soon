@@ -1,5 +1,15 @@
 import { LanguageOption } from '@webbitstudio/shared-utils';
 
+export const WEBBIT_STUDIO_EMAIL = 'info@webbitstudio.com';
+export const WEBBIT_STUDIO_PHONE = '+44 (0)7414 902208';
+
+export const CONTACT_FORM_IDS = {
+  NAME: 'contact-name',
+  EMAIL: 'contact-email',
+  COUNTRY: 'contact-country',
+  DETAILS: 'contact-details',
+} as const;
+
 export const WEBBIT_STUDIO_LANG_OPTIONS: LanguageOption[] = [
   {
     code: 'en',

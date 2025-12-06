@@ -293,8 +293,23 @@ export const de: LocaleStrings = {
         placeholder:
           'Erzählen Sie uns von Ihrem Unternehmen, den benötigten Seiten und etwaigen Fristen oder besonderen Anforderungen.',
       },
-      submit: 'Anfrage senden',
+      submit: 'Anfrage absenden',
+      submitting: 'Wird gesendet...',
       note: 'Bevorzugen Sie WhatsApp oder einen kurzen Anruf? Wir können direkte Kontaktdaten in unserer Antwort teilen.',
+      emailFallback: 'Oder senden Sie uns direkt eine E-Mail an',
+      phoneFallback: 'oder rufen Sie an',
+      errors: {
+        nameRequired: 'Name ist erforderlich',
+        emailRequired: 'E-Mail ist erforderlich',
+        emailInvalid: 'Bitte geben Sie eine gültige E-Mail-Adresse ein',
+        serverError: 'Serverfehler. Bitte versuchen Sie es später erneut.',
+        rateLimitError:
+          'Zu viele Anfragen. Bitte versuchen Sie es später erneut.',
+        submissionFailed:
+          'Fehler beim Absenden des Formulars. Bitte versuchen Sie es erneut.',
+      },
+      successMessage:
+        'Vielen Dank für Ihre Anfrage! Wir werden uns bald bei Ihnen melden.',
     },
   },
 

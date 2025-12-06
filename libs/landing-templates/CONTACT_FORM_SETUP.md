@@ -2,11 +2,9 @@
 
 The contact form component supports multiple configuration options to fit your needs.
 
-## Quick Start (Recommended for Most Users)
+## Quick Start (Web3Forms - Free, No Backend Required) ⭐
 
-### Option 1: Web3Forms (Free, No Backend Required) ⭐
-
-**Best for:** Most users who want a simple, free solution without managing a backend.
+**Web3Forms** is a simple, free solution that requires no backend management.
 
 1. **Get your free access key**:
 
@@ -38,11 +36,9 @@ import { ContactForm } from '@webbitstudio/landing-templates';
 
 ## Advanced Options
 
-### Option 2: Custom Backend (Full Control)
+### Option 1: Custom Backend (Full Control)
 
 **Best for:** Users who need full control, custom logic, or want to store submissions in a database.
-
-See the [Backend Setup Guide](../../../apps/backend/CONTACT_FORM_SETUP.md) for detailed instructions on setting up the included Next.js backend with Resend email service.
 
 ```tsx
 <ContactForm
@@ -62,13 +58,13 @@ See the [Backend Setup Guide](../../../apps/backend/CONTACT_FORM_SETUP.md) for d
 
 **Requirements:**
 
-- Next.js backend (included in this template)
-- Resend account (or other email service)
+- Custom backend API endpoint
+- Email service of your choice
 - Server/hosting for the backend
 
 ---
 
-### Option 3: Custom Handler
+### Option 2: Custom Handler
 
 **Best for:** Developers who want complete control over submission handling.
 
