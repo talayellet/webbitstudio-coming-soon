@@ -13,6 +13,7 @@ import {
   EMAIL_REG,
 } from '@webbitstudio/shared-utils';
 import {
+  CONTACT_FORM_IDS,
   WEBBIT_STUDIO_EMAIL,
   WEBBIT_STUDIO_PHONE,
 } from '../../../utils/constants';
@@ -97,14 +98,14 @@ export const ContactSection = ({
             <div className={styles.form.grid}>
               <div className={styles.form.fieldContainer}>
                 <label
-                  htmlFor="contact-name"
+                  htmlFor={CONTACT_FORM_IDS.NAME}
                   className={styles.typography.label}
                 >
                   {content.form.name.label}
                 </label>
                 <input
                   type="text"
-                  id="contact-name"
+                  id={CONTACT_FORM_IDS.NAME}
                   {...register('name', { required: true })}
                   placeholder={content.form.name.placeholder}
                   className={styles.form.input}
@@ -119,14 +120,14 @@ export const ContactSection = ({
               </div>
               <div className={styles.form.fieldContainer}>
                 <label
-                  htmlFor="contact-email"
+                  htmlFor={CONTACT_FORM_IDS.EMAIL}
                   className={styles.typography.label}
                 >
                   {content.form.email.label}
                 </label>
                 <input
                   type="email"
-                  id="contact-email"
+                  id={CONTACT_FORM_IDS.EMAIL}
                   {...register('email', {
                     required: true,
                     pattern: EMAIL_REG,
@@ -148,14 +149,14 @@ export const ContactSection = ({
 
             <div className={styles.form.fieldContainer}>
               <label
-                htmlFor="contact-country"
+                htmlFor={CONTACT_FORM_IDS.COUNTRY}
                 className={styles.typography.label}
               >
                 {content.form.country.label}
               </label>
               <input
                 type="text"
-                id="contact-country"
+                id={CONTACT_FORM_IDS.COUNTRY}
                 {...register('country')}
                 placeholder={content.form.country.placeholder}
                 className={styles.form.input}
@@ -180,13 +181,13 @@ export const ContactSection = ({
 
             <div className={styles.form.fieldContainer}>
               <label
-                htmlFor="contact-details"
+                htmlFor={CONTACT_FORM_IDS.DETAILS}
                 className={styles.typography.label}
               >
                 {content.form.details.label}
               </label>
               <textarea
-                id="contact-details"
+                id={CONTACT_FORM_IDS.DETAILS}
                 {...register('details')}
                 placeholder={content.form.details.placeholder}
                 rows={4}
