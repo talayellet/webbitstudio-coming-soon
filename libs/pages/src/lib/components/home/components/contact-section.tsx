@@ -1,4 +1,5 @@
 import { useForm } from 'react-hook-form';
+import { useState } from 'react';
 import * as styles from '../utils/styles';
 import type { LocaleStrings } from '../utils/locales';
 import type { ContactFormData } from '../utils/types';
@@ -6,6 +7,7 @@ import {
   CustomSelect,
   EnvelopeIcon,
   PhoneIcon,
+  Toast,
 } from '@webbitstudio/ui-components';
 import { useContactFormSubmit } from '../hooks';
 import {
@@ -41,6 +43,8 @@ export const ContactSection = ({
   apiEndpoint,
   onSubmit,
 }: ContactSectionProps) => {
+  const [showToast, setShowToast] = useState(false);
+
   const {
     register,
     handleSubmit,
@@ -58,7 +62,7 @@ export const ContactSection = ({
     web3formsAccessKey,
     apiEndpoint,
     onSubmit,
-    successMessage: content.form.successMessage,
+    onShowToast: () => setShowToast(true),
     onSuccess: reset,
     errorMessages: {
       serverError: content.form.errors.serverError,
@@ -236,6 +240,12 @@ export const ContactSection = ({
           </form>
         </div>
       </div>
+
+      <Toast
+        message={content.form.successMessage}
+        isVisible={showToast}
+        onDismiss={() => setShowToast(false)}
+      />
     </section>
   );
 };

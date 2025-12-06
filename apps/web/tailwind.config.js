@@ -11,7 +11,20 @@ module.exports = {
     ...createGlobPatternsForDependencies(__dirname),
   ],
   theme: {
-    extend: {},
+    extend: {
+      animation: {
+        'slide-up': 'slide-up 0.3s ease-out',
+      },
+      keyframes: {
+        'slide-up': {
+          '0%': {
+            transform: 'translateY(1rem) translateX(-50%)',
+            opacity: '0',
+          },
+          '100%': { transform: 'translateY(0) translateX(-50%)', opacity: '1' },
+        },
+      },
+    },
   },
   plugins: [],
 };

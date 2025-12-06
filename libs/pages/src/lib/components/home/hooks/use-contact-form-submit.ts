@@ -19,9 +19,9 @@ export interface UseContactFormSubmitProps {
    */
   onSubmit?: (data: ContactFormData) => void;
   /**
-   * Success message to display after successful submission
+   * Callback to show success toast after successful submission
    */
-  successMessage: string;
+  onShowToast?: () => void;
   /**
    * Callback to reset the form after successful submission
    */
@@ -36,7 +36,7 @@ export const useContactFormSubmit = ({
   web3formsAccessKey,
   apiEndpoint = API_ENDPOINTS.CONTACT,
   onSubmit,
-  successMessage,
+  onShowToast,
   onSuccess,
   errorMessages,
 }: UseContactFormSubmitProps) => {
@@ -54,7 +54,7 @@ export const useContactFormSubmit = ({
       });
     },
     onSuccess: () => {
-      alert(successMessage);
+      onShowToast?.();
       onSuccess?.();
     },
   });
