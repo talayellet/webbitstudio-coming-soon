@@ -375,3 +375,42 @@ export const priceConversionNotice = {
   error: 'text-yellow-400/80',
   loading: 'text-slate-400/80',
 } as const;
+
+// RTL Support Utilities
+// Note: These classes provide RTL-aware spacing and alignment
+// They work in conjunction with the dir="rtl" attribute on the root element
+export const rtl = {
+  // Text alignment utilities that respect RTL
+  textStart: 'text-start', // Uses logical property - aligns to the start (left in LTR, right in RTL)
+  textEnd: 'text-end', // Aligns to the end (right in LTR, left in RTL)
+
+  // Flexbox utilities that respect RTL
+  flexRowReverse: '[dir="rtl"]:flex-row-reverse',
+
+  // Margin utilities that flip in RTL
+  // Use these instead of ml/mr when you want direction-aware spacing
+  ms: {
+    auto: 'ms-auto', // margin-inline-start: auto
+    2: 'ms-2',
+    3: 'ms-3',
+    4: 'ms-4',
+  },
+  me: {
+    auto: 'me-auto', // margin-inline-end: auto
+    2: 'me-2',
+    3: 'me-3',
+    4: 'me-4',
+  },
+
+  // Padding utilities that flip in RTL
+  ps: {
+    2: 'ps-2',
+    3: 'ps-3',
+    4: 'ps-4',
+  },
+  pe: {
+    2: 'pe-2',
+    3: 'pe-3',
+    4: 'pe-4',
+  },
+} as const;

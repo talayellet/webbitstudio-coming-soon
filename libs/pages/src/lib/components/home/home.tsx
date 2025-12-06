@@ -33,13 +33,13 @@ export interface WebbitStudioHomePageProps {
 }
 
 const HomePageContent = ({ web3formsAccessKey }: WebbitStudioHomePageProps) => {
-  const { locale, setLocale, content } = useLocalizedContent();
+  const { locale, setLocale, content, isRTL } = useLocalizedContent();
   const { currency, setCurrency } = useCurrencyContext();
   const { isLoading, error } = usePriceConverter();
   useHashNavigation();
 
   return (
-    <div className={styles.layout.page}>
+    <div className={styles.layout.page} dir={isRTL ? 'rtl' : 'ltr'}>
       <Header
         content={content.header}
         languageSwitcher={

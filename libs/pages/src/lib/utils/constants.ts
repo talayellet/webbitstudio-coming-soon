@@ -31,6 +31,11 @@ export const WEBBIT_STUDIO_LANG_OPTIONS: LanguageOption[] = [
     flag: '🇩🇪',
     label: 'Deutsch',
   },
+  {
+    code: 'he',
+    flag: '🇮🇱',
+    label: 'עברית',
+  },
 ];
 
 // Exchange Rate Configuration
