@@ -1,3 +1,7 @@
+import type { CountryCode } from '@webbitstudio/shared-utils';
+import { en, es, fr, de, he } from './locales';
+import type { LocaleStrings } from './locales';
+
 export const NAV_ITEMS = [
   { id: 'packages', href: '#packages', isButton: false },
   { id: 'process', href: '#process', isButton: false },
@@ -7,3 +11,11 @@ export const NAV_ITEMS = [
 ] as const;
 
 export type NavItemId = (typeof NAV_ITEMS)[number]['id'];
+
+export const LOCALE_MAP: Record<CountryCode, LocaleStrings> = {
+  en,
+  es,
+  fr,
+  de,
+  he,
+};

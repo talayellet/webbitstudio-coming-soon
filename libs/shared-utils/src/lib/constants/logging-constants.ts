@@ -8,6 +8,14 @@ export const GEOLOCATION_ERROR_MESSAGES = {
 } as const;
 
 /**
+ * Error messages for React context usage
+ */
+export const CONTEXT_ERROR_MESSAGES = {
+  CURRENCY_PROVIDER_REQUIRED:
+    'useCurrencyContext must be used within a CurrencyProvider',
+} as const;
+
+/**
  * Environment names
  */
 export const ENVIRONMENT = {

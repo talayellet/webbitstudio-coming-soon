@@ -1,20 +1,13 @@
 import { useState, useEffect } from 'react';
-import type { LocaleStrings } from '../utils/locales';
-import { en, es, fr, de, he } from '../utils/locales';
-
-export type Locale = 'en' | 'es' | 'fr' | 'de' | 'he';
-
-const LOCALE_STORAGE_KEY = 'webbit-locale';
-
-const localeMap: Record<Locale, LocaleStrings> = {
-  en,
-  es,
-  fr,
-  de,
-  he,
-};
-
-const RTL_LOCALES: Locale[] = ['he'];
+import {
+  useGeoLocation,
+  getDefaultLanguageForCountry,
+  LOCALE_STORAGE_KEY,
+  RTL_LOCALES,
+  DEFAULT_LANGUAGE,
+  type CountryCode,
+} from '@webbitstudio/shared-utils';
+import { LOCALE_MAP } from '../utils';
 
 const isBrowser = typeof window !== 'undefined';
 
@@ -24,26 +17,33 @@ const isBrowser = typeof window !== 'undefined';
  * Also manages RTL (right-to-left) direction for applicable languages
  */
 export const useLocalizedContent = () => {
-  const [locale, setLocaleState] = useState<Locale>(() => {
+  const { data: userCountry } = useGeoLocation();
+
+  const [locale, setLocaleState] = useState<CountryCode>(() => {
     if (isBrowser) {
       const stored = window.localStorage.getItem(
         LOCALE_STORAGE_KEY
-      ) as Locale | null;
-      if (
-        stored &&
-        (stored === 'en' ||
-          stored === 'es' ||
-          stored === 'fr' ||
-          stored === 'de' ||
-          stored === 'he')
-      ) {
+      ) as CountryCode | null;
+      if (stored && stored in LOCALE_MAP) {
         return stored;
       }
     }
-    return 'en';
+    return DEFAULT_LANGUAGE;
   });
 
-  const setLocale = (newLocale: Locale) => {
+  // Set default language based on geolocation when available
+  useEffect(() => {
+    if (userCountry && isBrowser) {
+      const storedLocale = window.localStorage.getItem(LOCALE_STORAGE_KEY);
+      // Only set geo-based language if user hasn't manually selected one
+      if (!storedLocale) {
+        const defaultLanguage = getDefaultLanguageForCountry(userCountry);
+        setLocaleState(defaultLanguage);
+      }
+    }
+  }, [userCountry]);
+
+  const setLocale = (newLocale: CountryCode) => {
     setLocaleState(newLocale);
     if (isBrowser) {
       window.localStorage.setItem(LOCALE_STORAGE_KEY, newLocale);
@@ -52,7 +52,6 @@ export const useLocalizedContent = () => {
 
   useEffect(() => {
     if (isBrowser) {
-      window.localStorage.setItem(LOCALE_STORAGE_KEY, locale);
       // Set document direction based on locale
       document.documentElement.dir = RTL_LOCALES.includes(locale)
         ? 'rtl'
@@ -63,7 +62,7 @@ export const useLocalizedContent = () => {
   return {
     locale,
     setLocale,
-    content: localeMap[locale],
+    content: LOCALE_MAP[locale],
     isRTL: RTL_LOCALES.includes(locale),
   };
 };

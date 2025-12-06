@@ -19,11 +19,13 @@ import {
   WEBBIT_STUDIO_CURRENCY_OPTIONS,
   useHashNavigation,
   useGeoFilteredLanguages,
+  useGeoFilteredCurrencies,
   captureException,
   LOG_LEVELS,
   GEOLOCATION_ERROR_MESSAGES,
   SENTRY_TAGS,
   DEFAULT_LANGUAGE_FILTERS,
+  DEFAULT_CURRENCY_FILTERS,
 } from '@webbitstudio/shared-utils';
 import {
   LanguageSwitcher,
@@ -47,6 +49,10 @@ const HomePageContent = ({ web3formsAccessKey }: WebbitStudioHomePageProps) => {
       languages: WEBBIT_STUDIO_LANG_OPTIONS,
       filters: DEFAULT_LANGUAGE_FILTERS,
     });
+  const { currencies: filteredCurrencies } = useGeoFilteredCurrencies({
+    currencies: WEBBIT_STUDIO_CURRENCY_OPTIONS,
+    filters: DEFAULT_CURRENCY_FILTERS,
+  });
 
   // Log geolocation errors to Sentry
   if (geoError) {
@@ -74,16 +80,16 @@ const HomePageContent = ({ web3formsAccessKey }: WebbitStudioHomePageProps) => {
         currencySwitcher={
           <CurrencySwitcher
             currentCurrency={currency}
-            currencies={WEBBIT_STUDIO_CURRENCY_OPTIONS}
-            onCurrencyChange={setCurrency}
+            currencies={filteredCurrencies}
+            onCurrencyChange={(curr) => setCurrency(curr, true)}
             styles={styles.header.desktopCurrencySwitcherStyles}
           />
         }
         mobileCurrencySwitcher={
           <CurrencySwitcher
             currentCurrency={currency}
-            currencies={WEBBIT_STUDIO_CURRENCY_OPTIONS}
-            onCurrencyChange={setCurrency}
+            currencies={filteredCurrencies}
+            onCurrencyChange={(curr) => setCurrency(curr, true)}
             styles={styles.header.mobileCurrencySwitcherStyles}
           />
         }
