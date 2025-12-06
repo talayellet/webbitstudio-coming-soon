@@ -4,6 +4,7 @@ import {
   HTTP_HEADERS,
   CONTENT_TYPES,
 } from '@webbitstudio/shared';
+import { sanitizeFormData } from '@webbitstudio/shared-utils';
 import type { ContactFormData, ContactFormErrorMessages } from '../utils/types';
 
 export interface SubmitContactFormDataAccessProps {
@@ -19,17 +20,27 @@ export const submitContactFormDataAccess = async ({
   web3formsAccessKey,
   apiEndpoint,
 }: SubmitContactFormDataAccessProps): Promise<void> => {
+  // Sanitize inputs before submission to prevent XSS attacks
+  const sanitizedData = sanitizeFormData({
+    data,
+    emailFields: ['email'],
+    textAreaFields: ['details'],
+  });
+
   let response: Response;
 
   // Use Web3Forms if access key is provided
   if (web3formsAccessKey) {
     const formData = new FormData();
     formData.append('access_key', web3formsAccessKey);
-    formData.append('name', data.name);
-    formData.append('email', data.email);
-    if (data.country) formData.append('country', data.country);
-    if (data.package) formData.append('package', data.package);
-    if (data.details) formData.append('details', data.details);
+    formData.append('name', sanitizedData.name);
+    formData.append('email', sanitizedData.email);
+    if (sanitizedData.country)
+      formData.append('country', sanitizedData.country);
+    if (sanitizedData.package)
+      formData.append('package', sanitizedData.package);
+    if (sanitizedData.details)
+      formData.append('details', sanitizedData.details);
 
     response = await fetch(API_ENDPOINTS.WEB3FORMS, {
       method: HTTP_METHODS.POST,
@@ -42,7 +53,7 @@ export const submitContactFormDataAccess = async ({
       headers: {
         [HTTP_HEADERS.CONTENT_TYPE]: CONTENT_TYPES.JSON,
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify(sanitizedData),
     });
   }
 

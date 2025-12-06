@@ -1,6 +1,6 @@
 // Layout & Container Styles
 export const layout = {
-  page: 'min-h-screen bg-slate-950 text-slate-50',
+  page: 'min-h-screen overflow-x-hidden bg-slate-950 text-slate-50',
   container: 'mx-auto max-w-6xl min-w-0 px-4 sm:px-6 lg:px-8',
   maxWidth: 'max-w-2xl',
   maxWidthXl: 'max-w-xl',
@@ -24,7 +24,7 @@ export const header = {
     subtitle: 'text-xs text-slate-400',
   },
   nav: {
-    root: 'hidden items-center gap-8 text-sm text-slate-300 md:flex overflow-visible',
+    root: 'hidden items-center gap-8 text-sm text-slate-300 md:flex',
     linksContainer: 'flex items-center gap-8',
     link: 'hover:text-sky-400',
     currencySwitcher: 'ml-4 w-[90px] flex-shrink-0',
@@ -195,7 +195,7 @@ export const card = {
 // Hero Styles
 export const hero = {
   content: 'flex flex-col justify-center space-y-6 min-h-[400px]',
-  visual: 'relative flex items-center justify-center',
+  visual: 'relative flex items-center justify-center overflow-hidden',
   gradient:
     'absolute -inset-6 -z-10 rounded-3xl bg-gradient-to-br from-sky-500/30 via-violet-500/20 to-emerald-400/20 blur-3xl',
   browserHeader: 'flex items-center gap-2 border-b border-slate-800 pb-3',
