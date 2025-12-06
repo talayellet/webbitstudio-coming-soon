@@ -296,6 +296,8 @@ export const de: LocaleStrings = {
       submit: 'Anfrage absenden',
       submitting: 'Wird gesendet...',
       note: 'Bevorzugen Sie WhatsApp oder einen kurzen Anruf? Wir können direkte Kontaktdaten in unserer Antwort teilen.',
+      emailFallback: 'Oder senden Sie uns direkt eine E-Mail an',
+      phoneFallback: 'oder rufen Sie an',
       errors: {
         nameRequired: 'Name ist erforderlich',
         emailRequired: 'E-Mail ist erforderlich',

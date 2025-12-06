@@ -255,6 +255,11 @@ export const form = {
     'pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-slate-400',
   note: 'mt-1 text-[11px] text-slate-200',
   error: 'mt-1 text-xs text-red-400',
+  emailFallback:
+    'mt-4 flex items-center gap-2 rounded-lg border border-slate-700/50 bg-slate-800/30 px-3 py-2.5 text-[11px] text-slate-300',
+  emailFallbackIcon: 'h-4 w-4 flex-shrink-0 text-slate-400',
+  emailFallbackLink:
+    'text-sky-400 hover:text-sky-300 transition-colors underline decoration-sky-400/30 hover:decoration-sky-300',
 } as const;
 
 // Custom Select Styles

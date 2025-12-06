@@ -296,6 +296,8 @@ export const fr: LocaleStrings = {
       submit: 'Envoyer la demande',
       submitting: 'Envoi en cours...',
       note: 'Vous préférez WhatsApp ou un appel rapide ? Nous pouvons partager les coordonnées directes dans notre réponse.',
+      emailFallback: 'Ou envoyez-nous un email directement à',
+      phoneFallback: 'ou appelez',
       errors: {
         nameRequired: 'Le nom est requis',
         emailRequired: "L'e-mail est requis",

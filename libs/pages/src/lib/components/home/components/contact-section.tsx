@@ -2,9 +2,17 @@ import { useForm } from 'react-hook-form';
 import * as styles from '../utils/styles';
 import type { LocaleStrings } from '../utils/locales';
 import type { ContactFormData } from '../utils/types';
-import { CustomSelect } from '@webbitstudio/ui-components';
+import {
+  CustomSelect,
+  EnvelopeIcon,
+  PhoneIcon,
+} from '@webbitstudio/ui-components';
 import { useContactFormSubmit } from '../hooks';
 import { DEFAULT_INPUT_MAX_LENGTH } from '@webbitstudio/shared-utils';
+import {
+  WEBBIT_STUDIO_EMAIL,
+  WEBBIT_STUDIO_PHONE,
+} from '../../../utils/constants';
 
 interface ContactSectionProps {
   content: LocaleStrings['contactSection'];
@@ -199,6 +207,30 @@ export const ContactSection = ({
             </button>
 
             <p className={styles.form.note}>{content.form.note}</p>
+            <div className={styles.form.emailFallback}>
+              <EnvelopeIcon className={styles.form.emailFallbackIcon} />
+              <span>
+                {content.form.emailFallback}{' '}
+                <a
+                  href={`mailto:${WEBBIT_STUDIO_EMAIL}`}
+                  className={styles.form.emailFallbackLink}
+                >
+                  {WEBBIT_STUDIO_EMAIL}
+                </a>
+              </span>
+            </div>
+            <div className={styles.form.emailFallback}>
+              <PhoneIcon className={styles.form.emailFallbackIcon} />
+              <span>
+                {content.form.phoneFallback}{' '}
+                <a
+                  href={`tel:${WEBBIT_STUDIO_PHONE}`}
+                  className={styles.form.emailFallbackLink}
+                >
+                  {WEBBIT_STUDIO_PHONE}
+                </a>
+              </span>
+            </div>
           </form>
         </div>
       </div>

@@ -293,6 +293,8 @@ export const en = {
       submit: 'Submit inquiry',
       submitting: 'Submitting...',
       note: 'Prefer WhatsApp or a quick call? We can share direct contact details in our reply.',
+      emailFallback: 'Or email us directly at',
+      phoneFallback: 'or call',
       errors: {
         nameRequired: 'Name is required',
         emailRequired: 'Email is required',
