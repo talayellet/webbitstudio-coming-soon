@@ -8,7 +8,10 @@ import {
   PhoneIcon,
 } from '@webbitstudio/ui-components';
 import { useContactFormSubmit } from '../hooks';
-import { DEFAULT_INPUT_MAX_LENGTH } from '@webbitstudio/shared-utils';
+import {
+  DEFAULT_INPUT_MAX_LENGTH,
+  EMAIL_REG,
+} from '@webbitstudio/shared-utils';
 import {
   WEBBIT_STUDIO_EMAIL,
   WEBBIT_STUDIO_PHONE,
@@ -30,8 +33,6 @@ interface ContactSectionProps {
    */
   onSubmit?: (data: ContactFormData) => void;
 }
-
-const EMAIL_REG = new RegExp(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i);
 
 export const ContactSection = ({
   content,
