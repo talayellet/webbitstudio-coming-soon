@@ -35,6 +35,9 @@ jobs:
         env:
           NODE_ENV: production
 
+      - name: Add .nojekyll file
+        run: touch apps/web/dist/.nojekyll
+
       - name: Copy CNAME to dist
         run: cp apps/web/public/CNAME apps/web/dist/CNAME
 
