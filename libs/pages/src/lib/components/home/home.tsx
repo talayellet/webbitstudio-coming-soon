@@ -25,7 +25,14 @@ import {
 } from '@webbitstudio/ui-components';
 import { WEBBIT_STUDIO_LANG_OPTIONS } from '../../utils';
 
-const HomePageContent = () => {
+export interface WebbitStudioHomePageProps {
+  /**
+   * Web3Forms access key for contact form submissions (get free key at https://web3forms.com)
+   */
+  web3formsAccessKey?: string;
+}
+
+const HomePageContent = ({ web3formsAccessKey }: WebbitStudioHomePageProps) => {
   const { locale, setLocale, content } = useLocalizedContent();
   const { currency, setCurrency } = useCurrencyContext();
   const { isLoading, error } = usePriceConverter();
@@ -76,17 +83,20 @@ const HomePageContent = () => {
         <WhySection content={content.whySection} />
         <PricingSection content={content.pricingSection} />
         <FAQSection content={content.faqSection} />
-        <ContactSection content={content.contactSection} />
+        <ContactSection
+          content={content.contactSection}
+          web3formsAccessKey={web3formsAccessKey}
+        />
         <Footer content={content.footer} />
       </div>
     </div>
   );
 };
 
-export const WebbitStudioHomePage = () => {
+export const WebbitStudioHomePage = (props: WebbitStudioHomePageProps) => {
   return (
     <CurrencyProvider>
-      <HomePageContent />
+      <HomePageContent {...props} />
     </CurrencyProvider>
   );
 };

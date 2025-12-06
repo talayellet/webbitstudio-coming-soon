@@ -294,7 +294,18 @@ export const fr: LocaleStrings = {
           'Parlez-nous de votre entreprise, des pages dont vous avez besoin et de toute échéance ou exigence particulière.',
       },
       submit: 'Envoyer la demande',
+      submitting: 'Envoi en cours...',
       note: 'Vous préférez WhatsApp ou un appel rapide ? Nous pouvons partager les coordonnées directes dans notre réponse.',
+      errors: {
+        nameRequired: 'Le nom est requis',
+        emailRequired: "L'e-mail est requis",
+        emailInvalid: 'Veuillez saisir une adresse e-mail valide',
+        serverError: 'Erreur du serveur. Veuillez réessayer plus tard.',
+        rateLimitError: 'Trop de requêtes. Veuillez réessayer plus tard.',
+        submissionFailed: "Échec de l'envoi du formulaire. Veuillez réessayer.",
+      },
+      successMessage:
+        'Merci pour votre demande ! Nous vous répondrons bientôt.',
     },
   },
 

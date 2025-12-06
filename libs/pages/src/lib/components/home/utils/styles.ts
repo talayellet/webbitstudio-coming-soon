@@ -254,6 +254,7 @@ export const form = {
   selectIcon:
     'pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-slate-400',
   note: 'mt-1 text-[11px] text-slate-200',
+  error: 'mt-1 text-xs text-red-400',
 } as const;
 
 // Custom Select Styles

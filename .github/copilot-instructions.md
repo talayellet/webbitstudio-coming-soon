@@ -16,6 +16,12 @@ export const MY_THING = {
 export type MyThing = (typeof MY_THING)[keyof typeof MY_THING];
 ```
 
+- Do not use the `React.FC` pattern. Instead - use something like this for components:
+
+```typescript
+const MyComponent = ({prop1, ...}: MyComponentProps) => {...}
+```
+
 ## React Patterns
 
 - **DO NOT use `React.FC`** - use this pattern instead:
@@ -42,6 +48,7 @@ export type MyThing = (typeof MY_THING)[keyof typeof MY_THING];
 - Add JSDoc comments for all public functions/components
 - Keep components focused and small
 - When adding text content always localize it
+- External constants should be hosted in the nearest `utils/constants.ts` file rather than in the in the component / hook file.
 
 ## Code Quality
 
