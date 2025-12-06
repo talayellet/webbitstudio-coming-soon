@@ -31,6 +31,7 @@ import {
   SENTRY_TAGS,
   DEFAULT_LANGUAGE_FILTERS,
   DEFAULT_CURRENCY_FILTERS,
+  COOKIE_CONSENT_STORAGE_KEY,
   type CountryCode,
 } from '@webbitstudio/shared-utils';
 import {
@@ -154,6 +155,7 @@ const HomePageContent = ({ web3formsAccessKey }: WebbitStudioHomePageProps) => {
         rejectButtonText={content.cookieConsent.rejectButton}
         privacyPolicyText={content.cookieConsent.privacyPolicyLink}
         privacyPolicyLink={ROUTES.PRIVACY_POLICY}
+        storageKey={COOKIE_CONSENT_STORAGE_KEY}
       />
     </div>
   );

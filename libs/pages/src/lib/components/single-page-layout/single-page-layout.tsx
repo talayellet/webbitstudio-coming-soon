@@ -8,6 +8,7 @@ import {
   useGeoFilteredCurrencies,
   DEFAULT_LANGUAGE_FILTERS,
   DEFAULT_CURRENCY_FILTERS,
+  COOKIE_CONSENT_STORAGE_KEY,
   type CountryCode,
 } from '@webbitstudio/shared-utils';
 import {
@@ -101,6 +102,7 @@ export const SinglePageLayout = ({ children }: SinglePageLayoutProps) => {
         rejectButtonText={content.cookieConsent.rejectButton}
         privacyPolicyText={content.cookieConsent.privacyPolicyLink}
         privacyPolicyLink="/privacy-policy"
+        storageKey={COOKIE_CONSENT_STORAGE_KEY}
       />
     </div>
   );

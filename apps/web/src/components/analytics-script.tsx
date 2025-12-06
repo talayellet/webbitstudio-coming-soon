@@ -3,18 +3,25 @@ import { useEffect } from 'react';
 interface AnalyticsScriptProps {
   websiteId: string;
   src?: string;
+  /**
+   * Whether user has consented to analytics cookies
+   * Script will only load when this is true
+   */
+  hasConsent: boolean;
 }
 
 /**
  * Component to load Umami analytics script
+ * Only loads when user has given cookie consent
  * Place this in your App component to enable analytics tracking
  */
-const AnalyticsScript = ({
+export const AnalyticsScript = ({
   websiteId,
   src = 'https://cloud.umami.is/script.js',
+  hasConsent,
 }: AnalyticsScriptProps) => {
   useEffect(() => {
-    if (!websiteId) {
+    if (!websiteId || !hasConsent) {
       return;
     }
 
@@ -39,7 +46,7 @@ const AnalyticsScript = ({
         script.parentNode.removeChild(script);
       }
     };
-  }, [websiteId, src]);
+  }, [websiteId, src, hasConsent]);
 
   return null;
 };

@@ -7,17 +7,21 @@ import {
   CookiePolicyPage,
 } from '@webbitstudio/pages';
 import { CurrencyProvider } from '@webbitstudio/shared-utils';
-import AnalyticsScript from '../components/analytics-script';
+import { AnalyticsScript } from '../components';
+import { useAnalyticsConsent } from '../hooks';
 
 const COMPANY_NAME = 'Webbit Studio';
 const COMPANY_EMAIL = 'privacy@webbitstudio.com';
 
 export function App() {
+  const hasAnalyticsConsent = useAnalyticsConsent();
+
   return (
     <CurrencyProvider>
       <AnalyticsScript
         websiteId={import.meta.env.VITE_UMAMI_WEBSITE_ID || ''}
         src={import.meta.env.VITE_UMAMI_SCRIPT_URL}
+        hasConsent={hasAnalyticsConsent}
       />
       <Routes>
         <Route

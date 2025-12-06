@@ -1,5 +1,9 @@
 import { useState, useEffect } from 'react';
-import { COOKIES_CONSENT_VALUE, type ConsentValue } from '../constants';
+import {
+  COOKIES_CONSENT_VALUE,
+  COOKIE_CONSENT_CHANGED_EVENT,
+  type ConsentValue,
+} from '../constants';
 
 const isBrowser = typeof window !== 'undefined';
 
@@ -71,6 +75,8 @@ export const useLocalStorageConsent = ({
   const accept = () => {
     if (isBrowser) {
       localStorage.setItem(storageKey, COOKIES_CONSENT_VALUE.ACCEPTED);
+      // Dispatch custom event to notify other components
+      window.dispatchEvent(new Event(COOKIE_CONSENT_CHANGED_EVENT));
     }
     setConsent(COOKIES_CONSENT_VALUE.ACCEPTED);
     setIsVisible(false);
@@ -80,6 +86,8 @@ export const useLocalStorageConsent = ({
   const reject = () => {
     if (isBrowser) {
       localStorage.setItem(storageKey, COOKIES_CONSENT_VALUE.REJECTED);
+      // Dispatch custom event to notify other components
+      window.dispatchEvent(new Event(COOKIE_CONSENT_CHANGED_EVENT));
     }
     setConsent(COOKIES_CONSENT_VALUE.REJECTED);
     setIsVisible(false);
