@@ -17,6 +17,7 @@ import {
   CurrencyProvider,
   useCurrencyContext,
   WEBBIT_STUDIO_CURRENCY_OPTIONS,
+  useHashNavigation,
 } from '@webbitstudio/shared-utils';
 import {
   LanguageSwitcher,
@@ -35,6 +36,7 @@ const HomePageContent = ({ web3formsAccessKey }: WebbitStudioHomePageProps) => {
   const { locale, setLocale, content } = useLocalizedContent();
   const { currency, setCurrency } = useCurrencyContext();
   const { isLoading, error } = usePriceConverter();
+  useHashNavigation();
 
   return (
     <div className={styles.layout.page}>
