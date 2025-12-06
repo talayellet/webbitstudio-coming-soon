@@ -30,6 +30,9 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
+      - name: Sync Nx workspace
+        run: yarn nx sync
+
       - name: Build web app
         run: yarn nx build @webbitstudio/web
 
