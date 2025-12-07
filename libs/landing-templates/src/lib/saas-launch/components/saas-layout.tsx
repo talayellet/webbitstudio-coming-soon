@@ -1,4 +1,10 @@
-import React, { useMemo, useState, useCallback, ReactNode } from 'react';
+import React, {
+  useMemo,
+  useState,
+  useCallback,
+  useEffect,
+  ReactNode,
+} from 'react';
 import clsx from 'clsx';
 import '../../../styles.css';
 import '../utils/animations.css';
@@ -83,6 +89,13 @@ export const SaasLayout: React.FC<SaasLayoutProps> = ({
     () => getLocaleStrings(currentLocale),
     [currentLocale]
   );
+
+  // Update HTML lang attribute for accessibility
+  useEffect(() => {
+    if (typeof document !== 'undefined') {
+      document.documentElement.lang = currentLocale;
+    }
+  }, [currentLocale]);
 
   return (
     <div className={clsx(STYLES.MAIN_CONTAINER)} style={colorStyles}>

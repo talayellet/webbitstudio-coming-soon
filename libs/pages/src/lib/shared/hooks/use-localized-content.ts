@@ -68,6 +68,9 @@ export const useLocalizedContent = () => {
       document.documentElement.dir = RTL_LOCALES.includes(locale)
         ? 'rtl'
         : 'ltr';
+
+      // Set document language attribute for accessibility
+      document.documentElement.lang = locale;
     }
   }, [locale]);
 
