@@ -328,6 +328,7 @@ export const en = {
     companyName: 'Webbit Studio',
     website: 'webbitstudio.com',
     backToTop: 'Back to top',
+    linksTitle: 'Links',
     links: {
       privacy: 'Privacy Policy',
       terms: 'Terms of Service',

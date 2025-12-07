@@ -336,8 +336,9 @@ export const de: LocaleStrings = {
     companyName: 'Webbit Studio',
     website: 'webbitstudio.com',
     backToTop: 'Nach oben',
+    linksTitle: 'Links',
     links: {
-      privacy: 'Datenschutz',
+      privacy: 'Datenschutzerklärung',
       terms: 'Nutzungsbedingungen',
       cookies: 'Cookie-Richtlinie',
       accessibility: 'Barrierefreiheit',

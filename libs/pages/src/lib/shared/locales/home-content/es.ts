@@ -335,6 +335,7 @@ export const es: LocaleStrings = {
     companyName: 'Webbit Studio',
     website: 'webbitstudio.com',
     backToTop: 'Volver arriba',
+    linksTitle: 'Enlaces',
     links: {
       privacy: 'Política de Privacidad',
       terms: 'Términos de Servicio',

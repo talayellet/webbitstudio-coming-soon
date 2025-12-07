@@ -325,11 +325,12 @@ export const he: LocaleStrings = {
     companyName: 'Webbit Studio',
     website: 'webbitstudio.com',
     backToTop: 'חזור למעלה',
+    linksTitle: 'קישורים',
     links: {
       privacy: 'מדיניות פרטיות',
       terms: 'תנאי שימוש',
       cookies: 'מדיניות עוגיות',
-      accessibility: 'נגישות',
+      accessibility: 'הצהרת נגישות',
     },
   },
 

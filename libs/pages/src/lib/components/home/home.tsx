@@ -146,8 +146,8 @@ const HomePageContent = ({ web3formsAccessKey }: WebbitStudioHomePageProps) => {
           content={content.contactSection}
           web3formsAccessKey={web3formsAccessKey}
         />
-        <Footer content={content.footer} />
       </div>
+      <Footer content={content.footer} />
       <CookieConsentBanner
         message={content.cookieConsent.message}
         acceptButtonText={content.cookieConsent.acceptButton}

@@ -339,9 +339,24 @@ export const contact = {
 
 // Footer Styles
 export const footer = {
-  root: 'border-t border-slate-800 py-6 text-sm text-slate-400',
+  root: 'sticky bottom-0 z-[999] bg-slate-950/95 backdrop-blur-sm border-t border-slate-800 py-3 sm:py-6 text-sm text-slate-400',
   container:
-    'flex flex-col items-start justify-between gap-3 sm:flex-row sm:items-center',
+    'mx-auto max-w-6xl min-w-0 px-4 sm:px-6 lg:px-8 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between sm:gap-3',
+  copyright: 'text-xs sm:text-sm',
+  section: {
+    wrapper: 'w-full sm:w-auto',
+    // Desktop: always visible
+    desktop: 'hidden sm:block',
+    // Mobile: accordion
+    mobile: 'block sm:hidden',
+    accordionButton:
+      'w-full flex items-center justify-between py-2 text-left hover:text-sky-300 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 rounded',
+    accordionIcon:
+      'w-4 h-4 text-slate-400 transition-transform duration-200 shrink-0',
+    accordionIconOpen: 'rotate-180',
+    accordionContent: 'pb-2 animate-in slide-in-from-top-2 duration-200',
+    title: 'text-sm font-medium text-slate-300',
+  },
   links: 'flex flex-wrap items-center gap-4',
   link: 'hover:text-sky-300 focus-visible:outline-none focus-visible:text-sky-300 focus-visible:underline focus-visible:underline-offset-4 focus-visible:decoration-2 transition-colors rounded px-1',
   separator: 'hidden h-1 w-1 rounded-full bg-slate-500 sm:inline-block',
