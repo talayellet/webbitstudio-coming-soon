@@ -105,8 +105,15 @@ export const privacyPolicyEs: PrivacyPolicyContent = {
         },
       ],
     },
+    internationalDataTransfers: {
+      title: '7. Transferencias Internacionales de Datos',
+      content: [
+        'Nuestra empresa está registrada en el Reino Unido y opera con un equipo remoto distribuido. Los datos personales pueden ser accedidos y procesados desde varias ubicaciones para proporcionar nuestros servicios.',
+        'Todos los miembros del equipo y contratistas están obligados por estrictos acuerdos de procesamiento de datos y deben cumplir con los estándares RGPD y UK RGPD independientemente de su ubicación física. Implementamos medidas de protección técnicas y organizativas apropiadas, incluyendo cifrado, controles de acceso y evaluaciones de seguridad regulares para proteger sus datos.',
+      ],
+    },
     yourRights: {
-      title: '7. Sus Derechos (RGPD)',
+      title: '8. Sus Derechos (RGPD)',
       content: [
         'Si es residente del Espacio Económico Europeo (EEE), tiene ciertos derechos de protección de datos:',
       ],
@@ -120,7 +127,7 @@ export const privacyPolicyEs: PrivacyPolicyContent = {
       ],
     },
     dataRetention: {
-      title: '8. Retención de Datos',
+      title: '9. Retención de Datos',
       content: [
         'Retenemos su información personal solo durante el tiempo necesario para cumplir con los propósitos descritos en esta Política de Privacidad, a menos que la ley requiera o permita un período de retención más largo. Nuestros períodos de retención son los siguientes:',
       ],
@@ -132,7 +139,7 @@ export const privacyPolicyEs: PrivacyPolicyContent = {
       ],
     },
     dataBreachNotification: {
-      title: '9. Notificación de Violación de Datos',
+      title: '10. Notificación de Violación de Datos',
       content: [
         'De acuerdo con los Artículos 33-34 del RGPD, hemos establecido procedimientos para responder a violaciones de datos que involucren información personal:',
       ],
@@ -145,13 +152,13 @@ export const privacyPolicyEs: PrivacyPolicyContent = {
       ],
     },
     dataSecurity: {
-      title: '10. Seguridad de Su Información',
+      title: '11. Seguridad de Su Información',
       content: [
         'Usamos medidas de seguridad administrativas, técnicas y físicas para ayudar a proteger su información personal. Si bien hemos tomado medidas razonables para asegurar la información personal que nos proporciona, tenga en cuenta que, a pesar de nuestros esfuerzos, ninguna medida de seguridad es perfecta o impenetrable, y ningún método de transmisión de datos puede garantizarse contra cualquier intercepción u otro tipo de uso indebido.',
       ],
     },
     contact: {
-      title: '11. Contáctenos',
+      title: '12. Contáctenos',
       content: [
         'Si tiene preguntas o comentarios sobre esta Política de Privacidad, contáctenos en:',
       ],

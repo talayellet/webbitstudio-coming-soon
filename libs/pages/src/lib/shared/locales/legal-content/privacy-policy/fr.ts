@@ -106,8 +106,15 @@ export const privacyPolicyFr: PrivacyPolicyContent = {
         },
       ],
     },
+    internationalDataTransfers: {
+      title: '7. Transferts Internationaux de Données',
+      content: [
+        'Notre société est enregistrée au Royaume-Uni et fonctionne avec une équipe distante distribuée. Les données personnelles peuvent être consultées et traitées depuis divers emplacements pour fournir nos services.',
+        "Tous les membres de l'équipe et les sous-traitants sont liés par des accords stricts de traitement des données et doivent se conformer aux normes RGPD et UK RGPD quel que soit leur emplacement physique. Nous mettons en œuvre des mesures de protection techniques et organisationnelles appropriées, notamment le cryptage, les contrôles d'accès et des évaluations de sécurité régulières pour protéger vos données.",
+      ],
+    },
     yourRights: {
-      title: '7. Vos Droits (RGPD)',
+      title: '8. Vos Droits (RGPD)',
       content: [
         "Si vous êtes résident de l'Espace économique européen (EEE), vous disposez de certains droits en matière de protection des données :",
       ],
@@ -121,7 +128,7 @@ export const privacyPolicyFr: PrivacyPolicyContent = {
       ],
     },
     dataRetention: {
-      title: '8. Conservation des Données',
+      title: '9. Conservation des Données',
       content: [
         "Nous conservons vos informations personnelles uniquement aussi longtemps que nécessaire pour remplir les objectifs décrits dans cette Politique de Confidentialité, à moins qu'une période de conservation plus longue ne soit requise ou permise par la loi. Nos périodes de conservation sont les suivantes :",
       ],
@@ -133,7 +140,7 @@ export const privacyPolicyFr: PrivacyPolicyContent = {
       ],
     },
     dataBreachNotification: {
-      title: '9. Notification de Violation de Données',
+      title: '10. Notification de Violation de Données',
       content: [
         'Conformément aux articles 33-34 du RGPD, nous avons établi des procédures pour répondre aux violations de données impliquant des informations personnelles :',
       ],
@@ -146,13 +153,13 @@ export const privacyPolicyFr: PrivacyPolicyContent = {
       ],
     },
     dataSecurity: {
-      title: '10. Sécurité de Vos Informations',
+      title: '11. Sécurité de Vos Informations',
       content: [
         "Nous utilisons des mesures de sécurité administratives, techniques et physiques pour aider à protéger vos informations personnelles. Bien que nous ayons pris des mesures raisonnables pour sécuriser les informations personnelles que vous nous fournissez, veuillez noter que malgré nos efforts, aucune mesure de sécurité n'est parfaite ou impénétrable, et aucune méthode de transmission de données ne peut être garantie contre toute interception ou autre type d'utilisation abusive.",
       ],
     },
     contact: {
-      title: '11. Nous Contacter',
+      title: '12. Nous Contacter',
       content: [
         'Si vous avez des questions ou des commentaires sur cette Politique de Confidentialité, veuillez nous contacter à :',
       ],

@@ -105,8 +105,15 @@ export const privacyPolicyDe: PrivacyPolicyContent = {
         },
       ],
     },
+    internationalDataTransfers: {
+      title: '7. Internationale Datenübermittlungen',
+      content: [
+        'Unser Unternehmen ist im Vereinigten Königreich registriert und arbeitet mit einem verteilten Remote-Team. Personenbezogene Daten können von verschiedenen Standorten aus abgerufen und verarbeitet werden, um unsere Dienste bereitzustellen.',
+        'Alle Teammitglieder und Auftragnehmer sind durch strenge Datenverarbeitungsvereinbarungen gebunden und müssen die DSGVO- und UK-DSGVO-Standards einhalten, unabhängig von ihrem physischen Standort. Wir implementieren angemessene technische und organisatorische Schutzmaßnahmen einschließlich Verschlüsselung, Zugriffskontrollen und regelmäßiger Sicherheitsbewertungen zum Schutz Ihrer Daten.',
+      ],
+    },
     yourRights: {
-      title: '7. Ihre Rechte (DSGVO)',
+      title: '8. Ihre Rechte (DSGVO)',
       content: [
         'Wenn Sie im Europäischen Wirtschaftsraum (EWR) ansässig sind, haben Sie bestimmte Datenschutzrechte:',
       ],
@@ -120,7 +127,7 @@ export const privacyPolicyDe: PrivacyPolicyContent = {
       ],
     },
     dataRetention: {
-      title: '8. Datenspeicherung',
+      title: '9. Datenspeicherung',
       content: [
         'Wir bewahren Ihre persönlichen Daten nur so lange auf, wie es notwendig ist, um die in dieser Datenschutzrichtlinie beschriebenen Zwecke zu erfüllen, es sei denn, eine längere Aufbewahrungsfrist ist gesetzlich erforderlich oder zulässig. Unsere Aufbewahrungsfristen sind wie folgt:',
       ],
@@ -132,7 +139,7 @@ export const privacyPolicyDe: PrivacyPolicyContent = {
       ],
     },
     dataBreachNotification: {
-      title: '9. Benachrichtigung bei Datenschutzverletzungen',
+      title: '10. Benachrichtigung über Datenschutzverletzungen',
       content: [
         'In Übereinstimmung mit den Artikeln 33-34 der DSGVO haben wir Verfahren eingerichtet, um auf Datenschutzverletzungen mit personenbezogenen Daten zu reagieren:',
       ],
@@ -145,13 +152,13 @@ export const privacyPolicyDe: PrivacyPolicyContent = {
       ],
     },
     dataSecurity: {
-      title: '10. Sicherheit Ihrer Informationen',
+      title: '11. Sicherheit Ihrer Informationen',
       content: [
         'Wir verwenden administrative, technische und physische Sicherheitsmaßnahmen, um Ihre personenbezogenen Daten zu schützen. Obwohl wir angemessene Schritte unternommen haben, um die personenbezogenen Daten, die Sie uns zur Verfügung stellen, zu sichern, beachten Sie bitte, dass trotz unserer Bemühungen keine Sicherheitsmaßnahmen perfekt oder undurchdringlich sind und keine Methode der Datenübertragung gegen jede Abfangung oder andere Art von Missbrauch garantiert werden kann.',
       ],
     },
     contact: {
-      title: '11. Kontaktieren Sie Uns',
+      title: '12. Kontaktieren Sie uns',
       content: [
         'Wenn Sie Fragen oder Kommentare zu dieser Datenschutzrichtlinie haben, kontaktieren Sie uns bitte unter:',
       ],

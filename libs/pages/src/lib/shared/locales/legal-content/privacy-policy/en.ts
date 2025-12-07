@@ -102,8 +102,15 @@ export const privacyPolicyEn: PrivacyPolicyContent = {
         },
       ],
     },
+    internationalDataTransfers: {
+      title: '7. International Data Transfers',
+      content: [
+        'Our company is registered in the United Kingdom and operates with a distributed remote team. Personal data may be accessed and processed from various locations to deliver our services.',
+        'All team members and contractors are bound by strict data processing agreements and must comply with GDPR and UK GDPR standards regardless of their physical location. We implement appropriate technical and organizational safeguards including encryption, access controls, and regular security assessments to protect your data.',
+      ],
+    },
     yourRights: {
-      title: '7. Your Rights (GDPR)',
+      title: '8. Your Rights (GDPR)',
       content: [
         'If you are a resident of the European Economic Area (EEA), you have certain data protection rights:',
       ],
@@ -117,7 +124,7 @@ export const privacyPolicyEn: PrivacyPolicyContent = {
       ],
     },
     dataRetention: {
-      title: '8. Data Retention',
+      title: '9. Data Retention',
       content: [
         'We retain your personal information only for as long as necessary to fulfill the purposes outlined in this Privacy Policy, unless a longer retention period is required or permitted by law. Our retention periods are as follows:',
       ],
@@ -129,7 +136,7 @@ export const privacyPolicyEn: PrivacyPolicyContent = {
       ],
     },
     dataBreachNotification: {
-      title: '9. Data Breach Notification',
+      title: '10. Data Breach Notification',
       content: [
         'In accordance with GDPR Articles 33-34, we have established procedures to respond to data breaches involving personal information:',
       ],
@@ -142,13 +149,13 @@ export const privacyPolicyEn: PrivacyPolicyContent = {
       ],
     },
     dataSecurity: {
-      title: '10. Security of Your Information',
+      title: '11. Security of Your Information',
       content: [
         'We use administrative, technical, and physical security measures to help protect your personal information. While we have taken reasonable steps to secure the personal information you provide to us, please be aware that despite our efforts, no security measures are perfect or impenetrable, and no method of data transmission can be guaranteed against any interception or other type of misuse.',
       ],
     },
     contact: {
-      title: '11. Contact Us',
+      title: '12. Contact Us',
       content: [
         'If you have questions or comments about this Privacy Policy, please contact us at:',
       ],

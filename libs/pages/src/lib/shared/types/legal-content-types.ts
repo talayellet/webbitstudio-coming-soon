@@ -40,6 +40,10 @@ export interface PrivacyPolicyContent {
         safeguards: string;
       }>;
     };
+    internationalDataTransfers: {
+      title: string;
+      content: string[];
+    };
     yourRights: {
       title: string;
       content: string[];

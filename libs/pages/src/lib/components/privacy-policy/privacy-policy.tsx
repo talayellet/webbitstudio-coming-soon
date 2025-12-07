@@ -58,6 +58,11 @@ export const PrivacyPolicyPage = ({
         <ThirdPartyProcessorsSection section={sections.thirdPartyProcessors} />
 
         <PrivacyPolicySection
+          title={sections.internationalDataTransfers.title}
+          content={sections.internationalDataTransfers.content}
+        />
+
+        <PrivacyPolicySection
           title={sections.yourRights.title}
           content={sections.yourRights.content}
           listItems={sections.yourRights.rights}
