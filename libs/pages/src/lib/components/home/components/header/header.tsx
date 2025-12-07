@@ -15,6 +15,7 @@ interface HeaderProps {
   currentLanguage: string;
   languages: LanguageOption[];
   onLanguageChange: (language: string) => void;
+  isRTL: boolean;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -25,6 +26,7 @@ export const Header: React.FC<HeaderProps> = ({
   currentLanguage,
   languages,
   onLanguageChange,
+  isRTL,
 }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -74,6 +76,7 @@ export const Header: React.FC<HeaderProps> = ({
         onClose={closeMobileMenu}
         onLanguageChange={onLanguageChange}
         onLinkClick={handleLinkClick}
+        isRTL={isRTL}
       />
     </>
   );

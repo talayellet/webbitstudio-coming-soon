@@ -123,6 +123,7 @@ const HomePageContent = ({ web3formsAccessKey }: WebbitStudioHomePageProps) => {
         currentLanguage={locale}
         languages={filteredLanguages}
         onLanguageChange={(lang) => setLocale(lang as CountryCode)}
+        isRTL={isRTL}
       />
       <div id={MAIN_CONTENT_ID} className={homeStyles.layout.container}>
         <PriceConversionNotice

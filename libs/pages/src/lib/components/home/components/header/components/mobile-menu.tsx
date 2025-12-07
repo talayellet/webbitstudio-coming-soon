@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useMemo } from 'react';
+import clsx from 'clsx';
 import * as styles from '../../../utils/styles';
 import type { LocaleStrings } from '../../../../../shared';
 import { MobileMenuOverlay } from './mobile-menu-overlay';
@@ -17,6 +18,7 @@ interface MobileMenuProps {
   onClose: () => void;
   onLanguageChange: (language: string) => void;
   onLinkClick: () => void;
+  isRTL: boolean;
 }
 
 export const MobileMenu = ({
@@ -29,7 +31,22 @@ export const MobileMenu = ({
   onClose,
   onLanguageChange,
   onLinkClick,
+  isRTL,
 }: MobileMenuProps) => {
+  const menuClasses = useMemo(
+    () =>
+      clsx(
+        styles.header.mobileMenu.menu,
+        isRTL
+          ? styles.header.mobileMenu.menuRTL
+          : styles.header.mobileMenu.menuLTR,
+        isOpen
+          ? styles.header.mobileMenu.menuVisible
+          : styles.header.mobileMenu.menuHidden
+      ),
+    [isOpen, isRTL]
+  );
+
   return (
     <>
       <MobileMenuOverlay isOpen={isOpen} onClose={onClose} />
@@ -39,17 +56,11 @@ export const MobileMenu = ({
         role="dialog"
         aria-modal="true"
         aria-label={mobileMenuAriaLabel}
-        className={`${styles.header.mobileMenu.menu} ${
-          isOpen
-            ? styles.header.mobileMenu.menuVisible
-            : styles.header.mobileMenu.menuHidden
-        }`}
+        className={menuClasses}
       >
         <MobileMenuHeader
           logoTitle={content.logo.title}
           logoSubtitle={content.logo.subtitle}
-          closeAriaLabel={content.ariaLabels.closeMenu}
-          onClose={onClose}
         />
 
         <nav className={styles.header.mobileMenu.menuContent}>
@@ -58,10 +69,9 @@ export const MobileMenu = ({
               languages={languages}
               currentLanguage={currentLanguage}
               onLanguageChange={onLanguageChange}
+              ariaLabel={content.ariaLabels.languageSwitcher}
             />
-            <div className={styles.header.mobileMenu.menuCurrencySwitcher}>
-              {currencySwitcher}
-            </div>
+            {currencySwitcher}
           </div>
           <MobileMenuNav content={content.nav} onLinkClick={onLinkClick} />
         </nav>
