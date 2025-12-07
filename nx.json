@@ -94,6 +94,12 @@
         "buildDepsTargetName": "build-deps",
         "watchDepsTargetName": "watch-deps"
       }
+    },
+    {
+      "plugin": "@nx/vitest/plugin",
+      "options": {
+        "targetName": "test"
+      }
     }
   ],
   "targetDefaults": {
