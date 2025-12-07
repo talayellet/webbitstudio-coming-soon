@@ -229,7 +229,7 @@ export const techStrip = {
   root: 'border-y border-slate-800 py-6 text-xs text-slate-300 sm:text-sm',
   container: 'flex flex-wrap items-center justify-between gap-3',
   badges:
-    'flex flex-wrap items-center gap-3 text-[11px] uppercase tracking-wide text-slate-500',
+    'flex flex-wrap items-center gap-3 text-[11px] uppercase tracking-wide text-slate-400',
 } as const;
 
 // List Styles
@@ -251,7 +251,7 @@ export const form = {
   textarea:
     'w-full resize-none rounded-xl border border-slate-700 bg-slate-950/70 px-3 py-2 text-xs text-slate-100 placeholder:text-slate-400 focus:border-sky-400 focus:outline-none focus:ring-2 focus:ring-sky-400',
   select:
-    'w-full appearance-none rounded-xl border border-slate-700 bg-slate-950/70 px-3 py-2 pr-10 text-xs text-slate-100 placeholder:text-slate-500 focus:border-sky-400 focus:outline-none focus:ring-1 focus:ring-sky-500 [&::-ms-expand]:hidden',
+    'w-full appearance-none rounded-xl border border-slate-700 bg-slate-950/70 px-3 py-2 pr-10 text-xs text-slate-100 placeholder:text-slate-400 focus:border-sky-400 focus:outline-none focus:ring-1 focus:ring-sky-500 [&::-ms-expand]:hidden',
   selectWrapper: 'relative',
   selectIcon:
     'pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-slate-400',
@@ -335,12 +335,12 @@ export const contact = {
 
 // Footer Styles
 export const footer = {
-  root: 'border-t border-slate-800 py-6 text-xs text-slate-500 sm:text-sm',
+  root: 'border-t border-slate-800 py-6 text-xs text-slate-400 sm:text-sm',
   container:
     'flex flex-col items-start justify-between gap-3 sm:flex-row sm:items-center',
   links: 'flex flex-wrap items-center gap-4',
   link: 'hover:text-sky-300',
-  separator: 'hidden h-1 w-1 rounded-full bg-slate-600 sm:inline-block',
+  separator: 'hidden h-1 w-1 rounded-full bg-slate-500 sm:inline-block',
 } as const;
 
 // Utility Styles
@@ -366,7 +366,7 @@ export const colors = {
     200: 'text-slate-200',
     300: 'text-slate-300',
     400: 'text-slate-400',
-    500: 'text-slate-500',
+    // Note: slate-500 removed due to insufficient contrast on dark backgrounds
   },
   rose500: 'bg-rose-500',
   amber400: 'bg-amber-400',

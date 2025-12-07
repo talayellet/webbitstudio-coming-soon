@@ -17,6 +17,6 @@
   }
 
   select option:disabled {
-    @apply text-slate-500 bg-slate-900;
+    @apply text-slate-400 bg-slate-900;
   }
 }
