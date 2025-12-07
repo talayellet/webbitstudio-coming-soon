@@ -202,7 +202,7 @@ export const en = {
       'We show "starting from" prices so expectations are clear, then adjust final quotes based on your project complexity.',
     labels: {
       startingFrom: 'Starting from',
-      typicalRange: 'typical range:',
+      typicalRange: 'typical range for catalog templates:',
       plusTax: '+ tax',
     },
     packages: [

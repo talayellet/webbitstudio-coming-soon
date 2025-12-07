@@ -206,7 +206,7 @@ export const de: LocaleStrings = {
       'Wir zeigen Preise „ab“, damit die Erwartungen klar sind, und passen dann endgültige Angebote basierend auf Ihrer Projektkomplexität an.',
     labels: {
       startingFrom: 'Ab',
-      typicalRange: 'typische Spanne:',
+      typicalRange: 'typische Spanne für Katalogvorlagen:',
       plusTax: '+ MwSt.',
     },
     packages: [

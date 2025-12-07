@@ -206,7 +206,7 @@ export const es: LocaleStrings = {
       'Mostramos precios "desde" para que las expectativas sean claras, luego ajustamos las cotizaciones finales según la complejidad de tu proyecto.',
     labels: {
       startingFrom: 'Desde',
-      typicalRange: 'rango típico:',
+      typicalRange: 'rango típico para plantillas de catálogo:',
       plusTax: '+ impuestos',
     },
     packages: [

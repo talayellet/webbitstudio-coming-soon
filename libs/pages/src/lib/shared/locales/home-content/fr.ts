@@ -206,7 +206,7 @@ export const fr: LocaleStrings = {
       'Nous affichons des prix "à partir de" pour que les attentes soient claires, puis ajustons les devis finaux en fonction de la complexité de votre projet.',
     labels: {
       startingFrom: 'À partir de',
-      typicalRange: 'fourchette typique :',
+      typicalRange: 'fourchette typique pour modèles de catalogue :',
       plusTax: '+ taxes',
     },
     packages: [
