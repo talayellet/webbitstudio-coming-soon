@@ -4,7 +4,7 @@ export const CURRENCY_SWITCHER_STYLES = {
   BUTTON:
     'w-full flex items-center gap-2 px-3 py-2 bg-[var(--surface)] border border-white/10 rounded-xl backdrop-blur-xl shadow-lg hover:bg-[var(--surface)]/80 transition-all duration-200 group',
   SYMBOL: 'text-lg font-semibold text-[var(--text)]',
-  LABEL: 'text-xs font-medium text-[var(--text-muted)] flex-1',
+  LABEL: 'text-sm font-medium text-[var(--text-muted)] flex-1',
   CHEVRON_ICON:
     'w-4 h-4 text-[var(--text-muted)] group-hover:text-[var(--text)] transition-colors',
   MENU_ITEMS:
@@ -14,7 +14,7 @@ export const CURRENCY_SWITCHER_STYLES = {
   MENU_ITEM_ACTIVE: 'bg-white/5',
   MENU_ITEM_SELECTED: 'bg-[var(--primary)]/20',
   MENU_ITEM_SYMBOL: 'text-lg font-semibold',
-  MENU_ITEM_LABEL: 'text-xs font-medium',
+  MENU_ITEM_LABEL: 'text-sm font-medium',
   MENU_ITEM_LABEL_ACTIVE: 'text-[var(--primary)]',
   MENU_ITEM_LABEL_INACTIVE: 'text-[var(--text)]',
 };
