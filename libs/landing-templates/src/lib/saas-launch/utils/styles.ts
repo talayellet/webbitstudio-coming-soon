@@ -271,6 +271,25 @@ export const STYLES = {
   CONTACT_FORM_ERROR_CONTAINER: 'min-h-[20px] mt-1',
   CONTACT_FORM_ERROR_ALERT: 'text-red-600 text-sm mb-4 p-3 bg-red-50 rounded',
   CONTACT_FORM_REQUIRED: 'text-red-500',
+  CONTACT_FORM_PRIVACY_NOTICE_CONTAINER: [
+    'rounded-lg border border-white/10',
+    'bg-[var(--surface)]/50 p-3 mt-2',
+  ],
+  CONTACT_FORM_PRIVACY_NOTICE:
+    'text-xs text-[var(--text-muted)] leading-relaxed',
+  CONTACT_FORM_CONSENT_LABEL:
+    'flex items-start gap-2 text-sm cursor-pointer mt-2',
+  CONTACT_FORM_CONSENT_CHECKBOX: [
+    'mt-1 h-4 w-4 rounded',
+    'border-white/20 bg-[var(--surface)]',
+    'text-[var(--primary)]',
+    'focus:ring-2 focus:ring-[var(--primary)] focus:ring-offset-0',
+  ],
+  CONTACT_FORM_CONSENT_LINK: [
+    'text-[var(--primary)]',
+    'hover:text-[var(--primary-dark)]',
+    'underline',
+  ],
 
   // Feature Page
   FEATURE_PAGE_CONTAINER: 'min-h-screen py-20',

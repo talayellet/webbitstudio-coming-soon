@@ -31,6 +31,13 @@ export const es: LocaleStrings = {
         label: 'Mensaje',
         placeholder: 'Cuéntanos sobre tu proyecto...',
       },
+      consent: {
+        label:
+          'Acepto el procesamiento de mis datos personales de acuerdo con la',
+        privacyPolicy: 'Política de Privacidad',
+      },
+      privacyNotice:
+        'Recopilamos su nombre, correo electrónico y mensaje para responder a su consulta. Sus datos se procesarán de acuerdo con nuestra Política de Privacidad y se conservarán hasta por 2 años. Tiene derecho a acceder, corregir o eliminar sus datos en cualquier momento.',
       submit: 'Enviar Mensaje',
       submitting: 'Enviando...',
       successMessage: '¡Gracias por tu mensaje! Te responderemos pronto.',
@@ -40,6 +47,8 @@ export const es: LocaleStrings = {
         emailInvalid: 'Dirección de correo electrónico no válida',
         messageRequired: 'El mensaje es obligatorio',
         messageTooLong: 'El mensaje debe tener 1000 caracteres o menos',
+        consentRequired:
+          'Debes aceptar la política de privacidad para continuar',
         serverError:
           'Error del servidor. Por favor, inténtalo de nuevo más tarde.',
         rateLimitError:

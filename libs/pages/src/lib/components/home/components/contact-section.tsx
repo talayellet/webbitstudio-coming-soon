@@ -208,6 +208,12 @@ export const ContactSection = ({
               />
             </div>
 
+            <div className={contactSectionStyles.form.privacyNoticeContainer}>
+              <p className={contactSectionStyles.form.privacyNotice}>
+                {content.form.privacyNotice}
+              </p>
+            </div>
+
             <div className={contactSectionStyles.form.fieldContainer}>
               <label className={contactSectionStyles.form.consentLabel}>
                 <input

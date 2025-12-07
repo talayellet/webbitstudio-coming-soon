@@ -305,6 +305,8 @@ export const es: LocaleStrings = {
           'Acepto el procesamiento de mis datos personales de acuerdo con la',
         privacyPolicy: 'Política de Privacidad',
       },
+      privacyNotice:
+        'Recopilamos su nombre, correo electrónico y cualquier detalle que proporcione para responder a su consulta. Sus datos se procesarán de acuerdo con nuestra Política de Privacidad y se conservarán hasta por 2 años. Tiene derecho a acceder, corregir o eliminar sus datos en cualquier momento.',
       submit: 'Enviar consulta',
       submitting: 'Enviando...',
       note: '¿Prefieres una llamada rápida? Podemos compartir los datos de contacto directos en nuestra respuesta.',

@@ -131,6 +131,74 @@ export const ContactForm: React.FC<ContactFormProps> = ({
           </div>
         </div>
 
+        <div className={cx(STYLES.CONTACT_FORM_PRIVACY_NOTICE_CONTAINER)}>
+          <p className={STYLES.CONTACT_FORM_PRIVACY_NOTICE}>
+            {localeStrings.contact.form.privacyNotice}
+          </p>
+        </div>
+
+        <div>
+          <label className={STYLES.CONTACT_FORM_CONSENT_LABEL}>
+            <input
+              type="checkbox"
+              {...register('consent', { required: true })}
+              className={cx(STYLES.CONTACT_FORM_CONSENT_CHECKBOX)}
+            />
+            <span>
+              {localeStrings.contact.form.consent.label}{' '}
+              <a
+                href="/privacy-policy"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={cx(STYLES.CONTACT_FORM_CONSENT_LINK)}
+              >
+                {localeStrings.contact.form.consent.privacyPolicy}
+              </a>
+            </span>
+          </label>
+          <div className={STYLES.CONTACT_FORM_ERROR_CONTAINER}>
+            {errors.consent && (
+              <span className={STYLES.CONTACT_FORM_ERROR}>
+                {localeStrings.contact.form.errors.consentRequired}
+              </span>
+            )}
+          </div>
+        </div>
+
+        <div className={cx(STYLES.CONTACT_FORM_PRIVACY_NOTICE_CONTAINER)}>
+          <p className={STYLES.CONTACT_FORM_PRIVACY_NOTICE}>
+            {localeStrings.contact.form.privacyNotice}
+          </p>
+        </div>
+
+        <div>
+          <label className={STYLES.CONTACT_FORM_CONSENT_LABEL}>
+            <input
+              type="checkbox"
+              {...register('consent', { required: true })}
+              className={cx(STYLES.CONTACT_FORM_CONSENT_CHECKBOX)}
+            />
+            <span>
+              {localeStrings.contact.form.consent.label}{' '}
+              <a
+                href="/privacy-policy"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={cx(STYLES.CONTACT_FORM_CONSENT_LINK)}
+              >
+                {localeStrings.contact.form.consent.privacyPolicy}
+              </a>
+            </span>
+          </label>
+          <div className={STYLES.CONTACT_FORM_ERROR_CONTAINER}>
+            {errors.consent && (
+              <span className={STYLES.CONTACT_FORM_ERROR}>
+                {localeStrings.contact.form.errors.consentRequired}
+              </span>
+            )}
+          </div>
+        </div>
+
         {submitError && (
           <div className={STYLES.CONTACT_FORM_ERROR_ALERT}>{submitError}</div>
         )}

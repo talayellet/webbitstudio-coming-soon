@@ -8,6 +8,7 @@ export interface ContactFormData {
   name: string;
   email: string;
   message: string;
+  consent?: string;
 }
 
 export interface ContactFormErrorMessages {

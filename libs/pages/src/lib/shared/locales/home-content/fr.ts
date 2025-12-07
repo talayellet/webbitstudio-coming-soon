@@ -302,9 +302,11 @@ export const fr: LocaleStrings = {
       },
       consent: {
         label:
-          'J’accepte le traitement de mes données personnelles conformément à la',
+          "J'accepte le traitement de mes données personnelles conformément à la",
         privacyPolicy: 'Politique de Confidentialité',
       },
+      privacyNotice:
+        "Nous collectons votre nom, email et tous les détails que vous fournissez pour répondre à votre demande. Vos données seront traitées conformément à notre Politique de Confidentialité et conservées jusqu'à 2 ans. Vous avez le droit d'accéder, corriger ou supprimer vos données à tout moment.",
       submit: 'Envoyer la demande',
       submitting: 'Envoi en cours...',
       note: 'Vous préférez un appel rapide ? Nous pouvons partager les coordonnées directes dans notre réponse.',

@@ -267,6 +267,9 @@ export const form = {
   consentCheckbox:
     'mt-1 h-4 w-4 rounded border-slate-700 bg-slate-800 text-sky-500 focus:ring-2 focus:ring-sky-400 focus:ring-offset-0',
   consentLink: 'text-sky-400 hover:text-sky-300 underline',
+  privacyNoticeContainer:
+    'rounded-lg border border-slate-700/50 bg-slate-800/30 p-3',
+  privacyNotice: 'text-xs text-slate-400 leading-relaxed',
 } as const;
 
 // Custom Select Styles

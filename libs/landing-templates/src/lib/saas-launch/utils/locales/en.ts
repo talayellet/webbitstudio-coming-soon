@@ -30,6 +30,13 @@ export const en = {
         label: 'Message',
         placeholder: 'Tell us about your project...',
       },
+      consent: {
+        label:
+          'I agree to the processing of my personal data in accordance with the',
+        privacyPolicy: 'Privacy Policy',
+      },
+      privacyNotice:
+        'We collect your name, email, and message to respond to your inquiry. Your data will be processed according to our Privacy Policy and retained for up to 2 years. You have the right to access, correct, or delete your data at any time.',
       submit: 'Send Message',
       submitting: 'Sending...',
       successMessage:
@@ -40,6 +47,7 @@ export const en = {
         emailInvalid: 'Invalid email address',
         messageRequired: 'Message is required',
         messageTooLong: 'Message must be 1000 characters or less',
+        consentRequired: 'You must agree to the privacy policy to continue',
         serverError: 'Server error. Please try again later.',
         rateLimitError: 'Too many requests. Please try again later.',
         submissionFailed: 'Failed to send message. Please try again.',
@@ -225,6 +233,11 @@ export interface LocaleStrings {
         label: string;
         placeholder: string;
       };
+      consent: {
+        label: string;
+        privacyPolicy: string;
+      };
+      privacyNotice: string;
       submit: string;
       submitting: string;
       successMessage: string;
@@ -234,6 +247,7 @@ export interface LocaleStrings {
         emailInvalid: string;
         messageRequired: string;
         messageTooLong: string;
+        consentRequired: string;
         serverError: string;
         rateLimitError: string;
         submissionFailed: string;
