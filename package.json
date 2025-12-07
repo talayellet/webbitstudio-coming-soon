@@ -2,7 +2,6 @@
   "name": "@webbitstudio/source",
   "version": "0.0.0",
   "license": "UNLICENSED",
-  "scripts": {},
   "private": true,
   "dependencies": {
     "@headlessui/react": "^2.2.0",
@@ -93,5 +92,6 @@
     "apps/*",
     "libs/*",
     "shared"
-  ]
+  ],
+  "packageManager": "yarn@4.12.0"
 }

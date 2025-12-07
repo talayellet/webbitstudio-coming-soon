@@ -94,3 +94,11 @@ next-env.d.ts
 
 
 storybook-static
+
+# Yarn v4
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
