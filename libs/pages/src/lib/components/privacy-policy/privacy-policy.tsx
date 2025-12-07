@@ -85,6 +85,12 @@ export const PrivacyPolicyPage = ({
           content={sections.dataSecurity.content}
         />
 
+        <PrivacyPolicySection
+          title={sections.childrenPrivacy.title}
+          content={sections.childrenPrivacy.content}
+          listItems={sections.childrenPrivacy.items}
+        />
+
         <ContactSection
           title={sections.contact.title}
           content={sections.contact.content}

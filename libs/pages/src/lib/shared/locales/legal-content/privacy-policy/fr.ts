@@ -158,8 +158,23 @@ export const privacyPolicyFr: PrivacyPolicyContent = {
         "Nous utilisons des mesures de sécurité administratives, techniques et physiques pour aider à protéger vos informations personnelles. Bien que nous ayons pris des mesures raisonnables pour sécuriser les informations personnelles que vous nous fournissez, veuillez noter que malgré nos efforts, aucune mesure de sécurité n'est parfaite ou impénétrable, et aucune méthode de transmission de données ne peut être garantie contre toute interception ou autre type d'utilisation abusive.",
       ],
     },
+    childrenPrivacy: {
+      title: '12. Confidentialité des Enfants',
+      content: [
+        "Nos services ne sont pas destinés aux personnes de moins de 16 ans (ou l'âge applicable du consentement numérique dans votre juridiction). Nous nous engageons à respecter la loi sur la protection de la vie privée en ligne des enfants (COPPA) aux États-Unis et l'article 8 du RGPD dans l'Union européenne.",
+        'Nous mettons en œuvre les mesures suivantes pour protéger la vie privée des enfants :',
+      ],
+      items: [
+        "Restrictions d'Âge : Nous ne collectons pas sciemment d'informations personnelles auprès d'enfants de moins de 16 ans (ou de moins de 13 ans aux États-Unis, ou l'âge applicable dans votre juridiction) sans le consentement parental vérifiable",
+        'Pas de Collecte Ciblée : Notre site web et nos services sont conçus pour les utilisateurs adultes et les professionnels. Nous ne dirigeons pas sciemment de contenu ou de marketing vers les enfants',
+        "Droits Parentaux (Conformité COPPA) : Si vous êtes parent ou tuteur et pensez que votre enfant de moins de 13 ans (États-Unis) nous a fourni des informations personnelles, vous avez le droit d'examiner ces informations, de demander leur suppression et de refuser toute collecte ou utilisation ultérieure. Contactez-nous immédiatement si vous pensez que votre enfant a fourni des informations personnelles",
+        "Conformité RGPD : Pour les utilisateurs de l'Union européenne, les enfants de moins de 16 ans (ou l'âge spécifié par votre État membre, qui peut être aussi bas que 13 ans) nécessitent le consentement parental pour le traitement des données personnelles. Nous obtiendrons le consentement parental vérifiable lorsque requis",
+        "Suppression Immédiate : Si nous découvrons que nous avons collecté par inadvertance des informations personnelles d'un enfant sans le consentement approprié, nous prendrons des mesures pour supprimer ces informations dès que possible",
+        "Pas de Vente de Données d'Enfants : Nous ne vendons ni ne partageons d'informations personnelles de personnes que nous savons être des enfants",
+      ],
+    },
     contact: {
-      title: '12. Nous Contacter',
+      title: '13. Nous Contacter',
       content: [
         'Si vous avez des questions ou des commentaires sur cette Politique de Confidentialité, veuillez nous contacter à :',
       ],

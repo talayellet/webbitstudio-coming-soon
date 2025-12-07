@@ -157,8 +157,23 @@ export const privacyPolicyDe: PrivacyPolicyContent = {
         'Wir verwenden administrative, technische und physische Sicherheitsmaßnahmen, um Ihre personenbezogenen Daten zu schützen. Obwohl wir angemessene Schritte unternommen haben, um die personenbezogenen Daten, die Sie uns zur Verfügung stellen, zu sichern, beachten Sie bitte, dass trotz unserer Bemühungen keine Sicherheitsmaßnahmen perfekt oder undurchdringlich sind und keine Methode der Datenübertragung gegen jede Abfangung oder andere Art von Missbrauch garantiert werden kann.',
       ],
     },
+    childrenPrivacy: {
+      title: '12. Datenschutz für Kinder',
+      content: [
+        "Unsere Dienste richten sich nicht an Personen unter 16 Jahren (oder dem jeweils geltenden Alter der digitalen Einwilligung in Ihrer Gerichtsbarkeit). Wir verpflichten uns zur Einhaltung des Children's Online Privacy Protection Act (COPPA) in den Vereinigten Staaten und Artikel 8 der DSGVO in der Europäischen Union.",
+        'Wir setzen die folgenden Maßnahmen zum Schutz der Privatsphäre von Kindern um:',
+      ],
+      items: [
+        'Altersbeschränkungen: Wir sammeln wissentlich keine personenbezogenen Daten von Kindern unter 16 Jahren (oder unter 13 Jahren in den Vereinigten Staaten oder dem geltenden Alter in Ihrer Gerichtsbarkeit) ohne überprüfbare elterliche Zustimmung',
+        'Keine gezielte Erfassung: Unsere Website und Dienste sind für erwachsene Benutzer und Geschäftsleute konzipiert. Wir richten wissentlich keine Inhalte oder Marketing an Kinder',
+        'Elternrechte (COPPA-Konformität): Wenn Sie ein Elternteil oder Erziehungsberechtigter sind und glauben, dass Ihr Kind unter 13 Jahren (USA) uns personenbezogene Daten zur Verfügung gestellt hat, haben Sie das Recht, diese Informationen einzusehen, deren Löschung zu verlangen und die weitere Erfassung oder Verwendung zu verweigern. Kontaktieren Sie uns sofort, wenn Sie glauben, dass Ihr Kind personenbezogene Daten zur Verfügung gestellt hat',
+        'DSGVO-Konformität: Für Nutzer in der Europäischen Union benötigen Kinder unter 16 Jahren (oder dem von Ihrem Mitgliedstaat festgelegten Alter, das bis zu 13 Jahre betragen kann) die elterliche Zustimmung für die Verarbeitung personenbezogener Daten. Wir werden die überprüfbare elterliche Zustimmung einholen, wo dies erforderlich ist',
+        'Sofortige Löschung: Wenn wir feststellen, dass wir versehentlich personenbezogene Daten von einem Kind ohne ordnungsgemäße Zustimmung erfasst haben, werden wir Schritte unternehmen, um diese Informationen so schnell wie möglich zu löschen',
+        'Kein Verkauf von Kinderdaten: Wir verkaufen oder teilen keine personenbezogenen Daten von Personen, von denen wir wissen, dass es sich um Kinder handelt',
+      ],
+    },
     contact: {
-      title: '12. Kontaktieren Sie uns',
+      title: '13. Kontaktieren Sie uns',
       content: [
         'Wenn Sie Fragen oder Kommentare zu dieser Datenschutzrichtlinie haben, kontaktieren Sie uns bitte unter:',
       ],

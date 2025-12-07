@@ -154,8 +154,23 @@ export const privacyPolicyEn: PrivacyPolicyContent = {
         'We use administrative, technical, and physical security measures to help protect your personal information. While we have taken reasonable steps to secure the personal information you provide to us, please be aware that despite our efforts, no security measures are perfect or impenetrable, and no method of data transmission can be guaranteed against any interception or other type of misuse.',
       ],
     },
+    childrenPrivacy: {
+      title: "12. Children's Privacy",
+      content: [
+        "Our services are not directed to individuals under the age of 16 (or the applicable age of digital consent in your jurisdiction). We are committed to complying with the Children's Online Privacy Protection Act (COPPA) in the United States and Article 8 of the GDPR in the European Union.",
+        "We implement the following measures to protect children's privacy:",
+      ],
+      items: [
+        'Age Restrictions: We do not knowingly collect personal information from children under 16 years of age (or under 13 in the United States, or the applicable age in your jurisdiction) without verifiable parental consent',
+        'No Targeted Collection: Our website and services are designed for adult users and business professionals. We do not knowingly direct content or marketing to children',
+        'Parental Rights (COPPA Compliance): If you are a parent or guardian and believe your child under 13 (US) has provided personal information to us, you have the right to review that information, request its deletion, and refuse to permit further collection or use. Contact us immediately if you believe your child has provided personal information',
+        'GDPR Compliance: For users in the European Union, children under 16 (or the age specified by your member state, which may be as low as 13) require parental consent for processing of personal data. We will obtain verifiable parental consent where required',
+        'Immediate Deletion: If we discover that we have inadvertently collected personal information from a child without proper consent, we will take steps to delete that information as quickly as possible',
+        "No Sale of Children's Data: We do not sell or share personal information of individuals we know to be children",
+      ],
+    },
     contact: {
-      title: '12. Contact Us',
+      title: '13. Contact Us',
       content: [
         'If you have questions or comments about this Privacy Policy, please contact us at:',
       ],

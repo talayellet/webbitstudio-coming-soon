@@ -157,8 +157,23 @@ export const privacyPolicyEs: PrivacyPolicyContent = {
         'Usamos medidas de seguridad administrativas, técnicas y físicas para ayudar a proteger su información personal. Si bien hemos tomado medidas razonables para asegurar la información personal que nos proporciona, tenga en cuenta que, a pesar de nuestros esfuerzos, ninguna medida de seguridad es perfecta o impenetrable, y ningún método de transmisión de datos puede garantizarse contra cualquier intercepción u otro tipo de uso indebido.',
       ],
     },
+    childrenPrivacy: {
+      title: '12. Privacidad de los Niños',
+      content: [
+        'Nuestros servicios no están dirigidos a personas menores de 16 años (o la edad aplicable de consentimiento digital en su jurisdicción). Estamos comprometidos a cumplir con la Ley de Protección de la Privacidad en Línea de los Niños (COPPA) en los Estados Unidos y el Artículo 8 del RGPD en la Unión Europea.',
+        'Implementamos las siguientes medidas para proteger la privacidad de los niños:',
+      ],
+      items: [
+        'Restricciones de Edad: No recopilamos a sabiendas información personal de niños menores de 16 años (o menores de 13 en los Estados Unidos, o la edad aplicable en su jurisdicción) sin el consentimiento parental verificable',
+        'Sin Recopilación Dirigida: Nuestro sitio web y servicios están diseñados para usuarios adultos y profesionales de negocios. No dirigimos contenido o marketing a sabiendas a niños',
+        'Derechos Parentales (Cumplimiento de COPPA): Si usted es padre o tutor y cree que su hijo menor de 13 años (EE. UU.) ha proporcionado información personal a nosotros, tiene derecho a revisar esa información, solicitar su eliminación y rechazar la recopilación o uso posterior. Contáctenos inmediatamente si cree que su hijo ha proporcionado información personal',
+        'Cumplimiento del RGPD: Para usuarios en la Unión Europea, los niños menores de 16 años (o la edad especificada por su estado miembro, que puede ser tan baja como 13) requieren consentimiento parental para el procesamiento de datos personales. Obtendremos el consentimiento parental verificable cuando sea necesario',
+        'Eliminación Inmediata: Si descubrimos que hemos recopilado inadvertidamente información personal de un niño sin el consentimiento adecuado, tomaremos medidas para eliminar esa información lo más rápido posible',
+        'No Venta de Datos de Niños: No vendemos ni compartimos información personal de personas que sabemos que son niños',
+      ],
+    },
     contact: {
-      title: '12. Contáctenos',
+      title: '13. Contáctenos',
       content: [
         'Si tiene preguntas o comentarios sobre esta Política de Privacidad, contáctenos en:',
       ],

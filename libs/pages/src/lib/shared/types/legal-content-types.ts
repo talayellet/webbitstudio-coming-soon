@@ -63,6 +63,11 @@ export interface PrivacyPolicyContent {
       title: string;
       content: string[];
     };
+    childrenPrivacy: {
+      title: string;
+      content: string[];
+      items: string[];
+    };
     contact: {
       title: string;
       content: string[];
