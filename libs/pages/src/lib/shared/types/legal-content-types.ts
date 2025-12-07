@@ -73,6 +73,11 @@ export interface PrivacyPolicyContent {
       content: string[];
       email: string;
     };
+    israeliLaw?: {
+      title: string;
+      content: string[];
+      items?: string[];
+    };
   };
 }
 
@@ -128,6 +133,11 @@ export interface TermsOfServiceContent {
     contact: {
       title: string;
       content: string[];
+    };
+    israeliLaw?: {
+      title: string;
+      content: string[];
+      items?: string[];
     };
   };
 }

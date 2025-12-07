@@ -187,6 +187,27 @@ export const TermsOfServicePage = ({
             </a>
           </p>
         </section>
+
+        {/* Israeli Law (optional, only for Hebrew locale) */}
+        {sections.israeliLaw && (
+          <section className={TERMS_OF_SERVICE_STYLES.section}>
+            <h2 className={TERMS_OF_SERVICE_STYLES.sectionTitle}>
+              {sections.israeliLaw.title}
+            </h2>
+            {sections.israeliLaw.content.map((paragraph, index) => (
+              <p key={index} className={TERMS_OF_SERVICE_STYLES.paragraph}>
+                {paragraph}
+              </p>
+            ))}
+            {sections.israeliLaw.items && (
+              <ul className={TERMS_OF_SERVICE_STYLES.list}>
+                {sections.israeliLaw.items.map((item, index) => (
+                  <li key={index}>{item}</li>
+                ))}
+              </ul>
+            )}
+          </section>
+        )}
       </div>
     </div>
   );

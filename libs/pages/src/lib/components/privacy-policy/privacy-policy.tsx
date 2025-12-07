@@ -97,6 +97,15 @@ export const PrivacyPolicyPage = ({
           companyName={companyName}
           companyEmail={companyEmail}
         />
+
+        {/* Israeli Law (optional, only for Hebrew locale) */}
+        {sections.israeliLaw && (
+          <PrivacyPolicySection
+            title={sections.israeliLaw.title}
+            content={sections.israeliLaw.content}
+            listItems={sections.israeliLaw.items}
+          />
+        )}
       </div>
     </div>
   );
