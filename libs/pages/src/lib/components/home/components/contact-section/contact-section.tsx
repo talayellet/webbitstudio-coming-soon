@@ -207,6 +207,7 @@ export const ContactSection = ({
               emailText={content.form.emailFallback}
               phoneText={content.form.phoneFallback}
               phoneNumber={phoneNumber}
+              whatsappText={content.form.whatsappFallback}
             />
           </form>
         </div>

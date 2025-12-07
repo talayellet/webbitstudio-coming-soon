@@ -310,6 +310,7 @@ export const en = {
       note: 'Prefer a quick phone call? We can share direct contact details in our reply.',
       emailFallback: 'Or email us directly at',
       phoneFallback: 'or call',
+      whatsappFallback: undefined as string | undefined,
       errors: {
         nameRequired: 'Name is required',
         emailRequired: 'Email is required',

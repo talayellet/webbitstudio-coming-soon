@@ -308,6 +308,7 @@ export const he: LocaleStrings = {
       note: 'מעדיפים שיחת טלפון? נוכל לשתף פרטי קשר ישירים בתשובה.',
       emailFallback: 'או שליחת אימייל ישירות אל',
       phoneFallback: 'או שיחה אל',
+      whatsappFallback: 'או הודעה ב-',
       errors: {
         nameRequired: 'יש למלא שם',
         emailRequired: 'יש למלא כתובת אימייל',

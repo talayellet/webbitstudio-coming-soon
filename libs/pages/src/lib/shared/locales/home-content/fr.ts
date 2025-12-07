@@ -311,9 +311,10 @@ export const fr: LocaleStrings = {
         "Nous collectons votre nom, email et tous les détails que vous fournissez pour répondre à votre demande. Vos données seront traitées conformément à notre Politique de Confidentialité et conservées jusqu'à 2 ans. Vous avez le droit d'accéder, corriger ou supprimer vos données à tout moment.",
       submit: 'Envoyer la demande',
       submitting: 'Envoi en cours...',
-      note: 'Vous préférez un appel rapide ? Nous pouvons partager les coordonnées directes dans notre réponse.',
-      emailFallback: 'Ou envoyez-nous un email directement à',
+      note: 'Vous préférez un appel rapide ? Nous pouvons partager nos coordonnées directes dans notre réponse.',
+      emailFallback: 'Ou envoyez-nous un e-mail directement à',
       phoneFallback: 'ou appelez',
+      whatsappFallback: undefined,
       errors: {
         nameRequired: 'Le nom est requis',
         emailRequired: 'L’email est requis',

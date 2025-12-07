@@ -311,9 +311,10 @@ export const de: LocaleStrings = {
         'Wir erfassen Ihren Namen, Ihre E-Mail-Adresse und alle von Ihnen angegebenen Details, um auf Ihre Anfrage zu antworten. Ihre Daten werden gemäß unserer Datenschutzerklärung verarbeitet und bis zu 2 Jahre lang gespeichert. Sie haben jederzeit das Recht, auf Ihre Daten zuzugreifen, sie zu korrigieren oder zu löschen.',
       submit: 'Anfrage senden',
       submitting: 'Wird gesendet...',
-      note: 'Bevorzugen Sie einen kurzen Anruf? Wir können direkte Kontaktdaten in unserer Antwort teilen.',
+      note: 'Bevorzugen Sie einen kurzen Anruf? Wir können direkte Kontaktdaten in unserer Antwort mitteilen.',
       emailFallback: 'Oder senden Sie uns direkt eine E-Mail an',
       phoneFallback: 'oder rufen Sie an',
+      whatsappFallback: undefined,
       errors: {
         nameRequired: 'Name ist erforderlich',
         emailRequired: 'E-Mail ist erforderlich',

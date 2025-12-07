@@ -1,5 +1,9 @@
 import * as contactSectionStyles from '../../../utils/styles';
-import { EnvelopeIcon, PhoneIcon } from '@webbitstudio/ui-components';
+import {
+  EnvelopeIcon,
+  PhoneIcon,
+  WhatsAppIcon,
+} from '@webbitstudio/ui-components';
 import { WEBBIT_STUDIO_EMAIL } from '../../../../../shared';
 
 interface ContactFallbackProps {
@@ -9,6 +13,7 @@ interface ContactFallbackProps {
     display: string;
     dialable: string;
   };
+  whatsappText?: string;
 }
 
 /**
@@ -18,6 +23,7 @@ export const ContactFallback = ({
   emailText,
   phoneText,
   phoneNumber,
+  whatsappText,
 }: ContactFallbackProps) => {
   return (
     <>
@@ -45,6 +51,27 @@ export const ContactFallback = ({
           </a>
         </span>
       </div>
+      {whatsappText && (
+        <div className={contactSectionStyles.form.emailFallback}>
+          <WhatsAppIcon
+            className={contactSectionStyles.form.emailFallbackIcon}
+          />
+          <span>
+            {whatsappText}{' '}
+            <a
+              href={`https://wa.me/${phoneNumber.dialable.replace(
+                /[^0-9]/g,
+                ''
+              )}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={contactSectionStyles.form.emailFallbackLink}
+            >
+              WhatsApp
+            </a>
+          </span>
+        </div>
+      )}
     </>
   );
 };
