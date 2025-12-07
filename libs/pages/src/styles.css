@@ -3,6 +3,16 @@
 @tailwind utilities;
 
 @layer base {
+  /* Focus visible styles for keyboard navigation */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-sky-400 ring-offset-2 ring-offset-slate-950;
+  }
+
+  /* Remove focus styles for mouse/touch interactions */
+  *:focus:not(:focus-visible) {
+    @apply outline-none ring-0;
+  }
+
   select option {
     @apply bg-slate-900 py-2.5 px-3 text-xs text-slate-100;
   }

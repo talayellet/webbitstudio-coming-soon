@@ -3,6 +3,16 @@
 @tailwind utilities;
 
 @layer base {
+  /* Focus visible styles for keyboard navigation */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-[var(--primary,#60a5fa)] ring-offset-2 ring-offset-[var(--background,#0f172a)];
+  }
+
+  /* Remove focus styles for mouse/touch interactions */
+  *:focus:not(:focus-visible) {
+    @apply outline-none ring-0;
+  }
+
   html {
     scrollbar-gutter: stable;
   }

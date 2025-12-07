@@ -18,7 +18,7 @@ export const header = {
     'mx-auto max-w-6xl min-w-0 px-4 sm:px-6 lg:px-8 flex items-start justify-between',
   logo: {
     container:
-      'flex cursor-pointer bg-transparent border-0 p-0 transition-opacity hover:opacity-80',
+      'flex cursor-pointer bg-transparent border-0 p-0 transition-opacity hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 rounded-xl',
     icon: 'flex h-9 w-9 items-center justify-center rounded-xl bg-sky-500/90 shadow-lg shadow-sky-500/40',
     iconText: 'text-lg font-bold tracking-tight',
     textContainer: 'flex flex-col items-start ms-2',
@@ -28,12 +28,13 @@ export const header = {
   nav: {
     root: 'hidden items-center gap-8 text-sm text-slate-300 md:flex',
     linksContainer: 'flex items-center gap-8',
-    link: 'hover:text-sky-400',
+    link: 'hover:text-sky-400 focus-visible:outline-none focus-visible:text-sky-300 focus-visible:underline focus-visible:underline-offset-4 focus-visible:decoration-2 transition-colors rounded px-1',
     currencySwitcher: 'ml-4 w-[90px] flex-shrink-0',
     languageSwitcher: 'ml-4 w-[140px] flex-shrink-0',
   },
   mobileMenu: {
-    burgerButton: 'flex flex-col gap-1.5 p-2 md:hidden',
+    burgerButton:
+      'flex flex-col gap-1.5 p-2 md:hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 rounded transition-all',
     burgerLine: 'h-0.5 w-6 bg-slate-300 transition-all duration-300',
     burgerLineOpen: 'h-0.5 w-6 bg-slate-300 transition-all duration-300',
     burgerLineTop: 'origin-top-left',
@@ -52,14 +53,14 @@ export const header = {
     menuHeader:
       'flex items-center justify-between border-b border-slate-800 p-6',
     closeButton:
-      'rounded-lg p-2 text-slate-400 hover:bg-slate-800 hover:text-slate-200 transition-colors',
+      'rounded-lg p-2 text-slate-400 hover:bg-slate-800 hover:text-slate-200 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-inset',
     closeButtonIcon: 'h-6 w-6',
     menuContent:
       'flex flex-col gap-2 p-6 w-full overflow-y-auto overflow-x-hidden max-h-[calc(100vh-120px)]',
     menuLink:
-      'rounded-lg px-4 py-3 text-base text-slate-300 hover:bg-slate-800 hover:text-sky-400 transition-colors',
+      'rounded-lg px-4 py-3 text-base text-slate-300 hover:bg-slate-800 hover:text-sky-400 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-inset',
     menuButton:
-      'rounded-full bg-sky-500 px-4 py-3 text-center text-base font-medium text-slate-950 shadow-md shadow-sky-500/40 hover:bg-sky-400 transition-colors',
+      'rounded-full bg-sky-500 px-4 py-3 text-center text-base font-medium text-slate-950 shadow-md shadow-sky-500/40 hover:bg-sky-400 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900',
     menuSwitchers:
       'grid grid-cols-[1fr_auto] items-center border-b border-slate-800 pb-4 w-full h-10',
     menuLanguageGroupWrapper:
@@ -139,17 +140,17 @@ export const header = {
 // Button Styles
 export const button = {
   primary:
-    'rounded-full bg-sky-500 px-5 py-2.5 text-sm font-semibold text-slate-950 shadow-lg shadow-sky-500/40 hover:bg-sky-400',
+    'rounded-full bg-sky-500 px-5 py-2.5 text-sm font-semibold text-slate-950 shadow-lg shadow-sky-500/40 hover:bg-sky-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 transition-all',
   primarySmall:
-    'rounded-full bg-sky-500 px-4 py-2 text-sm font-medium text-slate-950 shadow-md shadow-sky-500/40 hover:bg-sky-400 min-w-[100px] text-center whitespace-nowrap',
+    'rounded-full bg-sky-500 px-4 py-2 text-sm font-medium text-slate-950 shadow-md shadow-sky-500/40 hover:bg-sky-400 min-w-[100px] text-center whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 transition-all',
   secondary:
-    'rounded-full border border-slate-700 px-5 py-2.5 text-sm font-semibold text-slate-100 hover:border-sky-500/70 hover:text-sky-200',
+    'rounded-full border border-slate-700 px-5 py-2.5 text-sm font-semibold text-slate-100 hover:border-sky-500/70 hover:text-sky-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 transition-all',
   light:
-    'inline-flex w-full items-center justify-center rounded-full bg-slate-100 px-4 py-2 text-xs font-semibold text-slate-950 shadow-sm hover:bg-slate-200',
+    'inline-flex w-full items-center justify-center rounded-full bg-slate-100 px-4 py-2 text-xs font-semibold text-slate-950 shadow-sm hover:bg-slate-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 transition-all',
   lightLarge:
-    'mt-1 inline-flex w-full items-center justify-center rounded-full bg-slate-100 px-4 py-2.5 text-xs font-semibold text-slate-950 shadow-sm hover:bg-slate-200',
+    'mt-1 inline-flex w-full items-center justify-center rounded-full bg-slate-100 px-4 py-2.5 text-xs font-semibold text-slate-950 shadow-sm hover:bg-slate-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 transition-all',
   linkSmall:
-    'mt-4 inline-flex items-center rounded-full bg-sky-500 px-4 py-2 text-xs font-semibold text-slate-950 shadow-md shadow-sky-500/40 hover:bg-sky-400',
+    'mt-4 inline-flex items-center rounded-full bg-sky-500 px-4 py-2 text-xs font-semibold text-slate-950 shadow-md shadow-sky-500/40 hover:bg-sky-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 transition-all',
 } as const;
 
 // Section Styles
@@ -339,7 +340,7 @@ export const footer = {
   container:
     'flex flex-col items-start justify-between gap-3 sm:flex-row sm:items-center',
   links: 'flex flex-wrap items-center gap-4',
-  link: 'hover:text-sky-300',
+  link: 'hover:text-sky-300 focus-visible:outline-none focus-visible:text-sky-300 focus-visible:underline focus-visible:underline-offset-4 focus-visible:decoration-2 transition-colors rounded px-1',
   separator: 'hidden h-1 w-1 rounded-full bg-slate-500 sm:inline-block',
 } as const;
 

@@ -41,10 +41,11 @@ export const STYLES = {
 
   // Navigation Links
   NAV_LINK: [
-    'text-[15px] font-normal no-underline',
+    'text-[15px] font-normal no-underline px-2 py-1 rounded-lg',
     'text-[var(--text-muted)]',
     'transition-colors duration-300',
     'hover:text-[var(--text)]',
+    'focus-visible:outline-none focus-visible:text-[var(--primary)] focus-visible:ring-2 focus-visible:ring-[var(--primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]',
   ],
 
   // Hero Section
@@ -114,10 +115,11 @@ export const STYLES = {
 
   // Footer Links (same as nav but smaller)
   FOOTER_LINK: [
-    'text-sm no-underline',
+    'text-sm no-underline px-2 py-1 rounded-lg',
     'text-[var(--text-muted)]',
     'transition-colors duration-300',
     'hover:text-[var(--text)]',
+    'focus-visible:outline-none focus-visible:text-[var(--primary)] focus-visible:ring-2 focus-visible:ring-[var(--primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--surface)]',
   ],
 
   // Buttons
@@ -128,6 +130,7 @@ export const STYLES = {
     'text-white shadow-[0_4px_24px_rgba(0,102,255,0.3)]',
     'transition-all duration-300',
     'hover:-translate-y-0.5 hover:shadow-[0_6px_32px_rgba(0,102,255,0.4)]',
+    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]',
   ],
 
   SECONDARY_BUTTON: [
@@ -137,6 +140,7 @@ export const STYLES = {
     'border border-white/10',
     'transition-all duration-300',
     'hover:bg-white/5 hover:border-white/20',
+    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]',
   ],
 
   // Gradients
