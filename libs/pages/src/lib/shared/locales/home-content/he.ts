@@ -358,6 +358,7 @@ export const he: LocaleStrings = {
     rejectButton: 'סירוב',
     customizeButton: 'התאם',
     savePreferencesButton: 'שמור',
+    closeButton: 'סגור',
     preferencesTitle: 'העדפות עוגיות',
     categoriesGroupLabel: 'קטגוריות עוגיות',
     privacyPolicyLink: 'מידע נוסף',

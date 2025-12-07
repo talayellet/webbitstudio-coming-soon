@@ -3,6 +3,7 @@ import {
   getCookiePolicyContent,
   CookiePolicyContent,
 } from '../../shared';
+import { useGranularConsent } from '@webbitstudio/shared-utils';
 import {
   cookiePolicyPage,
   cookiePolicyContainer,
@@ -16,6 +17,7 @@ import {
   cookiePolicySubsectionDescription,
   cookiePolicyList,
   cookiePolicyEmailLink,
+  cookiePolicyManageButton,
 } from './utils';
 
 export type { CookiePolicyContent };
@@ -32,12 +34,21 @@ export const CookiePolicyPage = ({
   const { locale } = useLocalizedContent();
   const content = getCookiePolicyContent(locale);
   const { sections } = content;
+  const { resetConsent } = useGranularConsent();
 
   return (
     <div className={cookiePolicyPage}>
       <div className={cookiePolicyContainer}>
         <h1 className={cookiePolicyTitle}>{content.title}</h1>
         <p className={cookiePolicyLastUpdated}>{content.lastUpdated}</p>
+
+        <button
+          onClick={resetConsent}
+          className={cookiePolicyManageButton}
+          type="button"
+        >
+          {content.managePreferencesButton}
+        </button>
 
         {/* Introduction */}
         <section className={cookiePolicySection}>

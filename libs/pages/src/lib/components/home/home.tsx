@@ -12,11 +12,7 @@ import {
   Footer,
   PriceConversionNotice,
 } from './components';
-import {
-  useLocalizedContent,
-  WEBBIT_STUDIO_LANG_OPTIONS,
-  ROUTES,
-} from '../../shared';
+import { useLocalizedContent, WEBBIT_STUDIO_LANG_OPTIONS } from '../../shared';
 import {
   CurrencyProvider,
   useCurrencyContext,
@@ -154,11 +150,12 @@ const HomePageContent = ({ web3formsAccessKey }: WebbitStudioHomePageProps) => {
         rejectButtonText={content.cookieConsent.rejectButton}
         customizeButtonText={content.cookieConsent.customizeButton}
         savePreferencesButtonText={content.cookieConsent.savePreferencesButton}
+        closeButtonAriaLabel={content.cookieConsent.closeButton}
         preferencesTitle={content.cookieConsent.preferencesTitle}
         categoriesGroupLabel={content.cookieConsent.categoriesGroupLabel}
         categories={content.cookieConsent.categories}
         privacyPolicyText={content.cookieConsent.privacyPolicyLink}
-        privacyPolicyLink={ROUTES.PRIVACY_POLICY}
+        privacyPolicyLink="/privacy-policy"
       />
     </div>
   );

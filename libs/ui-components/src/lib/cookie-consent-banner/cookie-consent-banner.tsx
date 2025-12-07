@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import clsx from 'clsx';
 import { useGranularConsent } from '@webbitstudio/shared-utils';
 import { COOKIE_CONSENT_BANNER_STYLES, type CookieCategoryInfo } from './utils';
 import { ConsentButtons, CookiesPreferencesPanel } from './components';
+import { CloseIcon } from '../svg-icons';
 
 export interface CookieConsentBannerProps {
   /**
@@ -33,6 +34,10 @@ export interface CookieConsentBannerProps {
    * Accessible label for the cookie categories group
    */
   categoriesGroupLabel: string;
+  /**
+   * Aria label for close button
+   */
+  closeButtonAriaLabel: string;
   /**
    * Cookie category information (labels and descriptions)
    */
@@ -72,6 +77,7 @@ export const CookieConsentBanner = ({
   savePreferencesButtonText,
   preferencesTitle,
   categoriesGroupLabel,
+  closeButtonAriaLabel,
   categories,
   privacyPolicyLink,
   privacyPolicyText,
@@ -87,8 +93,17 @@ export const CookieConsentBanner = ({
   } = useGranularConsent();
 
   const [showPreferences, setShowPreferences] = useState(false);
+  const [temporarilyDismissed, setTemporarilyDismissed] = useState(false);
 
-  if (!isVisible) {
+  // Reset temporary dismissal and preferences panel when isVisible changes
+  useEffect(() => {
+    if (isVisible) {
+      setTemporarilyDismissed(false);
+      setShowPreferences(false);
+    }
+  }, [isVisible]);
+
+  if (!isVisible || temporarilyDismissed) {
     return null;
   }
 
@@ -113,25 +128,37 @@ export const CookieConsentBanner = ({
 
   return (
     <div className={mergedStyles.container} role="dialog" aria-live="polite">
+      <button
+        onClick={() => setTemporarilyDismissed(true)}
+        className={COOKIE_CONSENT_BANNER_STYLES.closeButton}
+        aria-label={closeButtonAriaLabel}
+        type="button"
+      >
+        <CloseIcon className={COOKIE_CONSENT_BANNER_STYLES.closeIcon} />
+      </button>
       <div
         className={clsx(
           mergedStyles.content,
-          COOKIE_CONSENT_BANNER_STYLES.contentInner
+          showPreferences
+            ? COOKIE_CONSENT_BANNER_STYLES.contentWithPreferences
+            : COOKIE_CONSENT_BANNER_STYLES.contentInner
         )}
       >
-        <div className={mergedStyles.message}>
-          {message}{' '}
-          {privacyPolicyLink && privacyPolicyText && (
-            <a
-              href={privacyPolicyLink}
-              className={mergedStyles.link}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {privacyPolicyText}
-            </a>
-          )}
-        </div>
+        {!showPreferences && (
+          <div className={mergedStyles.message}>
+            {message}{' '}
+            {privacyPolicyLink && privacyPolicyText && (
+              <a
+                href={privacyPolicyLink}
+                className={mergedStyles.link}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {privacyPolicyText}
+              </a>
+            )}
+          </div>
+        )}
 
         {!showPreferences && (
           <ConsentButtons
@@ -155,6 +182,7 @@ export const CookieConsentBanner = ({
             preferencesTitle={preferencesTitle}
             savePreferencesButtonText={savePreferencesButtonText}
             categoriesGroupLabel={categoriesGroupLabel}
+            message={message}
             categories={categories}
             preferences={preferences}
             onUpdatePreference={updatePreference}

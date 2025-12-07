@@ -145,6 +145,7 @@ export interface TermsOfServiceContent {
 export interface CookiePolicyContent {
   title: string;
   lastUpdated: string;
+  managePreferencesButton: string;
   sections: {
     introduction: {
       title: string;

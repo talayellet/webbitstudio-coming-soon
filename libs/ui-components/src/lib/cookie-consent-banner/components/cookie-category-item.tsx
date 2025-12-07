@@ -45,6 +45,23 @@ export const CookieCategoryItem = ({
 
   return (
     <div className={COOKIE_CONSENT_BANNER_STYLES.categoryItem}>
+      <div className={COOKIE_CONSENT_BANNER_STYLES.categoryToggleWrapper}>
+        <CustomToggle
+          enabled={enabled}
+          disabled={disabled}
+          onChange={onChange}
+          ariaLabelledBy={labelId}
+          styles={{
+            container: COOKIE_CONSENT_BANNER_STYLES.toggle,
+            containerEnabled: COOKIE_CONSENT_BANNER_STYLES.toggleEnabled,
+            containerDisabled: COOKIE_CONSENT_BANNER_STYLES.toggleDisabled,
+            button: COOKIE_CONSENT_BANNER_STYLES.toggleButton,
+            buttonEnabled: COOKIE_CONSENT_BANNER_STYLES.toggleButtonEnabled,
+            buttonDisabled: COOKIE_CONSENT_BANNER_STYLES.toggleButtonDisabled,
+            disabledOpacity: COOKIE_CONSENT_BANNER_STYLES.toggleDisabledOpacity,
+          }}
+        />
+      </div>
       <div className={COOKIE_CONSENT_BANNER_STYLES.categoryContent}>
         <div
           id={labelId}
@@ -56,21 +73,6 @@ export const CookieCategoryItem = ({
           {category.description}
         </div>
       </div>
-      <CustomToggle
-        enabled={enabled}
-        disabled={disabled}
-        onChange={onChange}
-        ariaLabelledBy={labelId}
-        styles={{
-          container: COOKIE_CONSENT_BANNER_STYLES.toggle,
-          containerEnabled: COOKIE_CONSENT_BANNER_STYLES.toggleEnabled,
-          containerDisabled: COOKIE_CONSENT_BANNER_STYLES.toggleDisabled,
-          button: COOKIE_CONSENT_BANNER_STYLES.toggleButton,
-          buttonEnabled: COOKIE_CONSENT_BANNER_STYLES.toggleButtonEnabled,
-          buttonDisabled: COOKIE_CONSENT_BANNER_STYLES.toggleButtonDisabled,
-          disabledOpacity: COOKIE_CONSENT_BANNER_STYLES.toggleDisabledOpacity,
-        }}
-      />
     </div>
   );
 };

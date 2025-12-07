@@ -369,6 +369,7 @@ export const de: LocaleStrings = {
     rejectButton: 'Ablehnen',
     customizeButton: 'Anpassen',
     savePreferencesButton: 'Speichern',
+    closeButton: 'Schließen',
     preferencesTitle: 'Cookie-Einstellungen',
     categoriesGroupLabel: 'Cookie-Kategorien',
     privacyPolicyLink: 'Mehr erfahren',

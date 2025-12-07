@@ -3,9 +3,8 @@ import {
   COOKIE_CONSENT_CHANGED_EVENT,
   COOKIE_PREFERENCES_STORAGE_KEY,
   DEFAULT_PREFERENCES,
-  type CookiePreferences,
 } from '../constants';
-import { COOKIE_CATEGORY } from '../types';
+import { COOKIE_CATEGORY, type CookiePreferences } from '../types';
 
 const isBrowser = typeof window !== 'undefined';
 
@@ -34,6 +33,10 @@ export interface UseGranularConsentResponse {
    * Update a single cookie category preference
    */
   updatePreference: (category: keyof CookiePreferences, value: boolean) => void;
+  /**
+   * Reset consent decision and show banner again
+   */
+  resetConsent: () => void;
 }
 
 /**
@@ -66,6 +69,35 @@ export const useGranularConsent = (): UseGranularConsentResponse => {
         setIsVisible(true);
       }
     }
+  }, []);
+
+  // Listen for consent changes from other components
+  useEffect(() => {
+    if (!isBrowser) return;
+
+    const handleConsentChange = () => {
+      const stored = localStorage.getItem(COOKIE_PREFERENCES_STORAGE_KEY);
+      if (stored) {
+        try {
+          const parsed = JSON.parse(stored) as CookiePreferences;
+          setPreferences({ ...parsed, essential: true });
+          setIsVisible(false);
+        } catch {
+          setIsVisible(true);
+        }
+      } else {
+        // No preferences stored, show banner
+        setIsVisible(true);
+      }
+    };
+
+    window.addEventListener(COOKIE_CONSENT_CHANGED_EVENT, handleConsentChange);
+    return () => {
+      window.removeEventListener(
+        COOKIE_CONSENT_CHANGED_EVENT,
+        handleConsentChange
+      );
+    };
   }, []);
 
   const saveToStorage = useCallback((prefs: CookiePreferences) => {
@@ -128,6 +160,15 @@ export const useGranularConsent = (): UseGranularConsentResponse => {
     []
   );
 
+  const resetConsent = useCallback(() => {
+    if (isBrowser) {
+      localStorage.removeItem(COOKIE_PREFERENCES_STORAGE_KEY);
+      setPreferences(DEFAULT_PREFERENCES);
+      setIsVisible(true);
+      window.dispatchEvent(new Event(COOKIE_CONSENT_CHANGED_EVENT));
+    }
+  }, []);
+
   return {
     preferences,
     isVisible,
@@ -135,5 +176,6 @@ export const useGranularConsent = (): UseGranularConsentResponse => {
     rejectAll,
     savePreferences,
     updatePreference,
+    resetConsent,
   };
 };

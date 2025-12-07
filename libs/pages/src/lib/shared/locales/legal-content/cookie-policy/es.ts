@@ -3,6 +3,7 @@ import type { CookiePolicyContent } from '../../../types';
 export const cookiePolicyEs: CookiePolicyContent = {
   title: 'Política de Cookies',
   lastUpdated: 'Última actualización: 6 de diciembre de 2025',
+  managePreferencesButton: 'Gestionar Preferencias de Cookies',
   sections: {
     introduction: {
       title: '1. Introducción',

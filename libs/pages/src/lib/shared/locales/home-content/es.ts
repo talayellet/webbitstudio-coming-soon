@@ -368,6 +368,7 @@ export const es: LocaleStrings = {
     rejectButton: 'Rechazar',
     customizeButton: 'Personalizar',
     savePreferencesButton: 'Guardar',
+    closeButton: 'Cerrar',
     preferencesTitle: 'Preferencias de cookies',
     categoriesGroupLabel: 'Categorías de cookies',
     privacyPolicyLink: 'Más información',

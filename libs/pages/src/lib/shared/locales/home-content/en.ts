@@ -361,6 +361,7 @@ export const en = {
     rejectButton: 'Reject',
     customizeButton: 'Customize',
     savePreferencesButton: 'Save',
+    closeButton: 'Close',
     preferencesTitle: 'Cookie Preferences',
     categoriesGroupLabel: 'Cookie categories',
     privacyPolicyLink: 'Learn more',

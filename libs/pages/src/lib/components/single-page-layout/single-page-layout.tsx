@@ -101,6 +101,7 @@ export const SinglePageLayout = ({ children }: SinglePageLayoutProps) => {
         rejectButtonText={content.cookieConsent.rejectButton}
         customizeButtonText={content.cookieConsent.customizeButton}
         savePreferencesButtonText={content.cookieConsent.savePreferencesButton}
+        closeButtonAriaLabel={content.cookieConsent.closeButton}
         preferencesTitle={content.cookieConsent.preferencesTitle}
         categoriesGroupLabel={content.cookieConsent.categoriesGroupLabel}
         categories={content.cookieConsent.categories}

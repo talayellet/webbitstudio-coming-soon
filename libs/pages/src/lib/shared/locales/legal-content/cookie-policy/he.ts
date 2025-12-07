@@ -2,7 +2,8 @@ import type { CookiePolicyContent } from '../../../types';
 
 export const cookiePolicyHe: CookiePolicyContent = {
   title: 'מדיניות עוגיות',
-  lastUpdated: 'עדכון אחרון: 6 בדצמבר 2025',
+  lastUpdated: 'עודכן לאחרונה: 6 בדצמבר 2025',
+  managePreferencesButton: 'נהל העדפות עוגיות',
   sections: {
     introduction: {
       title: '1. הקדמה',
