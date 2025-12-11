@@ -57,6 +57,8 @@ export const TemplatesCatalog = ({
     if (onTemplateClick) {
       onTemplateClick(template.id);
     }
+
+    // Open template in new tab
     window.open(template.previewUrl, '_blank', 'noopener,noreferrer');
   };
 

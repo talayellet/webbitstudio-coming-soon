@@ -1,2 +1,4 @@
-export { TemplatesCatalog } from './templates-catalog';
-export type { TemplatesCatalogProps } from './templates-catalog';
+export * from './components';
+export * from './hooks';
+export * from './templates-catalog';
+export * from './utils';
