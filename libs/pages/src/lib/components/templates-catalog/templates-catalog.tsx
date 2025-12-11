@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTemplatesCatalogLocale } from '../../shared';
 
 /**
  * Template catalog data structure
@@ -49,14 +50,6 @@ const TEMPLATES: Template[] = [
   },
 ];
 
-const CATEGORIES = [
-  { id: 'all', label: 'All Templates' },
-  { id: 'saas', label: 'SaaS' },
-  { id: 'portfolio', label: 'Portfolio' },
-  { id: 'business', label: 'Business' },
-  { id: 'ecommerce', label: 'E-commerce' },
-] as const;
-
 export interface TemplatesCatalogProps {
   /**
    * Optional custom templates array
@@ -72,10 +65,28 @@ export const TemplatesCatalog = ({
   templates = TEMPLATES,
   onTemplateClick,
 }: TemplatesCatalogProps) => {
+  const { content, isRTL } = useTemplatesCatalogLocale();
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState('');
 
-  const filteredTemplates = templates.filter((template) => {
+  const categories = [
+    { id: 'all', label: content.categories.all },
+    { id: 'saas', label: content.categories.saas },
+    { id: 'portfolio', label: content.categories.portfolio },
+    { id: 'business', label: content.categories.business },
+    { id: 'ecommerce', label: content.categories.ecommerce },
+  ] as const;
+
+  // Get localized template data
+  const localizedTemplates = templates.map((template) => ({
+    ...template,
+    name: content.templates[template.id]?.name || template.name,
+    description:
+      content.templates[template.id]?.description || template.description,
+    tags: content.templates[template.id]?.tags || template.tags,
+  }));
+
+  const filteredTemplates = localizedTemplates.filter((template) => {
     const matchesCategory =
       selectedCategory === 'all' || template.category === selectedCategory;
     const matchesSearch =
@@ -96,18 +107,18 @@ export const TemplatesCatalog = ({
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-50">
+    <div
+      className="min-h-screen bg-slate-950 text-slate-50"
+      dir={isRTL ? 'rtl' : 'ltr'}
+    >
       {/* Header Section */}
       <div className="border-b border-slate-800 bg-slate-950/95 backdrop-blur-sm">
         <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl font-semibold tracking-tight text-slate-50 sm:text-5xl">
-              Landing Page Templates
+              {content.title}
             </h1>
-            <p className="mt-4 text-lg text-slate-300">
-              Choose from our collection of professionally designed templates.
-              Click any template to preview it in a new tab.
-            </p>
+            <p className="mt-4 text-lg text-slate-300">{content.subtitle}</p>
           </div>
 
           {/* Search Bar */}
@@ -115,18 +126,18 @@ export const TemplatesCatalog = ({
             <div className="w-full max-w-md">
               <input
                 type="text"
-                placeholder="Search templates..."
+                placeholder={content.searchPlaceholder}
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full rounded-xl border border-slate-700 bg-slate-900/70 px-4 py-3 text-sm text-slate-100 placeholder:text-slate-400 focus:border-sky-400 focus:outline-none focus:ring-2 focus:ring-sky-400 transition-all"
-                aria-label="Search templates"
+                aria-label={content.searchAriaLabel}
               />
             </div>
           </div>
 
           {/* Category Filters */}
           <div className="mt-6 flex flex-wrap justify-center gap-2">
-            {CATEGORIES.map((category) => (
+            {categories.map((category) => (
               <button
                 key={category.id}
                 onClick={() => setSelectedCategory(category.id)}
@@ -148,9 +159,7 @@ export const TemplatesCatalog = ({
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         {filteredTemplates.length === 0 ? (
           <div className="py-16 text-center">
-            <p className="text-lg text-slate-400">
-              No templates found. Try adjusting your search or filters.
-            </p>
+            <p className="text-lg text-slate-400">{content.emptyState}</p>
           </div>
         ) : (
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -182,7 +191,7 @@ export const TemplatesCatalog = ({
                   {/* Hover overlay */}
                   <div className="absolute inset-0 flex items-center justify-center bg-slate-950/80 opacity-0 transition-opacity group-hover:opacity-100">
                     <span className="flex items-center gap-2 rounded-full bg-sky-500 px-4 py-2 text-sm font-semibold text-slate-950 shadow-lg">
-                      Preview
+                      {content.preview}
                       <svg
                         className="h-4 w-4"
                         fill="none"
@@ -201,16 +210,28 @@ export const TemplatesCatalog = ({
                 </div>
 
                 {/* Content */}
-                <div className="p-5">
-                  <h3 className="text-lg font-semibold text-slate-50 group-hover:text-sky-400 transition-colors">
+                <div className="p-5" dir={isRTL ? 'rtl' : 'ltr'}>
+                  <h3
+                    className={`text-lg font-semibold text-slate-50 group-hover:text-sky-400 transition-colors ${
+                      isRTL ? 'text-right' : 'text-left'
+                    }`}
+                  >
                     {template.name}
                   </h3>
-                  <p className="mt-2 text-sm text-slate-300">
+                  <p
+                    className={`mt-2 text-sm text-slate-300 ${
+                      isRTL ? 'text-right' : 'text-left'
+                    }`}
+                  >
                     {template.description}
                   </p>
 
                   {/* Tags */}
-                  <div className="mt-3 flex flex-wrap gap-2">
+                  <div
+                    className={`mt-3 flex flex-wrap gap-2 ${
+                      isRTL ? 'justify-end' : 'justify-start'
+                    }`}
+                  >
                     {template.tags.map((tag) => (
                       <span
                         key={tag}
@@ -231,17 +252,14 @@ export const TemplatesCatalog = ({
       <div className="border-t border-slate-800 bg-slate-900/40">
         <div className="mx-auto max-w-7xl px-4 py-12 text-center sm:px-6 lg:px-8">
           <h2 className="text-2xl font-semibold text-slate-50">
-            Need a custom template?
+            {content.cta.title}
           </h2>
-          <p className="mt-2 text-slate-300">
-            We can create a fully customized landing page tailored to your
-            business needs.
-          </p>
+          <p className="mt-2 text-slate-300">{content.cta.description}</p>
           <a
             href="/#contact"
             className="mt-6 inline-flex rounded-full bg-sky-500 px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-sky-500/40 hover:bg-sky-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 transition-all"
           >
-            Get in touch
+            {content.cta.button}
           </a>
         </div>
       </div>
