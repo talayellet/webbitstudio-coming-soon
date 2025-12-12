@@ -46,6 +46,8 @@
   --surface: #ffffff;
   --text: #2a2a2a;
   --text-muted: #5a5a5a;
+  /* Explicit light color for text on dark backgrounds (hero/CTA sections) */
+  --text-on-dark: #ffffff;
 }
 
 /* Scoped template wrapper */
@@ -193,8 +195,9 @@
   letter-spacing: 4px;
   text-transform: uppercase;
   color: var(
-    --background
-  ); /* #fff8f0 on dark gradient - large text spacing aids readability */
+    --text-on-dark,
+    #ffffff
+  ); /* Explicit white for dark gradient backgrounds */
   margin-bottom: 24px;
   opacity: 0.9;
   animation: fadeInUp 1s ease 0.2s backwards;
@@ -202,7 +205,10 @@
 
 .rc-hero-title {
   font-size: clamp(48px, 8vw, 96px);
-  color: var(--surface);
+  color: var(
+    --text-on-dark,
+    #ffffff
+  ); /* Explicit white for dark gradient backgrounds */
   margin-bottom: 32px;
   line-height: 1.1;
   animation: fadeInUp 1s ease 0.4s backwards;
@@ -210,7 +216,10 @@
 
 .rc-hero-description {
   font-size: 18px;
-  color: var(--background);
+  color: var(
+    --text-on-dark,
+    #ffffff
+  ); /* Explicit white for dark gradient backgrounds */
   max-width: 600px;
   margin: 0 auto 48px;
   line-height: 1.8;
@@ -221,8 +230,10 @@
 .rc-btn {
   display: inline-block;
   padding: 16px 48px;
-  background: var(--surface);
-  color: var(--primary);
+  background: var(
+    --accent
+  ); /* Bright accent for visibility on dark backgrounds */
+  color: var(--background); /* Dark text for contrast on light button */
   text-decoration: none;
   font-size: 14px;
   letter-spacing: 2px;
@@ -231,12 +242,14 @@
   border-radius: 2px;
   transition: all 0.4s;
   animation: fadeInUp 1s ease 0.8s backwards;
-  border: 2px solid var(--surface);
+  border: 2px solid var(--accent);
 }
 
 .rc-btn:hover {
   background: transparent;
-  color: var(--surface);
+  color: var(
+    --accent
+  ); /* Bright accent text on transparent (shows dark gradient) */
   transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
@@ -404,17 +417,20 @@
 }
 
 /* CTA Section */
-/* --background (#fff8f0) on --secondary (#2c3e2e) = 11.9:1 contrast ratio ✅ */
+/* Uses explicit white text for proper contrast on dark secondary background in all themes */
 .rc-cta-section {
   padding: 120px 0;
   background: var(--secondary);
   text-align: center;
-  color: var(--background);
+  color: var(--text-on-dark, #ffffff);
 }
 
 .rc-cta-title {
   font-size: clamp(36px, 5vw, 56px);
-  color: var(--background);
+  color: var(
+    --text-on-dark,
+    #ffffff
+  ); /* Explicit white on dark secondary background */
   margin-bottom: 32px;
 }
 
@@ -429,13 +445,15 @@
 
 .rc-cta-section .rc-btn {
   background: var(--accent);
-  color: var(--text);
+  color: var(--background); /* Dark text on bright accent button */
   border-color: var(--accent);
 }
 
 .rc-cta-section .rc-btn:hover {
   background: transparent;
-  color: var(--accent);
+  color: var(
+    --accent
+  ); /* Bright accent text on transparent (shows dark secondary bg) */
 }
 
 .rc-cta-section .rc-btn:focus {
