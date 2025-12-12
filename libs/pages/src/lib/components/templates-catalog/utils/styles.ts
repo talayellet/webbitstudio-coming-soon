@@ -14,9 +14,12 @@ export const TEMPLATES_CATALOG_STYLES = {
 
   search: {
     wrapper: 'mt-8 flex justify-center',
-    container: 'w-full max-w-md',
+    container: 'w-full max-w-md relative',
     input:
       'w-full rounded-xl border border-slate-700 bg-slate-900/70 px-4 py-3 text-sm text-slate-100 placeholder:text-slate-400 focus:border-sky-400 focus:outline-none focus:ring-2 focus:ring-sky-400 transition-all',
+    clearButton:
+      'absolute top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-300 transition-colors ltr:right-3 rtl:left-3',
+    clearIcon: 'w-5 h-5',
   },
 
   categories: {

@@ -4,6 +4,7 @@ import {
   TEMPLATES_CATALOG_STYLES,
   PLACEHOLDER_TEMPLATES,
   TEMPLATE_CATEGORY_IDS,
+  CategoryOption,
 } from './utils';
 import { useTemplateFiltering } from './hooks';
 import {
@@ -12,7 +13,6 @@ import {
   TemplatesCategoryFilters,
   TemplatesGrid,
   TemplatesCatalogCta,
-  CategoryOption,
 } from './components';
 
 export interface TemplatesCatalogProps {

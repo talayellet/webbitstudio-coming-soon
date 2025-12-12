@@ -8,3 +8,4 @@ export { ChevronDownIcon } from './chevron-down-icon';
 export { WhatsAppIcon } from './whatsapp-icon';
 export { ImagePlaceholderIcon } from './image-placeholder-icon';
 export { ExternalLinkIcon } from './external-link-icon';
+export { XMarkIcon } from './x-mark-icon';
