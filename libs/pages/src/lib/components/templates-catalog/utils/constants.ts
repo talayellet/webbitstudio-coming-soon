@@ -15,6 +15,16 @@ export const DEFAULT_TEMPLATES: LandingPageTemplate[] = [
     tags: ['Modern', 'Pricing', 'Features'],
   },
   {
+    id: 'restaurant-cafe',
+    name: 'Restaurant & Cafe',
+    description:
+      'Elegant restaurant landing page with menu showcase, hours, and reservations',
+    category: 'business',
+    thumbnailUrl: '/templates/restaurant-cafe-thumb.jpg',
+    previewUrl: '/templates/restaurant-cafe',
+    tags: ['Elegant', 'Menu', 'Reservations'],
+  },
+  {
     id: 'portfolio-creative',
     name: 'Creative Portfolio',
     description:

@@ -31,6 +31,11 @@ export const he: TemplatesCatalogLocaleStrings = {
       description: 'דף נחיתה SaaS מודרני עם טבלאות תמחור והצגת תכונות',
       tags: ['מודרני', 'תמחור', 'תכונות'],
     },
+    'restaurant-cafe': {
+      name: 'מסעדה ובית קפה',
+      description: 'דף נחיתה אלגנטי למסעדה עם תפריט, שעות פתיחה והזמנות',
+      tags: ['אלגנטי', 'תפריט', 'הזמנות'],
+    },
     'portfolio-creative': {
       name: 'תיק עבודות יצירתי',
       description: 'הצג את העבודות שלך עם גלריות אלגנטיות ואנימציות חלקות',
@@ -38,8 +43,8 @@ export const he: TemplatesCatalogLocaleStrings = {
     },
     'business-pro': {
       name: 'עסקים מקצועי',
-      description: 'אתר עסקי מקצועי עם שירותים וסעיפי יצירת קשר',
-      tags: ['מקצועי', 'שירותים', 'יצירת קשר'],
+      description: 'אתר אינטרנט עסקי מקצועי עם שירותים וחלקי יצירת קשר',
+      tags: ['מקצועי', 'שירותים', 'צור קשר'],
     },
   },
 };

@@ -33,6 +33,12 @@ export const es: TemplatesCatalogLocaleStrings = {
         'Página de destino SaaS moderna con tablas de precios y exhibición de características',
       tags: ['Moderno', 'Precios', 'Características'],
     },
+    'restaurant-cafe': {
+      name: 'Restaurante y Café',
+      description:
+        'Elegante página de destino de restaurante con menú, horarios y reservas',
+      tags: ['Elegante', 'Menú', 'Reservas'],
+    },
     'portfolio-creative': {
       name: 'Portafolio Creativo',
       description:

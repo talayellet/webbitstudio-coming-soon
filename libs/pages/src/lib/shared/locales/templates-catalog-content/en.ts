@@ -30,6 +30,12 @@ export const en = {
         'Modern SaaS landing page with pricing tables and feature showcases',
       tags: ['Modern', 'Pricing', 'Features'],
     },
+    'restaurant-cafe': {
+      name: 'Restaurant & Cafe',
+      description:
+        'Elegant restaurant landing page with menu showcase, hours, and reservations',
+      tags: ['Elegant', 'Menu', 'Reservations'],
+    },
     'portfolio-creative': {
       name: 'Creative Portfolio',
       description:

@@ -13,6 +13,7 @@ export {
   useRouteScroll,
   useSaasLaunchRouting,
 } from './lib/saas-launch/hooks';
+export * from './lib/restaurant-cafe';
 export { LOCALES, type Locale } from './lib/shared/utils/types';
 export type { LanguageOption } from '@webbitstudio/ui-components';
 export * from './assets';

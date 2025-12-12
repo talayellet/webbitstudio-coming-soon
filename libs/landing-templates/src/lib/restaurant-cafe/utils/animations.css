@@ -1,0 +1,55 @@
+/* Restaurant Cafe Template Animations */
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Scroll reveal animations */
+.rc-fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.rc-fade-in.rc-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Respect user motion preferences (WCAG 2.3.3) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .rc-fade-in {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .rc-fade-in.rc-visible {
+    opacity: 1;
+    transform: none;
+  }
+}

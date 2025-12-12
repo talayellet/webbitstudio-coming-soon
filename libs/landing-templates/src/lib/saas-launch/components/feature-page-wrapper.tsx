@@ -13,7 +13,7 @@ interface FeaturePageWrapperProps {
 export function FeaturePageWrapper({
   locale,
   onLocaleChange,
-  theme = THEME_NAMES.DARK,
+  theme = THEME_NAMES.WARM,
 }: FeaturePageWrapperProps) {
   const navigate = useNavigate();
   const { feature, localeStrings } = useFeatureRoute(locale);

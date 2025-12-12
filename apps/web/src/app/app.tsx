@@ -9,7 +9,10 @@ import {
   TemplatesCatalog,
   WEBBIT_STUDIO_EMAIL,
 } from '@webbitstudio/pages';
-import { SaasLaunchRouter } from '@webbitstudio/landing-templates';
+import {
+  SaasLaunchRouter,
+  RestaurantCafe,
+} from '@webbitstudio/landing-templates';
 import { CurrencyProvider } from '@webbitstudio/shared-utils';
 import { PageUnderConstruction } from '@webbitstudio/ui-components';
 import { AnalyticsScript } from '../components';
@@ -40,6 +43,10 @@ export function App() {
         <Route
           path={ROUTES.TEMPLATES_SAAS_LAUNCH}
           element={<SaasLaunchRouter />}
+        />
+        <Route
+          path={ROUTES.TEMPLATES_RESTAURANT_CAFE}
+          element={<RestaurantCafe />}
         />
         <Route
           path={ROUTES.TEMPLATES_PORTFOLIO_CREATIVE}

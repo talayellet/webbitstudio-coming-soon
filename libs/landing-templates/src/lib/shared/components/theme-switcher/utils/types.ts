@@ -1,9 +1,9 @@
 export const THEME_NAMES = {
-  LIGHT: 'light',
-  DARK: 'dark',
-  OCEAN: 'ocean',
-  SUNSET: 'sunset',
-  FOREST: 'forest',
+  WARM: 'warm',
+  ELEGANT: 'elegant',
+  MODERN: 'modern',
+  RUSTIC: 'rustic',
+  COASTAL: 'coastal',
 } as const;
 
 export type ThemeName = (typeof THEME_NAMES)[keyof typeof THEME_NAMES];
