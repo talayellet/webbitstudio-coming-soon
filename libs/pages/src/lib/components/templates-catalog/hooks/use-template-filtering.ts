@@ -5,7 +5,7 @@ import {
   TemplateCategoryId,
 } from '../utils';
 
-export interface UseTemplateFilteringParams {
+export interface UseTemplateFilteringProps {
   templates: LandingPageTemplate[];
   content: {
     templates: Record<
@@ -19,7 +19,7 @@ export interface UseTemplateFilteringParams {
   };
 }
 
-export interface UseTemplateFilteringReturn {
+export interface UseTemplateFilteringResponse {
   selectedCategory: TemplateCategoryId;
   setSelectedCategory: (category: TemplateCategoryId) => void;
   searchQuery: string;
@@ -34,7 +34,7 @@ export interface UseTemplateFilteringReturn {
 export const useTemplateFiltering = ({
   templates,
   content,
-}: UseTemplateFilteringParams): UseTemplateFilteringReturn => {
+}: UseTemplateFilteringProps): UseTemplateFilteringResponse => {
   const [selectedCategory, setSelectedCategory] = useState<TemplateCategoryId>(
     TEMPLATE_CATEGORY_IDS.ALL
   );

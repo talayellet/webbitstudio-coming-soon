@@ -1,5 +1,5 @@
 export { useTemplateFiltering } from './use-template-filtering';
 export type {
-  UseTemplateFilteringParams,
-  UseTemplateFilteringReturn,
+  UseTemplateFilteringProps as UseTemplateFilteringParams,
+  UseTemplateFilteringResponse as UseTemplateFilteringReturn,
 } from './use-template-filtering';
