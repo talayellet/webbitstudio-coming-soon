@@ -64,6 +64,8 @@ export const DEFAULT_SHOW_SECTIONS: ShowSections = {
   reservation: true,
 } as const;
 
+export const DEFAULT_SCROLL_THRESHOLD = 150;
+
 // ============================================================================
 // Section IDs
 // ============================================================================

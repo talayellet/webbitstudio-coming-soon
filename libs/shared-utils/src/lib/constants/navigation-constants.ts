@@ -13,3 +13,7 @@ export const KEYBOARD_KEYS = {
   END: 'End',
   TAB: 'Tab',
 } as const;
+
+export const NAVIGATION_EVENTS = {
+  SCROLL: 'scroll',
+} as const;

@@ -5,6 +5,7 @@ import {
   SECTION_IDS,
   type FooterSection,
   type LocaleStrings,
+  NavLink,
 } from '../utils';
 import {
   DEFAULT_THEMES,
@@ -15,7 +16,7 @@ import {
 
 interface UseRestaurantLocalizationProps {
   localeStrings: LocaleStrings;
-  navLinks: Array<{ href: string; label: string }>;
+  navLinks: NavLink[];
   localizedFooterSections: FooterSection[];
   localizedThemes: ThemeOption[];
 }

@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef } from 'react';
-
-const DEFAULT_SCROLL_THRESHOLD = 150;
+import { DEFAULT_SCROLL_THRESHOLD, STYLES } from '../utils';
+import { NAVIGATION_EVENTS } from '@webbitstudio/shared-utils';
 
 /**
  * Hook for handling scroll-based reveal animations
@@ -16,17 +16,18 @@ export const useScrollReveal = (threshold = DEFAULT_SCROLL_THRESHOLD) => {
         const elementTop = element.getBoundingClientRect().top;
 
         if (elementTop < window.innerHeight - threshold) {
-          element.classList.add('rc-visible');
+          element.classList.add(STYLES.VISIBLE);
         }
       }
     });
   }, [threshold]);
 
   useEffect(() => {
-    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener(NAVIGATION_EVENTS.SCROLL, revealOnScroll);
     revealOnScroll();
 
-    return () => window.removeEventListener('scroll', revealOnScroll);
+    return () =>
+      window.removeEventListener(NAVIGATION_EVENTS.SCROLL, revealOnScroll);
   }, [revealOnScroll]);
 
   const addToRefs = useCallback((el: HTMLElement | null) => {
