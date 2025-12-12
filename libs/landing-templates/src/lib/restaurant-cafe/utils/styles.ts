@@ -9,6 +9,7 @@ export const STYLES = {
 
   // Decorative elements
   ORNAMENT: 'rc-ornament',
+  ORNAMENT_LEFT: 'rc-ornament-left',
 
   // Animations
   FADE_IN: 'rc-fade-in',
