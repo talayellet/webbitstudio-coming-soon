@@ -25,6 +25,9 @@ export const es = {
     description:
       'Experimenta la excelencia culinaria en un ambiente de elegancia atemporal. Donde la tradición se encuentra con la innovación.',
     cta: 'Hacer una Reserva',
+    aria: {
+      heroSection: 'Sección de héroe',
+    },
   },
 
   // About Section
@@ -93,6 +96,9 @@ export const es = {
     description:
       'Únase a nosotros para una experiencia gastronómica excepcional. Reserve su mesa hoy y descubra por qué somos el destino para paladares exigentes.',
     button: 'Reservar Ahora',
+    aria: {
+      makeReservation: 'Hacer una reserva',
+    },
   },
 
   // Footer
@@ -125,5 +131,10 @@ export const es = {
     modern: 'Moderno',
     rustic: 'Rústico',
     coastal: 'Costero',
+  },
+
+  // ARIA Labels
+  aria: {
+    mainContent: 'Contenido principal',
   },
 } as const;

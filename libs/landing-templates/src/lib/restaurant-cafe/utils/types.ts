@@ -1,5 +1,3 @@
-import type { Locale } from '../../shared';
-
 // ============================================================================
 // Menu
 // ============================================================================
@@ -158,6 +156,9 @@ export interface LocaleStrings {
     title: string;
     description: string;
     cta: string;
+    aria: {
+      heroSection: string;
+    };
   };
   about: {
     title: string;
@@ -181,6 +182,9 @@ export interface LocaleStrings {
     title: string;
     description: string;
     button: string;
+    aria: {
+      makeReservation: string;
+    };
   };
   footer: {
     tagline: string;
@@ -207,5 +211,8 @@ export interface LocaleStrings {
     modern: string;
     rustic: string;
     coastal: string;
+  };
+  aria: {
+    mainContent: string;
   };
 }

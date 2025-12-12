@@ -8,6 +8,7 @@ interface HeroSectionProps {
   ctaHref: string;
   ctaOnClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
   addToRefs: (el: HTMLElement | null) => void;
+  ariaLabel: string;
 }
 
 /**
@@ -21,9 +22,10 @@ export const HeroSection = ({
   ctaHref,
   ctaOnClick,
   addToRefs,
+  ariaLabel,
 }: HeroSectionProps) => {
   return (
-    <section className={STYLES.HERO} aria-label="Hero section">
+    <section className={STYLES.HERO} aria-label={ariaLabel}>
       <div className={STYLES.HERO_CONTENT} ref={addToRefs}>
         <div className={STYLES.HERO_SUBTITLE}>{subtitle}</div>
         <h1 className={STYLES.HERO_TITLE}>{title}</h1>

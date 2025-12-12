@@ -25,6 +25,9 @@ export const en = {
     description:
       'Experience culinary excellence in an atmosphere of timeless elegance. Where tradition meets innovation.',
     cta: 'Make a Reservation',
+    aria: {
+      heroSection: 'Hero section',
+    },
   },
 
   // About Section
@@ -91,6 +94,9 @@ export const en = {
     description:
       'Join us for an exceptional dining experience. Book your table today and discover why we are the destination for discerning palates.',
     button: 'Book Now',
+    aria: {
+      makeReservation: 'Make a reservation',
+    },
   },
 
   // Footer
@@ -123,5 +129,10 @@ export const en = {
     modern: 'Modern',
     rustic: 'Rustic',
     coastal: 'Coastal',
+  },
+
+  // ARIA Labels
+  aria: {
+    mainContent: 'Main content',
   },
 } as const;

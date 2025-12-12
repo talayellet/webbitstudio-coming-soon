@@ -25,6 +25,9 @@ export const fr = {
     description:
       "Découvrez l'excellence culinaire dans une atmosphère d'élégance intemporelle. Où la tradition rencontre l'innovation.",
     cta: 'Réserver une Table',
+    aria: {
+      heroSection: 'Section héros',
+    },
   },
 
   // About Section
@@ -92,6 +95,9 @@ export const fr = {
     description:
       "Rejoignez-nous pour une expérience gastronomique exceptionnelle. Réservez votre table dès aujourd'hui et découvrez pourquoi nous sommes la destination des palais exigeants.",
     button: 'Réserver Maintenant',
+    aria: {
+      makeReservation: 'Faire une réservation',
+    },
   },
 
   // Footer
@@ -125,5 +131,10 @@ export const fr = {
     modern: 'Moderne',
     rustic: 'Rustique',
     coastal: 'Côtier',
+  },
+
+  // ARIA Labels
+  aria: {
+    mainContent: 'Contenu principal',
   },
 } as const;

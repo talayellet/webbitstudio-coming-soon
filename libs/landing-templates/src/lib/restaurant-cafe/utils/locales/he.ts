@@ -26,6 +26,9 @@ export const he = {
     description:
       'חוו מצוינות קולינרית באווירה של אלגנטיות נצחית. כאן המסורת פוגשת את החדשנות.',
     cta: 'הזמינו מקום',
+    aria: {
+      heroSection: 'תקציר החוויה',
+    },
   },
 
   // About Section
@@ -92,6 +95,9 @@ export const he = {
     description:
       'הצטרפו אלינו לחוויית אוכל יוצאת דופן. הזמינו את השולחן שלכם היום וגלו מדוע אנחנו היעד לחיכים הבררנים.',
     button: 'הזמינו עכשיו',
+    aria: {
+      makeReservation: 'בצעו הזמנה',
+    },
   },
 
   // Footer
@@ -124,5 +130,10 @@ export const he = {
     modern: 'מודרני',
     rustic: 'כפרי',
     coastal: 'חופי',
+  },
+
+  // ARIA Labels
+  aria: {
+    mainContent: 'תוכן ראשי',
   },
 } as const;

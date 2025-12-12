@@ -86,10 +86,11 @@ export const Main = ({
   reservationHref,
   reservationOnClick,
   addToRefs,
+  locale,
   showSections = DEFAULT_SHOW_SECTIONS,
 }: MainProps) => {
   return (
-    <main id="main-content" aria-label="Main content">
+    <main id="main-content" aria-label={locale.aria.mainContent}>
       {showSections.hero !== false && (
         <HeroSection
           subtitle={heroSubtitle}
@@ -99,6 +100,7 @@ export const Main = ({
           ctaHref={heroCtaHref}
           ctaOnClick={heroCtaOnClick}
           addToRefs={addToRefs}
+          ariaLabel={locale.hero.aria.heroSection}
         />
       )}
 
@@ -140,6 +142,7 @@ export const Main = ({
           buttonText={reservationButton}
           buttonHref={reservationHref}
           buttonOnClick={reservationOnClick}
+          ariaLabel={locale.reservation.aria.makeReservation}
         />
       )}
     </main>
