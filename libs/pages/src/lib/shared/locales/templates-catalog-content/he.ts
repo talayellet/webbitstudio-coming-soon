@@ -9,6 +9,7 @@ export const he: TemplatesCatalogLocaleStrings = {
     'בחר מתוך האוסף שלנו של תבניות מעוצבות באופן מקצועי. לחץ על כל תבנית כדי לצפות בתצוגה מקדימה בכרטיסייה חדשה.',
   searchPlaceholder: 'חיפוש תבניות...',
   searchAriaLabel: 'חיפוש תבניות',
+  clearAriaLabel: 'ניקוי חיפוש',
   categories: {
     all: 'כל התבניות',
     saas: 'SaaS',

@@ -7,6 +7,7 @@ export const en = {
     'Choose from our collection of professionally designed templates. Click any template to preview it in a new tab.',
   searchPlaceholder: 'Search templates...',
   searchAriaLabel: 'Search templates',
+  clearAriaLabel: 'Clear search',
   categories: {
     all: 'All Templates',
     saas: 'SaaS',

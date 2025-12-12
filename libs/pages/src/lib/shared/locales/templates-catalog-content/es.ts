@@ -9,6 +9,7 @@ export const es: TemplatesCatalogLocaleStrings = {
     'Elige entre nuestra colección de plantillas diseñadas profesionalmente. Haz clic en cualquier plantilla para previsualizarla en una nueva pestaña.',
   searchPlaceholder: 'Buscar plantillas...',
   searchAriaLabel: 'Buscar plantillas',
+  clearAriaLabel: 'Limpiar búsqueda',
   categories: {
     all: 'Todas las Plantillas',
     saas: 'SaaS',

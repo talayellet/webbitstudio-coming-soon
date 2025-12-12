@@ -9,6 +9,7 @@ export const de: TemplatesCatalogLocaleStrings = {
     'Wählen Sie aus unserer Sammlung professionell gestalteter Vorlagen. Klicken Sie auf eine beliebige Vorlage, um sie in einem neuen Tab anzuzeigen.',
   searchPlaceholder: 'Vorlagen suchen...',
   searchAriaLabel: 'Vorlagen suchen',
+  clearAriaLabel: 'Suche löschen',
   categories: {
     all: 'Alle Vorlagen',
     saas: 'SaaS',

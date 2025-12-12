@@ -82,6 +82,7 @@ export const TemplatesCatalog = ({
           onChange={setSearchQuery}
           placeholder={content.searchPlaceholder}
           ariaLabel={content.searchAriaLabel}
+          clearAriaLabel={content.clearAriaLabel}
         />
 
         <TemplatesCategoryFilters

@@ -9,6 +9,7 @@ export const fr: TemplatesCatalogLocaleStrings = {
     "Choisissez parmi notre collection de modèles conçus professionnellement. Cliquez sur n'importe quel modèle pour le prévisualiser dans un nouvel onglet.",
   searchPlaceholder: 'Rechercher des modèles...',
   searchAriaLabel: 'Rechercher des modèles',
+  clearAriaLabel: 'Effacer la recherche',
   categories: {
     all: 'Tous les Modèles',
     saas: 'SaaS',
