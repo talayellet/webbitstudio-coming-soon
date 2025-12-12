@@ -65,13 +65,23 @@ export const DEFAULT_SHOW_SECTIONS: ShowSections = {
 } as const;
 
 // ============================================================================
+// Section IDs
+// ============================================================================
+
+export const SECTION_IDS = {
+  ABOUT: 'about',
+  MENU: 'menu',
+  CONTACT: 'contact',
+} as const;
+
+// ============================================================================
 // Footer
 // ============================================================================
 
 export const FOOTER_PATHS = {
-  ABOUT: '#about',
-  MENU: '#menu',
-  CONTACT: '#contact',
+  ABOUT: `#${SECTION_IDS.ABOUT}`,
+  MENU: `#${SECTION_IDS.MENU}`,
+  CONTACT: `#${SECTION_IDS.CONTACT}`,
   INSTAGRAM: 'https://instagram.com',
   FACEBOOK: 'https://facebook.com',
   TWITTER: 'https://twitter.com',

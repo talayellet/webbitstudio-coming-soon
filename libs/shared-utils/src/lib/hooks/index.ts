@@ -15,3 +15,5 @@ export * from './use-browser-locale';
 export * from './use-locale-from-browser';
 export * from './use-escape-key';
 export * from './use-focus-trap';
+export * from './use-controlled-state';
+export * from './use-document-locale';

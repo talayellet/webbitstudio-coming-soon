@@ -5,6 +5,7 @@ import { ColorScheme } from './types';
  */
 export const STYLES = {
   // Layout
+  TEMPLATE_WRAPPER: 'rc-template-wrapper',
   CONTAINER: 'rc-container',
 
   // Decorative elements
