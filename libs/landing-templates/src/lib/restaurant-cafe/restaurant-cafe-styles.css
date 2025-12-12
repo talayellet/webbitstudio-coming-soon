@@ -1,22 +1,23 @@
 /* Restaurant Cafe Template Styles */
 
+/* Default fallback colors - theme system will override these via inline styles */
 :root {
-  --rc-primary: #8b6f47;
-  --rc-primary-light: #a68a64;
-  --rc-secondary: #2c3e2e;
-  --rc-accent: #d4a574;
-  --rc-background: #fff8f0;
-  --rc-surface: #ffffff;
-  --rc-text: #2a2a2a;
-  --rc-text-muted: #6b6b6b;
+  --primary: #8b6f47;
+  --primary-dark: #6b5437;
+  --secondary: #2c3e2e;
+  --accent: #d4a574;
+  --background: #fff8f0;
+  --surface: #ffffff;
+  --text: #2a2a2a;
+  --text-muted: #6b6b6b;
 }
 
 /* Scoped template wrapper */
 .rc-template-wrapper {
   font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI',
     sans-serif;
-  background: var(--rc-background);
-  color: var(--rc-text);
+  background: var(--background);
+  color: var(--text);
   line-height: 1.7;
 }
 
@@ -39,18 +40,13 @@
 .rc-ornament {
   width: 60px;
   height: 2px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    var(--rc-accent),
-    transparent
-  );
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
   margin: 24px auto;
 }
 
 /* Header */
 .rc-header {
-  background: var(--rc-surface);
+  background: var(--surface);
   padding: 20px 0;
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
   position: sticky;
@@ -69,7 +65,7 @@
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: 32px;
   font-weight: 700;
-  color: var(--rc-primary);
+  color: var(--primary);
   text-decoration: none;
   letter-spacing: 2px;
 }
@@ -81,7 +77,7 @@
 }
 
 .rc-nav-link {
-  color: var(--rc-text);
+  color: var(--text);
   text-decoration: none;
   font-size: 14px;
   letter-spacing: 1px;
@@ -98,12 +94,12 @@
   left: 0;
   width: 0;
   height: 1px;
-  background: var(--rc-primary);
+  background: var(--primary);
   transition: width 0.3s;
 }
 
 .rc-nav-link:hover {
-  color: var(--rc-primary);
+  color: var(--primary);
 }
 
 .rc-nav-link:hover::after {
@@ -121,8 +117,8 @@
   overflow: hidden;
   background: linear-gradient(
     135deg,
-    var(--rc-primary-light) 0%,
-    var(--rc-primary) 100%
+    var(--primary) 0%,
+    var(--primary-dark) 100%
   );
 }
 
@@ -147,7 +143,7 @@
   font-size: 16px;
   letter-spacing: 4px;
   text-transform: uppercase;
-  color: var(--rc-background);
+  color: var(--background);
   margin-bottom: 24px;
   opacity: 0.9;
   animation: fadeInUp 1s ease 0.2s backwards;
@@ -155,7 +151,7 @@
 
 .rc-hero-title {
   font-size: clamp(48px, 8vw, 96px);
-  color: var(--rc-surface);
+  color: var(--surface);
   margin-bottom: 32px;
   line-height: 1.1;
   animation: fadeInUp 1s ease 0.4s backwards;
@@ -163,7 +159,7 @@
 
 .rc-hero-description {
   font-size: 18px;
-  color: var(--rc-background);
+  color: var(--background);
   max-width: 600px;
   margin: 0 auto 48px;
   line-height: 1.8;
@@ -174,8 +170,8 @@
 .rc-btn {
   display: inline-block;
   padding: 16px 48px;
-  background: var(--rc-surface);
-  color: var(--rc-primary);
+  background: var(--surface);
+  color: var(--primary);
   text-decoration: none;
   font-size: 14px;
   letter-spacing: 2px;
@@ -184,12 +180,12 @@
   border-radius: 2px;
   transition: all 0.4s;
   animation: fadeInUp 1s ease 0.8s backwards;
-  border: 2px solid var(--rc-surface);
+  border: 2px solid var(--surface);
 }
 
 .rc-btn:hover {
   background: transparent;
-  color: var(--rc-surface);
+  color: var(--surface);
   transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
@@ -197,7 +193,7 @@
 /* About Section */
 .rc-about {
   padding: 120px 0;
-  background: var(--rc-surface);
+  background: var(--surface);
 }
 
 .rc-about-grid {
@@ -209,14 +205,14 @@
 
 .rc-about-content h2 {
   font-size: clamp(36px, 5vw, 56px);
-  color: var(--rc-primary);
+  color: var(--primary);
   margin-bottom: 32px;
   line-height: 1.2;
 }
 
 .rc-about-content p {
   font-size: 17px;
-  color: var(--rc-text-muted);
+  color: var(--text-muted);
   margin-bottom: 24px;
   line-height: 1.8;
 }
@@ -224,7 +220,7 @@
 .rc-about-image {
   position: relative;
   height: 500px;
-  background: var(--rc-primary-light);
+  background: var(--primary);
   border-radius: 4px;
   overflow: hidden;
 }
@@ -244,7 +240,7 @@
 /* Menu Highlight */
 .rc-menu-highlight {
   padding: 120px 0;
-  background: var(--rc-background);
+  background: var(--background);
 }
 
 .rc-section-header {
@@ -254,13 +250,13 @@
 
 .rc-section-header h2 {
   font-size: clamp(36px, 5vw, 56px);
-  color: var(--rc-primary);
+  color: var(--primary);
   margin-bottom: 16px;
 }
 
 .rc-section-header p {
   font-size: 17px;
-  color: var(--rc-text-muted);
+  color: var(--text-muted);
   max-width: 600px;
   margin: 0 auto;
 }
@@ -272,7 +268,7 @@
 }
 
 .rc-menu-item {
-  background: var(--rc-surface);
+  background: var(--surface);
   padding: 48px;
   border-radius: 4px;
   text-align: center;
@@ -292,13 +288,13 @@
 
 .rc-menu-item-name {
   font-size: 28px;
-  color: var(--rc-primary);
+  color: var(--primary);
   margin-bottom: 16px;
 }
 
 .rc-menu-item-description {
   font-size: 15px;
-  color: var(--rc-text-muted);
+  color: var(--text-muted);
   line-height: 1.7;
   margin-bottom: 24px;
 }
@@ -306,14 +302,14 @@
 .rc-menu-item-price {
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: 24px;
-  color: var(--rc-accent);
+  color: var(--accent);
   font-weight: 600;
 }
 
 /* Info Section */
 .rc-info-section {
   padding: 120px 0;
-  background: var(--rc-surface);
+  background: var(--surface);
 }
 
 .rc-info-grid {
@@ -325,20 +321,20 @@
 
 .rc-info-title {
   font-size: 32px;
-  color: var(--rc-primary);
+  color: var(--primary);
   margin-bottom: 24px;
 }
 
 .rc-info-content p {
   font-size: 16px;
-  color: var(--rc-text-muted);
+  color: var(--text-muted);
   line-height: 2;
 }
 
 .rc-info-link {
-  color: var(--rc-primary);
+  color: var(--primary);
   text-decoration: none;
-  border-bottom: 1px solid var(--rc-primary);
+  border-bottom: 1px solid var(--primary);
   transition: opacity 0.3s;
 }
 
@@ -349,14 +345,14 @@
 /* CTA Section */
 .rc-cta-section {
   padding: 120px 0;
-  background: var(--rc-secondary);
+  background: var(--secondary);
   text-align: center;
-  color: var(--rc-background);
+  color: var(--background);
 }
 
 .rc-cta-title {
   font-size: clamp(36px, 5vw, 56px);
-  color: var(--rc-background);
+  color: var(--background);
   margin-bottom: 32px;
 }
 
@@ -370,20 +366,20 @@
 }
 
 .rc-cta-section .rc-btn {
-  background: var(--rc-accent);
-  color: var(--rc-text);
-  border-color: var(--rc-accent);
+  background: var(--accent);
+  color: var(--text);
+  border-color: var(--accent);
 }
 
 .rc-cta-section .rc-btn:hover {
   background: transparent;
-  color: var(--rc-accent);
+  color: var(--accent);
 }
 
 /* Footer */
 .rc-footer {
-  background: var(--rc-text);
-  color: var(--rc-background);
+  background: var(--text);
+  color: var(--background);
   padding: 64px 0 32px;
 }
 
@@ -398,7 +394,7 @@
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: 36px;
   margin-bottom: 16px;
-  color: var(--rc-accent);
+  color: var(--accent);
 }
 
 .rc-footer-tagline {
@@ -410,7 +406,7 @@
 .rc-footer-section-title {
   font-size: 18px;
   margin-bottom: 24px;
-  color: var(--rc-accent);
+  color: var(--accent);
 }
 
 .rc-footer-links {
@@ -422,7 +418,7 @@
 }
 
 .rc-footer-link {
-  color: var(--rc-background);
+  color: var(--background);
   text-decoration: none;
   font-size: 14px;
   opacity: 0.7;

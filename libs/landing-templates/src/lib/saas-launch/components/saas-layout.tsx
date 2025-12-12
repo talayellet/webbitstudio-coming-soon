@@ -53,7 +53,7 @@ export const SaasLayout: React.FC<SaasLayoutProps> = ({
   companyName = DEFAULT_TEMPLATE.companyName,
   logo = DEFAULT_TEMPLATE.logo,
   colors,
-  theme = THEME_NAMES.DARK,
+  theme = THEME_NAMES.WARM,
   locale = DEFAULT_LOCALE,
   onLocaleChange,
   languageOptions = DEFAULT_LANGUAGE_OPTIONS,

@@ -98,7 +98,7 @@ const meta = {
     },
     theme: {
       control: 'select',
-      options: ['dark', 'light'],
+      options: ['warm', 'elegant', 'modern', 'rustic', 'coastal'],
       description: 'Visual theme of the landing page',
       table: {
         category: 'Appearance',
@@ -267,21 +267,21 @@ export const Minimal: Story = {
 };
 
 /**
- * Dark theme
+ * Elegant theme (dark sophisticated)
  */
-export const DarkTheme: Story = {
+export const ElegantTheme: Story = {
   args: {
     restaurantName: 'Noir Bistro',
-    theme: 'dark',
+    theme: 'elegant',
   },
 };
 
 /**
- * Light theme
+ * Modern theme (clean minimal)
  */
-export const LightTheme: Story = {
+export const ModernTheme: Story = {
   args: {
     restaurantName: 'Bright Cafe',
-    theme: 'light',
+    theme: 'modern',
   },
 };

@@ -83,7 +83,7 @@ export const SaasLaunch: React.FC<SaasLaunchProps> = ({
   showFooter = true,
   showLanguageSwitcher = true,
   showThemeSwitcher = true,
-  theme = THEME_NAMES.DARK,
+  theme = THEME_NAMES.WARM,
   web3formsAccessKey,
 }) => {
   const addToRefs = useScrollReveal();

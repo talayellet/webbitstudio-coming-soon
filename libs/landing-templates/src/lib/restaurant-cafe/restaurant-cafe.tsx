@@ -62,7 +62,7 @@ export const RestaurantCafe: React.FC<RestaurantCafeProps> = ({
   showFooter = true,
   showLanguageSwitcher = true,
   showThemeSwitcher = true,
-  theme = THEME_NAMES.DARK,
+  theme = THEME_NAMES.WARM,
 }) => {
   const addToRefs = useScrollReveal();
 
