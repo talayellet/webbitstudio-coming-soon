@@ -6,16 +6,19 @@ import {
   TermsOfServicePage,
   CookiePolicyPage,
   AccessibilityStatementPage,
+  TemplatesCatalog,
   WEBBIT_STUDIO_EMAIL,
 } from '@webbitstudio/pages';
+import { SaasLaunchRouter } from '@webbitstudio/landing-templates';
 import { CurrencyProvider } from '@webbitstudio/shared-utils';
+import { PageUnderConstruction } from '@webbitstudio/ui-components';
 import { AnalyticsScript } from '../components';
-import { useAnalyticsConsent } from '../hooks';
-
-const COMPANY_NAME = 'Webbit Studio';
+import { useAnalyticsConsent, useLocale } from '../hooks';
+import { COMPANY_NAME, ROUTES } from '../utils';
 
 export function App() {
   const hasAnalyticsConsent = useAnalyticsConsent();
+  const locale = useLocale();
 
   return (
     <CurrencyProvider>
@@ -26,15 +29,32 @@ export function App() {
       />
       <Routes>
         <Route
-          path="/"
+          path={ROUTES.HOME}
           element={
             <WebbitStudioHomePage
               web3formsAccessKey={import.meta.env.VITE_WEB3FORMS_ACCESS_KEY}
             />
           }
         />
+        <Route path={ROUTES.TEMPLATES} element={<TemplatesCatalog />} />
         <Route
-          path="/privacy-policy"
+          path={ROUTES.TEMPLATES_SAAS_LAUNCH}
+          element={<SaasLaunchRouter />}
+        />
+        <Route
+          path={ROUTES.TEMPLATES_PORTFOLIO_CREATIVE}
+          element={
+            <PageUnderConstruction backUrl={ROUTES.TEMPLATES} locale={locale} />
+          }
+        />
+        <Route
+          path={ROUTES.TEMPLATES_BUSINESS_PRO}
+          element={
+            <PageUnderConstruction backUrl={ROUTES.TEMPLATES} locale={locale} />
+          }
+        />
+        <Route
+          path={ROUTES.PRIVACY_POLICY}
           element={
             <SinglePageLayout>
               <PrivacyPolicyPage
@@ -45,7 +65,7 @@ export function App() {
           }
         />
         <Route
-          path="/terms-of-service"
+          path={ROUTES.TERMS_OF_SERVICE}
           element={
             <SinglePageLayout>
               <TermsOfServicePage
@@ -56,7 +76,7 @@ export function App() {
           }
         />
         <Route
-          path="/cookie-policy"
+          path={ROUTES.COOKIE_POLICY}
           element={
             <SinglePageLayout>
               <CookiePolicyPage
@@ -67,7 +87,7 @@ export function App() {
           }
         />
         <Route
-          path="/accessibility-statement"
+          path={ROUTES.ACCESSIBILITY_STATEMENT}
           element={
             <SinglePageLayout>
               <AccessibilityStatementPage />

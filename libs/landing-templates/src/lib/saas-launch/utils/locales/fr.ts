@@ -34,22 +34,23 @@ export const fr: LocaleStrings = {
       },
       consent: {
         label:
-          'J'accepte le traitement de mes données personnelles conformément à la',
+          "J'accepte le traitement de mes données personnelles conformément à la",
         privacyPolicy: 'Politique de Confidentialité',
       },
       privacyNotice:
-        'Nous collectons votre nom, email et message pour répondre à votre demande. Vos données seront traitées conformément à notre Politique de Confidentialité et conservées jusqu'à 2 ans. Vous avez le droit d'accéder, corriger ou supprimer vos données à tout moment.',
+        "Nous collectons votre nom, email et message pour répondre à votre demande. Vos données seront traitées conformément à notre Politique de Confidentialité et conservées jusqu'à 2 ans. Vous avez le droit d'accéder, corriger ou supprimer vos données à tout moment.",
       submit: 'Envoyer le Message',
       submitting: 'Envoi en cours...',
       successMessage:
         'Merci pour votre message ! Nous vous répondrons bientôt.',
       errors: {
         nameRequired: 'Le nom est requis',
-        emailRequired: 'L'email est requis',
+        emailRequired: "L'email est requis",
         emailInvalid: 'Adresse email invalide',
         messageRequired: 'Le message est requis',
         messageTooLong: 'Le message doit contenir 1000 caractères ou moins',
-        consentRequired: 'Vous devez accepter la politique de confidentialité pour continuer',
+        consentRequired:
+          'Vous devez accepter la politique de confidentialité pour continuer',
         serverError: 'Erreur du serveur. Veuillez réessayer plus tard.',
         rateLimitError: 'Trop de requêtes. Veuillez réessayer plus tard.',
         submissionFailed: "Échec de l'envoi du message. Veuillez réessayer.",

@@ -35,7 +35,13 @@
   "include": ["src/**/*.js", "src/**/*.jsx", "src/**/*.ts", "src/**/*.tsx"],
   "references": [
     {
+      "path": "../../libs/ui-components/tsconfig.lib.json"
+    },
+    {
       "path": "../../libs/shared-utils/tsconfig.lib.json"
+    },
+    {
+      "path": "../../libs/landing-templates/tsconfig.lib.json"
     },
     {
       "path": "../../libs/pages/tsconfig.lib.json"
