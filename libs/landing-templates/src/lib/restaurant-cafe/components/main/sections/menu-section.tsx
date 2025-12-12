@@ -1,3 +1,5 @@
+import clsx from 'clsx';
+
 import { STYLES, MenuItem } from '../../../utils';
 
 interface MenuSectionProps {
@@ -20,7 +22,7 @@ export const MenuSection = ({
     <section className={STYLES.MENU_HIGHLIGHT} id="menu">
       <div className={STYLES.CONTAINER}>
         <div
-          className={`${STYLES.SECTION_HEADER} ${STYLES.FADE_IN}`}
+          className={clsx(STYLES.SECTION_HEADER, STYLES.FADE_IN)}
           ref={addToRefs}
         >
           <h2>{title}</h2>
@@ -31,7 +33,7 @@ export const MenuSection = ({
           {menuItems.map((item, index) => (
             <div
               key={index}
-              className={`${STYLES.MENU_ITEM} ${STYLES.FADE_IN}`}
+              className={clsx(STYLES.MENU_ITEM, STYLES.FADE_IN)}
               ref={addToRefs}
             >
               <div className={STYLES.MENU_ITEM_ICON}>{item.icon}</div>
