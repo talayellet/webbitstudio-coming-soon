@@ -43,9 +43,6 @@
   "references": [
     {
       "path": "../shared-utils/tsconfig.lib.json"
-    },
-    {
-      "path": "../data-access/tsconfig.lib.json"
     }
   ]
 }

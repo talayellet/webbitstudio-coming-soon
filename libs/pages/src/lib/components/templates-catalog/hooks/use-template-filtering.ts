@@ -1,4 +1,5 @@
 import { useState, useMemo } from 'react';
+import { useDebouncedValue } from '@webbitstudio/shared-utils';
 import {
   LandingPageTemplate,
   TEMPLATE_CATEGORY_IDS,
@@ -39,6 +40,7 @@ export const useTemplateFiltering = ({
     TEMPLATE_CATEGORY_IDS.ALL
   );
   const [searchQuery, setSearchQuery] = useState('');
+  const debouncedSearchQuery = useDebouncedValue(searchQuery);
 
   // Get localized template data
   const localizedTemplates = useMemo(
@@ -63,17 +65,19 @@ export const useTemplateFiltering = ({
           selectedCategory === TEMPLATE_CATEGORY_IDS.ALL ||
           template.category === selectedCategory;
         const matchesSearch =
-          searchQuery === '' ||
-          template.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          debouncedSearchQuery === '' ||
+          template.name
+            .toLowerCase()
+            .includes(debouncedSearchQuery.toLowerCase()) ||
           template.description
             .toLowerCase()
-            .includes(searchQuery.toLowerCase()) ||
+            .includes(debouncedSearchQuery.toLowerCase()) ||
           template.tags.some((tag: string) =>
-            tag.toLowerCase().includes(searchQuery.toLowerCase())
+            tag.toLowerCase().includes(debouncedSearchQuery.toLowerCase())
           );
         return matchesCategory && matchesSearch;
       }),
-    [localizedTemplates, selectedCategory, searchQuery]
+    [localizedTemplates, selectedCategory, debouncedSearchQuery]
   );
 
   return {
