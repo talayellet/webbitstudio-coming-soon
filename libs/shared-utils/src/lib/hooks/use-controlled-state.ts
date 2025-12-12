@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react';
 
-interface UseControlledStateParams<T> {
+interface UseControlledStateProps<T> {
   controlledValue: T;
   defaultValue: T;
   onChange?: (value: T) => void;
@@ -42,23 +42,25 @@ export const useControlledState = <T>({
   controlledValue,
   defaultValue,
   onChange,
-}: UseControlledStateParams<T>): readonly [T, (value: T) => void] => {
+}: UseControlledStateProps<T>): readonly [T, (value: T) => void] => {
   const [internalValue, setInternalValue] = useState<T>(defaultValue);
 
-  // Use controlled value if it differs from default, otherwise use internal state
-  const value =
-    controlledValue !== defaultValue ? controlledValue : internalValue;
+  // Determine if component is controlled (parent provides value different from default)
+  const isControlled = controlledValue !== defaultValue;
+
+  // Use controlled value if controlled, otherwise use internal state
+  const value = isControlled ? controlledValue : internalValue;
 
   const handleChange = useCallback(
     (newValue: T) => {
-      // Update internal state only if uncontrolled
-      if (controlledValue === defaultValue) {
+      // Update internal state if uncontrolled
+      if (!isControlled) {
         setInternalValue(newValue);
       }
       // Always call onChange callback if provided
       onChange?.(newValue);
     },
-    [controlledValue, defaultValue, onChange]
+    [isControlled, onChange]
   );
 
   return [value, handleChange] as const;
