@@ -77,23 +77,24 @@ export const STYLES = {
 
 /**
  * Default color scheme for restaurant-cafe template
- * Elegant, warm tones suitable for fine dining
+ * Uses CSS variables for consistent theming
  */
 export const DEFAULT_COLORS: ColorScheme = {
-  primary: '#8b6f47',
-  primaryLight: '#a68a64',
-  secondary: '#2c3e2e',
-  accent: '#d4a574',
-  background: '#fff8f0',
-  surface: '#ffffff',
-  text: '#2a2a2a',
-  textMuted: '#6b6b6b',
+  primary: 'var(--primary)',
+  primaryLight: 'var(--primary-light)',
+  secondary: 'var(--secondary)',
+  accent: 'var(--accent)',
+  background: 'var(--background)',
+  surface: 'var(--surface)',
+  text: 'var(--text)',
+  textMuted: 'var(--text-muted)',
 } as const;
 
 /**
  * Font families for restaurant-cafe template
+ * Uses CSS variables for consistent theming
  */
 export const FONTS = {
-  HEADING: "'Cormorant Garamond', serif",
-  BODY: "'Montserrat', sans-serif",
+  HEADING: 'var(--font-heading)',
+  BODY: 'var(--font-body)',
 } as const;

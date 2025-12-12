@@ -65,11 +65,11 @@ export const RestaurantLayout = ({
   });
 
   // Controlled/uncontrolled locale management
-  const [currentLocale, handleLocaleChange] = useControlledState(
-    locale,
-    DEFAULT_LOCALE,
-    onLocaleChange
-  );
+  const [currentLocale, handleLocaleChange] = useControlledState({
+    controlledValue: locale,
+    defaultValue: DEFAULT_LOCALE,
+    onChange: onLocaleChange,
+  });
 
   // Document locale and RTL management
   const { isRTL } = useDocumentLocale(currentLocale);
