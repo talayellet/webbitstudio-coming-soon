@@ -1,0 +1,38 @@
+import { STYLES } from '../../../utils';
+
+interface HeroSectionProps {
+  subtitle: string;
+  title: string;
+  description: string;
+  ctaText: string;
+  ctaHref: string;
+  ctaOnClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
+  addToRefs: (el: HTMLElement | null) => void;
+}
+
+/**
+ * Hero section component for restaurant-cafe template
+ */
+export const HeroSection = ({
+  subtitle,
+  title,
+  description,
+  ctaText,
+  ctaHref,
+  ctaOnClick,
+  addToRefs,
+}: HeroSectionProps) => {
+  return (
+    <section className={STYLES.HERO}>
+      <div className={STYLES.HERO_CONTENT} ref={addToRefs}>
+        <div className={STYLES.HERO_SUBTITLE}>{subtitle}</div>
+        <h1 className={STYLES.HERO_TITLE}>{title}</h1>
+        <div className={STYLES.ORNAMENT}></div>
+        <p className={STYLES.HERO_DESCRIPTION}>{description}</p>
+        <a href={ctaHref} className={STYLES.BTN} onClick={ctaOnClick}>
+          {ctaText}
+        </a>
+      </div>
+    </section>
+  );
+};

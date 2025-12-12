@@ -33,6 +33,12 @@ export const de: TemplatesCatalogLocaleStrings = {
         'Moderne SaaS-Landing-Page mit Preistabellen und Funktionspräsentationen',
       tags: ['Modern', 'Preise', 'Funktionen'],
     },
+    'restaurant-cafe': {
+      name: 'Restaurant & Café',
+      description:
+        'Elegante Restaurant-Landing-Page mit Menüpräsentation, Öffnungszeiten und Reservierungen',
+      tags: ['Elegant', 'Menü', 'Reservierungen'],
+    },
     'portfolio-creative': {
       name: 'Kreatives Portfolio',
       description:

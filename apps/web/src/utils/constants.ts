@@ -5,6 +5,7 @@ export const ROUTES = {
   HOME: '/',
   TEMPLATES: '/templates',
   TEMPLATES_SAAS_LAUNCH: '/templates/saas-launch/*',
+  TEMPLATES_RESTAURANT_CAFE: '/templates/restaurant-cafe',
   TEMPLATES_PORTFOLIO_CREATIVE: '/templates/portfolio-creative',
   TEMPLATES_BUSINESS_PRO: '/templates/business-pro',
   PRIVACY_POLICY: '/privacy-policy',
