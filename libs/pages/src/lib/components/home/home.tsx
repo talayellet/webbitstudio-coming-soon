@@ -12,6 +12,7 @@ import {
   Footer,
   PriceConversionNotice,
 } from './components';
+import { GoogleOAuthProvider } from '@react-oauth/google';
 import { useLocalizedContent, WEBBIT_STUDIO_LANG_OPTIONS } from '../../shared';
 import {
   CurrencyProvider,
@@ -139,10 +140,12 @@ const HomePageContent = ({ web3formsAccessKey }: WebbitStudioHomePageProps) => {
         <WhySection content={content.whySection} />
         <PricingSection content={content.pricingSection} />
         <FAQSection content={content.faqSection} />
-        <ContactSection
-          content={content.contactSection}
-          web3formsAccessKey={web3formsAccessKey}
-        />
+        <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID as string}>
+          <ContactSection
+            content={content.contactSection}
+            web3formsAccessKey={web3formsAccessKey}
+          />
+        </GoogleOAuthProvider>
       </div>
       <Footer content={content.footer} />
       <CookieConsentBanner

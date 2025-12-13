@@ -1,6 +1,9 @@
 import { useForm } from 'react-hook-form';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
+import axios from 'axios';
+import { useGoogleLogin } from '@react-oauth/google';
 import * as contactSectionStyles from '../../utils/styles';
+import { GoogleOAuthProvider } from '@react-oauth/google';
 import {
   LocaleStrings,
   ContactFormData,
@@ -49,6 +52,8 @@ export const ContactSection = ({
   const [showToast, setShowToast] = useState(false);
   const [showPrivacyModal, setShowPrivacyModal] = useState(false);
   const phoneNumber = useGeoBasedPhone();
+  const formRef = useRef<HTMLFormElement | null>(null);
+  const formDataRef = useRef<FormData | null>(null);
 
   const {
     register,
@@ -75,22 +80,69 @@ export const ContactSection = ({
       submissionFailed: content.form.errors.submissionFailed,
     },
   });
+  
 
-  const onFormSubmit = (data: ContactFormData) => {
-    mutate(data);
+  // Trigger Google OAuth flow from here (provider must wrap this component).
+  const sendMessage = useGoogleLogin({
+    onSuccess: async (res) => {
+      try {
+        const userInfo = await axios.get('https://www.googleapis.com/oauth2/v3/userinfo', {
+          headers: { Authorization: `Bearer ${res.access_token}`, 'Content-Type': 'application/json' },
+        });
+
+        // If we captured a FormData on submit, append the google name and submit via mutate
+        if (formDataRef.current) {
+          formDataRef.current.set('google_name', userInfo.data.name || '');
+          const obj = Object.fromEntries(formDataRef.current.entries()) as unknown as ContactFormData;
+          mutate(obj as ContactFormData);
+          formDataRef.current = null;
+          return;
+        }
+
+        // Fallback: submit current form values
+        const currentValues = watch();
+        mutate({ ...(currentValues as ContactFormData), google_name: userInfo.data.name } as any);
+      } catch (err) {
+        // If userinfo lookup fails, fallback to submitting captured FormData or current values
+        if (formDataRef.current) {
+          const obj = Object.fromEntries(formDataRef.current.entries()) as unknown as ContactFormData;
+          mutate(obj as ContactFormData);
+          formDataRef.current = null;
+          return;
+        }
+
+        const currentValues = watch();
+        mutate(currentValues as ContactFormData);
+      }
+    },
+    flow: 'implicit',
+  });
+
+  const onFormSubmit = (_data: ContactFormData) => {
+    // Capture a FormData snapshot of the form so we can append google_name after OAuth
+    if (formRef.current) {
+      formDataRef.current = new FormData(formRef.current);
+    } else {
+      formDataRef.current = null;
+    }
+
+    // Trigger Google OAuth flow which will call mutate on success
+    sendMessage();
   };
 
   return (
-    <section
-      id={CONTACT_SECTION.ID}
-      aria-labelledby={CONTACT_SECTION.HEADING_ID}
-      className={contactSectionStyles.section.contact}
-    >
+    <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID as string}>
+      <section
+        id={CONTACT_SECTION.ID}
+        aria-labelledby={CONTACT_SECTION.HEADING_ID}
+        className={contactSectionStyles.section.contact}
+      >
       <div className={contactSectionStyles.card.contact}>
         <div className={contactSectionStyles.contact.grid}>
           <ContactIntro content={content} />
 
           <form
+            ref={formRef}
             onSubmit={handleSubmit(onFormSubmit)}
             className={contactSectionStyles.form.root}
           >
@@ -142,7 +194,7 @@ export const ContactSection = ({
 
             <CustomSelect
               value={selectedPackage}
-              onChange={(value) => setValue('package', value)}
+              onChange={(value: string) => setValue('package', value)}
               placeholder={content.form.package.placeholder}
               options={content.form.package.options}
               label={content.form.package.label}
@@ -235,6 +287,7 @@ export const ContactSection = ({
           companyEmail={WEBBIT_STUDIO_EMAIL}
         />
       </Modal>
-    </section>
+      </section>
+    </GoogleOAuthProvider>
   );
 };
