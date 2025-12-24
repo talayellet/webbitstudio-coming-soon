@@ -1,11 +1,11 @@
-import NxWelcome from './nx-welcome';
+import { ECommerceHomePageGuestExample } from '@webbitstudio/e-commerce';
 
-export function App() {
+export const App = () => {
   return (
     <div>
-      <NxWelcome title="@webbitstudio/dev" />
+      <ECommerceHomePageGuestExample />
     </div>
   );
-}
+};
 
 export default App;

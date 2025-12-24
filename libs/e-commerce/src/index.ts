@@ -1,1 +1,1 @@
-export * from './lib/e-commerce';
+export * from './lib';
