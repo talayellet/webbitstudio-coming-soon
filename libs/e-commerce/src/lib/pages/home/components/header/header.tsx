@@ -1,22 +1,23 @@
+import { useMemo } from 'react';
+import { CustomSelect } from '@webbitstudio/ui-components';
 import { ShoppingCartIcon, WebbitLogo } from '../../../../icons';
-import { User, Language, Location, Locale } from '../../utils';
-import { HOME_PAGE_STYLES } from '../../utils/styles';
+import { ENGLISH_LOCALE } from '../../../../locale';
+import { User, Language, Locale, HOME_PAGE_STYLES } from '../../utils';
 
 /**
  * eCommerce Header Component
  *
  * A sticky header featuring:
- * - Logo with fallback to store name
+ * - Logo with fallback to WebbitLogo
  * - User authentication (login/signup) or user greeting
  * - Shopping cart with item count badge
- * - Location selector dropdown
  * - Language selector dropdown
  * - RTL support
  *
  * @example
  * ```tsx
  * <Header
- *   storeName="My Store"
+ *   logo={<img src="logo.png" alt="My Store" />}
  *   cartItemCount={3}
  *   user={currentUser}
  *   onLogin={handleLogin}
@@ -25,18 +26,12 @@ import { HOME_PAGE_STYLES } from '../../utils/styles';
  * ```
  */
 export interface HeaderProps {
-  /** Store logo URL */
-  logoUrl?: string;
-  /** Store name (fallback if no logo) */
-  storeName?: string;
+  /** Custom logo element (defaults to WebbitLogo if not provided) */
+  logo?: React.ReactNode;
   /** Currently signed-in user */
   user?: User;
   /** Number of items in shopping cart */
   cartItemCount: number;
-  /** Current selected location */
-  currentLocation?: Location;
-  /** Available locations */
-  locations?: Location[];
   /** Current selected language */
   currentLanguage?: Language;
   /** Available languages */
@@ -56,19 +51,14 @@ export interface HeaderProps {
   onSignup?: () => void;
   /** Callback when cart is clicked */
   onCartClick?: () => void;
-  /** Callback when location changes */
-  onLocationChange?: (locationCode: string) => void;
   /** Callback when language changes */
   onLanguageChange?: (languageCode: string) => void;
 }
 
 export const Header = ({
-  logoUrl,
-  storeName,
+  logo,
   user,
   cartItemCount,
-  currentLocation,
-  locations = [],
   currentLanguage,
   languages = [],
   isRtl = false,
@@ -77,10 +67,27 @@ export const Header = ({
   onLogin,
   onSignup,
   onCartClick,
-  onLocationChange,
   onLanguageChange,
 }: HeaderProps) => {
   const mergedStyles = { ...HOME_PAGE_STYLES, ...styles };
+
+  // Map languages to display strings
+  const languageOptions = useMemo(
+    () => languages.map((lang) => lang.nativeName || lang.name),
+    [languages]
+  );
+  const currentLanguageDisplay = currentLanguage
+    ? currentLanguage.nativeName || currentLanguage.name
+    : '';
+
+  const handleLanguageSelect = (displayValue: string) => {
+    const selectedLanguage = languages.find(
+      (lang) => (lang.nativeName || lang.name) === displayValue
+    );
+    if (selectedLanguage) {
+      onLanguageChange?.(selectedLanguage.code);
+    }
+  };
 
   return (
     <header className={mergedStyles.HEADER}>
@@ -88,66 +95,33 @@ export const Header = ({
         <div className={mergedStyles.HEADER_CONTENT}>
           {/* Logo */}
           <div className={mergedStyles.LOGO_CONTAINER} dir="ltr">
-            {logoUrl ? (
-              <img
-                src={logoUrl}
-                alt={locale?.HEADER.LOGO_ALT}
-                className={mergedStyles.LOGO_IMAGE}
-              />
-            ) : (
-              <WebbitLogo />
-            )}
-          </div>
-
-          {/* Location & Language Selectors */}
-          <div className={mergedStyles.HEADER_LEFT}>
-            {/* Location Selector */}
-            {currentLocation && locations.length > 0 && (
-              <div>
-                <select
-                  value={currentLocation.code}
-                  onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
-                    onLocationChange?.(e.currentTarget.value)
-                  }
-                  className={mergedStyles.SELECT_BUTTON}
-                  aria-label={locale?.HEADER.LOCATION_ARIA_LABEL}
-                >
-                  {locations.map((location) => (
-                    <option key={location.code} value={location.code}>
-                      {location.flag ? `${location.flag} ` : ''}
-                      {location.name}
-                    </option>
-                  ))}
-                </select>
-              </div>
-            )}
-
-            {/* Language Selector */}
-            {currentLanguage && languages.length > 0 && (
-              <div>
-                <select
-                  value={currentLanguage.code}
-                  onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
-                    onLanguageChange?.(e.currentTarget.value)
-                  }
-                  className={mergedStyles.SELECT_BUTTON}
-                  aria-label={locale?.HEADER.LANGUAGE_ARIA_LABEL}
-                >
-                  {languages.map((language) => (
-                    <option key={language.code} value={language.code}>
-                      {language.nativeName || language.name}
-                    </option>
-                  ))}
-                </select>
-              </div>
-            )}
+            {logo ?? <WebbitLogo />}
           </div>
 
           {/* User Section */}
           <div className={mergedStyles.USER_SECTION}>
+            {/* Language Selector */}
+            {currentLanguage && languages.length > 0 && (
+              <div className={isRtl ? mergedStyles.SELECT_WRAPPER_RTL : ''}>
+                <CustomSelect
+                  value={currentLanguageDisplay}
+                  onChange={handleLanguageSelect}
+                  placeholder={
+                    locale?.HEADER.LANGUAGE_PLACEHOLDER ??
+                    ENGLISH_LOCALE.HEADER.LANGUAGE_PLACEHOLDER
+                  }
+                  options={languageOptions}
+                  triggerClassName={mergedStyles.SELECT_BUTTON}
+                  menuClassName={mergedStyles.SELECT_MENU}
+                  optionClassName={mergedStyles.SELECT_OPTION}
+                  optionSelectedClassName={mergedStyles.SELECT_OPTION_SELECTED}
+                />
+              </div>
+            )}
+
             {user ? (
               <div className={mergedStyles.USER_GREETING}>
-                Welcome,{' '}
+                {locale?.HEADER.WELCOME ?? ENGLISH_LOCALE.HEADER.WELCOME},{' '}
                 <span className={mergedStyles.USER_NAME}>{user.name}</span>
               </div>
             ) : (
@@ -157,14 +131,14 @@ export const Header = ({
                   className={mergedStyles.AUTH_BUTTON}
                   type="button"
                 >
-                  {locale?.HEADER.LOGIN}
+                  {locale?.HEADER.LOGIN ?? ENGLISH_LOCALE.HEADER.LOGIN}
                 </button>
                 <button
                   onClick={onSignup}
                   className={mergedStyles.AUTH_BUTTON_PRIMARY}
                   type="button"
                 >
-                  {locale?.HEADER.SIGNUP}
+                  {locale?.HEADER.SIGNUP ?? ENGLISH_LOCALE.HEADER.SIGNUP}
                 </button>
               </>
             )}
@@ -173,7 +147,13 @@ export const Header = ({
             <button
               onClick={onCartClick}
               className={mergedStyles.CART_BUTTON}
-              aria-label={`${locale?.HEADER.CART_ARIA_LABEL} - ${cartItemCount} ${locale?.HEADER.ITEMS_IN_CART}`}
+              aria-label={`${
+                locale?.HEADER.CART_ARIA_LABEL ??
+                ENGLISH_LOCALE.HEADER.CART_ARIA_LABEL
+              } - ${cartItemCount} ${
+                locale?.HEADER.ITEMS_IN_CART ??
+                ENGLISH_LOCALE.HEADER.ITEMS_IN_CART
+              }`}
               type="button"
             >
               <ShoppingCartIcon className={mergedStyles.CART_ICON} />

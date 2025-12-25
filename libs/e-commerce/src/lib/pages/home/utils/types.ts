@@ -39,7 +39,9 @@ export interface Locale {
     ITEMS_IN_CART: string;
     LOCATION_ARIA_LABEL: string;
     LANGUAGE_ARIA_LABEL: string;
+    LANGUAGE_PLACEHOLDER: string;
     LOGO_ALT: string;
+    WELCOME: string;
   };
   FOOTER: {
     PRIVACY_POLICY: string;

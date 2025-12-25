@@ -14,7 +14,9 @@ export const ENGLISH_LOCALE = {
     ITEMS_IN_CART: 'items in cart',
     LOCATION_ARIA_LABEL: 'Select location',
     LANGUAGE_ARIA_LABEL: 'Select language',
+    LANGUAGE_PLACEHOLDER: 'Select language',
     LOGO_ALT: 'Store logo',
+    WELCOME: 'Welcome',
   },
   FOOTER: {
     PRIVACY_POLICY: 'Privacy Policy',
@@ -41,7 +43,9 @@ export const HEBREW_LOCALE: Locale = {
     ITEMS_IN_CART: 'פריטים בעגלה',
     LOCATION_ARIA_LABEL: 'בחר מיקום',
     LANGUAGE_ARIA_LABEL: 'בחר שפה',
+    LANGUAGE_PLACEHOLDER: 'בחר שפה',
     LOGO_ALT: 'לוגו החנות',
+    WELCOME: 'שלום',
   },
   FOOTER: {
     PRIVACY_POLICY: 'מדיניות פרטיות',
@@ -68,7 +72,9 @@ export const SPANISH_LOCALE: Locale = {
     ITEMS_IN_CART: 'artículos en el carrito',
     LOCATION_ARIA_LABEL: 'Seleccionar ubicación',
     LANGUAGE_ARIA_LABEL: 'Seleccionar idioma',
+    LANGUAGE_PLACEHOLDER: 'Seleccionar idioma',
     LOGO_ALT: 'Logo de la tienda',
+    WELCOME: 'Bienvenido',
   },
   FOOTER: {
     PRIVACY_POLICY: 'Política de privacidad',

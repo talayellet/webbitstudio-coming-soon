@@ -5,13 +5,13 @@
 export const HOME_PAGE_STYLES = {
   // Layout
   PAGE_CONTAINER: 'min-h-screen flex flex-col bg-gray-50',
-  MAIN_CONTENT: 'flex-1 pt-20 pb-24',
+  MAIN_CONTENT: 'flex-1 pt-24 pb-24',
 
   // Header
   HEADER:
     'fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 shadow-sm',
   HEADER_CONTAINER: 'max-w-7xl mx-auto px-4 sm:px-6 lg:px-8',
-  HEADER_CONTENT: 'flex items-center justify-between py-4 gap-4',
+  HEADER_CONTENT: 'flex items-center justify-between py-0 gap-4',
   HEADER_LEFT: 'flex items-center gap-4',
 
   // Logo
@@ -39,6 +39,12 @@ export const HOME_PAGE_STYLES = {
   SELECT_BUTTON:
     'flex items-center gap-2 px-3 py-1.5 text-sm text-gray-700 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors',
   SELECT_ICON: 'w-4 h-4',
+  SELECT_MENU:
+    'absolute mt-2 w-40 bg-white rounded-lg shadow-lg border border-gray-200 py-1 max-h-60 overflow-auto z-50',
+  SELECT_OPTION:
+    'px-4 py-2 text-sm text-gray-700 !bg-white hover:!bg-gray-100 cursor-pointer flex items-center justify-between',
+  SELECT_OPTION_SELECTED: '!bg-blue-50 !text-blue-700',
+  SELECT_WRAPPER_RTL: '[&_svg.ml-auto]:!ml-0 [&_svg.ml-auto]:!me-auto',
 
   // Categories
   CATEGORIES_SECTION: 'max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12',
