@@ -24,6 +24,7 @@ export const ENGLISH_LOCALE = {
     COOKIE_POLICY: 'Cookie Policy',
     CONTACT_US: 'Contact Us',
     BACK_TO_TOP: 'Back to Top',
+    FOOTER_ARIA_LABEL: 'Footer navigation',
   },
   CATEGORIES: {
     VIEW_ALL: 'View all',
@@ -53,6 +54,7 @@ export const HEBREW_LOCALE: Locale = {
     COOKIE_POLICY: 'מדיניות עוגיות',
     CONTACT_US: 'צור קשר',
     BACK_TO_TOP: 'חזרה למעלה',
+    FOOTER_ARIA_LABEL: 'ניווט תחתון',
   },
   CATEGORIES: {
     VIEW_ALL: 'צפה בהכל',
@@ -82,6 +84,7 @@ export const SPANISH_LOCALE: Locale = {
     COOKIE_POLICY: 'Política de cookies',
     CONTACT_US: 'Contáctenos',
     BACK_TO_TOP: 'Volver arriba',
+    FOOTER_ARIA_LABEL: 'Navegación del pie de página',
   },
   CATEGORIES: {
     VIEW_ALL: 'Ver todo',

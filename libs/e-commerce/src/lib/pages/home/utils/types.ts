@@ -49,6 +49,7 @@ export interface Locale {
     COOKIE_POLICY: string;
     CONTACT_US: string;
     BACK_TO_TOP: string;
+    FOOTER_ARIA_LABEL: string;
   };
   CATEGORIES: {
     VIEW_ALL: string;

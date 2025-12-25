@@ -5,8 +5,7 @@ import {
   Language,
   Locale,
 } from './utils';
-import { Header } from './components/header';
-import { Main } from './components';
+import { Footer, Header, Main } from './components';
 import { HEBREW } from '../../locale';
 
 /**
@@ -83,10 +82,6 @@ export const ECommerceHomePage = ({
   onCookiePolicyClick,
   onContactClick,
 }: HomePageProps) => {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
   const isRtl = currentLanguage?.code === HEBREW;
 
   return (
@@ -120,55 +115,13 @@ export const ECommerceHomePage = ({
       />
 
       {/* Footer */}
-      <footer className={HOME_PAGE_STYLES.FOOTER}>
-        <div className={HOME_PAGE_STYLES.FOOTER_CONTAINER}>
-          <div className={HOME_PAGE_STYLES.FOOTER_CONTENT}>
-            <nav
-              className={HOME_PAGE_STYLES.FOOTER_LINKS}
-              aria-label="Footer navigation"
-            >
-              <button
-                onClick={onPrivacyPolicyClick}
-                className={HOME_PAGE_STYLES.FOOTER_LINK}
-                type="button"
-              >
-                {locale.FOOTER.PRIVACY_POLICY}
-              </button>
-              <span className={HOME_PAGE_STYLES.FOOTER_DIVIDER}>|</span>
-              <button
-                onClick={onTermsClick}
-                className={HOME_PAGE_STYLES.FOOTER_LINK}
-                type="button"
-              >
-                {locale.FOOTER.TERMS_OF_SERVICE}
-              </button>
-              <span className={HOME_PAGE_STYLES.FOOTER_DIVIDER}>|</span>
-              <button
-                onClick={onCookiePolicyClick}
-                className={HOME_PAGE_STYLES.FOOTER_LINK}
-                type="button"
-              >
-                {locale.FOOTER.COOKIE_POLICY}
-              </button>
-              <span className={HOME_PAGE_STYLES.FOOTER_DIVIDER}>|</span>
-              <button
-                onClick={onContactClick}
-                className={HOME_PAGE_STYLES.FOOTER_LINK}
-                type="button"
-              >
-                {locale.FOOTER.CONTACT_US}
-              </button>
-            </nav>
-            <button
-              onClick={scrollToTop}
-              className={HOME_PAGE_STYLES.BACK_TO_TOP_BUTTON}
-              type="button"
-            >
-              {locale.FOOTER.BACK_TO_TOP}
-            </button>
-          </div>
-        </div>
-      </footer>
+      <Footer
+        locale={locale.FOOTER}
+        onPrivacyPolicyClick={onPrivacyPolicyClick}
+        onTermsClick={onTermsClick}
+        onCookiePolicyClick={onCookiePolicyClick}
+        onContactClick={onContactClick}
+      />
     </div>
   );
 };
