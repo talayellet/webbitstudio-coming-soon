@@ -7,8 +7,8 @@ import {
   Location,
   Locale,
 } from './utils';
-import { ShoppingCartIcon } from '../../icons';
-import { ENGLISH_LOCALE } from '../../locale';
+import { Header } from './components/header';
+import { ENGLISH_LOCALE, HEBREW } from '../../locale';
 
 /**
  * eCommerce Home Page Component
@@ -116,120 +116,32 @@ export const ECommerceHomePage = ({
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const isRtl = currentLanguage?.code === 'he';
+  const isRtl = currentLanguage?.code === HEBREW;
 
   return (
     <div className={mergedStyles.PAGE_CONTAINER} dir={isRtl ? 'rtl' : 'ltr'}>
       {/* Header */}
-      <header className={mergedStyles.HEADER}>
-        <div className={mergedStyles.HEADER_CONTAINER}>
-          {/* Top Header Row */}
-          <div className={mergedStyles.HEADER_TOP}>
-            {/* Logo */}
-            <div className={mergedStyles.LOGO_CONTAINER}>
-              {logoUrl ? (
-                <img
-                  src={logoUrl}
-                  alt={mergedLocale.HEADER.LOGO_ALT}
-                  className={mergedStyles.LOGO_IMAGE}
-                />
-              ) : (
-                <span className={mergedStyles.LOGO_TEXT}>
-                  {storeName || mergedLocale.DEFAULT_STORE_NAME}
-                </span>
-              )}
-            </div>
-
-            {/* User Section */}
-            <div className={mergedStyles.USER_SECTION}>
-              {user ? (
-                <div className={mergedStyles.USER_GREETING}>
-                  Welcome,{' '}
-                  <span className={mergedStyles.USER_NAME}>{user.name}</span>
-                </div>
-              ) : (
-                <>
-                  <button
-                    onClick={onLogin}
-                    className={mergedStyles.AUTH_BUTTON}
-                    type="button"
-                  >
-                    {mergedLocale.HEADER.LOGIN}
-                  </button>
-                  <button
-                    onClick={onSignup}
-                    className={mergedStyles.AUTH_BUTTON_PRIMARY}
-                    type="button"
-                  >
-                    {mergedLocale.HEADER.SIGNUP}
-                  </button>
-                </>
-              )}
-
-              {/* Cart */}
-              <button
-                onClick={onCartClick}
-                className={mergedStyles.CART_BUTTON}
-                aria-label={`${mergedLocale.HEADER.CART_ARIA_LABEL} - ${cartItemCount} ${mergedLocale.HEADER.ITEMS_IN_CART}`}
-                type="button"
-              >
-                <ShoppingCartIcon className={mergedStyles.CART_ICON} />
-                {cartItemCount > 0 && (
-                  <span className={mergedStyles.CART_BADGE}>
-                    {cartItemCount}
-                  </span>
-                )}
-              </button>
-            </div>
-          </div>
-
-          {/* Bottom Header Row */}
-          <div className={mergedStyles.HEADER_BOTTOM}>
-            <div className={mergedStyles.HEADER_LEFT}>
-              {/* Location Selector */}
-              {currentLocation && locations.length > 0 && (
-                <div>
-                  <select
-                    value={currentLocation.code}
-                    onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
-                      onLocationChange?.(e.currentTarget.value)
-                    }
-                    className={mergedStyles.SELECT_BUTTON}
-                    aria-label={mergedLocale.HEADER.LOCATION_ARIA_LABEL}
-                  >
-                    {locations.map((location) => (
-                      <option key={location.code} value={location.code}>
-                        {location.flag ? `${location.flag} ` : ''}
-                        {location.name}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-              )}
-
-              {/* Language Selector */}
-              {currentLanguage && languages.length > 0 && (
-                <div>
-                  <select
-                    value={currentLanguage.code}
-                    onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
-                      onLanguageChange?.(e.currentTarget.value)
-                    }
-                    className={mergedStyles.SELECT_BUTTON}
-                    aria-label={mergedLocale.HEADER.LANGUAGE_ARIA_LABEL}
-                  >
-                    {languages.map((language) => (
-                      <option key={language.code} value={language.code}>
-                        {language.nativeName || language.name}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
-      </header>
+      <Header
+        logoUrl={logoUrl}
+        storeName={storeName}
+        user={user}
+        cartItemCount={cartItemCount}
+        currentLocation={currentLocation}
+        locations={locations}
+        currentLanguage={currentLanguage}
+        languages={languages}
+        isRtl={isRtl}
+        styles={styles}
+        locale={{
+          DEFAULT_STORE_NAME: mergedLocale.DEFAULT_STORE_NAME,
+          HEADER: mergedLocale.HEADER,
+        }}
+        onLogin={onLogin}
+        onSignup={onSignup}
+        onCartClick={onCartClick}
+        onLocationChange={onLocationChange}
+        onLanguageChange={onLanguageChange}
+      />
 
       {/* Main Content */}
       <main className={mergedStyles.MAIN_CONTENT}>

@@ -81,3 +81,5 @@ export const SPANISH_LOCALE: Locale = {
     VIEW_ALL: 'Ver todo',
   },
 };
+
+export const HEBREW = 'he';
