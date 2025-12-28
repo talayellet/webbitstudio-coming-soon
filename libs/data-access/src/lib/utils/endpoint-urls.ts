@@ -1,18 +1,20 @@
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000';
+
 export const ENDPOINTS = {
   EXCHANGE: {
     API_BASE_URL: 'https://api.exchangerate-api.com/v4/latest',
   },
   AUTH: {
-    SESSION: 'http://localhost:3000/api/auth/session',
-    SIGNOUT: 'http://localhost:3000/api/auth/signout',
-    LOGIN: 'http://localhost:3000/api/auth/login',
+    SESSION: `${BACKEND_URL}/api/auth/session`,
+    SIGNOUT: `${BACKEND_URL}/api/auth/signout`,
+    LOGIN: `${BACKEND_URL}/api/auth/login`,
     OAUTH: {
-      GOOGLE: 'http://localhost:3000/auth/signin',
-      SIGNOUT_PAGE: 'http://localhost:3000/auth/signout',
+      GOOGLE: `${BACKEND_URL}/auth/signin`,
+      SIGNOUT_PAGE: `${BACKEND_URL}/auth/signout`,
     },
     CALLBACK: {
       DEVELOPMENT: 'http://localhost:4300',
-      PRODUCTION: 'https://your-production-url.com',
+      PRODUCTION: 'https://webbitstudio.com',
     },
   },
 } as const;

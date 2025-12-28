@@ -11,12 +11,12 @@ export const CORS_HEADERS = {
 /**
  * CORS methods allowed
  */
-export const CORS_METHODS = 'GET, POST, OPTIONS' as const;
+export const CORS_METHODS = 'GET, POST, PUT, DELETE, OPTIONS' as const;
 
 /**
  * CORS headers allowed
  */
-export const CORS_ALLOWED_HEADERS = 'Content-Type' as const;
+export const CORS_ALLOWED_HEADERS = 'Content-Type, Authorization' as const;
 
 /**
  * Common HTTP headers
