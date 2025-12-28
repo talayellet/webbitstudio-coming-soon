@@ -1,4 +1,4 @@
 {
   "buildCommand": "yarn build",
-  "installCommand": "corepack enable && yarn install"
+  "installCommand": "corepack enable && corepack prepare yarn@4.12.0 --activate && yarn install"
 }
