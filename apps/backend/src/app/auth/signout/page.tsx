@@ -1,6 +1,7 @@
 'use client';
 
 import { signOut } from 'next-auth/react';
+import { Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import {
   getAuthLocaleStrings,
@@ -15,7 +16,7 @@ import { SIGNOUT_STYLES } from './utils/styles';
  * Provides a confirmation dialog with both Sign out and Cancel options.
  * Supports localization through URL parameter (e.g., ?locale=es)
  */
-export default function SignOutPage() {
+function SignOutContent() {
   const searchParams = useSearchParams();
   const callbackUrl =
     searchParams.get('callbackUrl') || ENDPOINTS.AUTH.CALLBACK.DEVELOPMENT;
@@ -56,5 +57,15 @@ export default function SignOutPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function SignOutPage() {
+  return (
+    <Suspense
+      fallback={<div className={SIGNOUT_STYLES.CONTAINER}>Loading...</div>}
+    >
+      <SignOutContent />
+    </Suspense>
   );
 }

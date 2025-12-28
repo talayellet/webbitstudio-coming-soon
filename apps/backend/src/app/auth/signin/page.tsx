@@ -1,7 +1,7 @@
 'use client';
 
 import { signIn } from 'next-auth/react';
-import { useEffect } from 'react';
+import { useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import {
   getAuthLocaleStrings,
@@ -16,7 +16,7 @@ import { SIGNIN_STYLES } from './utils/styles';
  * without showing an intermediate screen.
  * Supports localization through URL parameter (e.g., ?locale=es)
  */
-export default function SignInPage() {
+function SignInContent() {
   const searchParams = useSearchParams();
   const callbackUrl = searchParams.get('callbackUrl') || '/';
   const locale = searchParams.get('locale') || DEFAULT_LANGUAGE;
@@ -33,5 +33,19 @@ export default function SignInPage() {
         {localeStrings.signin.redirecting}
       </p>
     </div>
+  );
+}
+
+export default function SignInPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className={SIGNIN_STYLES.CONTAINER}>
+          <p className={SIGNIN_STYLES.MESSAGE}>Loading...</p>
+        </div>
+      }
+    >
+      <SignInContent />
+    </Suspense>
   );
 }
