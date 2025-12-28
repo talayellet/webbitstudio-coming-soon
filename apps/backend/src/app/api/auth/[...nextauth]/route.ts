@@ -1,7 +1,7 @@
 import NextAuth, { NextAuthOptions } from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
 import { ENDPOINTS } from '@webbitstudio/data-access';
-import { SESSION_MAX_AGE } from '../../../utils/constants';
+import { SESSION_MAX_AGE } from '../../../utils';
 
 /**
  * NextAuth Configuration for Google OAuth

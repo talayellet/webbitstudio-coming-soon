@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useSession } from '@webbitstudio/data-access';
 import { ECommerceHomePage } from './components';
-import { useECommerceNavigation } from './hooks';
+import { useECommerceNavigation } from '../../hooks';
 import {
   getCategoriesForLanguage,
   E_COMMERCE_DEFAULT_LANGUAGES,

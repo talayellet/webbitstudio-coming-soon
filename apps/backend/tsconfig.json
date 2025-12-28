@@ -51,13 +51,10 @@
   ],
   "references": [
     {
-      "path": "../../libs/data-access"
-    },
-    {
       "path": "../../libs/shared-utils"
     },
     {
-      "path": "../../libs/ui-components"
+      "path": "../../libs/data-access"
     }
   ]
 }
