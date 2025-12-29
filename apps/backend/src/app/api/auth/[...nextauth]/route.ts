@@ -1,7 +1,12 @@
 import NextAuth, { NextAuthOptions } from 'next-auth';
+import type { NextRequest } from 'next/server';
 import GoogleProvider from 'next-auth/providers/google';
 import { ENDPOINTS } from '@webbitstudio/data-access/server';
 import { SESSION_MAX_AGE } from '../../../utils';
+import {
+  getCorsHeaders,
+  handleCorsPreflightRequest,
+} from '../../../utils/cors';
 
 /**
  * NextAuth Configuration for Google OAuth
@@ -85,4 +90,26 @@ export const authOptions: NextAuthOptions = {
 
 const handler = NextAuth(authOptions);
 
-export { handler as GET, handler as POST };
+const applyCorsHeaders = (response: Response): Response => {
+  const corsHeaders = getCorsHeaders();
+
+  Object.entries(corsHeaders).forEach(([key, value]) => {
+    response.headers.set(key, value);
+  });
+
+  return response;
+};
+
+export const GET = async (request: NextRequest) => {
+  const response = await handler(request);
+
+  return applyCorsHeaders(response);
+};
+
+export const POST = async (request: NextRequest) => {
+  const response = await handler(request);
+
+  return applyCorsHeaders(response);
+};
+
+export const OPTIONS = async () => handleCorsPreflightRequest();
