@@ -1,7 +1,14 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
+import {
+  CORS_HEADERS,
+  CORS_METHODS,
+  CORS_ALLOWED_HEADERS,
+  ENDPOINTS,
+} from '@webbitstudio/data-access/utils';
 
-const ALLOWED_ORIGIN = process.env.ALLOWED_ORIGIN || 'http://localhost:4300';
+const ALLOWED_ORIGIN =
+  process.env.ALLOWED_ORIGIN || ENDPOINTS.AUTH.CALLBACK.DEVELOPMENT;
 
 export function middleware(request: NextRequest) {
   // Handle preflight
@@ -9,10 +16,10 @@ export function middleware(request: NextRequest) {
     return new NextResponse(null, {
       status: 200,
       headers: {
-        'Access-Control-Allow-Origin': ALLOWED_ORIGIN,
-        'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
-        'Access-Control-Allow-Headers': 'Content-Type, Authorization',
-        'Access-Control-Allow-Credentials': 'true',
+        [CORS_HEADERS.ALLOW_ORIGIN]: ALLOWED_ORIGIN,
+        [CORS_HEADERS.ALLOW_METHODS]: CORS_METHODS,
+        [CORS_HEADERS.ALLOW_HEADERS]: CORS_ALLOWED_HEADERS,
+        [CORS_HEADERS.ALLOW_CREDENTIALS]: 'true',
       },
     });
   }
@@ -21,8 +28,8 @@ export function middleware(request: NextRequest) {
   const response = NextResponse.next();
 
   // Add CORS headers to response
-  response.headers.set('Access-Control-Allow-Origin', ALLOWED_ORIGIN);
-  response.headers.set('Access-Control-Allow-Credentials', 'true');
+  response.headers.set(CORS_HEADERS.ALLOW_ORIGIN, ALLOWED_ORIGIN);
+  response.headers.set(CORS_HEADERS.ALLOW_CREDENTIALS, 'true');
 
   return response;
 }
