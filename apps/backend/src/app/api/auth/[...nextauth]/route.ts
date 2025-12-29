@@ -100,14 +100,22 @@ const applyCorsHeaders = (response: Response): Response => {
   return response;
 };
 
-export const GET = async (request: NextRequest) => {
-  const response = await handler(request);
+export const GET = async (
+  request: NextRequest,
+  context: { params: Promise<{ nextauth: string[] }> }
+) => {
+  const params = await context.params;
+  const response = await handler(request, { params });
 
   return applyCorsHeaders(response);
 };
 
-export const POST = async (request: NextRequest) => {
-  const response = await handler(request);
+export const POST = async (
+  request: NextRequest,
+  context: { params: Promise<{ nextauth: string[] }> }
+) => {
+  const params = await context.params;
+  const response = await handler(request, { params });
 
   return applyCorsHeaders(response);
 };
