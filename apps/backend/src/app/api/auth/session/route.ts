@@ -2,6 +2,10 @@ import { NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '../[...nextauth]/route';
 import { DEFAULT_USER_ID } from '../../../utils';
+import {
+  getCorsHeaders,
+  handleCorsPreflightRequest,
+} from '../../../utils/cors';
 
 /**
  * API endpoint to check if user is logged in
@@ -15,14 +19,26 @@ import { DEFAULT_USER_ID } from '../../../utils';
 export async function GET() {
   const session = await getServerSession(authOptions);
 
-  return NextResponse.json({
-    user: session?.user
-      ? {
-          id: session.user.id || session.user.email || DEFAULT_USER_ID,
-          name: session.user.name || '',
-          email: session.user.email || '',
-          avatar: session.user.image,
-        }
-      : null,
-  });
+  return NextResponse.json(
+    {
+      user: session?.user
+        ? {
+            id: session.user.id || session.user.email || DEFAULT_USER_ID,
+            name: session.user.name || '',
+            email: session.user.email || '',
+            avatar: session.user.image,
+          }
+        : null,
+    },
+    {
+      headers: getCorsHeaders(),
+    }
+  );
+}
+
+/**
+ * Handle CORS preflight requests
+ */
+export async function OPTIONS() {
+  return handleCorsPreflightRequest();
 }
