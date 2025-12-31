@@ -4,6 +4,6 @@
 export const DEFAULT_USER_ID = 'unknown' as const;
 
 /**
- * Session max age in seconds (30 days)
+ * Session max age in seconds (7 days)
  */
-export const SESSION_MAX_AGE = 30 * 24 * 60 * 60;
+export const SESSION_MAX_AGE = 7 * 24 * 60 * 60;

@@ -11,6 +11,8 @@ const nextConfig = {
 
   // Security headers
   async headers() {
+    // Note: CORS constants are inlined here to avoid circular dependency during Nx graph processing
+    // The shared constants from @webbitstudio/data-access/server are used in runtime code
     const corsHeaders = process.env.ALLOWED_ORIGIN
       ? [
           {
