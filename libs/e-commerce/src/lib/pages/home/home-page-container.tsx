@@ -2,12 +2,12 @@ import { useState } from 'react';
 import { useSession } from '@webbitstudio/data-access';
 import { ECommerceHomePage } from './components';
 import { useECommerceNavigation } from '../../hooks';
+import { getCategoriesForLanguage } from './utils';
 import {
-  getCategoriesForLanguage,
+  getLocaleForLanguage,
   E_COMMERCE_DEFAULT_LANGUAGES,
   Language,
-} from './utils';
-import { getLocaleForLanguage } from '../../shared';
+} from '../../shared';
 
 export interface HomePageContainerProps {
   currentLanguage: Language;

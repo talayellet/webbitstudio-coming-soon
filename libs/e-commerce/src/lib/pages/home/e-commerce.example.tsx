@@ -1,8 +1,8 @@
-import { useState, useCallback } from 'react';
+import { useState } from 'react';
 import { RouterProvider } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { useECommerceRouter } from '../../hooks';
-import { E_COMMERCE_DEFAULT_LANGUAGES } from './utils';
+import { E_COMMERCE_DEFAULT_LANGUAGES } from '../../shared';
 
 // Create a QueryClient instance for TanStack Query
 const queryClient = new QueryClient();
@@ -22,14 +22,14 @@ export const ECommerceExample = () => {
     E_COMMERCE_DEFAULT_LANGUAGES[0]
   );
 
-  const handleLanguageChange = useCallback((languageCode: string) => {
+  const handleLanguageChange = (languageCode: string) => {
     const newLanguage = E_COMMERCE_DEFAULT_LANGUAGES.find(
       (lang) => lang.code === languageCode
     );
     if (newLanguage) {
       setCurrentLanguage(newLanguage);
     }
-  }, []);
+  };
 
   const router = useECommerceRouter({
     currentLanguage,

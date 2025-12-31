@@ -1,16 +1,20 @@
-import { useState, useMemo } from 'react';
+import { useState } from 'react';
 import { OAUTH_PROVIDERS } from '@webbitstudio/data-access';
 import { Toast } from '@webbitstudio/ui-components';
 import { LoginPage } from './login-page';
-import { LOGIN_PAGE_STYLES, getOAuthCallbackUrl } from './utils';
-import { useLogin, useOAuthLogin } from './hooks';
 import {
-  getLoginLocaleForLanguage,
-  E_COMMERCE_DEFAULT_LANGUAGES,
-  Language,
-} from '../home';
+  LOGIN_PAGE_STYLES,
+  getOAuthCallbackUrl,
+  DEFAULT_LANGUAGE_OPTIONS,
+} from './utils';
+import { useLogin, useOAuthLogin } from './hooks';
 import { useECommerceNavigation } from '../../hooks';
 import { HEBREW } from '../../locale';
+import {
+  E_COMMERCE_DEFAULT_LANGUAGES,
+  getLoginLocaleForLanguage,
+  Language,
+} from '../../shared';
 
 export interface LoginPageContainerProps {
   currentLanguage: Language;
@@ -84,11 +88,6 @@ export const LoginPageContainer = ({
     handleOAuthLogin(OAUTH_PROVIDERS.APPLE);
   };
 
-  const languageOptions = useMemo(
-    () => E_COMMERCE_DEFAULT_LANGUAGES.map((lang) => lang.nativeName),
-    []
-  );
-
   const handleLanguageChange = (nativeName: string) => {
     const selectedLanguage = E_COMMERCE_DEFAULT_LANGUAGES.find(
       (lang) => lang.nativeName === nativeName
@@ -113,7 +112,7 @@ export const LoginPageContainer = ({
         showSocialLogin={true}
         showLanguageSelector={true}
         currentLanguage={currentLanguage.nativeName}
-        languageOptions={languageOptions}
+        languageOptions={DEFAULT_LANGUAGE_OPTIONS}
         onLanguageChange={handleLanguageChange}
       />
 
